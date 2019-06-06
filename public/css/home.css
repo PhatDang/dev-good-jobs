@@ -1,0 +1,147 @@
+.container {
+    width: 100%;
+    height: 100vh;
+}
+header {
+    width: 100%;
+    background: #fff;
+    user-select: none;
+    border-bottom: 1px solid #ccc;
+    box-shadow: 1px -1px 8px #ccc;
+}
+.header-content {
+    max-width: 1440px;
+    height: 100px;
+    margin: 0 auto;
+    background: inherit;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+header .logo .title {
+    font-size: 2rem;
+    font-family: UTMAvoBold;
+    font-weight: bold;
+    color: #f08132;
+    text-transform: uppercase;
+}
+header .logo .title span {
+    color: #d42a2a !important;
+}
+header .logo .slogan {
+    color: #111;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+
+header .login{
+    color: #000;
+    letter-spacing: normal;
+    font-weight: normal;
+    line-height: 1.33;
+    font-stretch: normal;
+    cursor: pointer;
+}
+header .login .login-icon {
+    display: inline-block;
+    padding: 5px 8px;
+    border: 1px solid #000;
+    border-radius: 50%;
+    margin-right: 12px;
+}
+header .login .login-link:hover { 
+    text-decoration: underline;
+}
+/* Main Form */
+main {
+    display: flex;
+    justify-content: center;
+}
+main .main-form {
+    margin-top: 3rem;
+    border: 1px solid #b1b0b0;
+    border-radius: 1rem;
+    max-width: 600px;
+    box-shadow: 2px 2px 6px #ccc;;
+}
+main .main-form ul{
+}
+main .main-form ul li{
+    display: inline-block;
+    width: 49.6%;
+    padding: 1rem;
+    box-sizing: border-box;
+    cursor: pointer;
+    text-align: center;
+}
+main .main-form ul li:first-child {
+    border-radius: 1rem 0 0 0;
+}
+main .main-form ul li:last-child {
+    border-left: 1px solid #b1b0b0;
+    border-bottom: 1px solid #b1b0b0;
+    background: #e0e0e0;
+    border-radius: 0 1rem 0 0;
+}
+main .main-form .login-form {
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+main .main-form .login-form .login-title {
+    padding: 4rem 0 2rem 0;
+    font-family: UTMAvoBold;
+    font-size: 1.5rem;
+}
+main .main-form .login-form input {
+    padding: .8rem;
+    font-size: 1rem;
+    width: 94%;
+    margin: 1rem;
+    color: #000;
+    border: 1px solid #ccc;
+    border-radius: .4rem;
+    box-shadow: 2px 2px 2px #ccc;
+    outline: none;
+}
+main .main-form .login-form input:focus {
+    border: 1px solid #70a1ff;
+}
+main .main-form .login-form input::placeholder  {
+    color: #000;
+    font-size: 1rem;
+}
+main .main-form .login-form p, h3 {
+    line-height: 1.5rem;
+    user-select: none;
+    font-weight: 700;
+}
+main .main-form .login-form p a {
+    color: orange;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    font-weight: bold;
+}
+main .main-form .login-form button {
+    font-family: UTMAvoBold;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #fff;
+    outline: none;
+    padding: .8rem;
+    margin: 2rem;
+    font-size: 1rem;
+    width: 100%;
+    background: #f08132;
+    border: none;
+    cursor: pointer;
+    border-radius: .4rem;
+    box-shadow: 2px 4px 6px #ccc;
+}

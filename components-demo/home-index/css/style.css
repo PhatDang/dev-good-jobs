@@ -1,0 +1,80 @@
+.container {
+    height: 100vh;
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;
+}
+/* Wellcome title */
+.container img {
+    user-select: none;
+    pointer-events: none;
+}
+h2 {
+    font-size: 44px;
+    color: #afadad;
+    pointer-events: none;
+    user-select: none;
+}
+.hm-title {
+    position: relative;
+}
+.hm-title img {
+    position: absolute;
+    top:-50%;
+    left: -10%;
+}
+h2 span {
+    font-family: UTMAvoBold;
+    color: #ff8000;
+    font-weight: 700; 
+}
+/* content--------------------------- */
+.hm-col-group {
+    display: flex;
+    flex-direction: row;
+}
+.hm-col {
+    padding: 2rem;
+    margin: 20px 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: 700;
+    box-shadow: 2px -2px 13px #8e8787;
+    overflow: hidden;
+}
+.col-elem {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+}
+.hm-col span {
+    display: block;
+    line-height: 20px;
+    padding: 12px;
+}
+.hm-col .far {
+    color: #4cd137;
+}
+.col-btn {
+    width: 80%;
+    padding: 5px 0;
+    font-size: 20px;
+    font-weight: bold;
+    background: #f0932b;
+    border: none;
+    border-radius: 20px;
+    text-transform:uppercase;
+    outline: none;
+    cursor: pointer;
+    color: #fff;
+    box-shadow: 1px 1px 8px #908a8a;
+}
+.col-btn:hover {
+    background: #95a5a6;
+}
