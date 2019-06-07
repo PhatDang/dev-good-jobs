@@ -1,3 +1,8 @@
+/*
+    === WE NEED THE RULE STYLE FOR CSS ===
+    _Lang use: LESS;
+    _Rules: ...;
+*/
 .container {
     height: 100vh;
     width: 80%;
@@ -29,7 +34,7 @@ h2 {
 h2 span {
     font-family: UTMAvoBold;
     color: #ff8000;
-    font-weight: 700; 
+    font-weight: 700;
 }
 /* content--------------------------- */
 .hm-col-group {
