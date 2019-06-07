@@ -1,12 +1,12 @@
 {
   "name": "gj-project",
   "version": "1.0.0",
-  "description": "",
+  "description": "Demo project GOOD JOBS",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "GOOD JOBS - TEAM",
   "license": "ISC",
   "dependencies": {
     "ejs": "^2.6.1",
