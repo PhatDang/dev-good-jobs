@@ -35,17 +35,29 @@ const path = require('path');
 //         console.log('DB Connection Error:', err.message)
 // })
 
-// goodjob.set('view engine', 'ejs');
-// goodjob.set('views', './views');
+goodjob.set('view engine', 'ejs');
+goodjob.set('views', './views');
 
 goodjob.use(express.static('static')); // Get css, img, js, ...
+///GET------------------
 goodjob.get('/', function(req, res) {
-    res.sendFile(path.join(__dirname, 'index.html'));
+    res.render('index');
 });
-
+//Get:Category
+goodjob.get('/nguoi-tim-viec', function(req, res) {
+    res.render('category/findjob');
+});
+goodjob.get('/viec-tim-nguoi', function(req, res) {
+    res.render('category/createjob');
+});
+//Get:Home
+goodjob.get('/dang-nhap', function(req, res) {
+    res.render('home/login');
+});
+goodjob.get('/dang-ki', function(req, res) {
+    res.render('home/signup');
+});
 // {Title}: Load SERVER on Local & Web
 goodjob.listen(process.env.PORT || 2019, function () {
     console.log('Your NODE.JS Server is running !!');
 });
-
-module.exports = goodjob;
