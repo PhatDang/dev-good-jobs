@@ -52,7 +52,7 @@ header .login .login-icon {
     border-radius: 50%;
     margin-right: 12px;
 }
-header .login .login-link:hover { 
+header .login .login-link:hover {
     text-decoration: underline;
 }
 /* Main Form */

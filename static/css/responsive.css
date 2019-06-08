@@ -1,3 +1,6 @@
+/*
+    === RESPONSIVE WEB DESIGN ===
+*/
 @media only screen and (max-width: 760px){
     .container {
         width: 90%;
@@ -14,7 +17,4 @@
     }
     .hm-title img {
         position: unset; }
-    .container>img {
-            margin: 20px 0;
-    }
 }

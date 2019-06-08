@@ -1,4 +1,10 @@
+/*
+    === WE NEED THE RULE STYLE FOR CSS ===
+    _Lang use: LESS;
+    _Rules: ...;
+*/
 .container {
+    height: 100vh;
     width: 80%;
     margin: 0 auto;
     display: flex;
@@ -17,16 +23,18 @@ h2 {
     pointer-events: none;
     user-select: none;
 }
-.container>img {
-    background: transparent;
-    margin: 20px 0;
-    width: 160px;
+.hm-title {
+    position: relative;
+}
+.hm-title img {
+    position: absolute;
+    top:-50%;
+    left: -10%;
 }
 h2 span {
-    font-size: 1.5em;
     font-family: UTMAvoBold;
     color: #ff8000;
-    font-weight: 700; 
+    font-weight: 700;
 }
 /* content--------------------------- */
 .hm-col-group {
@@ -71,4 +79,7 @@ h2 span {
     cursor: pointer;
     color: #fff;
     box-shadow: 1px 1px 8px #908a8a;
+}
+.col-btn:hover {
+    background: #95a5a6;
 }
