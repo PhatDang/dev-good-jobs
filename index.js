@@ -35,8 +35,8 @@ const path = require('path');
 //         console.log('DB Connection Error:', err.message)
 // })
 
-goodjob.set('view engine', 'ejs');
-goodjob.set('views', './views');
+goodjob.set('view engine','ejs');
+goodjob.set('views',path.join(__dirname,'views'));
 goodjob.use(express.static('static')); // Get css, img, js, ...
 ///GET------------------
 goodjob.get('/', function(req, res) {
