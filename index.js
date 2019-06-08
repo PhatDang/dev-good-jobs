@@ -35,19 +35,15 @@ const path = require('path');
 //         console.log('DB Connection Error:', err.message)
 // })
 
-// goodjob.use(express.static('public'));
-
 // goodjob.set('view engine', 'ejs');
 // goodjob.set('views', './views');
-goodjob.use(express.static('static'));
+
+goodjob.use(express.static('static')); // Get css, img, js, ...
 goodjob.get('/', function(req, res) {
     res.sendFile(path.join(__dirname, 'index.html'));
 });
 
-// goodjob.get('/home', (req, res) => {
-//     res.render('home/home');
-// });
-
+// {Title}: Load SERVER on Local & Web
 goodjob.listen(process.env.PORT || 2019, function () {
     console.log('Your NODE.JS Server is running !!');
 });

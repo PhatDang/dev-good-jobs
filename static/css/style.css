@@ -4,50 +4,60 @@
     _Rules: ...;
 */
 .container {
-    height: 100vh;
-    width: 80%;
-    margin: 0 auto;
+    max-width: 1440px;
+    margin: auto;
+}
+.block {
+    max-width: 1000px;
+    min-height: 800px;
+    margin: 10px auto;
     display: flex;
     flex-direction: column;
     justify-content:center;
     align-items: center;
 }
-/* Wellcome title */
-.container img {
-    user-select: none;
-    pointer-events: none;
-}
-h2 {
-    font-size: 44px;
-    color: #afadad;
+/* ====== BLOCK NOTIFICATION ====== */
+h2.welcome-title {
+    font-size: 1.8rem;
+    font-family: UTMAvoBold;
+    text-transform: uppercase;
+    color: #a1acb3;
     pointer-events: none;
     user-select: none;
+    margin-bottom: 10px;
 }
 .hm-title {
     position: relative;
 }
-.hm-title img {
-    position: absolute;
+.block img.logo {
+    position: static;
     top:-50%;
     left: -10%;
+    user-select: none;
+    pointer-events: none;
+    width: 200px;
+    margin-bottom: 20px;
 }
-h2 span {
+h2 span.branch {
+    font-size: 2.8rem;
     font-family: UTMAvoBold;
-    color: #ff8000;
+    color: #ff9933;
     font-weight: 700;
 }
-/* content--------------------------- */
+
+/* ====== CONTENT ====== */
 .hm-col-group {
     display: flex;
     flex-direction: row;
 }
 .hm-col {
-    padding: 2rem;
-    margin: 20px 10px;
+    width: 400px;
+    padding: 1.5rem;
+    margin: 20px 30px;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 700;
     box-shadow: 2px -2px 13px #8e8787;
     overflow: hidden;
@@ -61,25 +71,36 @@ h2 span {
 .hm-col span {
     display: block;
     line-height: 20px;
-    padding: 12px;
+    padding: 10px 0 12px 0;
 }
 .hm-col .far {
     color: #4cd137;
 }
 .col-btn {
-    width: 80%;
-    padding: 5px 0;
+    width: 300px;
+    padding: 10px 0 10px 0;
     font-size: 20px;
-    font-weight: bold;
-    background: #f0932b;
+    font-family: UTMAvoBold;
     border: none;
-    border-radius: 20px;
+    border-radius: 30px;
     text-transform:uppercase;
     outline: none;
     cursor: pointer;
     color: #fff;
-    box-shadow: 1px 1px 8px #908a8a;
+    box-shadow: 1px 1px 8px #8e8787;
+    background-image: linear-gradient(rgba(255,153,51,0.6), rgba(255,153,51,1));
 }
-.col-btn:hover {
-    background: #95a5a6;
+/* .col-btn:hover {
+    background-image: linear-gradient(rgb(251, 126, 0), rgba(247,145,43,1));
+} */
+img.icon {
+    width: 1.5rem;
+    padding: 8px;
+    float: left;
+}
+.clearfix {
+    clear: both;
+}
+.col-info {
+    padding-left: 10px;
 }
