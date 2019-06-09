@@ -2,8 +2,8 @@
 //
 //
 module.exports.signin = (req, res) => {
-    res.render('home/login');
+    res.render('users/signin');
 }
 module.exports.signup = function(req, res) {
-    res.render('home/signup');
+    res.render('users/signup');
 }
