@@ -58,6 +58,7 @@ header .login .login-link:hover {
 }
 /* Main Login Form */
 main {
+    padding: 2rem;
     display: flex;
     justify-content: center;
 }
