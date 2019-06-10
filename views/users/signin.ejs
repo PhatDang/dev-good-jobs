@@ -3,12 +3,12 @@
                 <div class="main-form">
                     <ul>
                         <li class="tap-active">Đăng nhập</li>
-                        <li><a href="/dang-ki">Đăng kí</a></li>
+                        <li><a href="/user/sign-up">Đăng kí</a></li>
                     </ul>
-                    <form action="#" class="login-form">
+                    <form action="/user/success" class="login-form" method="POST">
                         <h3 class="login-title">Đăng nhập vào tài khoản của bạn</h3>
-                        <input type="text" placeholder="Your phone number" required>
-                        <input type="password" placeholder="Your password" required>
+                        <input type="text" name ="phone" placeholder="Your phone number" required>
+                        <input type="password" name="password" placeholder="Your password" required>
                         <p>Bằng cách nhấp vào nút đăng nhập là bạn đã đồng ý với <a href="#">Chính sách quyền riêng tư</a> và <a href="#">Điều khoản sử dụng</a> của chúng tôi</p>
                         <button>Đăng nhập</button>
                         <p>Quên mật khẩu</p>

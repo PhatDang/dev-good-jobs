@@ -1,6 +1,7 @@
 //
 //
 //
+var user = {};
 module.exports.findjob = (req, res) => {
     res.render('category/findjob');
 }
