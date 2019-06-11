@@ -54,6 +54,6 @@ module.exports.signInValid = (req, res) => {
                 res.render('users/success', userPass);
             }
             break;
-        } 
+        }
     }
 }

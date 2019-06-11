@@ -48,7 +48,7 @@ header .login a{
 }
 .login .login-link {
     position: relative;
-} 
+}
 .login .logout {
     display: none;
     background: #ccc;
@@ -122,7 +122,7 @@ main {
 .tab-content .login-title {
     padding: 4rem 0 2rem 0;
     font-family: UTMAvoBold;
-    font-size: 1.5rem; 
+    font-size: 1.5rem;
 }
 .tab-content input {
     padding: .8rem;
@@ -174,4 +174,3 @@ main {
 .tab-content button:hover {
     background: linear-gradient( rgba(255,153,51,1),rgb(236, 170, 103));
 }
-

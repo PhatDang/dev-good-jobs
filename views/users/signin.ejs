@@ -15,7 +15,7 @@
         }
        .header-content .login {
            display: none;
-       } 
+       }
     </style>
 </head>
 <body>
@@ -33,8 +33,8 @@
                 <span class="login-link">
                     <a href="/user/sign-in">
                         Đăng nhập
-                    </a>        
-                </span>     
+                    </a>
+                </span>
             </div>
         </header>
             <main>
@@ -47,15 +47,15 @@
                                         <h3 class="login-title">Đăng nhập vào tài khoản của bạn</h3>
                                         <div class="messenger"><% if (typeof messeger !== 'undefined') { %>
                                             <%= messeger %>
-                                        <% } %>                  
+                                        <% } %>
                                         </div>
                                         <input type="text" name ="phone" id="phone-input-log" placeholder="Your phone number" required oninvalid="this.setCustomValidity('Bạn phải nhập số điện thoại')">
                                         <input type="password" name="password"  id="pass-input-log" placeholder="Your password" required oninvalid="this.setCustomValidity('Bạn phải nhập mật khẩu')">
                                         <p>Bằng cách nhấp vào nút đăng nhập là bạn đã đồng ý với <a href="#">Chính sách quyền riêng tư</a> và <a href="#">Điều khoản sử dụng</a> của chúng tôi</p>
                                         <button>Đăng nhập</button>
                                         <p><a href="">Quên mật khẩu</a></p>
-                                        
-                                    </form>   
+
+                                    </form>
                                 </div>
                         </li>
                         <li id="signup-tab" class="tab" onclick="tabSwitch(this);">
@@ -67,7 +67,7 @@
                                         <input type="text" name ="phone" class="phone-input" placeholder="Your phone number" required>
                                         <input type="password" name="password" class="pass-input" placeholder="Your password" required>
                                         <button type="submit">Đăng kí</button>
-                                    </form>   
+                                    </form>
                             </div>
                         </li>
                     </ul>
@@ -76,4 +76,3 @@
             <script type="text/javascript" src="/assets/js/tabswitch.js"></script>
             <script type="text/javascript" src="/assets/js/validation.js"></script>
 <%- include('../layout/footer') -%>
- 
