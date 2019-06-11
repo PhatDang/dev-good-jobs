@@ -4,15 +4,35 @@
 var users = [
     {
         id: 1,
-        username: "0707144248",
-        password: "a",
+        userName: "0707144248",
+        firstName: "Phat",
+        lastName: "Dang Minh",
+        passWord: "a",
         category: 1, //This man wanna find a job !!
     },
     {
         id: 2,
-        username: "0979679671",
-        password: "a",
+        userName: "0979679671",
+        firstName: "Nguyen Huu",
+        lastName: "Duc",
+        passWord: "a",
         category: 2, //This man wanna create jobs !!
+    },
+    {
+        id: 3,
+        userName: "0937475448",
+        firstName: "Le Minh",
+        lastName: "Trung",
+        passWord: "a",
+        category: 2, //This man wanna create jobs !!
+    },
+    {
+        id: 4,
+        userName: "0926609866",
+        firstName: "Nguyen",
+        lastName: "Hung",
+        passWord: "a",
+        category: 1, //This man wanna find a job !!
     },
 ]
 var s = {};
@@ -26,11 +46,12 @@ module.exports.signInValid = (req, res) => {
     var user = req.body.phone;
     var pass = req.body.password;
     for (let i = 0; i < users.length; i++) {
-        if (user === users[i].username && pass === users[i].password) {
+        if (user === users[i].userName && pass === users[i].passWord) {
+            var userPass = users[i];
             if (users[i].category === 1) {
-                res.render('category/findjob', users[i]);
+                res.render('users/success', userPass);
             } else {
-                res.render('category/createjob', users[i])
+                res.render('users/success', userPass);
             }
             break;
         }
