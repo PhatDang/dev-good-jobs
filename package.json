@@ -1,7 +1,7 @@
 {
   "name": "gj-project",
   "version": "1.0.0",
-  "description": "Demo project GOOD JOBS",
+  "description": "Project GOOD JOBS",
   "main": "index.js",
   "scripts": {
     "start": "nodemon run index.js",
