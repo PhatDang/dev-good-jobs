@@ -28,11 +28,19 @@
                         <a href="#">
                             <%= lastName %>, <%=firstName %>
                         </a>
+                        <a class="logout" href="/user/sign-in">Log out</a>
                     </span>
+                    
                 </div>
         </header>
         <main>
-            <div>Chào bạn <%=lastName%> đến với GoodJob</div> 
+            <div>Chào bạn <strong><%= lastName%></strong> , có phải bạn đang
+            <% if(category === 1) { %>
+                tìm kiếm 1 công việc ?
+            <% } else  {%>
+                tìm ứng viên phù hợp với công ty bạn ?
+            <% } %>
+            </div> 
          </main>
      
     </div>

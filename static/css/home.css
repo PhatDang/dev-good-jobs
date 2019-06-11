@@ -46,6 +46,17 @@ header .login a{
     cursor: pointer;
     text-decoration:none;
 }
+.login .login-link {
+    position: relative;
+} 
+.login .logout {
+    display: none;
+    background: #ccc;
+    padding: 3px;
+}
+.login .login-link:hover .logout {
+    display: inline;
+}
 header .login .login-icon {
     display: inline-block;
     padding: 5px 8px;
