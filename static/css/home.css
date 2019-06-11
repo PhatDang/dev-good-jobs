@@ -154,9 +154,13 @@ main {
     margin: 2rem;
     font-size: 1rem;
     width: 90%;
-    background: #f08132;
+    background: linear-gradient(rgba(255,153,51,0.6), rgba(255,153,51,1));
     border: none;
     cursor: pointer;
     border-radius: .4rem;
     box-shadow: 2px 4px 6px #ccc;
 }
+.tab-content button:hover {
+    background: linear-gradient( rgba(255,153,51,1),rgb(236, 170, 103));
+}
+
