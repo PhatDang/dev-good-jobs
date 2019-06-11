@@ -1,5 +1,5 @@
 ### good-jobs
-About GOOD JOBS...
+About GOOD JOBS Team....
 
 ##### First things first:
 - `git pull master` => To update the latest code.
