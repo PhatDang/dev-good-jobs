@@ -46,6 +46,17 @@ header .login a{
     cursor: pointer;
     text-decoration:none;
 }
+.login .login-link {
+    position: relative;
+} 
+.login .logout {
+    display: none;
+    background: #ccc;
+    padding: 3px;
+}
+.login .login-link:hover .logout {
+    display: inline;
+}
 header .login .login-icon {
     display: inline-block;
     padding: 5px 8px;
@@ -62,50 +73,61 @@ main {
     display: flex;
     justify-content: center;
 }
-main .main-form {
-    margin-top: 3rem;
-    border: 1px solid #b1b0b0;
-    border-radius: 1rem;
-    max-width: 600px;
-    box-shadow: 2px 2px 6px #ccc;;
-}
-main .main-form ul li{
-    display: inline-block;
-    width: 49.6%;
-    padding: 1rem;
-    box-sizing: border-box;
-    cursor: pointer;
+.user-action {
+    width: 600px;
     text-align: center;
 }
-main .main-form ul li:first-child {
-    border-radius: 1rem 0 0 0;
-}
-main .main-form ul li:last-child {
-    border-left: 1px solid #b1b0b0;
-    border-bottom: 1px solid #b1b0b0;
-    background: #e0e0e0;
-    border-radius: 0 1rem 0 0;
-}
-main .main-form ul li a{
-    color:#000;
-    text-decoration: none
-}
-main .main-form .login-form {
-    padding: 3rem;
+.tabs {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    justify-content: space-between;
+    position: relative;
 }
-main .main-form .login-form .login-title {
+.tab {
+    padding: 1rem;
+    flex-basis: 50%;
+    background: #ddd;
+    border: 1px solid #ccc;
+}
+.tab a {
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
+}
+.active {
+    background: #fff;
+    border-bottom: none;
+}
+#signup-tab {
+    border-radius: 0 2rem 0 0;
+}
+#signin-tab {
+    border-radius: 2rem 0 0 0;
+}
+.active .tab-content {
+    display: block;
+}
+
+.tab-content {
+    width: 534px;
+    display: none;
+    position: absolute;
+    top: 3.1rem;
+    left:0;
+    padding: 2rem;
+    border: 1px solid #b1b0b0;
+    border-top:none;
+    border-radius: 0 0 2rem 2rem;
+    box-shadow: 2px 2px 6px #ccc;;
+}
+.tab-content .login-title {
     padding: 4rem 0 2rem 0;
     font-family: UTMAvoBold;
-    font-size: 1.5rem;
+    font-size: 1.5rem; 
 }
-main .main-form .login-form input {
+.tab-content input {
     padding: .8rem;
     font-size: 1rem;
-    width: 94%;
+    width: 90%;
     margin: 1rem;
     color: #000;
     border: 1px solid #ccc;
@@ -113,19 +135,19 @@ main .main-form .login-form input {
     box-shadow: 2px 2px 2px #ccc;
     outline: none;
 }
-main .main-form .login-form input:focus {
+.tab-content input:focus {
     border: 1px solid #70a1ff;
 }
-main .main-form .login-form input::placeholder  {
+.tab-content input::placeholder  {
     color: #000;
     font-size: 1rem;
 }
-main .main-form .login-form p, h3 {
+.tab-content p, h3 {
     line-height: 1.5rem;
     user-select: none;
     font-weight: 700;
 }
-main .main-form .login-form p a {
+.tab-content p a {
     color: orange;
     text-transform: uppercase;
     text-decoration: none;
@@ -133,7 +155,7 @@ main .main-form .login-form p a {
     letter-spacing: 1px;
     font-weight: bold;
 }
-main .main-form .login-form button {
+.tab-content button {
     font-family: UTMAvoBold;
     font-weight: bold;
     text-transform: uppercase;
@@ -142,10 +164,14 @@ main .main-form .login-form button {
     padding: .8rem;
     margin: 2rem;
     font-size: 1rem;
-    width: 100%;
-    background: #f08132;
+    width: 90%;
+    background: linear-gradient(rgba(255,153,51,0.6), rgba(255,153,51,1));
     border: none;
     cursor: pointer;
     border-radius: .4rem;
     box-shadow: 2px 4px 6px #ccc;
 }
+.tab-content button:hover {
+    background: linear-gradient( rgba(255,153,51,1),rgb(236, 170, 103));
+}
+
