@@ -20,6 +20,7 @@
     "ejs": "^2.6.1",
     "express": "^4.17.1",
     "express-validator": "^5.3.1",
+    "font-awesome-icons": "^1.6.0",
     "mongoose": "^5.5.13",
     "morgan": "^1.9.1",
     "nodemon": "^1.19.1",

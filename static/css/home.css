@@ -9,36 +9,8 @@ header {
     border-bottom: 1px solid #ccc;
     box-shadow: 1px -1px 8px #ccc;
 }
-.header-content {
-    max-width: 1440px;
-    height: 100px;
-    margin: 0 auto;
-    background: inherit;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-}
-header .logo .title {
-    font-size: 2rem;
-    font-family: UTMAvoBold;
-    font-weight: bold;
-    color: #f08132;
-    text-transform: uppercase;
-}
-header .logo .title span {
-    color: #d42a2a !important;
-}
-header .logo .slogan {
-    color: #111;
-    font-size: 0.8rem;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-}
-
-
-header .login a{
-    color: #000;
+header a{
+    color: #716e6e!important;
     letter-spacing: normal;
     font-weight: normal;
     line-height: 1.33;
@@ -46,23 +18,54 @@ header .login a{
     cursor: pointer;
     text-decoration:none;
 }
+.header-content {
+    max-width: 1440px;
+    height: 100px;
+    margin: 0 auto;
+    background: inherit;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+.header-content .logo {
+    flex-basis: 16%;
+}
+.header-content .header-menu {
+    flex-basis: 46%;
+}
+.header-content .top-menu li {
+    display:inline-block;
+    padding: 0 1rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+.header-content .top-menu li:hover a {
+    color: #d42a2a !important;
+}
+.header-content .top-menu li a:active {
+    color: #d42a2a !important;
+}
+.header-content .category-btn {
+    flex-basis: 24%;
+}
+.header-content .category-btn button {
+    padding: .8rem 4rem;
+    background: linear-gradient(rgba(250,250,250,.6), rgba(255, 255, 255, 0.6));
+    outline: none;
+    border: 1px solid #d7d7d7;
+    border-radius: 10px;
+}
 .login .login-link {
     position: relative;
-}
-.login .logout {
-    display: none;
-    background: #ccc;
-    padding: 3px;
 }
 .login .login-link:hover .logout {
     display: inline;
 }
 header .login .login-icon {
     display: inline-block;
-    padding: 5px 8px;
-    border: 1px solid #000;
-    border-radius: 50%;
-    margin-right: 12px;
+    font-size: 1.5rem;
+    color: #656060;
 }
 header .login .login-link:hover {
     text-decoration: underline;

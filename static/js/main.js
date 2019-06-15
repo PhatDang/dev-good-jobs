@@ -1,3 +1,12 @@
+//Switch Tab
+var tabs = document.getElementsByClassName('tab');
+function tabSwitch(element) {
+    for (var i=0; i<tabs.length;i++) {
+        tabs[i].setAttribute('class', 'tab');
+    }
+    element.setAttribute('class','tab active');
+}
+// UX/UI Validation
 let errorList = ["Bạn phải nhập số điện thoại / mật khẩu","Số điện thoại không hợp lệ","Mật khẩu không hợp lệ"]
 let userNameElement = document.querySelector('#phone-log');
 let passWordElement = document.querySelector('#pass-log');
