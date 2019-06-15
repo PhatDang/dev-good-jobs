@@ -7,7 +7,7 @@ var users = [
         userName: "0707144248",
         firstName: "Phat",
         lastName: "Dang Minh",
-        passWord: "a",
+        passWord: "123456",
         category: 1, //This man wanna find a job !!
     },
     {
@@ -15,7 +15,7 @@ var users = [
         userName: "0979679671",
         firstName: "Nguyen Huu",
         lastName: "Duc",
-        passWord: "a",
+        passWord: "123456",
         category: 2, //This man wanna create jobs !!
     },
     {
@@ -23,7 +23,7 @@ var users = [
         userName: "0937475448",
         firstName: "Le Minh",
         lastName: "Trung",
-        passWord: "a",
+        passWord: "123456",
         category: 2, //This man wanna create jobs !!
     },
     {
@@ -31,7 +31,7 @@ var users = [
         userName: "0926609866",
         firstName: "Nguyen",
         lastName: "Hung",
-        passWord: "a",
+        passWord: "123456",
         category: 1, //This man wanna find a job !!
     },
 ]

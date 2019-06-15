@@ -23,8 +23,7 @@
         <header>
             <div class="header-content">
                 <div class="logo">
-                    <p class="title">Good <span>Jobs</span></p>
-                        <p class= "slogan">Your jobs, our mission</p>
+                    <a href=""><img src="/assets/images/lo.png" alt=""></a>
                 </div>
             <div class="login">
                 <span class="login-icon">
@@ -43,16 +42,13 @@
                         <li id="signin-tab" class="tab active" onclick="tabSwitch(this);">
                                 <a href="#">Đăng nhập</a>
                                 <div class="tab-content">
-                                    <form action="/user/success" class="login-form" method="POST">
+                                    <form action="/user/success" onsubmit="return clickSubmit()" class="login-form" method="POST">
                                         <h3 class="login-title">Đăng nhập vào tài khoản của bạn</h3>
-                                        <div class="messenger"><% if (typeof messeger !== 'undefined') { %>
-                                            <%= messeger %>
-                                        <% } %>
-                                        </div>
-                                        <input type="text" name ="phone" id="phone-input-log" placeholder="Your phone number" required oninvalid="this.setCustomValidity('Bạn phải nhập số điện thoại')">
-                                        <input type="password" name="password"  id="pass-input-log" placeholder="Your password" required oninvalid="this.setCustomValidity('Bạn phải nhập mật khẩu')">
+                                        <div class="messenger"></div>
+                                        <input type="text" name ="phone" id="phone-log" placeholder="Your phone number">
+                                        <input type="password" name="password"  id="pass-log" placeholder="Your password">
                                         <p>Bằng cách nhấp vào nút đăng nhập là bạn đã đồng ý với <a href="#">Chính sách quyền riêng tư</a> và <a href="#">Điều khoản sử dụng</a> của chúng tôi</p>
-                                        <button>Đăng nhập</button>
+                                        <button type="submit">Đăng nhập</button>
                                         <p><a href="">Quên mật khẩu</a></p>
 
                                     </form>
@@ -73,6 +69,5 @@
                     </ul>
                 </div>
             </main>
-            <script type="text/javascript" src="/assets/js/tabswitch.js"></script>
-            <script type="text/javascript" src="/assets/js/validation.js"></script>
+            <script type="text/javascript" src="/assets/js/main.js"></script>
 <%- include('../layout/footer') -%>
