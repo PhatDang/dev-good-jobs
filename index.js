@@ -5,6 +5,7 @@ const express = require('express');
 const userRouter = require('./routes/user.route');
 const categoryRouter = require('./routes/category.route');
 const bodyParser = require('body-parser');
+
 const goodjob = express();
 
 goodjob.set('view engine', 'ejs');

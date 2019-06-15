@@ -181,3 +181,16 @@ main {
 .tab-content button:hover {
     background: linear-gradient( rgba(255,153,51,1),rgb(236, 170, 103));
 }
+footer {
+    width: 100%;
+}
+main {
+    height: 60vh;
+}
+.footer-content {
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+    border: 1px solid #ccc;
+    padding: 50px 0;
+}
