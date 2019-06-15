@@ -1,4 +1,4 @@
-============================
+===================================
 #### HEROKU STAGING AND PRODUCTION::
 
 ##### rename your git remote heroku to something else like production
@@ -32,3 +32,4 @@ heroku run rake db:seed # works on staging now!
 - Op3: https://blog.risingstack.com/node-js-project-structure-tutorial-node-js-at-scale/
 - Op4: https://github.com/RisingStack/multi-process-nodejs-example
 - Op5: https://blog.risingstack.com/node-hero-node-js-project-structure-tutorial/
+
