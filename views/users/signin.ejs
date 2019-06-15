@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Goodjob  - Your job,Our mission</title>
+    <link rel="shortcut icon" type="images/png" href="images/logo.png"/>
+    <link rel="stylesheet" href="/assets/css/reset.css">
+    <link rel="stylesheet" href="/assets/css/home.css">
+    <script src="https://kit.fontawesome.com/9d1259de98.js"></script>
+    <style>
+        .header-content {
+            justify-content: center;
+        }
+       .header-content .login {
+           display: none;
+       }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-content">
+                <div class="logo">
+                    <a href=""><img src="/assets/images/lo.png" alt=""></a>
+                </div>
+            <div class="login">
+                <span class="login-icon">
+                    <i class="fas fa-user"></i>
+                </span>
+                <span class="login-link">
+                    <a href="/user/sign-in">
+                        Đăng nhập
+                    </a>
+                </span>
+            </div>
+        </header>
+            <main>
+                <div class="user-action">
+                    <ul class="tabs">
+                        <li id="signin-tab" class="tab active" onclick="tabSwitch(this);">
+                                <a href="#">Đăng nhập</a>
+                                <div class="tab-content">
+                                    <form action="/user/success" onsubmit="return clickSubmit()" class="login-form" method="POST">
+                                        <h3 class="login-title">Đăng nhập vào tài khoản của bạn</h3>
+                                        <div class="messenger"></div>
+                                        <input type="text" name ="phone" id="phone-log" placeholder="Your phone number">
+                                        <input type="password" name="password"  id="pass-log" placeholder="Your password">
+                                        <p>Bằng cách nhấp vào nút đăng nhập là bạn đã đồng ý với <a href="#">Chính sách quyền riêng tư</a> và <a href="#">Điều khoản sử dụng</a> của chúng tôi</p>
+                                        <button type="submit">Đăng nhập</button>
+                                        <p><a href="">Quên mật khẩu</a></p>
+
+                                    </form>
+                                </div>
+                        </li>
+                        <li id="signup-tab" class="tab" onclick="tabSwitch(this);">
+                            <a href="#">Đăng kí</a>
+                            <div class="tab-content">
+                                    <form action="/user/success" class="login-form" method="POST">
+                                        <h3 class="login-title">Đăng kí tài khoản tại Goodjob.Com.Vn</h3>
+                                        <div class="messeger"></div>
+                                        <input type="text" name ="phone" class="phone-input" placeholder="Your phone number" required>
+                                        <input type="password" name="password" class="pass-input" placeholder="Your password" required>
+                                        <button type="submit">Đăng kí</button>
+                                    </form>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </main>
+            <script type="text/javascript" src="/assets/js/main.js"></script>
+<%- include('../layout/footer') -%>
