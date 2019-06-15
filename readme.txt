@@ -4,7 +4,7 @@
 ##### rename your git remote heroku to something else like production
 git remote rename heroku production
 
-##### so now you will push as: git push production master
+##### So now you will push as: git push production master
 
 ##### create the staging app
 heroku apps:create staging-appname
