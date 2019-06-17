@@ -1,6 +1,3 @@
-//
-//
-//================================
 const express = require('express');
 const userRouter = require('./routes/user.route');
 const categoryRouter = require('./routes/category.route');
