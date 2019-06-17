@@ -1,15 +1,15 @@
 ===================================
 #### HEROKU STAGING AND PRODUCTION::
 
-##### rename your git remote heroku to something else like production
+##### Rename your git remote heroku to something else like production
 git remote rename heroku production
 
-##### so now you will push as: git push production master
+##### So now you will push as: git push production master
 
-##### create the staging app
+##### Create the staging app
 heroku apps:create staging-appname
 
-##### rename the heroku to staging
+##### Rename the heroku to staging
 git remote rename heroku staging
 
 ##### As heroku only accept master branch to deploy, you have to push your staging branch to heroku's master branch (assuming your local branch for staging is staging)
