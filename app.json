@@ -15,7 +15,7 @@
       "quantity": 1
     }
   },
-  "name": "good-jobs",
+  "name": "dev-good-jobs",
   "scripts": {
   },
   "stack": "heroku-18"
