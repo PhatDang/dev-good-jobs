@@ -1,4 +1,4 @@
-============================
+===================================
 #### HEROKU STAGING AND PRODUCTION::
 
 ##### rename your git remote heroku to something else like production
