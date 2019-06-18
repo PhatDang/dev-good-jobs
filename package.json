@@ -25,5 +25,8 @@
     "morgan": "^1.9.1",
     "nodemon": "^1.19.1",
     "session": "^0.1.0"
+  },
+  "devDependencies": {
+    "webpack": "^4.34.0"
   }
 }
