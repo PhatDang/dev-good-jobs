@@ -19,7 +19,7 @@
 /* ====== BLOCK NOTIFICATION ====== */
 h2.welcome-title {
     font-size: 1.8rem;
-    font-family: UTMAvoBold;
+    font-weight: bold;
     text-transform: uppercase;
     color: #a1acb3;
     pointer-events: none;
@@ -40,7 +40,7 @@ h2.welcome-title {
 }
 h2 span.branch {
     font-size: 2.8rem;
-    font-family: UTMAvoBold;
+    font-weight: bold;
     color: #ff9933;
     font-weight: 700;
 }
@@ -58,7 +58,7 @@ h2 span.branch {
     flex-direction: column;
     justify-content: center;
     font-size: 16px;
-    font-weight: 700;
+    font-weight: 400;
     box-shadow: 2px -2px 13px #8e8787;
     overflow: hidden;
 }
@@ -80,7 +80,7 @@ h2 span.branch {
     width: 300px;
     padding: 10px 0 10px 0;
     font-size: 20px;
-    font-family: UTMAvoBold;
+    font-weight: bold;
     border: none;
     border-radius: 30px;
     text-transform:uppercase;

@@ -3,12 +3,13 @@
     margin: 0;
 }
 @font-face {
-    font-family: UTMAvo;
-    src: url(../fonts/UTMAvo.otf);
+    font-family: "UTMAvo";
+    src: url(../fonts/UTMAvo.otf) format('otf');
 }
 @font-face {
-    font-family: UTMAvoBold;
-    src: url(../fonts/UTMAvoBold.otf);
+    font-family: "UTMAvo";
+    src: url(../fonts/UTMAvoBold.otf) format('otf');
+    font-weight: bold;
 }
 body {
     font-family: "UTMAvo", sans-serif;
