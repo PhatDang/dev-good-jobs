@@ -1,15 +1,26 @@
 ===================================
 #### HEROKU STAGING AND PRODUCTION:
 
+<<<<<<< HEAD
 ##### rename your git remote heroku to something else like production
+=======
+##### Rename your git remote heroku to something else like production
+>>>>>>> 1b26fb91504213f5e4f22f7a00f2209036cf7d43
 git remote rename heroku production
 
 ##### So now you will push as: git push production master
 
+<<<<<<< HEAD
 ##### create the staging app
 heroku apps:create staging-appname
 
 ##### rename the heroku to staging
+=======
+##### Create the staging app
+heroku apps:create staging-appname
+
+##### Rename the heroku to staging
+>>>>>>> 1b26fb91504213f5e4f22f7a00f2209036cf7d43
 git remote rename heroku staging
 
 ##### As heroku only accept master branch to deploy, you have to push your staging branch to heroku's master branch (assuming your local branch for staging is staging)
@@ -25,7 +36,11 @@ git config heroku.remote staging
 heroku run rake db:seed # works on staging now!
 
 #### Rules for Dev:
+<<<<<<< HEAD
 `Rule 1: Organize your files around features, not roles!`
+=======
+"Rule 1: Organize your files around features, not roles!"
+>>>>>>> 1b26fb91504213f5e4f22f7a00f2209036cf7d43
 ##### [LEARN] Create tree folder for project (NODE.js):
 - Op1: https://viblo.asia/p/5-quy-tac-co-ban-trong-xay-dung-cau-truc-mot-project-nodejs-6J3Zg9wB5mB
 - Op2: https://github.com/sahat/hackathon-starter

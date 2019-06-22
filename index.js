@@ -1,6 +1,9 @@
+<<<<<<< HEAD
 //
 //
 //================================
+=======
+>>>>>>> 1b26fb91504213f5e4f22f7a00f2209036cf7d43
 const express = require('express');
 const userRouter = require('./routes/user.route');
 const categoryRouter = require('./routes/category.route');

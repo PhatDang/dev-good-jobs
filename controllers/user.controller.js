@@ -1,6 +1,7 @@
 //
 //
 //================================
+<<<<<<< HEAD
 var users = [
     {
         id: 1,
@@ -35,6 +36,37 @@ var users = [
         category: 1, //This man wanna find a job !!
     },
 ]
+=======
+var users = [{
+    id: 1,
+    userName: "0707144248",
+    firstName: "Phat",
+    lastName: "Dang Minh",
+    passWord: "123456",
+    category: 1, //This man wanna find a job !!
+}, {
+    id: 2,
+    userName: "0979679671",
+    firstName: "Nguyen Huu",
+    lastName: "Duc",
+    passWord: "123456",
+    category: 2, //This man wanna create jobs !!
+}, {
+    id: 3,
+    userName: "0937475448",
+    firstName: "Le Minh",
+    lastName: "Trung",
+    passWord: "123456",
+    category: 2, //This man wanna create jobs !!
+}, {
+    id: 4,
+    userName: "0926609866",
+    firstName: "Nguyen",
+    lastName: "Hung",
+    passWord: "123456",
+    category: 1, //This man wanna find a job !!
+}, ]
+>>>>>>> 1b26fb91504213f5e4f22f7a00f2209036cf7d43
 var s = {};
 module.exports.signIn = (req, res) => {
     res.render('users/signin');
