@@ -6,6 +6,7 @@
     cursor: pointer;
     outline: none;
     user-select: none;
+    box-sizing: border-box;
 }
 .btn-small {
     width: 150px;
@@ -79,18 +80,21 @@ header {
     align-items: center;
 }
 .header-content .logo {
-    flex-basis: 16%;
+    flex-basis: 230px;
 }
 .header-content .logo img{
     width: 150px;
 }
 .header-content .header-menu {
-    flex-basis: 54%;
+    flex-basis: 760px;
 }
 .header-content .top-menu li{
     display: inline-block;
-    padding: 0 1rem;
+    vertical-align: middle;
+    margin:0 10px;
+    box-sizing: border-box;
 }
+
 .header-content .top-menu li a{
     font-size: 1rem;
     font-weight: bold;
@@ -104,10 +108,10 @@ header {
     color: #d42a2a;
 }
 .header-content .category-btn {
-    flex-basis: 16%;
+    flex-basis: 250px;
 }
 .login .login-link {
-    margin-left: .5rem;
+    margin-left: 12px;
 }
 header .login .login-icon i{
     transform: translate(0,12%);
@@ -211,7 +215,7 @@ main {
     font-weight: bold;
 }
 main {
-    height: 60vh;
+    height: 40vh;
 }
 footer {
     width: 100%;
@@ -221,5 +225,8 @@ footer {
     margin: 0 auto;
     text-align: center;
     border: 1px solid #ccc;
-    padding: 50px 0;
+    height: 90px;
+    box-sizing: border-box;
+    line-height: 90px;
+    margin-bottom: 20px;
 }
