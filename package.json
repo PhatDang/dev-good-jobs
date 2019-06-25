@@ -21,7 +21,7 @@
     "ejs": "^2.6.2",
     "express": "^4.17.1",
     "express-validator": "^5.3.1",
-    "mongoose": "^5.6.0",
+    "mongoose": "^5.6.1",
     "morgan": "^1.9.1",
     "nodemon": "^1.19.1",
     "session": "^0.1.0"
