@@ -1,3 +1,63 @@
+/* GLOBAL*/
+.btn {
+    font-weight: 400; 
+    font-size: 1rem;
+    border: solid 1px #b7b7b7;
+    cursor: pointer;
+    outline: none;
+    user-select: none;
+    box-sizing: border-box;
+}
+.btn-small {
+    width: 150px;
+    height: 30px;
+    border-radius: 27.5px;
+}
+.btn-normal {
+    width: 200px;
+    height: 55px;
+    border-radius: 27.5px;
+} 
+.btn-large {
+    width: 100%;
+    height: 55px;
+    margin: 20px 0;
+    border-radius: 27.5px;
+}
+.btn-primary {
+    color: #fff;
+    background: #fff;
+    background-image: linear-gradient( rgba(255, 153,0,.2), rgba(255, 153, 0, .5), rgba(255, 153, 0, 1));
+}
+.btn-primary:hover {
+    background-image: linear-gradient( rgba(255, 153, 0,1), rgba(255, 153, 0, .5), rgba(255, 153, 0, .2));
+}
+.btn-secondary {
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);
+    background: #fff;
+    background-image: linear-gradient(rgba(215,215,215,.2),rgba(215,215,215,.5),rgba(215,215,215,1));
+  }
+  .btn-secondary:hover {
+    box-shadow: 0px 1px 4px 0 rgba(0, 0, 0, 0.15);
+    background-image: linear-gradient(rgba(215,215,215,1),rgba(215,215,215,.5),rgba(215,215,215,.2));
+  }
+.btn-secondary:active {
+        background-color: #b7b7b7;
+        background-image: none;
+        animation: btn-press;
+}
+@keyframes btn-secondary-press {
+    0% {
+        background-color: #b7b7b7;
+    }
+    50% {
+        background-color: #b7b7b7;
+    }
+    100% {
+        background-color: #d7d7d7;
+    }
+}
+/* GLOBAL END........... */
 .container {
     width: 100%;
     height: 100vh;
@@ -9,60 +69,52 @@ header {
     border-bottom: 1px solid #ccc;
     box-shadow: 1px -1px 8px #ccc;
 }
-header a{
-    color: #716e6e!important;
-    letter-spacing: normal;
-    font-weight: normal;
-    line-height: 1.33;
-    font-stretch: normal;
-    cursor: pointer;
-    text-decoration:none;
-}
 .header-content {
     max-width: 1440px;
     height: 100px;
     margin: 0 auto;
-    background: inherit;
+    background: inherit;    
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
 }
 .header-content .logo {
-    flex-basis: 16%;
+    flex-basis: 230px;
+}
+.header-content .logo img{
+    width: 150px;
 }
 .header-content .header-menu {
-    flex-basis: 46%;
+    flex-basis: 760px;
 }
-.header-content .top-menu li {
-    display:inline-block;
-    padding: 0 1rem;
-    font-size: 1.2rem;
+.header-content .top-menu li{
+    display: inline-block;
+    vertical-align: middle;
+    margin:0 10px;
+    box-sizing: border-box;
+}
+
+.header-content .top-menu li a{
+    font-size: 1rem;
     font-weight: bold;
+    color: #818181;
+    text-transform: capitalize;
 }
 .header-content .top-menu li:hover a {
-    color: #d42a2a !important;
+    color: #d42a2a;
 }
 .header-content .top-menu li a:active {
-    color: #d42a2a !important;
+    color: #d42a2a;
 }
 .header-content .category-btn {
-    flex-basis: 24%;
-}
-.header-content .category-btn button {
-    padding: .8rem 4rem;
-    background: linear-gradient(rgba(250,250,250,.6), rgba(255, 255, 255, 0.6));
-    outline: none;
-    border: 1px solid #d7d7d7;
-    border-radius: 10px;
+    flex-basis: 250px;
 }
 .login .login-link {
-    position: relative;
+    margin-left: 12px;
 }
-.login .login-link:hover .logout {
-    display: inline;
-}
-header .login .login-icon {
+header .login .login-icon i{
+    transform: translate(0,12%);
     display: inline-block;
     font-size: 1.5rem;
     color: #656060;
@@ -124,11 +176,11 @@ main {
 }
 .tab-content .login-title {
     padding: 4rem 0 2rem 0;
-    font-family: UTMAvoBold;
+    font-weight: bold;
     font-size: 1.5rem;
 }
 .tab-content .messenger {
-    font-family: UTMAvoBold;
+    font-weight: bold;
     color: red;
 }
 .tab-content input {
@@ -162,35 +214,19 @@ main {
     letter-spacing: 1px;
     font-weight: bold;
 }
-.tab-content button {
-    font-family: UTMAvoBold;
-    font-weight: bold;
-    text-transform: uppercase;
-    color: #fff;
-    outline: none;
-    padding: .8rem;
-    margin: 2rem;
-    font-size: 1rem;
-    width: 90%;
-    background: linear-gradient(rgba(255,153,51,0.6), rgba(255,153,51,1));
-    border: none;
-    cursor: pointer;
-    border-radius: .4rem;
-    box-shadow: 2px 4px 6px #ccc;
-}
-.tab-content button:hover {
-    background: linear-gradient( rgba(255,153,51,1),rgb(236, 170, 103));
+main {
+    height: 40vh;
 }
 footer {
     width: 100%;
-}
-main {
-    height: 60vh;
 }
 .footer-content {
     width: 80%;
     margin: 0 auto;
     text-align: center;
     border: 1px solid #ccc;
-    padding: 50px 0;
+    height: 90px;
+    box-sizing: border-box;
+    line-height: 90px;
+    margin-bottom: 20px;
 }
