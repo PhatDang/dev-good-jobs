@@ -6,7 +6,7 @@ import bodyParser from 'body-parser';
 const goodjob = express();
 const PORT = 2019;
 
-goodjob.use('/assets', express.static('static')); // Get css, img, js, ...
+goodjob.use('/assets', express.static('static'));
 goodjob.set('view engine', 'ejs');
 goodjob.set('views', './views');
 
