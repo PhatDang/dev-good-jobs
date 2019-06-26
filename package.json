@@ -4,7 +4,7 @@
   "description": "Project GOOD JOBS",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon run index.js",
+    "start": "nodemon ./index.js --exec babel-node -e js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "GOOD JOBS - TEAM",
@@ -23,10 +23,16 @@
     "express-ejs-layouts": "^2.5.0",
     "express-validator": "^5.3.1",
     "knex": "^0.18.0",
+    "lodash": "^4.17.11",
     "mongoose": "^5.6.1",
     "morgan": "^1.9.1",
     "nodemon": "^1.19.1",
     "pino": "^5.12.6",
     "session": "^0.1.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-stage-0": "^6.24.1"
   }
 }
