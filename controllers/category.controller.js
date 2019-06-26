@@ -1,10 +1,7 @@
-//
-//
-//================================
 var user = {};
-module.exports.findjob = (req, res) => {
+export function findjob(req, res) {
     res.render('category/findjob');
 }
-module.exports.createjob = (req, res) => {
+export function createjob(req, res) {
     res.render('category/createjob');
 }

@@ -1,6 +1,3 @@
-//
-//
-//================================
 var users = [
     {
         id: 1,
@@ -36,13 +33,13 @@ var users = [
     },
 ]
 var s = {};
-module.exports.signIn = (req, res) => {
+export function signIn(req, res) {
     res.render('users/signin');
 }
-module.exports.signUp = (req, res) => {
+export function signUp(req, res) {
     res.render('users/signup');
 }
-module.exports.signInValid = (req, res) => {
+export function signInValid(req, res) {
     var user = req.body.phone;
     var pass = req.body.password;
     for (let i = 0; i < users.length; i++) {
