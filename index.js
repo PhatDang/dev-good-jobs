@@ -1,10 +1,17 @@
 
 const express = require('express')
+
 const bodyParser = require('body-parser')
+const mongodb = require('mongodb')
+const client = require('mongodb').MongoClient
+const http = require('http')
+const util = require('util')
+const url = require('url')
 const userRouter = require('./routes/user.route')
 const categoryRouter = require('./routes/category.route')
 
-const goodjob = express();
+const goodjob = express()
+const dbConnURL = process.env.MONGOLAB_URI || 'mongodb://admin:8512930.94@ds137827.mlab.com:37827/heroku_k0lzdg14'
 
 goodjob.set('view engine', 'ejs')
 goodjob.set('views', './views')
