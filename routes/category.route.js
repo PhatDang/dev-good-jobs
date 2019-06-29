@@ -1,13 +1,11 @@
-//
-//
-//================================
-const express = require('express');
-const router = express.Router();
-const ctrlCategory = require('../controllers/category.controller');
-const ctrlHome = require('../controllers/user.controller');
+const express = require('express')
 
-router.get('/nguoi-tim-viec', ctrlCategory.findjob);
+const router = express.Router()
+const ctrlCategory = require('../controllers/category.controller')
+// const ctrlHome = require('../controllers/user.controller');
 
-router.get('/viec-tim-nguoi', ctrlCategory.createjob);
+router.get('/nguoi-tim-viec', ctrlCategory.findjob)
 
-module.exports = router;
+router.get('/viec-tim-nguoi', ctrlCategory.createjob)
+
+module.exports = router

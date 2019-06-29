@@ -9,6 +9,7 @@
   },
   "author": "GOOD JOBS - TEAM",
   "license": "ISC",
+  "private": true,
   "repository": "https://github.com/PhatDang/good-jobs.git",
   "dependencies": {
     "bcrypt": "^3.0.6",
@@ -21,9 +22,20 @@
     "ejs": "^2.6.2",
     "express": "^4.17.1",
     "express-validator": "^5.3.1",
-    "mongoose": "^5.6.1",
+    "mongoose": "^5.6.2",
     "morgan": "^1.9.1",
     "nodemon": "^1.19.1",
     "session": "^0.1.0"
+  },
+  "devDependencies": {
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.18.0",
+    "husky": "^2.7.0"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "echo $HUSKY_GIT_PARAMS"
+    }
   }
 }
