@@ -28,6 +28,14 @@
     background: #fff;
     background-image: linear-gradient(to top, #d7d7d7, rgba(215, 215, 215, 0.5) 50%, rgba(215, 215, 215, 0.2));
 }
+.btn:hover {
+    box-shadow: 0px 1px 4px 0 rgba(0, 0, 0, 0.15);
+    background-image: linear-gradient(to top, #d7d7d7, rgba(215, 215, 215, 0.2) 50%, rgba(215, 215, 215, 0.5))
+}
+.btn:active {
+    background-color: #b7b7b7;
+    background-image: none;
+}
 .btn-small {
     width: 150px;
     height: 30px;
@@ -55,12 +63,10 @@
     background-image: linear-gradient( rgba(255, 153, 0,1), rgba(255, 153, 0, .5), rgba(255, 153, 0, .2));
 }
 .btn-secondary {
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);
     background: #fff;
     background-image: linear-gradient(rgba(215,215,215,.2),rgba(215,215,215,.5),rgba(215,215,215,1));
   }
   .btn-secondary:hover {
-    box-shadow: 0px 1px 4px 0 rgba(0, 0, 0, 0.15);
     background-image: linear-gradient(rgba(215,215,215,1),rgba(215,215,215,.5),rgba(215,215,215,.2));
   }
 .btn-secondary:active {
