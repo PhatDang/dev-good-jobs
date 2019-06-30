@@ -1,0 +1,17 @@
+[
+    {
+        "id": "1",
+        "phoneID": "0707144248",
+        "password": "minhphat94"
+    },
+    {
+        "id": "2",
+        "phoneID": "123456789",
+        "password": "trungtrung94"
+    },
+    {
+        "id": "3",
+        "phoneID": "987654321",
+        "password": "hunghung94"
+    }
+]
