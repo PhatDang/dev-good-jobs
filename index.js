@@ -19,19 +19,19 @@ const passport = require('passport')
 /**
  * HEROKU Connect mLab
  */
-// const dbUser = 'func_admin'
-// const dbPass = '8512930.Phat'
-// const dbURL = process.env.MONGOLAB_URI || `mongodb://${dbUser}:${dbPass}@ds137827.mlab.com:37827/heroku_k0lzdg14`
-// const dbName = 'heroku_k0lzdg14'
+const dbUser = 'func_admin'
+const dbPass = '8512930.Phat'
+const dbURL = process.env.MONGOLAB_URI || `mongodb://${dbUser}:${dbPass}@ds137827.mlab.com:37827/heroku_k0lzdg14`
+const dbName = 'heroku_k0lzdg14'
 // const dbLink = 'https://www.mlab.com/databases/heroku_k0lzdg14'
 
 /**
  * ATLAS Connect
  */
-const dbUser = 'admin'
-const dbPass = '3RAyTQWn3gWpM3z'
-const dbURL = process.env.MONGOLAB_URI || `mongodb+srv://${dbUser}:${dbPass}@cluster0-minps.gcp.mongodb.net/test?retryWrites=true&w=majority`
-const dbName = 'db_goodjobs'
+// const dbUser = 'admin'
+// const dbPass = '3RAyTQWn3gWpM3z'
+// const dbURL = process.env.MONGOLAB_URI || `mongodb+srv://${dbUser}:${dbPass}@cluster0-minps.gcp.mongodb.net/test?retryWrites=true&w=majority`
+// const dbName = 'db_goodjobs'
 // Link Atlas: https://cloud.mongodb.com/v2/5cf3a7479ccf64b1fca2bc91#clusters
 
 const userRouter = require('./routes/user.route')
