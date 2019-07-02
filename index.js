@@ -16,11 +16,23 @@ const mongoClient = require('mongodb').MongoClient
 const assert = require('assert')
 const passport = require('passport')
 
-const dbUser = 'func_admin'
-const dbPass = '8512930.Phat'
-const dbURL = process.env.MONGOLAB_URI || `mongodb://${dbUser}:${dbPass}@ds137827.mlab.com:37827/heroku_k0lzdg14`
-const dbName = 'heroku_k0lzdg14'
-const dbLink = 'https://www.mlab.com/databases/heroku_k0lzdg14'
+/**
+ * HEROKU Connect mLab
+ */
+// const dbUser = 'func_admin'
+// const dbPass = '8512930.Phat'
+// const dbURL = process.env.MONGOLAB_URI || `mongodb://${dbUser}:${dbPass}@ds137827.mlab.com:37827/heroku_k0lzdg14`
+// const dbName = 'heroku_k0lzdg14'
+// const dbLink = 'https://www.mlab.com/databases/heroku_k0lzdg14'
+
+/**
+ * ATLAS Connect
+ */
+const dbUser = 'admin'
+const dbPass = '3RAyTQWn3gWpM3z'
+const dbURL = process.env.MONGOLAB_URI || `mongodb+srv://${dbUser}:${dbPass}@cluster0-minps.gcp.mongodb.net/test?retryWrites=true&w=majority`
+const dbName = 'db_goodjobs'
+// Link Atlas: https://cloud.mongodb.com/v2/5cf3a7479ccf64b1fca2bc91#clusters
 
 const userRouter = require('./routes/user.route')
 const categoryRouter = require('./routes/category.route')
@@ -29,17 +41,16 @@ require('./config/passport')(passport)
 const goodjob = express()
 const log = console.log
 
-mongoClient.connect(dbURL, { useNewUrlParser: true })
-
 mongoClient.connect(dbURL, { useNewUrlParser: true }, (err, client) => {
     assert.equal(null, err)
-    log('Connected successfully to SERVER = ', dbLink)
+    log('Connected successfully to SERVER')
 
     const db = client.db(dbName)
     // insertUsers(db, () => {
-    //     findUsers(db, () => {
-    //         client.close()
-    //     })
+    //     client.close()
+    // })
+    // findUsers(db, () => {
+    //     client.close()
     // })
     client.close()
 })
@@ -62,7 +73,7 @@ mongoClient.connect(dbURL, { useNewUrlParser: true }, (err, client) => {
 
 // // Find All
 // const findUsers = (db, callback) => {
-//     const collection = db.collection('Users')
+//     const collection = db.collection('db_goodjobs')
 //     collection.find({}).toArray((err, users) => {
 //         assert.equal(err, null)
 //         log('Found the following records')
