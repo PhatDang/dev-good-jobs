@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Goodjob - Your job,Our mission</title>
+    <link rel="shortcut icon" type="images/png" href="images/logo.png" />
+    <link rel="stylesheet" href="/assets/css/reset.css">
+    <link rel="stylesheet" href="/assets/css/home.css">
+    <script src="https://kit.fontawesome.com/9d1259de98.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div class="header-content">
+                <div class="logo">
+                    <a href="/"><img src="/assets/images/lo.png" alt=""></a>
+                </div>
+                <div class="header-menu">
+                    <ul class="top-menu">
+                        <li><a href="">Việc Làm</a></li>
+                        <li><a href="">Công ty</a></li>
+                        <li><a href="">Diễn đàn</a></li>
+                    </ul>
+                </div>
+                <div class="category-btn">
+                    <a href="#"><button class="btn btn-secondary btn-small">Việc tìm người</button></a>
+                </div>
+                <div class="login">
+                    <span class="login-icon">
+                        <i class="fas fa-user-circle"></i>
+                    </span>
+                    <span class="login-link">
+<<<<<<< HEAD
+                        <a href="/signin">
+                            Đăng nhập / Đăng ký
+                        </a>
+=======
+                        <a href="#login_form">Đăng nhập / Đăng ký</a>
+>>>>>>> master
+                    </span>
+                </div>
+                <div class="box-modal">
+                    <div class="user-box" id="login_form">
+                        <div class="user-box-content">
+                            <ul>
+                                <li><a href="#">Đăng nhập</a></li>
+                                <li><a href="#signup_form">Đăng ký</a></li>
+                            </ul>
+                            <form action="">
+                            <h2>Đăng nhập tài khoản của bạn</h2>
+                            <div class="err_text">Hãy nhập số điện thoại của bạn</div>
+                            <input type="number" id="phone-number" placeholder="Số điện thoại" autofocus />
+                            <input type="password" id="pass-word" placeholder="Mật khẩu" />
+                            <p class="agree">Bằng cách nhấn vào nút Đăng Nhập là bạn đã đồng ý với <a href="#">các điều khoản</a> của chúng tôi</p>
+                            <div class="press">
+                                    <button class="btn btn-primary btn-normal" type="submit">Đăng nhập</button>
+                                    <a href="/nguoi-tim-viec" class="btn btn-normal">Thoát</a></div>
+                            <p class="forget">
+                                <a href="#">Quên mật khẩu của bạn</a>
+                            </p>
+                        </form>
+                        </div>
+                    </div>
+                    <div class="user-box" id="signup_form">
+                        <div class="user-box-content">
+                            <form action="">
+                            <input type="text" />
+                            <input type="password" />
+                            <input type="button" value="Đăng ký">
+                            </form>
+                         </div>
+                    </div>
+                </div>
+        </header>

@@ -30,7 +30,7 @@
                     <i class="fas fa-user"></i>
                 </span>
                 <span class="login-link">
-                    <a href="/user/sign-in">
+                    <a href="/signin">
                         Đăng nhập
                     </a>
                 </span>
@@ -42,7 +42,10 @@
                         <li id="signin-tab" class="tab active" onclick="tabSwitch(this);">
                                 <a href="#">Đăng nhập</a>
                                 <div class="tab-content">
-                                    <form action="/user/success" onsubmit="return clickSubmit()" class="login-form" method="POST">
+                                    <% if (message.length > 0) { %>
+                                        <div class="alert alert-danger"><%= message %></div>
+                                    <% } %>
+                                    <form action="/signin" name="signin-form" class="login-form" method="POST">
                                         <h3 class="login-title">Đăng nhập vào tài khoản của bạn</h3>
                                         <div class="messenger"></div>
                                         <input type="text" name ="phone" id="phone-log" placeholder="Your phone number">

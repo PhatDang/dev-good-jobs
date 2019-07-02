@@ -1,12 +1,30 @@
+/* eslint-disable no-alert */
+/* eslint-disable import/no-unresolved */
+/* eslint-disable no-console */
+/* eslint-disable object-curly-newline */
+
 const express = require('express')
 
 const router = express.Router()
-const ctrlUser = require('../controllers/user.controller')
+const passport = require('passport')
 
-router.get('/sign-in', ctrlUser.signIn)
+router.get('/signin', (req, res) => {
+    console.log('GET Success!!!')
+    res.render('users/signin', { message: req.flash('loginMessage') })
+})
 
-router.get('/sign-up', ctrlUser.signUp)
+router.post('/signin', passport.authenticate('local-login', {
+    failureRedirect: '/signin',
+}), (req, res) => {
+    res.render('/')
+})
+// router.post('/signin', (req, res) => {
+//     console.log('POST Success!!!')
+//     res.render('index')
+// })
 
-router.post('/success', ctrlUser.signInValid)
+router.get('/signup', (req, res) => {
+    res.render('users/signup')
+})
 
 module.exports = router
