@@ -17,6 +17,21 @@ const assert = require('assert')
 const passport = require('passport')
 
 /**
+ * === HEROKU Connect to PostgreSQL ===
+ * _URL: postgres://lgzundfwkqjugu:c4fb4d6b0be02759df3c05328d8a178147f48807755b830ecd70b4ee34f21011@ec2-23-21-160-38.compute-1.amazonaws.com:5432/dco5dhjabg1qmp
+ * _Host: ec2-23-21-160-38.compute-1.amazonaws.com
+ * _DB Name: dco5dhjabg1qmp
+ * _Port: 5432
+ * _Heroku CLI: heroku pg:psql postgresql-lively-76851 --app dev-good-jobs
+ * === Test User Login ===
+ * _User: 0707144248
+ * _Password: minhphat94
+ */
+ const dbUser = 'lgzundfwkqjugu'
+ const dbPass = 'c4fb4d6b0be02759df3c05328d8a178147f48807755b830ecd70b4ee34f21011'
+ const dbURL = process.env.MONGOLAB_URI || `postgres://${dbUser}:${dbPass}@ec2-23-21-160-38.compute-1.amazonaws.com:5432/dco5dhjabg1qmp`
+
+/**
  * HEROKU Connect mLab
  */
 const dbUser = 'func_admin'
