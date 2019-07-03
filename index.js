@@ -15,82 +15,18 @@ const flash = require('connect-flash')
 const mongoClient = require('mongodb').MongoClient
 const assert = require('assert')
 const passport = require('passport')
+const strategy = require('passport-local').Strategy
+const fs = require('fs')
+const goodjob = express();
+const log = console.log;
+goodjob.set('views', './views')
+goodjob.set('view engine', 'ejs')
 
-/**
- * HEROKU Connect mLab
- */
-const dbUser = 'func_admin'
-const dbPass = '8512930.Phat'
-const dbURL = process.env.MONGOLAB_URI || `mongodb://${dbUser}:${dbPass}@ds137827.mlab.com:37827/heroku_k0lzdg14`
-const dbName = 'heroku_k0lzdg14'
-// const dbLink = 'https://www.mlab.com/databases/heroku_k0lzdg14'
-
-/**
- * ATLAS Connect
- */
-// const dbUser = 'admin'
-// const dbPass = '3RAyTQWn3gWpM3z'
-// const dbURL = process.env.MONGOLAB_URI || `mongodb+srv://${dbUser}:${dbPass}@cluster0-minps.gcp.mongodb.net/test?retryWrites=true&w=majority`
-// const dbName = 'db_goodjobs'
-// Link Atlas: https://cloud.mongodb.com/v2/5cf3a7479ccf64b1fca2bc91#clusters
-
-const userRouter = require('./routes/user.route')
-const categoryRouter = require('./routes/category.route')
-require('./config/passport')(passport)
-
-const goodjob = express()
-const log = console.log
-
-mongoClient.connect(dbURL, { useNewUrlParser: true }, (err, client) => {
-    assert.equal(null, err)
-    log('Connected successfully to SERVER')
-
-    const db = client.db(dbName)
-    // insertUsers(db, () => {
-    //     client.close()
-    // })
-    // findUsers(db, () => {
-    //     client.close()
-    // })
-    client.close()
-})
-
-// Insert DB
-// const insertUsers = (db, callback) => {
-//     const collection = db.collection('Users')
-//     collection.insertMany([
-//         { id: 1 },
-//         { phoneID: '0707144248' },
-//         { password: '123456' },
-//     ], (err, result) => {
-//         assert.equal(err, null)
-//         assert.equal(3, result.result.n)
-//         assert.equal(3, result.ops.length)
-//         log('Inserted 3 Users into the collection')
-//         callback(result)
-//     })
-// }
-
-// // Find All
-// const findUsers = (db, callback) => {
-//     const collection = db.collection('db_goodjobs')
-//     collection.find({}).toArray((err, users) => {
-//         assert.equal(err, null)
-//         log('Found the following records')
-//         log(users)
-//         callback(users)
-//     })
-// }
-
-// For Mr.Phat: https://www.npmjs.com/package/mongodb
 
 goodjob.use(bodyParser.json())
 goodjob.use(bodyParser.urlencoded({
     extended: false,
 }))
-goodjob.use(expressValidator())
-goodjob.use(cookieParser())
-goodjob.use(morgan('tiny'))
 goodjob.use(session({
     secret: 'Ezko',
     resave: true,
@@ -105,13 +41,39 @@ goodjob.use(flash())
 goodjob.get('/', (req, res) => {
     res.render('index')
 })
-
-goodjob.set('views', './views')
-goodjob.set('view engine', 'ejs')
-
-goodjob.use('/', categoryRouter)
-goodjob.use('/', userRouter)
-
+goodjob.route('/signin')
+.get((req,res) => res.render('users/signin'))
+.post(passport.authenticate('local', {failureRedirect: '/signin', successRedirect: '/nguoi-tim-viec'}))
+passport.use(new strategy(
+    (username, password, done) => {
+        fs.readFile('./db/users.json', (err, data)=> {
+            const db = JSON.parse(data)
+            const userRecord = db.find(user => user.phoneID == username)
+            if(userRecord && userRecord.password == password) {
+                return done(null, userRecord)
+            } else {
+                return done(null, false)
+            }
+        })
+    }
+) )
+passport.serializeUser((user,done) => {
+    done(null, user.phoneID)
+})
+passport.deserializeUser((name,done) => {
+    fs.readFile('./db/users.json', (err, data) => {
+        const db = JSON.parse(data)
+        const userRecord = db.find(user => user.phoneID == name)
+        if(userRecord) {
+            return done(null, userRecord)
+        } else {
+            return done(null, false)
+        }
+    })
+    })
+goodjob.get('/nguoi-tim-viec', (req, res)=> {
+    res.render('category/findjob')
+})
 goodjob.use('/assets', express.static('static'))
 
 // Loading SERVER
