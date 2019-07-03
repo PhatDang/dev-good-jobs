@@ -22,6 +22,20 @@ const log = console.log;
 goodjob.set('views', './views')
 goodjob.set('view engine', 'ejs')
 
+/**
+ * === HEROKU Connect to PostgreSQL Addons of HEROKU ===
+ * _URL: postgres://lgzundfwkqjugu:c4fb4d6b0be02759df3c05328d8a178147f48807755b830ecd70b4ee34f21011@ec2-23-21-160-38.compute-1.amazonaws.com:5432/dco5dhjabg1qmp
+ * _Host: ec2-23-21-160-38.compute-1.amazonaws.com
+ * _DB Name: dco5dhjabg1qmp
+ * _Port: 5432
+ * _Heroku CLI: heroku pg:psql postgresql-lively-76851 --app dev-good-jobs
+ * === Test User Login ===
+ * _User: 0707144248
+ * _Password: minhphat94
+ */
+const dbUser = 'lgzundfwkqjugu'
+const dbPass = 'c4fb4d6b0be02759df3c05328d8a178147f48807755b830ecd70b4ee34f21011'
+const dbURL = process.env.MONGOLAB_URI || `postgres://${dbUser}:${dbPass}@ec2-23-21-160-38.compute-1.amazonaws.com:5432/dco5dhjabg1qmp`
 
 goodjob.use(bodyParser.json())
 goodjob.use(bodyParser.urlencoded({
@@ -31,7 +45,9 @@ goodjob.use(session({
     secret: 'Ezko',
     resave: true,
     saveUninitialized: false,
-    cookie: { secure: false },
+    cookie: {
+        secure: false
+    },
 }))
 goodjob.use(passport.initialize())
 goodjob.use(passport.session())
@@ -42,36 +58,39 @@ goodjob.get('/', (req, res) => {
     res.render('index')
 })
 goodjob.route('/signin')
-.get((req,res) => res.render('users/signin'))
-.post(passport.authenticate('local', {failureRedirect: '/signin', successRedirect: '/nguoi-tim-viec'}))
+    .get((req, res) => res.render('users/signin'))
+    .post(passport.authenticate('local', {
+        failureRedirect: '/signin',
+        successRedirect: '/nguoi-tim-viec'
+    }))
 passport.use(new strategy(
     (username, password, done) => {
-        fs.readFile('./db/users.json', (err, data)=> {
+        fs.readFile('./db/users.json', (err, data) => {
             const db = JSON.parse(data)
             const userRecord = db.find(user => user.phoneID == username)
-            if(userRecord && userRecord.password == password) {
+            if (userRecord && userRecord.password == password) {
                 return done(null, userRecord)
             } else {
                 return done(null, false)
             }
         })
     }
-) )
-passport.serializeUser((user,done) => {
+))
+passport.serializeUser((user, done) => {
     done(null, user.phoneID)
 })
-passport.deserializeUser((name,done) => {
+passport.deserializeUser((name, done) => {
     fs.readFile('./db/users.json', (err, data) => {
         const db = JSON.parse(data)
         const userRecord = db.find(user => user.phoneID == name)
-        if(userRecord) {
+        if (userRecord) {
             return done(null, userRecord)
         } else {
             return done(null, false)
         }
     })
-    })
-goodjob.get('/nguoi-tim-viec', (req, res)=> {
+})
+goodjob.get('/nguoi-tim-viec', (req, res) => {
     res.render('category/findjob')
 })
 goodjob.use('/assets', express.static('static'))
