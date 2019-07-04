@@ -15,10 +15,11 @@ const flash = require('connect-flash')
 const mongoClient = require('mongodb').MongoClient
 const assert = require('assert')
 const passport = require('passport')
-const strategy = require('passport-local').Strategy
+const Strategy = require('passport-local').Strategy
 const fs = require('fs')
-const goodjob = express();
-const log = console.log;
+
+const goodjob = express()
+const log = console.log
 goodjob.set('views', './views')
 goodjob.set('view engine', 'ejs')
 
@@ -46,7 +47,7 @@ goodjob.use(session({
     resave: true,
     saveUninitialized: false,
     cookie: {
-        secure: false
+        secure: false,
     },
 }))
 goodjob.use(passport.initialize())
@@ -61,20 +62,20 @@ goodjob.route('/signin')
     .get((req, res) => res.render('users/signin'))
     .post(passport.authenticate('local', {
         failureRedirect: '/signin',
-        successRedirect: '/nguoi-tim-viec'
+        successRedirect: '/nguoi-tim-viec',
     }))
-passport.use(new strategy(
+passport.use(new Strategy(
     (username, password, done) => {
         fs.readFile('./db/users.json', (err, data) => {
             const db = JSON.parse(data)
-            const userRecord = db.find(user => user.phoneID == username)
-            if (userRecord && userRecord.password == password) {
-                return done(null, userRecord)
+            const userRecord = db.find(user => user.phoneID === username)
+            if (userRecord && userRecord.password === password) {
+                done(null, userRecord)
             } else {
-                return done(null, false)
+                done(null, false)
             }
         })
-    }
+    },
 ))
 passport.serializeUser((user, done) => {
     done(null, user.phoneID)
@@ -82,11 +83,11 @@ passport.serializeUser((user, done) => {
 passport.deserializeUser((name, done) => {
     fs.readFile('./db/users.json', (err, data) => {
         const db = JSON.parse(data)
-        const userRecord = db.find(user => user.phoneID == name)
+        const userRecord = db.find(user => user.phoneID === name)
         if (userRecord) {
-            return done(null, userRecord)
+            done(null, userRecord)
         } else {
-            return done(null, false)
+            done(null, false)
         }
     })
 })
