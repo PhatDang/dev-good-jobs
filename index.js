@@ -87,7 +87,7 @@ passport.use(new Strategy(
     (username, password, done) => {
         fs.readFile('./db/users.json', (err, data) => {
             const db = JSON.parse(data)
-            const userRecord = db.find(user => user.phoneID === username)
+            const userRecord = db.find(user => user.phone_id === username)
             if (userRecord && userRecord.password === password) {
                 done(null, userRecord)
             } else {
@@ -97,12 +97,12 @@ passport.use(new Strategy(
     },
 ))
 passport.serializeUser((user, done) => {
-    done(null, user.phoneID)
+    done(null, user.phone_id)
 })
 passport.deserializeUser((name, done) => {
     fs.readFile('./db/users.json', (err, data) => {
         const db = JSON.parse(data)
-        const userRecord = db.find(user => user.phoneID === name)
+        const userRecord = db.find(user => user.phone_id === name)
         if (userRecord) {
             done(null, userRecord)
         } else {

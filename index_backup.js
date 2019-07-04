@@ -60,7 +60,7 @@ mongoClient.connect(dbURL, { useNewUrlParser: true }, (err, client) => {
 //     const collection = db.collection('Users')
 //     collection.insertMany([
 //         { id: 1 },
-//         { phoneID: '0707144248' },
+//         { phone_id: '0707144248' },
 //         { password: '123456' },
 //     ], (err, result) => {
 //         assert.equal(err, null)

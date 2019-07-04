@@ -14,11 +14,11 @@ module.exports = (passport) => {
         })
     })
     passport.use('local-login', new LocalStrategy({
-        phoneidField: 'phoneID',
+        phoneidField: 'phone_id',
         passwordField: 'password',
         passReqToCallback: true,
-    }, (req, phoneID, password, done) => {
-        User.findOne({ 'local.phoneID': phoneID }, (err, user) => {
+    }, (req, phoneid, password, done) => {
+        User.findOne({ 'local.phone_id': phoneid }, (err, user) => {
             if (err) { done(err) }
             if (!user) { done(null, false, req.flash('loginMessage', 'No phone number found.')) }
             if (!user.validPassword(password)) { done(null, false, req.flash('loginMessage', 'Oops! Wrong password.')) }
