@@ -31,13 +31,32 @@ goodjob.set('view engine', 'ejs')
  * _Port: 5432
  * _Heroku CLI: heroku pg:psql postgresql-lively-76851 --app dev-good-jobs
  * === Test User Login ===
- * _User: 0707144248
- * _Password: minhphat94
+ * _User: 0707144248 (phone_id)
+ * _Password: minhphat94 (password)
  */
+const dbHost = 'ec2-23-21-160-38.compute-1.amazonaws.com'
+const dbName = 'dco5dhjabg1qmp'
 const dbUser = 'lgzundfwkqjugu'
 const dbPass = 'c4fb4d6b0be02759df3c05328d8a178147f48807755b830ecd70b4ee34f21011'
-const dbURL = process.env.MONGOLAB_URI || `postgres://${dbUser}:${dbPass}@ec2-23-21-160-38.compute-1.amazonaws.com:5432/dco5dhjabg1qmp`
+const dbURL = `postgres://${dbUser}:${dbPass}@ec2-23-21-160-38.compute-1.amazonaws.com:5432/dco5dhjabg1qmp`
+// ============================================ TEST
+const pg = require('pg')
 
+const dbConfig = {
+    user: dbUser,
+    database: dbName,
+    password: dbPass,
+    host: dbHost,
+    port: 5432,
+    max: 10,
+    idleTimeoutMillis: 30000,
+    ssl: true,
+}
+
+const client = new pg.Client(dbConfig)
+client.connect().then(() => console.log('Connected Successful!!!'))
+client.query('SELECT * FROM users').then(result => console.log(result))
+// ============================================
 goodjob.use(bodyParser.json())
 goodjob.use(bodyParser.urlencoded({
     extended: false,
