@@ -97,22 +97,21 @@ header {
     box-shadow: 1px -1px 8px #ccc;
 }
 /* Login-signup-modal*/
-.user-box {
-    display: none;
+.modal {
+	display:none;
+    position: fixed;
+    z-index: 1;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
-    overflow: auto;  
-    background-color: rgba(0, 0, 0, 0.4);
-  }
-  .user-box:target {
-    display: block;
-    position: absolute;
-  }
-  .user-box-content {
-    width: 500px;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content  {
     /* min-height: 550px; */
+    width: 500px;
     position: absolute;
     left:50%;
     top: 50%;
@@ -120,78 +119,90 @@ header {
     background: #fff;
     box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.8);
     border: solid 1px #b7b7b7;
-    animation: user-box 200ms;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
   }
-  .user-box-content ul {
+  .animate {
+    animation: user-box 100ms;
+  }
+  .modal ul {
       width: 100%;
       display: flex;
+      position: absolute;
+      top: 0;
+      left:0;
   }
-  .user-box-content ul li {
+  .modal ul li {
     flex-basis: 50%;
     padding: 14px 0;
     box-sizing: border-box;
     text-align: center;
     font-size: 24px;
   }
-  .user-box-content ul li:last-child {
+  #login_form ul li:last-child {
     border: 1px solid #b7b7b7;
     background: #d7d7d7;
     border-right: none;
     border-top:none;
   }
-  .user-box-content form {
-    width: 80%;
-    padding: 50px;
+  #reg_form ul li:first-child {
+    border: 1px solid #b7b7b7;
+    background: #d7d7d7;
+    border-right: none;
+    border-top:none;
   }
-  .user-box .err_text {
+  .modal form {
+    padding: 20px;
+  }
+  .modal .err_text {
       color: #d42a2a;
       padding: 10px 0;
       display: none;
   }
-  .user-box .agree {
+  .modal .agree {
+      width: 80%;
       text-align: center;
       padding: 12px 0;
   }
-  .user-box .agree a {
+  .modal .agree a {
     font-weight: 700;
   }
-  .user-box p a {
+  .modal p a {
       color: #ff9900;
   }
-  .user-box p.forget:hover {
+  .modal p.forget:hover {
     text-decoration: underline;
 }
-  .user-box-content h2 {
+  .modal h2 {
     font-stretch: normal;
     font-weight: 100;
-    margin: 10px 0 60px 0;
+    margin: 100px 0 60px 0;
     font-size: 27px;
     text-align: center;
     color: #000000;
   }
-  .user-box-content input {
+  .modal input {
     font-size: 16px;
     color:#000000;
     display: block;
-    width: 356px;
+    width: 80%;
     border: 1px solid #000000;
     margin: 12px 0;
     padding: 15px 21px;
     outline: none;
   }
-  .user-box-content input[type=number]::-webkit-inner-spin-button, 
-  .user-box-content input[type=number]::-webkit-outer-spin-button { 
+  .modal input[type=number]::-webkit-inner-spin-button, 
+  .modal input[type=number]::-webkit-outer-spin-button { 
   -webkit-appearance: none; 
 
 }
-  .user-box-content input ::placeholder {
+  .modal input ::placeholder {
     color: #b7b7b7;
   }
   .press {
+      width: 80%;
       margin: 30px 0;
   }
   .press a{

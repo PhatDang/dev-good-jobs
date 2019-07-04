@@ -27,17 +27,17 @@ const passport = require('passport')
  * _User: 0707144248
  * _Password: minhphat94
  */
- const dbUser = 'lgzundfwkqjugu'
- const dbPass = 'c4fb4d6b0be02759df3c05328d8a178147f48807755b830ecd70b4ee34f21011'
- const dbURL = process.env.MONGOLAB_URI || `postgres://${dbUser}:${dbPass}@ec2-23-21-160-38.compute-1.amazonaws.com:5432/dco5dhjabg1qmp`
+//  const dbUser = 'lgzundfwkqjugu'
+//  const dbPass = 'c4fb4d6b0be02759df3c05328d8a178147f48807755b830ecd70b4ee34f21011'
+//  const dbURL = process.env.MONGOLAB_URI || `postgres://${dbUser}:${dbPass}@ec2-23-21-160-38.compute-1.amazonaws.com:5432/dco5dhjabg1qmp`
 
 /**
  * HEROKU Connect mLab
  */
-const dbUser = 'func_admin'
-const dbPass = '8512930.Phat'
-const dbURL = process.env.MONGOLAB_URI || `mongodb://${dbUser}:${dbPass}@ds137827.mlab.com:37827/heroku_k0lzdg14`
-const dbName = 'heroku_k0lzdg14'
+// const dbUser = 'func_admin'
+// const dbPass = '8512930.Phat'
+// const dbURL = process.env.MONGOLAB_URI || `mongodb://${dbUser}:${dbPass}@ds137827.mlab.com:37827/heroku_k0lzdg14`
+// const dbName = 'heroku_k0lzdg14'
 // const dbLink = 'https://www.mlab.com/databases/heroku_k0lzdg14'
 
 /**
@@ -51,24 +51,24 @@ const dbName = 'heroku_k0lzdg14'
 
 const userRouter = require('./routes/user.route')
 const categoryRouter = require('./routes/category.route')
-require('./config/passport')(passport)
+// require('./config/passport')(passport)
 
 const goodjob = express()
 const log = console.log
 
-mongoClient.connect(dbURL, { useNewUrlParser: true }, (err, client) => {
-    assert.equal(null, err)
-    log('Connected successfully to SERVER')
+// mongoClient.connect(dbURL, { useNewUrlParser: true }, (err, client) => {
+//     assert.equal(null, err)
+//     log('Connected successfully to SERVER')
 
-    const db = client.db(dbName)
-    // insertUsers(db, () => {
-    //     client.close()
-    // })
-    // findUsers(db, () => {
-    //     client.close()
-    // })
-    client.close()
-})
+//     const db = client.db(dbName)
+//     // insertUsers(db, () => {
+//     //     client.close()
+//     // })
+//     // findUsers(db, () => {
+//     //     client.close()
+//     // })
+//     client.close()
+// })
 
 // Insert DB
 // const insertUsers = (db, callback) => {

@@ -27,3 +27,16 @@
 //         return true;
 //     }
 // }
+
+
+//Switch Box login and Reg modal
+const regElem = document.getElementById('reg-modal');
+const logInElem = document.getElementById('login-modal');
+function regModal() {
+    regElem .style.display='block';
+    logInElem.style.display='none';
+}
+function loginModal() {
+    logInElem.style.display='block';
+    regElem .style.display='none';
+}
