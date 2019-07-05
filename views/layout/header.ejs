@@ -75,10 +75,10 @@
                                         </select>
                                         <input type="text" id="fullname" name="fullname" placeholder="Họ và tên" />
                                         <input type="text" id="display-name" name="display-name" placeholder="Tên hiển thị" />
-                                        <input type="email" id="email" name="email" placeholder="Email" />
+                                        <input type="email" class="email" name="email" placeholder="Email" />
                                         <div class="input-group">
-                                            <input type="password" id="password" name="password" onfocus="showTips()" placeholder="Mật khẩu" />
-                                            <span><i class="fas fa-exclamation-circle"></i></span>
+                                            <input type="password" class="password" name="password" placeholder="Mật khẩu" />
+                                            <span><i class="fas fa-exclamation-circle" err="6"></i></span>
                                             <div class="tooltips">
                                                     <span><i class="fas fa-check-circle" err="1"></i> 6 kí tự trở lên</span>
                                                     <span><i class="fas fa-check-circle" err="2"></i> 1 kí tự số</span>
@@ -88,7 +88,7 @@
                                             </div>
                                         </div>
                                         <div class="input-group">
-                                             <input type="password" id="password" name="password2" placeholder="Nhập lại mật khẩu" />
+                                             <input type="password" class="password" name="password2" placeholder="Nhập lại mật khẩu" />
                                              <span><i err="7" class="fas fa-exclamation-circle"></i></span>
                                         </div>
                                         

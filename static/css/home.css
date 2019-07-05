@@ -98,7 +98,7 @@ header {
 }
 /* Login-signup-modal*/
 .modal {
-	display:none;
+	  display:none;
     position: fixed;
     z-index: 1;
     left: 0;
@@ -220,7 +220,7 @@ header {
     outline: none;
   }
 
-  #reg_form input[id="password"] {
+  #reg_form input[class="password"] {
     width: 350px;
   }
   .show {
