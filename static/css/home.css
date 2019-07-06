@@ -157,8 +157,6 @@ header {
   }
   .modal .err_text {
     color: #d42a2a;
-    padding: 10px 0;
-    display: none;
   }
   .modal .agree {
     width: 80%;
