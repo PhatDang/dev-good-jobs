@@ -87,12 +87,17 @@ h2 span.branch {
     outline: none;
     cursor: pointer;
     color: #fff;
+    background-color: #fff;
     box-shadow: 1px 1px 8px #8e8787;
-    background-image: linear-gradient(rgba(255,153,51,0.6), rgba(255,153,51,1));
+    background-image: linear-gradient( rgba(255, 153,0,.2), rgba(255, 153, 0, .5), rgba(255, 153, 0, 1));
 }
-/* .col-btn:hover {
-    background-image: linear-gradient(rgb(251, 126, 0), rgba(247,145,43,1));
-} */
+.col-btn:hover {
+    background-image:linear-gradient( rgba(255, 153, 0,1), rgba(255, 153, 0, .5), rgba(255, 153, 0, .2));
+}
+.col-btn:active {
+    background-color: #b7b7b7;
+    background-image: none;
+}
 img.icon {
     width: 1.5rem;
     padding: 8px;
