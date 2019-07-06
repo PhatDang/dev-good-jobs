@@ -7,15 +7,17 @@
     max-width: 1440px;
     margin: auto;
 }
+
 .block {
     max-width: 1000px;
     min-height: 800px;
     margin: 10px auto;
     display: flex;
     flex-direction: column;
-    justify-content:center;
+    justify-content: center;
     align-items: center;
 }
+
 /* ====== BLOCK NOTIFICATION ====== */
 h2.welcome-title {
     font-size: 1.8rem;
@@ -26,18 +28,21 @@ h2.welcome-title {
     user-select: none;
     margin-bottom: 10px;
 }
+
 .hm-title {
     position: relative;
 }
+
 .block img.logo {
     position: static;
-    top:-50%;
+    top: -50%;
     left: -10%;
     user-select: none;
     pointer-events: none;
     width: 200px;
     margin-bottom: 20px;
 }
+
 h2 span.branch {
     font-size: 2.8rem;
     font-weight: bold;
@@ -50,6 +55,7 @@ h2 span.branch {
     display: flex;
     flex-direction: row;
 }
+
 .hm-col {
     width: 400px;
     padding: 1.5rem;
@@ -62,20 +68,24 @@ h2 span.branch {
     box-shadow: 2px -2px 13px #8e8787;
     overflow: hidden;
 }
+
 .col-elem {
     display: flex;
     justify-content: center;
     align-items: center;
     margin: 20px;
 }
+
 .hm-col span {
     display: block;
     line-height: 20px;
     padding: 10px 0 12px 0;
 }
+
 .hm-col .far {
     color: #4cd137;
 }
+
 .col-btn {
     width: 300px;
     padding: 10px 0 10px 0;
@@ -83,24 +93,34 @@ h2 span.branch {
     font-weight: bold;
     border: none;
     border-radius: 30px;
-    text-transform:uppercase;
+    text-transform: uppercase;
     outline: none;
     cursor: pointer;
     color: #fff;
+    background-color: #fff;
     box-shadow: 1px 1px 8px #8e8787;
-    background-image: linear-gradient(rgba(255,153,51,0.6), rgba(255,153,51,1));
+    background-image: linear-gradient(rgba(255, 153, 0, .2), rgba(255, 153, 0, .5), rgba(255, 153, 0, 1));
 }
-/* .col-btn:hover {
-    background-image: linear-gradient(rgb(251, 126, 0), rgba(247,145,43,1));
-} */
+
+.col-btn:hover {
+    background-image: linear-gradient(rgba(255, 153, 0, 1), rgba(255, 153, 0, .5), rgba(255, 153, 0, .2));
+}
+
+.col-btn:active {
+    background-color: #b7b7b7;
+    background-image: none;
+}
+
 img.icon {
     width: 1.5rem;
     padding: 8px;
     float: left;
 }
+
 .clearfix {
     clear: both;
 }
+
 .col-info {
     padding-left: 10px;
 }

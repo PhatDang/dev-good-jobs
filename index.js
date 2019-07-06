@@ -3,119 +3,82 @@
 /* eslint-disable object-curly-newline */
 /* eslint-disable prefer-destructuring */
 /* eslint-disable no-unused-vars */
-
+// ===============================
 const express = require('express')
-
-const session = require('express-session')
-const expressValidator = require('express-validator')
-const bodyParser = require('body-parser')
 const morgan = require('morgan')
+const path = require('path')
 const cookieParser = require('cookie-parser')
+const bodyParser = require('body-parser')
+const expressHandlebars = require('express-handlebars')
+const expressValidator = require('express-validator')
 const flash = require('connect-flash')
-const mongoClient = require('mongodb').MongoClient
-const assert = require('assert')
+const dotenv = require('dotenv')
+const session = require('express-session')
+const mongoose = require('mongoose')
 const passport = require('passport')
-const Strategy = require('passport-local').Strategy
-const fs = require('fs')
 
-const goodjob = express()
+require('./config/passport')
+
+// CONNECT DB
+dotenv.config()
+const db = mongoose.connection
+const MongoStore = require('connect-mongo')(session)
+
+mongoose.Promise = global.Promise
+mongoose.connect(process.env.MONGODB_URI,
+    { useCreateIndex: true, useNewUrlParser: true })
+    .then(() => console.log('DB Connected: https://cloud.mongodb.com/v2/5cf3a7479ccf64b1fca2bc91#clusters'))
+db.on('error', (err) => {
+    console.log('BD connection error: ', err.message)
+})
+
 const log = console.log
-goodjob.set('views', './views')
-goodjob.set('view engine', 'ejs')
+const PORT = process.env.PORT || 2019
+const goodjob = express()
 
-/**
- * === HEROKU Connect to PostgreSQL Addons of HEROKU ===
- * _URL: postgres://lgzundfwkqjugu:c4fb4d6b0be02759df3c05328d8a178147f48807755b830ecd70b4ee34f21011@ec2-23-21-160-38.compute-1.amazonaws.com:5432/dco5dhjabg1qmp
- * _Host: ec2-23-21-160-38.compute-1.amazonaws.com
- * _DB Name: dco5dhjabg1qmp
- * _Port: 5432
- * _Heroku CLI: heroku pg:psql postgresql-lively-76851 --app dev-good-jobs
- * === Test User Login ===
- * _User: 0707144248 (phone_id)
- * _Password: minhphat94 (password)
- */
-const dbHost = 'ec2-23-21-160-38.compute-1.amazonaws.com'
-const dbName = 'dco5dhjabg1qmp'
-const dbUser = 'lgzundfwkqjugu'
-const dbPass = 'c4fb4d6b0be02759df3c05328d8a178147f48807755b830ecd70b4ee34f21011'
-const dbURL = `postgres://${dbUser}:${dbPass}@ec2-23-21-160-38.compute-1.amazonaws.com:5432/dco5dhjabg1qmp`
-// ============================================ TEST
-const pg = require('pg')
+goodjob.set('views', path.join(__dirname, 'views'))
+goodjob.engine('handlebars', expressHandlebars({ defaultLayout: 'layout' }))
+goodjob.set('view engine', 'handlebars')
 
-const dbConfig = {
-    user: dbUser,
-    database: dbName,
-    password: dbPass,
-    host: dbHost,
-    port: 5432,
-    max: 10,
-    idleTimeoutMillis: 30000,
-    ssl: true,
-}
-
-const client = new pg.Client(dbConfig)
-client.connect().then(() => console.log('Connected Successful!!!'))
-client.query('SELECT * FROM users').then(result => console.log(result))
-// ============================================
+goodjob.use(morgan('dev'))
 goodjob.use(bodyParser.json())
 goodjob.use(bodyParser.urlencoded({
     extended: false,
 }))
+goodjob.use(cookieParser())
+goodjob.use(express.static(path.join(__dirname, 'static')))
 goodjob.use(session({
     secret: 'Ezko',
-    resave: true,
+    resave: false,
     saveUninitialized: false,
     cookie: {
+        maxAge: 60000,
         secure: false,
     },
+    store: new MongoStore({ mongooseConnection: db }),
 }))
 goodjob.use(passport.initialize())
 goodjob.use(passport.session())
+goodjob.use(expressValidator())
+
 goodjob.use(flash())
+goodjob.use((req, res, next) => {
+    res.locals.success_messages = req.flash('success')
+    res.locals.error_messages = req.flash('error')
+    next()
+})
 
-// Path to Cotrollers, Routes, Views and Static
-goodjob.get('/', (req, res) => {
-    res.render('index')
-})
-goodjob.route('/signin')
-    .get((req, res) => res.render('users/signin'))
-    .post(passport.authenticate('local', {
-        failureRedirect: '/signin',
-        successRedirect: '/nguoi-tim-viec',
-    }))
-passport.use(new Strategy(
-    (username, password, done) => {
-        fs.readFile('./db/users.json', (err, data) => {
-            const db = JSON.parse(data)
-            const userRecord = db.find(user => user.phone_id === username)
-            if (userRecord && userRecord.password === password) {
-                done(null, userRecord)
-            } else {
-                done(null, false)
-            }
-        })
-    },
-))
-passport.serializeUser((user, done) => {
-    done(null, user.phone_id)
-})
-passport.deserializeUser((name, done) => {
-    fs.readFile('./db/users.json', (err, data) => {
-        const db = JSON.parse(data)
-        const userRecord = db.find(user => user.phone_id === name)
-        if (userRecord) {
-            done(null, userRecord)
-        } else {
-            done(null, false)
-        }
-    })
-})
-goodjob.get('/nguoi-tim-viec', (req, res) => {
-    res.render('category/findjob')
-})
-goodjob.use('/assets', express.static('static'))
+// GET ROUTER INDEX
+goodjob.use('/', require('./routes/index'))
 
-// Loading SERVER
-goodjob.listen(process.env.PORT || 2019, () => {
-    log('Your NODE.JS Server is running !!')
+// CATCH 404
+goodjob.use((req, res, next) => {
+    res.render('notFound')
 })
+
+// LOADING SERVER...
+goodjob.listen(PORT, () => {
+    log('SERVER STARTED LISTENING ON PORT 2019!')
+})
+
+module.exports = goodjob
