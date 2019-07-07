@@ -9,7 +9,6 @@
 const bcrypt = require('bcrypt')
 const User = require('../models/user')
 
-const errs = []
 exports.login = (req, res) => {
     User.findOne({ email: req.body.email }).exec((err, user, password) => {
         if (err) {
@@ -18,8 +17,6 @@ exports.login = (req, res) => {
             res.json({
                 err: 'Email hoặc mật khẩu không đúng',
             })
-            errs.push(err)
-            console.log(errs)
         }
         bcrypt.compare(req.body.password, user.password, (err, result) => {
             if (result === true) {

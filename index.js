@@ -26,7 +26,7 @@ const MongoStore = require('connect-mongo')(session)
 mongoose.Promise = global.Promise
 mongoose.connect(process.env.MONGODB_URI,
     { useCreateIndex: true, useNewUrlParser: true })
-    .then(() => console.log('DB Connected: https://cloud.mongodb.com/v2/5cf3a7479ccf64b1fca2bc91#clusters'))
+    .then(() => console.log('DB Connected!'))
 db.on('error', (err) => {
     console.log('BD connection error: ', err.message)
 })
@@ -70,8 +70,9 @@ goodjob.use((req, res, next) => {
 goodjob.use('/', require('./routes/index'))
 
 // CATCH 404
-goodjob.use((req, res, next) => {
-    res.render('notFound')
+goodjob.use((req, res) => {
+    console.log(req)
+    res.status(404).render('pages/404')
 })
 
 // LOADING SERVER...

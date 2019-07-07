@@ -11,9 +11,9 @@ module.exports = (passport) => {
         (req, email, password, done) => {
             console.log(req)
             User.findOne({ 'email': email }, (err, user) => {
-                if (err) { return done(err) }
-                if (!user) { return done(null, false) }
-                if (!user.verifyPassword(password)) { return done(null, false) }
+                if (err) { done(err) }
+                if (!user) { done(null, false) }
+                if (!user.verifyPassword(password)) { done(null, false) }
                 done(null, user)
             })
         },
