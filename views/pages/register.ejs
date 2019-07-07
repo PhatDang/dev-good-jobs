@@ -1,33 +1,77 @@
-{{> header}}
+<!DOCTYPE html></body>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Goodjobs</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <style>
+        header {
+        border-bottom: none;
+        box-shadow: none;
+}
+        .header-content {
+            height: 208px;
+            justify-content: center;
+            align-content: center;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <div class="header-content">
+        <div class="logo">
+            <a href="/"><img src="images/logo-login.png" alt="Good-Jobs"></a>
+        </div>
+</header>
 <main>
-    <form action="/register" method="POST">
-        <h2 class="form-signin-heading">Please sign up</h2>
+  
+<div id="reg-modal" class="modal">
+        <div id="reg_form">
+            <form enctype="multipart/form-data" action-type="register" action="/register" method="POST" class="modal-content">
+                <ul>
+                    <li>Đăng nhập</li>
+                    <li>Đăng ký</li>
+                </ul>
+                <h2>Đăng ký tài khoản của bạn</h2>
+                <div class="err_text"></div>
+                <select name="user_type">
+                    <option selected disabled hidden>Bạn là ?</option>
+                    <option class="option" value="nguoi-tim-viec">Người tìm việc</option>
+                    <option class="option" value="viec-tim-nguoi">Việc tìm người</option>
+                </select>
+                <input type="text" id="fullname" name="full_name" placeholder="Họ và tên" />
+                <input type="text" id="display-name" name="display_name" placeholder="Tên hiển thị" />
+                <input type="email" class="email" name="email" placeholder="Email" />
+                <div class="input-group">
+                    <input type="password" class="password" name="password" placeholder="Mật khẩu" />
+                    <span><i class="fas fa-exclamation-circle" err="6"></i></span>
+                    <div class="tooltips">
+                        <span><i class="fas fa-check-circle" err="1"></i> 6 kí tự trở lên</span>
+                        <span><i class="fas fa-check-circle" err="2"></i> 1 kí tự số</span>
+                        <span><i class="fas fa-check-circle" err="3"></i> 1 kí tự hoa</span>
+                        <span><i class="fas fa-check-circle" err="4"></i> 1 kí tự thường</span>
+                        <span><i class="fas fa-check-circle" err="5"></i> 1 kí tự đặc biệt</span>
+                    </div>
+                </div>
+                <div class="input-group">
+                    <input type="password" class="password" name="password_confirm" placeholder="Nhập lại mật khẩu" />
+                    <span><i err="7" class="fas fa-exclamation-circle"></i></span>
+                </div>
 
-        <select name="user_type">
-            <option selected disabled hidden>Bạn là ?</option>
-            <option class="option" value="nguoi-tim-viec">Người tìm việc</option>
-            <option class="option" value="viec-tim-nguoi">Việc tìm người</option>
-        </select>
-
-        <label for="inputEmail" class="sr-only">Email address</label>
-        <input type="email" id="inputEmail" name="email" class="form-control" placeholder="Email address" required
-            autofocus>
-
-        <label for="inputFullName" class="sr-only">Full Name</label>
-        <input type="text" id="inputFullName" name="full_name" class="form-control" placeholder="Full Name" required>
-
-        <label for="inputDisplayName" class="sr-only">Display Name</label>
-        <input type="text" id="inputDisplayName" name="display_name" class="form-control" placeholder="Display Name"
-            required>
-
-        <label for="inputPassword" class="sr-only">Password</label>
-        <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password" required>
-
-        <label for="inputConfirmPassword" class="sr-only">Confirm Password</label>
-        <input type="password" id="inputConfirmPassword" name="password_confirm" class="form-control"
-            placeholder="Confirm Password" required>
-        <br />
-        <button class="btn btn-lg btn-default btn-block" type="submit">Sign up</button>
-    </form>
+                <p class="agree">Bằng cách nhấn vào nút Đăng Ký là bạn đã đồng ý với <a href="#">các điều khoản</a>
+                    của chúng tôi</p>
+                <div class="press">
+                    <button class="btn btn-primary btn-normal" type="submit">Đăng ký</button>
+                    <a href="/viec-tim-nguoi" class="btn btn-normal">Thoát</a>
+                </div>
+            </form>
+        </div>
+    </div>
 </main>
-{{> footer}}
+<script src="js/main.js"></script>
+</body>
+</html>

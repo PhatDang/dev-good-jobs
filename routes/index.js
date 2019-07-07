@@ -34,11 +34,7 @@ router.post('/login', login)
 
 // GET REGISTER Page
 router.get('/register', (req, res) => {
-    if (req.session.user) {
-        res.redirect('/')
-    } else {
         res.render('pages/register')
-    }
 })
 router.post('/register', UserValidator, register)
 

@@ -19,17 +19,17 @@ const passport = require('passport')
 // require('./config/passport')
 
 // CONNECT DB
-dotenv.config()
-const db = mongoose.connection
-const MongoStore = require('connect-mongo')(session)
+// dotenv.config()
+// const db = mongoose.connection
+// const MongoStore = require('connect-mongo')(session)
 
-mongoose.Promise = global.Promise
-mongoose.connect(process.env.MONGODB_URI,
-    { useCreateIndex: true, useNewUrlParser: true })
-    .then(() => console.log('DB Connected!'))
-db.on('error', (err) => {
-    console.log('BD connection error: ', err.message)
-})
+// mongoose.Promise = global.Promise
+// mongoose.connect(process.env.MONGODB_URI,
+//     { useCreateIndex: true, useNewUrlParser: true })
+//     .then(() => console.log('DB Connected!'))
+// db.on('error', (err) => {
+//     console.log('BD connection error: ', err.message)
+// })
 
 const log = console.log
 const PORT = process.env.PORT || 2019
@@ -45,26 +45,26 @@ goodjob.use(bodyParser.urlencoded({
 }))
 goodjob.use(cookieParser())
 goodjob.use(express.static(path.join(__dirname, 'static')))
-goodjob.use(session({
-    secret: 'Ezko',
-    resave: false,
-    saveUninitialized: false,
-    cookie: {
-        maxAge: 60000,
-        secure: false,
-    },
-    store: new MongoStore({ mongooseConnection: db }),
-}))
+// goodjob.use(session({
+//     secret: 'Ezko',
+//     resave: false,
+//     saveUninitialized: false,
+//     cookie: {
+//         maxAge: 60000,
+//         secure: false,
+//     },
+//     store: new MongoStore({ mongooseConnection: db }),
+// }))
 goodjob.use(passport.initialize())
 goodjob.use(passport.session())
 goodjob.use(expressValidator())
 
 goodjob.use(flash())
-goodjob.use((req, res, next) => {
-    res.locals.success_messages = req.flash('success')
-    res.locals.error_messages = req.flash('error')
-    next()
-})
+// goodjob.use((req, res, next) => {
+//     res.locals.success_messages = req.flash('success')
+//     res.locals.error_messages = req.flash('error')
+//     next()
+// })
 
 // GET ROUTER INDEX
 goodjob.use('/', require('./routes/index'))
