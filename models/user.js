@@ -1,24 +1,22 @@
+/* eslint-disable object-curly-newline */
+// ===============================
 const mongoose = require('mongoose')
-const bcrypt = require('bcrypt-nodejs')
 
-const userSchema = mongoose.Schema({
-    local: {
-        id: mongoose.Schema.Types.ObjectId,
-        phone_id: String,
-        password: String,
+const { Schema } = mongoose
+
+const userSchema = new Schema({
+    user_type: { type: String, required: true, trim: true },
+    full_name: { type: String, required: true, trim: true, maxlength: 250 },
+    display_name: { type: String, required: true, trim: true, maxlength: 50 },
+    email: { type: String, unique: true, required: true, trim: true },
+    password: { type: String, required: true, trim: true, minlength: 6 },
+    password_confirm: { type: String, required: true, trim: true, minlength: 6 },
+}, {
+    timestamps: {
+        createdAt: 'createdAt',
+        updatedAt: 'updatedAt',
     },
 })
 
-/**
- * METHODS
- */
-// Hash Password
-userSchema.methods.generateHash = (password) => {
-    bcrypt.hashSync(password, bcrypt.genSaltSync(6), null)
-}
-// Check Password
-userSchema.methods.validPassword = (password) => {
-    bcrypt.compareSync(password, this.local.password)
-}
-
-module.exports = mongoose.model('User', userSchema)
+const User = mongoose.model('user', userSchema)
+module.exports = User
