@@ -20,7 +20,7 @@ router.get('/viec-tim-nguoi', (req, res) => {
 
 // GET LOGIN Page
 router.get('/login', (req, res) => {
-    res.render('login')
+    res.render('pages/login')
 })
 router.post('/login', login)
 

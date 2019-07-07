@@ -9,7 +9,6 @@ const morgan = require('morgan')
 const path = require('path')
 const cookieParser = require('cookie-parser')
 const bodyParser = require('body-parser')
-const expressHandlebars = require('express-handlebars')
 const expressValidator = require('express-validator')
 const flash = require('connect-flash')
 const dotenv = require('dotenv')
@@ -37,8 +36,7 @@ const PORT = process.env.PORT || 2019
 const goodjob = express()
 
 goodjob.set('views', path.join(__dirname, 'views'))
-goodjob.engine('handlebars', expressHandlebars({ defaultLayout: 'layout' }))
-goodjob.set('view engine', 'handlebars')
+goodjob.set('view engine', 'ejs')
 
 goodjob.use(morgan('dev'))
 goodjob.use(bodyParser.json())

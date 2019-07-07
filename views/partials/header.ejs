@@ -51,13 +51,13 @@
                     </ul>
                     <h2>Đăng ký tài khoản của bạn</h2>
                     <div class="err_text"></div>
-                    <select>
+                    <select name="user_type">
                         <option selected disabled hidden>Bạn là ?</option>
                         <option class="option" value="nguoi-tim-viec">Người tìm việc</option>
                         <option class="option" value="viec-tim-nguoi">Việc tìm người</option>
                     </select>
-                    <input type="text" id="fullname" name="fullname" placeholder="Họ và tên" />
-                    <input type="text" id="display-name" name="display-name" placeholder="Tên hiển thị" />
+                    <input type="text" id="fullname" name="full_name" placeholder="Họ và tên" />
+                    <input type="text" id="display-name" name="display_name" placeholder="Tên hiển thị" />
                     <input type="email" class="email" name="email" placeholder="Email" />
                     <div class="input-group">
                         <input type="password" class="password" name="password" placeholder="Mật khẩu" />
@@ -71,7 +71,7 @@
                         </div>
                     </div>
                     <div class="input-group">
-                        <input type="password" class="password" name="password2" placeholder="Nhập lại mật khẩu" />
+                        <input type="password" class="password" name="password_confirm" placeholder="Nhập lại mật khẩu" />
                         <span><i err="7" class="fas fa-exclamation-circle"></i></span>
                     </div>
 

@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 /* eslint-disable quote-props */
 /* eslint-disable quotes */
 /* eslint-disable object-shorthand */
@@ -8,16 +9,22 @@
 const bcrypt = require('bcrypt')
 const User = require('../models/user')
 
+const errs = []
 exports.login = (req, res) => {
-    User.findOne({ email: req.body.email }).exec((err, user) => {
+    User.findOne({ email: req.body.email }).exec((err, user, password) => {
         if (err) {
             res.json({ err })
         } else if (!user) {
-            res.json({ err: 'Email hoặc mật khẩu không đúng' })
+            res.json({
+                err: 'Email hoặc mật khẩu không đúng',
+            })
+            errs.push(err)
+            console.log(errs)
         }
         bcrypt.compare(req.body.password, user.password, (err, result) => {
             if (result === true) {
                 req.session.user = user
+                req.session.password = password
                 res.json({
                     user: user,
                     "login": "success",
