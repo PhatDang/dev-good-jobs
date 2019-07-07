@@ -15,57 +15,47 @@ const dotenv = require('dotenv')
 const session = require('express-session')
 const mongoose = require('mongoose')
 const passport = require('passport')
-
-// require('./config/passport')
-
-// CONNECT DB
-dotenv.config()
-const db = mongoose.connection
-const MongoStore = require('connect-mongo')(session)
-
-mongoose.Promise = global.Promise
-mongoose.connect(process.env.MONGODB_URI,
-    { useCreateIndex: true, useNewUrlParser: true })
-    .then(() => console.log('DB Connected!'))
-db.on('error', (err) => {
-    console.log('BD connection error: ', err.message)
-})
-
+//Defind
 const log = console.log
 const PORT = process.env.PORT || 2019
 const goodjob = express()
-
+//db config
+const db = require('./config/keys').MongoURL
+//passport config
+require('./config/passport')(passport)
+//Connect to db
+mongoose.connect(db, {useNewUrlParser:true})
+.then(() => log("connected"))
+.catch(() => log("err"))
+//EJS
 goodjob.set('views', path.join(__dirname, 'views'))
 goodjob.set('view engine', 'ejs')
-
+//Bodyparser
 goodjob.use(morgan('dev'))
 goodjob.use(bodyParser.json())
+goodjob.use(express.urlencoded({extended:false}))
 goodjob.use(bodyParser.urlencoded({
     extended: false,
 }))
 goodjob.use(cookieParser())
 goodjob.use(express.static(path.join(__dirname, 'static')))
+//Session
 goodjob.use(session({
-    secret: 'Ezko',
-    resave: false,
-    saveUninitialized: false,
-    cookie: {
-        maxAge: 60000,
-        secure: false,
-    },
-    store: new MongoStore({ mongooseConnection: db }),
-}))
-goodjob.use(passport.initialize())
-goodjob.use(passport.session())
-goodjob.use(expressValidator())
-
+    secret: 'Duclux',
+    resave: true,
+    saveUninitialized: true,
+  }))
+//Passport defind
+goodjob.use(passport.initialize());
+goodjob.use(passport.session());
+//Flash
 goodjob.use(flash())
-goodjob.use((req, res, next) => {
-    res.locals.success_messages = req.flash('success')
-    res.locals.error_messages = req.flash('error')
+//Defind func
+goodjob.use((req, res,next) => {
+    res.locals.sucess_msg = req.flash('success_msg');
+    res.locals.err_msg = req.flash('error_msg')
     next()
 })
-
 // GET ROUTER INDEX
 goodjob.use('/', require('./routes/index'))
 

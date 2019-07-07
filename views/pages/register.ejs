@@ -1,33 +1,59 @@
-{{> header}}
-<main>
-    <form action="/register" method="POST">
-        <h2 class="form-signin-heading">Please sign up</h2>
-
-        <select name="user_type">
-            <option selected disabled hidden>Bạn là ?</option>
-            <option class="option" value="nguoi-tim-viec">Người tìm việc</option>
-            <option class="option" value="viec-tim-nguoi">Việc tìm người</option>
-        </select>
-
-        <label for="inputEmail" class="sr-only">Email address</label>
-        <input type="email" id="inputEmail" name="email" class="form-control" placeholder="Email address" required
-            autofocus>
-
-        <label for="inputFullName" class="sr-only">Full Name</label>
-        <input type="text" id="inputFullName" name="full_name" class="form-control" placeholder="Full Name" required>
-
-        <label for="inputDisplayName" class="sr-only">Display Name</label>
-        <input type="text" id="inputDisplayName" name="display_name" class="form-control" placeholder="Display Name"
-            required>
-
-        <label for="inputPassword" class="sr-only">Password</label>
-        <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password" required>
-
-        <label for="inputConfirmPassword" class="sr-only">Confirm Password</label>
-        <input type="password" id="inputConfirmPassword" name="password_confirm" class="form-control"
-            placeholder="Confirm Password" required>
-        <br />
-        <button class="btn btn-lg btn-default btn-block" type="submit">Sign up</button>
-    </form>
-</main>
-{{> footer}}
+<% if(typeof errors != 'undefined'){ %> <% errors.forEach(function(error) { %>
+    <div>
+        <%= error.msg %>
+    </div>
+    <% }); %> <% } %> 
+        <form action="/register" method="POST">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input
+              type="name"
+              id="name"
+              name="name"
+              class="form-control"
+              placeholder="Enter Name"
+              value="<%= typeof name != 'undefined' ? name : '' %>"
+            />
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              class="form-control"
+              placeholder="Enter Email"
+              value="<%= typeof email != 'undefined' ? email : '' %>"
+            />
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              class="form-control"
+              placeholder="Create Password"
+              value="<%= typeof password != 'undefined' ? password : '' %>"
+            />
+          </div>
+          <div class="form-group">
+            <label for="password2">Confirm Password</label>
+            <input
+              type="password"
+              id="password2"
+              name="password2"
+              class="form-control"
+              placeholder="Confirm Password"
+              value="<%= typeof password2 != 'undefined' ? password2 : '' %>"
+            />
+          </div>
+          <button type="submit" class="btn btn-primary btn-block">
+            Register
+          </button>
+        </form>
+        <p class="lead"> <a href="/login">Login</a></p>
+      </div>
+    </div>
+  </div>
+  

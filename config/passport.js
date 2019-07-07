@@ -4,18 +4,29 @@
 /* eslint-disable object-curly-newline */
 // ===============================
 const LocalStrategy = require('passport').Strategy
+const bcrypt = require('bcryptjs')
 const User = require('../models/user')
 
-module.exports = (passport) => {
-    passport.use(new LocalStrategy(
-        (req, email, password, done) => {
-            console.log(req)
-            User.findOne({ 'email': email }, (err, user) => {
-                if (err) { done(err) }
-                if (!user) { done(null, false) }
-                if (!user.verifyPassword(password)) { done(null, false) }
-                done(null, user)
-            })
-        },
-    ))
+
+module.exports = function(passport) {
+    passport.use('local', new LocalStrategy({username: 'email'}, (email,password,done) => {
+         User.findOne({email: email})
+         .then(user => {
+             if(!user) {
+                 return done(null, false, {message: "email này chưa được đăng kí"})
+             }
+             //If user regedited ==> match password
+             bcrypt.compare(password, user.password, (err, isMatch) => {
+                if(err) return done(err)
+                if(isMatch) {
+                     return done(null, user)
+                 } else {
+                     return done(null, false, {message: "Có gì đó ko đúng, kiểm tra lại"})
+                 }
+             })
+         })
+         .catch(err => console.log("err"))
+    }
+))
+
 }
