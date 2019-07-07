@@ -32,3 +32,68 @@ const client = new pg.Client(dbConfig)
 client.connect().then(() => console.log('Connected Successful!!!'))
 client.query('SELECT * FROM users').then(result => console.log(result))
 // ============================================
+/**
+ * HEROKU Connect mLab
+ */
+const dbUser = 'func_admin'
+const dbPass = '8512930.Phat'
+const dbURL = process.env.MONGOLAB_URI || `mongodb://${dbUser}:${dbPass}@ds137827.mlab.com:37827/heroku_k0lzdg14`
+const dbName = 'heroku_k0lzdg14'
+// const dbLink = 'https://www.mlab.com/databases/heroku_k0lzdg14'
+
+/**
+ * ATLAS Connect
+ */
+// const dbUser = 'admin'
+// const dbPass = '3RAyTQWn3gWpM3z'
+// const dbURL = process.env.MONGOLAB_URI || `mongodb+srv://${dbUser}:${dbPass}@cluster0-minps.gcp.mongodb.net/test?retryWrites=true&w=majority`
+// const dbName = 'db_goodjobs'
+// Link Atlas: https://cloud.mongodb.com/v2/5cf3a7479ccf64b1fca2bc91#clusters
+
+const userRouter = require('./routes/user.route')
+const categoryRouter = require('./routes/category.route')
+require('./config/passport')(passport)
+
+const goodjob = express()
+const log = console.log
+
+mongoClient.connect(dbURL, { useNewUrlParser: true }, (err, client) => {
+    assert.equal(null, err)
+    log('Connected successfully to SERVER')
+
+    const db = client.db(dbName)
+    // insertUsers(db, () => {
+    //     client.close()
+    // })
+    // findUsers(db, () => {
+    //     client.close()
+    // })
+    client.close()
+})
+
+// Insert DB
+// const insertUsers = (db, callback) => {
+//     const collection = db.collection('Users')
+//     collection.insertMany([
+//         { id: 1 },
+//         { phone_id: '0707144248' },
+//         { password: '123456' },
+//     ], (err, result) => {
+//         assert.equal(err, null)
+//         assert.equal(3, result.result.n)
+//         assert.equal(3, result.ops.length)
+//         log('Inserted 3 Users into the collection')
+//         callback(result)
+//     })
+// }
+
+// // Find All
+// const findUsers = (db, callback) => {
+//     const collection = db.collection('db_goodjobs')
+//     collection.find({}).toArray((err, users) => {
+//         assert.equal(err, null)
+//         log('Found the following records')
+//         log(users)
+//         callback(users)
+//     })
+// }

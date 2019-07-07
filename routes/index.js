@@ -18,11 +18,13 @@ router.get('/viec-tim-nguoi', (req, res) => {
     res.render('category/createjob')
 })
 
+// GET LOGIN Page
 router.get('/login', (req, res) => {
     res.render('login')
 })
 router.post('/login', login)
 
+// GET REGISTER Page
 router.get('/register', (req, res) => {
     if (req.session.user) {
         res.redirect('/')

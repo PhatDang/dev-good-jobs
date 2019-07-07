@@ -17,7 +17,7 @@ const session = require('express-session')
 const mongoose = require('mongoose')
 const passport = require('passport')
 
-require('./config/passport')
+// require('./config/passport')
 
 // CONNECT DB
 dotenv.config()
