@@ -9,24 +9,20 @@ const morgan = require('morgan')
 const path = require('path')
 const cookieParser = require('cookie-parser')
 const bodyParser = require('body-parser')
-const expressValidator = require('express-validator')
 const flash = require('connect-flash')
 const dotenv = require('dotenv')
 const session = require('express-session')
 const mongoose = require('mongoose')
 const passport = require('passport')
 
-// require('./config/passport')
+require('./config/passport')(passport)
 
 // CONNECT DB
 dotenv.config()
-const db = mongoose.connection
-const MongoStore = require('connect-mongo')(session)
-
-mongoose.Promise = global.Promise
 mongoose.connect(process.env.MONGODB_URI,
     { useCreateIndex: true, useNewUrlParser: true })
     .then(() => console.log('DB Connected!'))
+const db = mongoose.connection
 db.on('error', (err) => {
     console.log('BD connection error: ', err.message)
 })
@@ -48,21 +44,18 @@ goodjob.use(express.static(path.join(__dirname, 'static')))
 goodjob.use(session({
     secret: 'Ezko',
     resave: false,
-    saveUninitialized: false,
+    saveUninitialized: true,
     cookie: {
         maxAge: 60000,
         secure: false,
     },
-    store: new MongoStore({ mongooseConnection: db }),
 }))
 goodjob.use(passport.initialize())
 goodjob.use(passport.session())
-goodjob.use(expressValidator())
-
 goodjob.use(flash())
 goodjob.use((req, res, next) => {
-    res.locals.success_messages = req.flash('success')
-    res.locals.error_messages = req.flash('error')
+    res.locals.success_messages = req.flash('success_msg')
+    res.locals.error_messages = req.flash('error_msg')
     next()
 })
 
@@ -70,9 +63,11 @@ goodjob.use((req, res, next) => {
 goodjob.use('/', require('./routes/index'))
 
 // CATCH 404
-goodjob.use((req, res) => {
+goodjob.use((req, res, next) => {
     console.log(req)
+    const err = new Error('404')
     res.status(404).render('pages/404')
+    next(err)
 })
 
 // LOADING SERVER...

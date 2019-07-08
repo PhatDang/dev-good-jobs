@@ -1,11 +1,16 @@
+/* eslint-disable no-console */
+/* eslint-disable camelcase */
+/* eslint-disable no-unused-vars */
 /* eslint-disable object-curly-newline */
 // ===============================
 const express = require('express')
 
 const router = express.Router()
+const passport = require('passport')
 
-const { register, login } = require('../controllers/userController')
-const { UserValidator } = require('../controllers/validator')
+const User = require('../models/user')
+// const { register, login } = require('../controllers/userController')
+// const { UserValidator } = require('../controllers/validator')
 
 exports.isAuthenticated = (req, res, next) => {
     if (req.user && req.isAuthenticated()) {
@@ -14,24 +19,19 @@ exports.isAuthenticated = (req, res, next) => {
     res.redirect('/login')
 }
 
-// Get FIRST Page
+// GET FIRST Page
 router.get('/', (req, res) => {
     res.render('layouts/layout')
 })
 
+// GET USER Type
 router.get('/nguoi-tim-viec', (req, res) => {
     res.render('pages/findjob')
 })
 router.get('/viec-tim-nguoi', (req, res) => {
     res.render('pages/createjob')
 })
-
-// GET LOGIN Page
-router.get('/login', (req, res) => {
-    res.render('pages/login')
-})
-router.post('/login', login)
-
+// ===============================
 // GET REGISTER Page
 router.get('/register', (req, res) => {
     if (req.session.user) {
@@ -40,6 +40,63 @@ router.get('/register', (req, res) => {
         res.render('pages/register')
     }
 })
-router.post('/register', UserValidator, register)
+// === PROCESS THE REGISTER FORM
+router.post('/register', (req, res) => {
+    const mess_err = []
+    const { email, password, password_confirm, user_type, full_name, display_name } = req.body
+    if (!email || !password || !password_confirm || !user_type || !full_name || !display_name) {
+        mess_err.push({ msg: ' Vui lòng nhập đầy đủ thông tin' })
+    }
+    if (password.length < 6) {
+        mess_err.push({ msg: 'Mật khẩu không hợp lệ' })
+    }
+    if (password === password_confirm) {
+        const newUser = new User({
+            user_type: req.body.user_type,
+            full_name: req.body.full_name,
+            display_name: req.body.display_name,
+            email: req.body.email,
+            password: req.body.password,
+            password_confirm: req.body.password_confirm,
+        })
+        User.createUser(newUser, (err, user) => {
+            if (err) throw err
+            res.send(user)
+            req.flash('success_msg', 'Bạn đã đăng ký thành công!')
+        })
+    } else {
+        res.status(500).send()
+        req.flash('error_msg', 'Mật khẩu xác nhận không đúng !!!')
+    }
+})
+
+// GET LOGIN Page
+router.get('/login', (req, res) => {
+    res.render('pages/login')
+})
+// === PROCESS THE LOGIN FORM
+router.post('/login', (req, res) => {
+    console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>')
+    res.send(req.user)
+    console.log(res.send(req.user))
+    res.redirect('/nguoi-tim-viec')
+})
+
+// GET LOGOUT Page
+router.get('/logout', (req, res) => {
+    req.logout()
+    res.send(null)
+    res.redirect('/login')
+})
+
+// MAKE SURE User is logged in
+exports.isLoggedIn = (req, res, next) => {
+    // if user is authenticated in the session, carry on
+    if (req.isAuthenticated()) {
+        next()
+    }
+    // if they aren't redirect them to the home page
+    res.redirect('/login')
+}
 
 module.exports = router

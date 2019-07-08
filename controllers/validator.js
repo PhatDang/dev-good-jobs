@@ -4,7 +4,7 @@ const User = require('../models/user')
 
 exports.UserValidator = (req, res, next) => {
     // CHECK FIELDS INPUT
-    req.check('user_type', 'Tôi không biết bạn là ai?').not().isEmpty()
+    req.check('user_type', 'Vui lòng cho chúng tôi biết bạn là ai?').not().isEmpty()
     req.check('full_name', 'Vui lòng nhập vào họ và tên').not().isEmpty()
     req.check('full_name', 'Họ và tên không được nhiều hơn 250 ký tự').isLength({ max: 250 })
     req.check('display_name', 'Vui lòng nhập vào tên hiện thị').not().isEmpty()
