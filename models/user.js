@@ -23,10 +23,8 @@ module.exports = User
 
 // HASH Password && Password Confirm
 module.exports.createUser = (newUser, callback) => {
-    bcrypt.genSalt(10, (err, salt, next) => {
-        if (err) { next(err) }
+    bcrypt.genSalt(10, (err, salt) => {
         bcrypt.hash(newUser.password, salt, (err, hash) => {
-            if (err) { next(err) }
             newUser.password = hash
             newUser.password_confirm = hash
             newUser.save(callback)

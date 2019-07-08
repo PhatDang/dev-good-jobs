@@ -1,3 +1,4 @@
+/* eslint-disable quote-props */
 /* eslint-disable no-console */
 /* eslint-disable camelcase */
 /* eslint-disable no-unused-vars */
@@ -63,14 +64,15 @@ router.post('/register', (req, res) => {
         })
         User.createUser(newUser, (err, user) => {
             if (err) throw err
-            res.send(user)
-            req.flash('success_msg', 'Bạn đã đăng ký thành công!')
-            res.redirect('/login')
+            if (req.user) {
+                user.save((result) => {
+                    res.json({ user: result, 'success_msg': 'Bạn đã đăng ký thành công!' })
+                })
+                res.render('pages/login')
+            }
         })
     } else {
-        res.status(500).send()
-        req.flash('error_msg', 'Mật khẩu xác nhận không đúng !!!')
-        res.redirect('/register')
+        res.status(500).redirect('/register')
     }
 })
 
@@ -80,8 +82,7 @@ router.get('/login', (req, res) => {
 })
 // === PROCESS THE LOGIN FORM
 router.post('/login', (req, res) => {
-    res.send(req.user)
-    res.redirect('/nguoi-tim-viec')
+    res.send(req.user).redirect('/nguoi-tim-viec')
 })
 
 // GET LOGOUT Page
