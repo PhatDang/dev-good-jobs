@@ -39,11 +39,11 @@
                     <li onclick="regModal();">Đăng ký</li>
                 </ul>
                 <h2>Đăng nhập tài khoản của bạn</h2>
-                <% if(typeof errors != 'undefined'){ %> <% errors.forEach(function(error) { %>
+                <!-- <% if(typeof errors != 'undefined'){ %> <% errors.forEach(function(error) { %>
                 <div>
                     <%= error.msg %>
                 </div>
-                <% }); %> <% } %>
+                <% }); %> <% } %> -->
                 <div class="err_text"></div>
                 <input type="text" id="email" name="email" placeholder="Email" autofocus />
                 <input type="password" id="password" name="password" placeholder="Mật khẩu" />

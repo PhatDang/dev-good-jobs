@@ -42,14 +42,16 @@ router.get('/register', (req, res) => {
 })
 // === PROCESS THE REGISTER FORM
 router.post('/register', (req, res) => {
-    const mess_err = []
-    const { email, password, password_confirm, user_type, full_name, display_name } = req.body
-    if (!email || !password || !password_confirm || !user_type || !full_name || !display_name) {
-        mess_err.push({ msg: ' Vui lòng nhập đầy đủ thông tin' })
-    }
-    if (password.length < 6) {
-        mess_err.push({ msg: 'Mật khẩu không hợp lệ' })
-    }
+    // const mess_err = []
+    // const { email, password, password_confirm, user_type, full_name, display_name } = req.body
+    // if (!email || !password || !password_confirm || !user_type || !full_name || !display_name) {
+    //     mess_err.push({ msg: ' Vui lòng nhập đầy đủ thông tin' })
+    // }
+    // if (password.length < 6) {
+    //     mess_err.push({ msg: 'Mật khẩu không hợp lệ' })
+    // }
+    const { password } = req.body
+    const { password_confirm } = req.body
     if (password === password_confirm) {
         const newUser = new User({
             user_type: req.body.user_type,
@@ -63,10 +65,12 @@ router.post('/register', (req, res) => {
             if (err) throw err
             res.send(user)
             req.flash('success_msg', 'Bạn đã đăng ký thành công!')
+            res.redirect('/login')
         })
     } else {
         res.status(500).send()
         req.flash('error_msg', 'Mật khẩu xác nhận không đúng !!!')
+        res.redirect('/register')
     }
 })
 
@@ -76,9 +80,7 @@ router.get('/login', (req, res) => {
 })
 // === PROCESS THE LOGIN FORM
 router.post('/login', (req, res) => {
-    console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>')
     res.send(req.user)
-    console.log(res.send(req.user))
     res.redirect('/nguoi-tim-viec')
 })
 
