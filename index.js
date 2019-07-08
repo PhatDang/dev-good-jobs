@@ -18,9 +18,9 @@ const passport = require('passport')
 require('./config/passport')(passport)
 
 // CONNECT DB
-dotenv.config()
-mongoose.connect(process.env.MONGODB_URI,
-    { useCreateIndex: true, useNewUrlParser: true })
+// MONGODB_URI = mongodb+srv://admin:TvsRD8ZHHB9ahbnz@cluster0-minps.gcp.mongodb.net/test
+const MONGODB_URI = 'mongodb://func_admin:8512930.Phat@ds147207.mlab.com:47207/heroku_wzkkq1xr'
+mongoose.connect(MONGODB_URI, { useCreateIndex: true, useNewUrlParser: true })
     .then(() => console.log('DB Connected!'))
 const db = mongoose.connection
 db.on('error', (err) => {
