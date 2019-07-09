@@ -65,6 +65,7 @@ router.post('/register', (req, res) => {
         User.createUser(newUser, (err, user) => {
             if (err) throw err
             if (req.user) {
+                console.log(user)
                 user.save((result) => {
                     res.json({ user: result, 'success_msg': 'Bạn đã đăng ký thành công!' })
                 })

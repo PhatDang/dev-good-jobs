@@ -5,7 +5,7 @@ const getPass2 = document.querySelector("#password_confirm");
 const getEmail = document.querySelector("#email");
 const formEl = document.querySelector('#login_form');
 const errEl = document.querySelector(".err_text");
-const userType = document.querySelector("#user-type")
+const getUserType = document.querySelector("#user-type")
 const getFullName = document.querySelector("#fullname");
 const getDisPlayName = document.querySelector("#display-name");
 const tooltip = document.querySelector(".tooltips");
@@ -61,36 +61,37 @@ getDisPlayName.addEventListener('blur', () => {
         getDisPlayName.style.borderColor = "#e74c3c";
     }
 }) 
-submitReg.addEventListener('click', () => {
+submitReg.addEventListener('click', (e) => {
     let email = getEmail.value;
     let password = getPass.value;
     let fullName = getFullName.value;
     let disPlayName = getDisPlayName.value;
-    let validPass2 = getPass2.value;
-    if(!(emailReg).test(email) ||
-         validPass2!==password|| 
-         password.length < 6 || 
-         disPlayName.length > 225 || 
-         disPlayName.length < 1 || 
-         !(fullNameReg).test(fullName)||
-         userType.value !=="nguoi-tim-viec" ||
-         userType.value !=="viec-tim-nguoi"
-         ) {
-        event.preventDefault();
-        errEl.innerHTML = "Hãy kiểm tra lại thông tin trước khi đăng ký";
+    let password2 = getPass2.value;
+    let userType = getUserType.value;
+    if(password!==password2 || password.length<6) {
+        e.preventDefault()
+    }
+    if(!(fullNameReg).test(fullName)) {
+        e.preventDefault()
+    }
+    if(!(emailReg).test(email)) {
+        e.preventDefault()
+    }
+    if(disPlayName.length < 1 || disPlayName >225) {
+        e.preventDefault()
     }
 })
 }
 if(submit !== null) {
-submit.addEventListener('click', () => {
+submit.addEventListener('click', (e) => {
     let email = getEmail.value;
     let password = getPass.value;
     if (email.length < 1 || password.length < 1) {
         errEl.innerHTML = "Không được để trống email / mật khẩu";
-        event.preventDefault()
+        e.preventDefault()
     } else if (!(emailReg).test(email) || password.length < 6) {
         errEl.innerHTML = "Email hoặc mật khẩu không hợp lệ";
-        event.preventDefault()
+        e.preventDefault()
     } else {
         return true;
     }
