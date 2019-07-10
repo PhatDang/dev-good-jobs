@@ -16,6 +16,8 @@ const mongoose = require('mongoose')
 const passport = require('passport')
 
 require('./config/passport')(passport)
+// TOKEN CODECOV
+CODECOV_TOKEN="8dfaf1c4-c91d-43c2-bb3c-a2fc964f0bc6"
 
 // CONNECT DB
 // MONGODB_URI = mongodb+srv://admin:TvsRD8ZHHB9ahbnz@cluster0-minps.gcp.mongodb.net/test
