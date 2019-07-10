@@ -32,6 +32,9 @@ router.get('/nguoi-tim-viec', (req, res) => {
 router.get('/viec-tim-nguoi', (req, res) => {
     res.render('pages/createjob')
 })
+router.get('/them-thong-tin', (req, res) => {
+    res.render('pages/uploadprofile')
+})
 // ===============================
 // GET REGISTER Page
 router.get('/register', (req, res) => {

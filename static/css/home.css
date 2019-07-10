@@ -71,7 +71,6 @@
 /* GLOBAL END........... */
 .container {
     width: 100%;
-    height: 100vh;
 }
 header {
     width: 100%;
@@ -284,6 +283,62 @@ main {
     padding: 2rem;
     display: flex;
     justify-content: center;
+}
+/* Profile upload */
+#profile-edit {
+    max-width: 1120px;
+    margin: 20px auto;
+    box-sizing: border-box;
+}
+.profile-header {
+    height: 200px;
+    width: 100%;
+    background-color: #ff9900;
+    position: relative;
+}
+.profile-header #avatar {
+    width: 128px;
+    height: 128px;
+    background-color: #fff;
+    transform: translateY(30%);
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 0;
+    left: 27px;
+}
+.profile-edit-form {
+    display: flex;
+    flex-direction: row;
+}
+#profile-edit-content {
+    flex-basis: 800px;
+    padding: 20px;
+}
+#profile-input-top {
+    display: flex;
+    flex-direction: row;
+}
+#profile-input-top input {
+    width: 80%;
+    padding: 15.5px;
+}
+#profile-input-mid input {
+    width: 80%;
+    padding: 15.5px;
+}
+.col-profile {
+    flex-basis: 50%;
+}
+.form-group {
+    display: block;
+    padding: 20px;
+}
+.form-group label {
+    display: block;
+}
+#profile-save {
+    flex-basis: 300px;
 }
 footer {
     width: 100%;

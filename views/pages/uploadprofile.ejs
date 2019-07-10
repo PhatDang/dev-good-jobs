@@ -1,0 +1,58 @@
+<% include ../partials/header %>
+<div class="container">
+    <div id="profile-edit">
+        <div class="profile-header">
+            <div id="avatar"><img src="images/avatar.png" alt="avatar"></div>
+        </div>
+        <form action="#" class="profile-edit-form">
+            <div id="profile-edit-content">
+                <div id="profile-input-top">
+                <div class="col-profile">
+                    <div class="form-group">
+                        <label for="full-name">Họ và tên</label>
+                        <input name="full-name" id="full-name" type="text" placeholder="Lê Minh Trung">
+                    </div>
+                    <div class="form-group">
+                        <label for="phone-number">Số điện thoại</label>
+                        <input name="phone-number" id="phone-number" type="text" placeholder="Số điện thoại">
+                    </div>
+                    <div class="form-group">
+                        <label for="birthday">Ngày sinh</label>
+                        <input name="birthday" id="birthday" type="date" placeholder="dd/mm/yy">
+                    </div>
+                </div>
+                <div class="col-profile">
+                    <div class="form-group">
+                        <label for="display-name">Tên hiển thị</label>
+                        <input name="display-name" id="display-name" type="date" placeholder="Trung Lê">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Ngày sinh</label>
+                        <input name="email" id="email" type="email" placeholder="trungle1994@gmail.com" disabled>
+                    </div>
+                    <div class="form-group">
+                        <label for="birthday">Ngày sinh</label>
+                        <input name="birthday" id="birthday" type="date" placeholder="dd/mm/yy">
+                    </div>
+                </div>
+            </div>
+            <div id="profile-input-mid">
+                    <div class="form-group">
+                            <label for="profile-title">Tiêu đề</label>
+                            <input name="profile-title" id="profile-title" type="text" placeholder="dd/mm/yy">
+                    </div>
+            </div>
+            <div id="profile-input-bottom">
+                    <div class="form-group">
+                        <label for="address">Địa chỉ</label>
+                        <input name="address" id="address" type="text" placeholder="Quận">
+                    </div>
+            </div>
+        </div>
+            <div id="profile-save">
+                <button class="btn btn-primary btn-large">Lưu lại</button>
+            </div>
+        </form>
+    </div>
+</div>
+<% include ../partials/footer %>
