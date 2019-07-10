@@ -1,6 +1,6 @@
 {
   "name": "gj-project",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Project GOOD JOBS",
   "main": "index.js",
   "scripts": {
@@ -9,7 +9,6 @@
   },
   "author": "GOOD JOBS - TEAM",
   "license": "ISC",
-  "private": true,
   "repository": "https://github.com/PhatDang/dev-good-jobs",
   "dependencies": {
     "bcrypt": "^3.0.6",
