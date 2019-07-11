@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,16 +8,21 @@
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/home.css">
     <link rel="stylesheet" href="css/responsive.css">
+    <script src="https://kit.fontawesome.com/9d1259de98.js"></script>
     <style>
         header {
-            border-bottom: none;
-            box-shadow: none;
+            background: #ff9900;    
         }
-
         .header-content {
-            height: 208px;
+            height: 100px;
             justify-content: center;
             align-content: center;
+            text-align: center;
+            color: #fff;
+            font-size: 40px;
+        }
+        .header-content a {
+            color: #fff;
         }
     </style>
 </head>
@@ -27,7 +31,7 @@
     <header>
         <div class="header-content">
             <div class="logo">
-                <a href="/"><img src="images/logo-login.png" alt="Good-Jobs"></a>
+                <a href="/">Good Jobs</a>
             </div>
         </div>
     </header>
@@ -37,7 +41,7 @@
                 <form enctype="multipart/form-data" action-type="register" action="/register" method="POST"
                     class="modal-content">
                     <ul>
-                        <li>Đăng nhập</li>
+                        <li><a href="/login">Đăng nhập</a></li>
                         <li>Đăng ký</li>
                     </ul>
                     <h2>Đăng ký tài khoản của bạn</h2>
@@ -46,16 +50,17 @@
                         <%= error.msg %>
                     </div>
                     <% }); %> <% } %> -->
-                    <select name="user_type">
+                    <div class="err_text"></div>
+                    <select id="user-type" name="user_type">
                         <option selected disabled hidden>Bạn là ?</option>
                         <option class="option" value="nguoi-tim-viec">Người tìm việc</option>
                         <option class="option" value="viec-tim-nguoi">Việc tìm người</option>
                     </select>
                     <input type="text" id="fullname" name="full_name" placeholder="Họ và tên" />
                     <input type="text" id="display-name" name="display_name" placeholder="Tên hiển thị" />
-                    <input type="email" class="email" name="email" placeholder="Email" />
+                    <input type="email" id="email" name="email" placeholder="Email" />
                     <div class="input-group">
-                        <input type="password" class="password" name="password" placeholder="Mật khẩu" />
+                        <input class="password" type="password" id="password" name="password" placeholder="Mật khẩu" />
                         <span><i class="fas fa-exclamation-circle" err="6"></i></span>
                         <div class="tooltips">
                             <span><i class="fas fa-check-circle" err="1"></i> 6 kí tự trở lên</span>
@@ -66,7 +71,7 @@
                         </div>
                     </div>
                     <div class="input-group">
-                        <input type="password" class="password" name="password_confirm"
+                        <input class="password" type="password" class="password" id="password_confirm" name="password_confirm"
                             placeholder="Nhập lại mật khẩu" />
                         <span><i err="7" class="fas fa-exclamation-circle"></i></span>
                     </div>
@@ -74,7 +79,7 @@
                     <p class="agree">Bằng cách nhấn vào nút Đăng Ký là bạn đã đồng ý với <a href="#">các điều khoản</a>
                         của chúng tôi</p>
                     <div class="press">
-                        <button class="btn btn-primary btn-normal" type="submit">Đăng ký</button>
+                        <button id="submitReg" class="btn btn-primary btn-normal" type="submit">Đăng ký</button>
                         <a href="/viec-tim-nguoi" class="btn btn-normal">Thoát</a>
                     </div>
                     <p class="forget">
@@ -84,7 +89,7 @@
             </div>
         </div>
     </main>
-    <script src="js/main.js"></script>
+    <script src="js/userlgreg.js"></script>
 </body>
 
 </html>

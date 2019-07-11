@@ -1,30 +1,6 @@
+/* Defined */
+/* Gobal color: #ff9900 */
 /* GLOBAL*/
-@keyframes btn-secondary-press {
-    0% {
-        background-color: #b7b7b7;
-    }
-
-    50% {
-        background-color: #b7b7b7;
-    }
-
-    100% {
-        background-color: #d7d7d7;
-    }
-}
-
-@keyframes user-box {
-    from {
-        top: -100px;
-        opacity: 0;
-    }
-
-    to {
-        top: 0px;
-        opacity: 1;
-    }
-}
-
 .btn {
     display: inline-block;
     font-weight: 400;
@@ -40,76 +16,63 @@
         rgba(215, 215, 215, 0.5),
         rgba(215, 215, 215, 1))
 }
-
 .btn:hover {
     box-shadow: 0px 1px 4px 0 rgba(0, 0, 0, 0.15);
     background-image: linear-gradient(rgba(215, 215, 215, 1),
         rgba(215, 215, 215, 0.5),
         rgba(215, 215, 215, 0.2));
 }
-
 .btn:active {
     background-color: #b7b7b7;
     background-image: none;
 }
-
 .btn-small {
     width: 150px;
     height: 30px;
     border-radius: 27.5px;
     line-height: 30px;
 }
-
 .btn-normal {
     width: 160px;
     height: 50px;
     border-radius: 27.5px;
     line-height: 50px;
 }
-
 .btn-large {
     width: 100%;
     height: 55px;
     margin: 20px 0;
     border-radius: 27.5px;
 }
-
 .btn-primary {
     color: #fff !important;
     background: #fff;
     background-image: linear-gradient(rgba(255, 153, 0, .2), rgba(255, 153, 0, .5), rgba(255, 153, 0, 1));
 }
-
 .btn-primary:hover {
     background-image: linear-gradient(rgba(255, 153, 0, 1), rgba(255, 153, 0, .5), rgba(255, 153, 0, .2));
 }
-
 .btn-primary:active {
     background-color: #b7b7b7;
     background-image: none;
 }
-
 .btn-secondary {
     background: #fff;
     background-image: linear-gradient(rgba(215, 215, 215, .2), rgba(215, 215, 215, .5), rgba(215, 215, 215, 1));
 }
-
 .btn-secondary:hover {
     background-image: linear-gradient(rgba(215, 215, 215, 1), rgba(215, 215, 215, .5), rgba(215, 215, 215, .2));
 }
-
 .btn-secondary:active {
     background-color: #b7b7b7;
     background-image: none;
     animation: btn-press;
 }
-
 /* GLOBAL END........... */
 .container {
     width: 100%;
     height: 100vh;
 }
-
 header {
     width: 100%;
     background: #fff;
@@ -117,27 +80,20 @@ header {
     border-bottom: 1px solid #ccc;
     box-shadow: 1px -1px 8px #ccc;
 }
-
 /* Login-signup-modal*/
 .modal {
     position: relative;
 }
-
 .modal-content {
     width: 500px;
     background: #fff;
-    box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.8);
+    box-shadow: 0 0 4px  rgba(0, 0, 0, 0.8);
     border: solid 1px #b7b7b7;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
-
-.animate {
-    animation: user-box 100ms;
-}
-
 .modal ul {
     width: 100%;
     display: flex;
@@ -145,15 +101,14 @@ header {
     top: 0;
     left: 0;
 }
-
 .modal ul li {
     flex-basis: 50%;
     padding: 14px 0;
     box-sizing: border-box;
     text-align: center;
     font-size: 24px;
+    cursor: pointer;
 }
-
 #login_form ul li:last-child {
     color: #b7b7b7;
     border: 1px solid #b7b7b7;
@@ -162,7 +117,6 @@ header {
     border-top: none;
     box-shadow: inset 0 0 30px 0 rgba(183, 183, 183, 0.8)
 }
-
 #reg_form ul li:first-child {
     color: #b7b7b7;
     border: 1px solid #b7b7b7;
@@ -171,7 +125,6 @@ header {
     border-right: none;
     border-top: none;
 }
-
 .modal form {
     padding: 20px;
 }
@@ -179,17 +132,14 @@ header {
 .modal .err_text {
     color: #d42a2a;
 }
-
 .modal .agree {
     width: 80%;
     text-align: center;
     padding: 12px 0;
 }
-
 .modal .agree a {
     font-weight: 700;
 }
-
 .modal p a {
     color: #ff9900;
 }
@@ -197,7 +147,6 @@ header {
 .modal p.forget:hover {
     text-decoration: underline;
 }
-
 .modal h2 {
     font-stretch: normal;
     font-weight: 100;
@@ -206,19 +155,16 @@ header {
     text-align: center;
     color: #000000;
 }
-
 .input-group {
     width: 444px;
     position: relative;
 }
-
 .input-group span i {
     padding-left: 0px;
     font-size: 30px;
     vertical-align: middle;
     color: #b7b7b7;
 }
-
 .tooltips {
     display: none;
     background: transparent;
@@ -231,15 +177,12 @@ header {
     right: -140px;
     border-radius: 5px;
 }
-
 .modal .tooltips span {
     display: block;
 }
-
 .modal .tooltips span i {
     font-size: 16px;
 }
-
 .modal input,
 select {
     font-size: 16px;
@@ -254,11 +197,9 @@ select {
 #reg_form input[class="password"] {
     width: 350px;
 }
-
 .show {
     display: block;
 }
-
 .modal select {
     width: 444px;
     background-color: #fff;
@@ -268,29 +209,23 @@ select {
         rgba(215, 215, 215, 0.55) 75%,
         rgba(215, 215, 215, 0.7));
 }
-
 .modal select .option {
     background: #d7d7d7;
     height: 50px;
 }
-
 .modal select .option:hover {
     background: #ff9900;
 }
-
 .modal input::placeholder {
     color: #000;
 }
-
 .press {
     width: 80%;
     margin: 30px 0;
 }
-
 .press a {
     float: right;
 }
-
 .header-content {
     max-width: 1440px;
     height: 100px;
@@ -301,60 +236,48 @@ select {
     justify-content: flex-start;
     align-items: center;
 }
-
 .header-content .logo {
     flex-basis: 230px;
 }
-
 .header-content .logo img {
     width: 150px;
 }
-
 .header-content .header-menu {
     flex-basis: 760px;
 }
-
 .header-content .top-menu li {
     display: inline-block;
     vertical-align: middle;
     margin: 0 10px;
     box-sizing: border-box;
 }
-
 .header-content .top-menu li a {
     font-size: 1rem;
     font-weight: bold;
     color: #818181;
     text-transform: capitalize;
 }
-
 .header-content .top-menu li:hover a {
     color: #d42a2a;
 }
-
 .header-content .top-menu li a:active {
     color: #d42a2a;
 }
-
 .header-content .category-btn {
     flex-basis: 250px;
 }
-
 .login .login-link {
     margin-left: 12px;
 }
-
 header .login .login-icon i {
     transform: translate(0, 12%);
     display: inline-block;
     font-size: 1.5rem;
     color: #656060;
 }
-
 header .login .login-link:hover {
     text-decoration: underline;
 }
-
 /* Main Login Form */
 main {
     min-height: 60vh;
@@ -362,11 +285,9 @@ main {
     display: flex;
     justify-content: center;
 }
-
 footer {
     width: 100%;
 }
-
 .footer-content {
     width: 80%;
     margin: 0 auto;
@@ -376,4 +297,27 @@ footer {
     box-sizing: border-box;
     line-height: 90px;
     margin-bottom: 20px;
+}
+/* Amination Custom*/
+@keyframes btn-secondary-press {
+    0% {
+        background-color: #b7b7b7;
+    }
+    50% {
+        background-color: #b7b7b7;
+    }
+
+    100% {
+        background-color: #d7d7d7;
+    }
+}
+@keyframes user-box {
+    from {
+        top: -100px;
+        opacity: 0;
+    }
+    to {
+        top: 0px;
+        opacity: 1;
+    }
 }

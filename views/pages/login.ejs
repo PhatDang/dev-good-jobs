@@ -10,13 +10,18 @@
     <link rel="stylesheet" href="css/responsive.css">
     <style>
         header {
-            border-bottom: none;
-            box-shadow: none;
+            background: #ff9900;    
         }
         .header-content {
-            height: 208px;
+            height: 100px;
             justify-content: center;
             align-content: center;
+            text-align: center;
+            color: #fff;
+            font-size: 40px;
+        }
+        .header-content a {
+            color: #fff;
         }
     </style>
 </head>
@@ -25,18 +30,17 @@
     <header>
         <div class="header-content">
             <div class="logo">
-                <a href="/"><img src="images/logo-login.png" alt="Good-Jobs"></a>
+                <a href="/">Good Jobs</a>
             </div>
         </div>
     </header>
-
     <main>
         <div id="login-modal" class="modal">
             <form id="login_form" enctype="multipart/form-data" action-type="login" action="/login" method="POST"
-                class="modal-content" onsubmit="checkLogErr()">
+                class="modal-content">
                 <ul>
                     <li>Đăng nhập</li>
-                    <li onclick="regModal();">Đăng ký</li>
+                    <li><a href="/register">Đăng ký</a></li>
                 </ul>
                 <h2>Đăng nhập tài khoản của bạn</h2>
                 <!-- <% if(typeof errors != 'undefined'){ %> <% errors.forEach(function(error) { %>
@@ -50,18 +54,15 @@
                 <p class="agree">Bằng cách nhấn vào nút Đăng Nhập là bạn đã đồng ý với <a href="#">các điều khoản</a>
                     của chúng tôi</p>
                 <div class="press">
-                    <button class="btn btn-primary btn-normal" type="submit">Đăng nhập</button>
+                    <button id="submit" class="btn btn-primary btn-normal" type="submit">Đăng nhập</button>
                     <a href="/viec-tim-nguoi" class="btn btn-normal">Hủy</a>
                 </div>
                 <p class="forget">
                     <a href="#">Quên mật khẩu của bạn</a>
                 </p>
-                <br>
-                <p class="forget">
-                    <a href="/register">Bạn chưa có tài khoản?</a>
-                </p>
             </form>
         </div>
     </main>
+    <script src="js/userlgreg.js"></script>
 </body>
 </html>
