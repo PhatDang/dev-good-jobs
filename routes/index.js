@@ -47,13 +47,16 @@ router.post('/register', (req, res) => {
         const userData = {
             email: req.body.email,
             password: req.body.password,
+            password_confirm: req.body.password_confirm,
         }
-        User.create(userData, (err, user) => {
-            if (err) {
-                throw err
-            } else {
-                req.session.userId = user._id
-                res.redirect('/login')
+        User.createUser(newUser, (err, user) => {
+            if (err) throw err
+            if (req.user) {
+                console.log(user)
+                user.save((result) => {
+                    res.json({ user: result, 'success_msg': 'Bạn đã đăng ký thành công!' })
+                })
+                res.render('pages/login')
             }
         })
     }
