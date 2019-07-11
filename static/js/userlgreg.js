@@ -66,9 +66,9 @@ submitReg.addEventListener('click', (e) => {
     let password = getPass.value;
     let fullName = getFullName.value;
     let disPlayName = getDisPlayName.value;
-    let password2 = getCofPass.value;
+    let passCofirm = getCofPass.value;
     let userType = getUserType.value;
-    if(password!==password2 || password.length<6) {
+    if(password!==passCofirm || password.length<6) {
         e.preventDefault()
     }
     if(!(fullNameReg).test(fullName)) {
