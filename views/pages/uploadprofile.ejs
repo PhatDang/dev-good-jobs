@@ -1,51 +1,83 @@
 <% include ../partials/header %>
 <div class="container">
     <div id="profile-edit">
+        <div id="title">
+                    <h4>Cập nhật thông tin cá nhân</h4>
+        </div>
         <div class="profile-header">
-            <div id="avatar"><img src="images/avatar.png" alt="avatar"></div>
+            <div id="avatar"><img src="images/avatar.jpg" alt="avatar"></div>
         </div>
         <form action="#" class="profile-edit-form">
             <div id="profile-edit-content">
                 <div id="profile-input-top">
                 <div class="col-profile">
                     <div class="form-group">
-                        <label for="full-name">Họ và tên</label>
-                        <input name="full-name" id="full-name" type="text" placeholder="Lê Minh Trung">
+                        <label for="full_name">Họ và tên <span clas="required-text">*</span></label>
+                        <input name="full_name" id="full-name" type="text" value="Lê Minh Trung">
                     </div>
                     <div class="form-group">
-                        <label for="phone-number">Số điện thoại</label>
-                        <input name="phone-number" id="phone-number" type="text" placeholder="Số điện thoại">
+                        <label for="phone_number">Số điện thoại <span clas="required-text">*</span></label>
+                        <input name="phone_number" id="phone-number" type="text" placeholder="Số điện thoại">
                     </div>
                     <div class="form-group">
-                        <label for="birthday">Ngày sinh</label>
-                        <input name="birthday" id="birthday" type="date" placeholder="dd/mm/yy">
+                        <label for="birthday">Ngày sinh <span clas="required-text">*</span></label>
+                        <input name="birthday" class="date" id="birthday" type="date" placeholder="dd/mm/yy">
                     </div>
                 </div>
                 <div class="col-profile">
                     <div class="form-group">
-                        <label for="display-name">Tên hiển thị</label>
-                        <input name="display-name" id="display-name" type="date" placeholder="Trung Lê">
+                        <label for="display_name">Tên hiển thị <span clas="required-text">*</span></label>
+                        <input name="display_name" id="display-name" type="text" value="Trung Lê">
                     </div>
                     <div class="form-group">
-                        <label for="email">Ngày sinh</label>
-                        <input name="email" id="email" type="email" placeholder="trungle1994@gmail.com" disabled>
+                        <label for="email">Email <span clas="required-text">*</span></label>
+                        <input name="email" id="email" type="email" value="trungle1994@gmail.com" disabled>
                     </div>
                     <div class="form-group">
-                        <label for="birthday">Ngày sinh</label>
-                        <input name="birthday" id="birthday" type="date" placeholder="dd/mm/yy">
+                        <label for="birthday">Giới tính <span clas="required-text">*</span></label>
+                        <select name="gender" id="gender">
+                            <option hidden>Giới tính</option>
+                            <option value="male">Nam</option>
+                            <option value="female">Nữ</option>
+                            <option value="other">Khác</option>
+                        </select>
                     </div>
                 </div>
             </div>
             <div id="profile-input-mid">
                     <div class="form-group">
-                            <label for="profile-title">Tiêu đề</label>
-                            <input name="profile-title" id="profile-title" type="text" placeholder="dd/mm/yy">
+                            <label for="profile_title">Tiêu đề <span clas="required-text">*</span></label>
+                            <input name="profile_title" id="profile-title" type="text" placeholder="Tiêu đề">
                     </div>
             </div>
             <div id="profile-input-bottom">
                     <div class="form-group">
-                        <label for="address">Địa chỉ</label>
-                        <input name="address" id="address" type="text" placeholder="Quận">
+                        <label for="address">Địa chỉ <span clas="required-text">*</span></label>
+                       <select>
+                           <option hidden>Thành phố <span clas="required-text">*</span></option>
+                           <option value="ho-chi-minh">Hồ Chí Minh</option>
+                       </select>
+                       <select>
+                        <option hidden>Quận</option>
+                        <option value="tan-binh">Tân Bình</option>
+                    </select>
+                    <select>
+                        <option hidden>Phường</option>
+                        <option value="13">13</option>
+                    </select>
+
+                    </div>
+                    <div class="form-group">
+                        <label for="card_id">Chứng minh nhân dân <i class="fas fa-exclamation-circle"></i></label>
+                        <input name="card_id" id="card-id" type="text" placeholder="Số chứng minh nhân dân">
+                        <input name="card_id" id="card-id" type="date" class="date" placeholder="dd/mm/yy">
+                    </div>
+                    <div class="form-group">
+                        <label for="career">Nghề nghiệp <span clas="required-text">*</span></label>
+                        <select name="career" id="career">
+                            <option hidden>Chọn nghề bạn muốn</option>
+                            <option value="lao-dong-pho-thong">Lao động phổ thông</option>
+                        </select>
                     </div>
             </div>
         </div>

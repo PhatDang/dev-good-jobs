@@ -182,8 +182,16 @@ header {
 .modal .tooltips span i {
     font-size: 16px;
 }
-.modal input,
-select {
+.modal input {
+    font-size: 16px;
+    color: #000000;
+    width: 400px;
+    border: 1px solid #b7b7b7;
+    margin: 12px 0;
+    padding: 15px 21px;
+    outline: none;
+}
+.modal select {
     font-size: 16px;
     color: #000000;
     width: 400px;
@@ -299,17 +307,23 @@ main {
 .profile-header #avatar {
     width: 128px;
     height: 128px;
+    padding: 4px;
     background-color: #fff;
-    transform: translateY(30%);
     border: 1px solid #ccc;
     border-radius: 50%;
     position: absolute;
-    bottom: 0;
+    bottom: -40px;
     left: 27px;
+}
+.profile-header #avatar img {
+    width: 128px;
+    height: 128px;
+    border-radius: 50%;
 }
 .profile-edit-form {
     display: flex;
     flex-direction: row;
+    margin-top: 60px;
 }
 #profile-edit-content {
     flex-basis: 800px;
@@ -320,7 +334,7 @@ main {
     flex-direction: row;
 }
 #profile-input-top input {
-    width: 80%;
+    width: 320px;
     padding: 15.5px;
 }
 #profile-input-mid input {
@@ -332,13 +346,40 @@ main {
 }
 .form-group {
     display: block;
-    padding: 20px;
+    padding: 10px;
 }
 .form-group label {
     display: block;
+    font-weight: bold;
+    margin: 6px 0;
+}
+.form-group input {
+    font-size: 16px;
+    color: #000;
+    outline: none;
+    border:1px solid #b7b7b7;
+}
+.form-group select {
+    width: 350px;
+    padding: 15.5px;
+    margin-bottom: 20px;
+    background-image: linear-gradient(to bottom, rgba(215, 215, 215, 0.7), rgba(215, 215, 215, 0.55) 25%, rgba(215, 215, 215, 0.55) 75%, rgba(215, 215, 215, 0.7));
+}
+.form-group input::placeholder {
+    color: #b7b7b7;
+}
+.form-group input:disabled {
+    background-color: #d7d7d7;
+}
+#profile-input-bottom input {
+    width: 320px;
+    padding: 15.5px;
 }
 #profile-save {
     flex-basis: 300px;
+}
+.form-group .date {
+    padding: 12.5px !important;
 }
 footer {
     width: 100%;
