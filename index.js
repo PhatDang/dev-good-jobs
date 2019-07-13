@@ -108,7 +108,7 @@ goodjob.use((err, req, res, next) => {
 
 // LOADING SERVER...
 goodjob.listen(PORT, () => {
-    log(chalk.whiteBright('SERVER STARTED LISTENING ON PORT ') + chalk.yellowBright(`${PORT}`))
+    log(chalk.whiteBright('SERVER STARTED LISTENING ON PORT ') + chalk.yellowBright(`http://localhost:${PORT}`))
 })
 
 module.exports = goodjob
