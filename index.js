@@ -103,7 +103,7 @@ goodjob.use((req, res, next) => {
 goodjob.use((err, req, res, next) => {
     log(req)
     res.status(err.status || 500)
-    res.send(err.message)
+    return res.send(err.message)
 })
 
 // LOADING SERVER...

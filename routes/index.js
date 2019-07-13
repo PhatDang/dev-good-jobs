@@ -22,14 +22,4 @@ router.get('/viec-tim-nguoi', (req, res) => {
     res.render('pages/createjob')
 })
 
-// ===GET EDIT PROFILE AND DETAILS PAGES:
-// Get Edit Profile PAGE:
-router.get('/demo_edit', (req, res) => {
-    res.render('update_profile')
-})
-// Get Detail PAGE:
-router.get('/demo_detail', (req, res) => {
-    res.render('detail_profile')
-})
-
 module.exports = router

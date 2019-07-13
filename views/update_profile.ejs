@@ -24,10 +24,11 @@
     <div class="container">
         <div class="row m-y-2">
             <!-- edit form column -->
-            <div class="col-lg-4 text-lg-center">
-                <h2>Edit Profile</h2>
+            <div class="col-lg-9 text-lg-center">
+                <h2>CẬP NHẬT THÔNG TIN NGƯỜI DÙNG</h2>
             </div>
         </div>
+        <hr />
         <!--
             ===Alerts:
             - class="alert alert-primary" ==> A simple primary alert—check it out!
@@ -52,6 +53,12 @@
         </div> -->
         <div class="col-lg-9 push-lg-4 personal-info">
             <form role="form">
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label form-control-label">Loại người dùng:</label>
+                    <div class="col-lg-6">
+                        <p>NGƯỜI TÌM VIỆC <b>(Invisible)</b></p>
+                    </div>
+                </div>
                 <div class="form-group row">
                     <label class="col-lg-3 col-form-label form-control-label">Họ và tên:</label>
                     <div class="col-lg-6">
@@ -78,7 +85,7 @@
                 </div>
                 <div class="form-group row">
                     <label class="col-lg-3 col-form-label form-control-label">Ngày/Tháng/Năm sinh:</label>
-                    <div class="col-lg-3">
+                    <div class="col-lg-4">
                         <input id="birthDay" class="form-control" type="date" value="" />
                     </div>
                 </div>
@@ -96,22 +103,37 @@
                 </div>
                 <div class="form-group row">
                     <label class="col-lg-3 col-form-label form-control-label"></label>
-                    <div class="col-lg-2">
-                        <input class="form-control" type="text" value="" placeholder="Phường..." />
+                    <div class="col-lg-3">
+                        <select class="form-control">
+                            <option value="Tỉnh thành">Tỉnh thành</option>
+                            <option value="Hồ Chí Minh">Hồ Chí Minh</option>
+                            <option value="Hà Nội">Hà Nội</option>
+                            <option value="Khác">Khác...</option>
+                        </select>
                     </div>
-                    <div class="col-lg-2">
-                        <input class="form-control" type="text" value="" placeholder="Quận..." />
+                    <div class="col-lg-3">
+                        <select class="form-control">
+                            <option value="Quận">Quận</option>
+                            <option value="Quận 1">Quận 1</option>
+                            <option value="Quận 2">Quận 2</option>
+                            <option value="Quận 3">Quận 3</option>
+                        </select>
                     </div>
-                    <div class="col-lg-5">
-                        <input class="form-control" type="text" value="" placeholder="Thành Phố..." />
+                    <div class="col-lg-3">
+                        <select class="form-control">
+                            <option value="Phường">Phường</option>
+                            <option value="Phường 1">Phường 1</option>
+                            <option value="Phường 2">Phường 2</option>
+                            <option value="Phường 3">Phường 3</option>
+                        </select>
                     </div>
                 </div>
                 <div class="form-group row">
                     <label class="col-lg-3 col-form-label form-control-label">Chứng minh nhân dân:</label>
-                    <div class="col-lg-3">
+                    <div class="col-lg-5">
                         <input class="form-control" type="text" value="0250xxxx" />
                     </div>
-                    <div class="col-lg-3">
+                    <div class="col-lg-4">
                         <input class="form-control" type="date" value="" />
                     </div>
                 </div>
@@ -119,9 +141,12 @@
                     <label class="col-lg-3 col-form-label form-control-label">Chọn nghề nghiệp bạn mong muốn</label>
                     <div class="col-lg-6">
                         <select class="form-control">
-                            <option value="Tỉnh thành khác">Tỉnh thành khác</option>
-                            <option value="Hồ Chí Minh">Hồ Chí Minh</option>
-                            <option value="Hà Nội">Hà Nội</option>
+                            <option value="Vui lòng chọn nghề nghiệp">Vui lòng chọn nghề nghiệp</option>
+                            <option value="Developer">Developer</option>
+                            <option value="Designer">Designer</option>
+                            <option value="Bugger">Bugger</option>
+                            <option value="Trẻ Trâu">Trẻ Trâu</option>
+                            <option value="Khác">Khác...</option>
                         </select>
                     </div>
                 </div>
