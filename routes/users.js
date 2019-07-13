@@ -18,6 +18,9 @@ const { forwardAuthenticated } = require('../config/auth')
 
 // ===GET LOGIN PAGE:
 router.get('/login', forwardAuthenticated, (req, res) => {
+    if (req.user) {
+        res.redirect('/nguoi-tim-viec')
+    }
     res.render('pages/login')
 })
 

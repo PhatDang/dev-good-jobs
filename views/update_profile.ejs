@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>EDIT PROFILE USER</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- Bootstrap 4 -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row m-y-2">
+            <!-- edit form column -->
+            <div class="col-lg-4 text-lg-center">
+                <h2>Edit Profile</h2>
+            </div>
+        </div>
+        <!--
+            ===Alerts:
+            - class="alert alert-primary" ==> A simple primary alert—check it out!
+            - class="alert alert-secondary" ==> A simple secondary alert—check it out!
+            - class="alert alert-success" ==> A simple success alert—check it out!
+            - class="alert alert-danger" ==> A simple danger alert—check it out!
+            - class="alert alert-warning" ==> A simple warning alert—check it out!
+            - class="alert alert-info" ==> A simple info alert—check it out!
+            - class="alert alert-info" ==> A simple info alert—check it out!
+            - class="alert alert-dark" ==> A simple dark alert—check it out!
+         -->
+        <!-- <div class="col-lg-6">
+            <div class="alert alert-warning" role="alert"> <a class="panel-close close" data-dismiss="alert">×</a>
+                A simple warning alert—check it out!
+            </div>
+            <div class="alert alert-danger" role="alert"> <a class="panel-close close" data-dismiss="alert">×</a>
+                A simple danger alert—check it out!
+            </div>
+            <div class="alert alert-success" role="alert"> <a class="panel-close close" data-dismiss="alert">×</a>
+                A simple success alert—check it out!
+            </div>
+        </div> -->
+        <div class="col-lg-9 push-lg-4 personal-info">
+            <form role="form">
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label form-control-label">Họ và tên:</label>
+                    <div class="col-lg-6">
+                        <input class="form-control" type="text" value="Họ và tên..." />
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label form-control-label">Tên hiển thị:</label>
+                    <div class="col-lg-6">
+                        <input class="form-control" type="text" value="Tên hiển thị..." />
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label form-control-label">Số điện thoại:</label>
+                    <div class="col-lg-6">
+                        <input class="form-control" type="text" value="(+84-0) 123 456 789" />
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label form-control-label">Email:</label>
+                    <div class="col-lg-6">
+                        <input class="form-control" type="email" value="email@mail.com" />
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label form-control-label">Ngày/Tháng/Năm sinh:</label>
+                    <div class="col-lg-3">
+                        <input id="birthDay" class="form-control" type="date" value="" />
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label form-control-label">Tiêu đề:</label>
+                    <div class="col-lg-6">
+                        <input class="form-control" type="text" value="VD: Nhân viên bán hàng,..." />
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label form-control-label">Địa chỉ:</label>
+                    <div class="col-lg-9">
+                        <input class="form-control" type="text" value="" placeholder="Số địa chỉ, tên đường..." />
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label form-control-label"></label>
+                    <div class="col-lg-2">
+                        <input class="form-control" type="text" value="" placeholder="Phường..." />
+                    </div>
+                    <div class="col-lg-2">
+                        <input class="form-control" type="text" value="" placeholder="Quận..." />
+                    </div>
+                    <div class="col-lg-5">
+                        <input class="form-control" type="text" value="" placeholder="Thành Phố..." />
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label form-control-label">Chứng minh nhân dân:</label>
+                    <div class="col-lg-3">
+                        <input class="form-control" type="text" value="0250xxxx" />
+                    </div>
+                    <div class="col-lg-3">
+                        <input class="form-control" type="date" value="" />
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label form-control-label">Chọn nghề nghiệp bạn mong muốn</label>
+                    <div class="col-lg-6">
+                        <select class="form-control">
+                            <option value="Tỉnh thành khác">Tỉnh thành khác</option>
+                            <option value="Hồ Chí Minh">Hồ Chí Minh</option>
+                            <option value="Hà Nội">Hà Nội</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label form-control-label"></label>
+                    <div class="col-lg-9">
+                        <input type="button" class="btn btn-success" value="Cập nhật" />
+                        <input type="reset" class="btn btn-secondary" value="Thoát" />
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <hr />
+</body>
+
+</html>

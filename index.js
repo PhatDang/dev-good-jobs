@@ -9,6 +9,7 @@
  */
 const bodyParser = require('body-parser')
 const cookieParser = require('cookie-parser')
+const chalk = require('chalk')
 const express = require('express')
 const flash = require('connect-flash')
 const morgan = require('morgan')
@@ -21,6 +22,9 @@ const MongoStore = require('connect-mongo')(session)
 
 // ===PASSPORT CONFIG:
 require('./config/passport')(passport)
+
+// ===ADD BOOTSTRAP:
+// require('bootstrap')
 
 // ===SETTING FIRST:
 const log = console.log
@@ -35,11 +39,11 @@ const MONGODB_URI = 'mongodb://func_admin:8512930.Phat@ds147207.mlab.com:47207/h
 mongoose.connect(MONGODB_URI, {
     useCreateIndex: true,
     useNewUrlParser: true,
-}).then(() => log('Database connection success!')).catch(err => log(err))
+}).then(() => log(chalk.bgGreen('Database connection success!'))).catch(err => log(chalk.redBright(err)))
 
 const database = mongoose.connection
 database.on('error', (err) => {
-    log('Database connection error: ', err.message)
+    log(chalk.redBright('Database connection error: ', err.message))
 })
 
 // ===EJS Template:
@@ -104,7 +108,7 @@ goodjob.use((err, req, res, next) => {
 
 // LOADING SERVER...
 goodjob.listen(PORT, () => {
-    log(`SERVER STARTED LISTENING ON PORT ${PORT}!`)
+    log(chalk.whiteBright('SERVER STARTED LISTENING ON PORT ') + chalk.yellowBright(`${PORT}`))
 })
 
 module.exports = goodjob
