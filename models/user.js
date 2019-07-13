@@ -5,6 +5,12 @@ const mongoose = require('mongoose')
 const { Schema } = mongoose
 
 const userSchema = new Schema({
+    active: {
+        type: Boolean,
+    },
+    role_list: {
+        type: String,
+    },
     user_type: {
         type: String,
         required: true,
@@ -21,6 +27,21 @@ const userSchema = new Schema({
         required: true,
         trim: true,
         maxlength: 50,
+    },
+    phone_number: {
+        type: String,
+        required: true,
+        trim: true,
+        maxlength: 10,
+    },
+    birthday: {
+        type: Date,
+        trim: true,
+        maxlength: 250,
+    },
+    title: {
+        type: String,
+        required: true,
     },
     email: {
         type: String,
@@ -40,7 +61,7 @@ const userSchema = new Schema({
         trim: true,
         minlength: 6,
     },
-    date: {
+    create_date: {
         type: Date,
         default: Date.now,
     },

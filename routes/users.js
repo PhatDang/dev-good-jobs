@@ -17,7 +17,7 @@ const { forwardAuthenticated } = require('../config/auth')
 // ===GET LOGIN PAGE:
 router.get('/login', forwardAuthenticated, (req, res) => {
     if (req.user) {
-        return res.redirect('/nguoi-tim-viec')
+        res.redirect('/nguoi-tim-viec')
     }
     res.render('pages/login')
 })
@@ -34,7 +34,7 @@ router.post('/login', (req, res, next) => {
 // ===GET REGISTER PAGE:
 router.get('/register', forwardAuthenticated, (req, res) => {
     if (req.user) {
-        return res.redirect('/nguoi-tim-viec')
+        res.redirect('/nguoi-tim-viec')
     }
     res.render('pages/register')
 })
@@ -115,6 +115,7 @@ router.get('/logout', (req, res) => {
     req.session.destroy((err) => {
         if (err) {
             console.log('Không thể hủy phiên trong khi đã đăng xuất!', err)
+            req.flash('error_msg', 'Không thể hủy phiên trong khi đã đăng xuất!')
         }
         req.user = null
         req.flash('success_msg', 'Bạn đã đăng xuất thành công!')
