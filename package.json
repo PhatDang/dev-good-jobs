@@ -1,6 +1,6 @@
 {
   "name": "gj-project",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Project GOOD JOBS",
   "main": "index.js",
   "scripts": {
@@ -9,7 +9,6 @@
   },
   "author": "GOOD JOBS - TEAM",
   "license": "ISC",
-  "private": true,
   "repository": "https://github.com/PhatDang/dev-good-jobs",
   "dependencies": {
     "bcrypt": "^3.0.6",
@@ -25,7 +24,8 @@
     "express-session": "^1.16.2",
     "express-validator": "^5.3.1",
     "joi": "^14.3.1",
-    "mongoose": "^5.6.3",
+    "lodash": "^4.17.14",
+    "mongoose": "^5.6.4",
     "morgan": "^1.9.1",
     "nodemon": "^1.19.1",
     "passport": "^0.4.0",

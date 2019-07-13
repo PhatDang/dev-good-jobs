@@ -1,18 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <meta name="description" content="About the GOOD JOBS">
+    <meta name="author" content="GOOD JOBS - Team">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Goodjobs</title>
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/home.css">
-    <link rel="stylesheet" href="css/responsive.css">
+    <title>GOOD JOBS _ Your Job - Our Mission</title>
+    <!-- IMG -->
+    <!-- <link rel="shortcut icon" type="images/png" href="../images/logo.png" /> -->
+    <!-- CSS Style -->
+    <link rel="stylesheet" href="../css/home.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="stylesheet" href="../css/reset.css">
+    <!-- Javascript Style -->
     <script src="https://kit.fontawesome.com/9d1259de98.js"></script>
     <style>
         header {
-            background: #ff9900;    
+            background: #ff9900;
         }
+
         .header-content {
             height: 100px;
             justify-content: center;
@@ -21,6 +29,7 @@
             color: #fff;
             font-size: 40px;
         }
+
         .header-content a {
             color: #fff;
         }
@@ -28,68 +37,88 @@
 </head>
 
 <body>
-    <header>
-        <div class="header-content">
-            <div class="logo">
-                <a href="/">Good Jobs</a>
+    <div class="container">
+        <header>
+            <div class="header-content">
+                <div class="logo">
+                    <a href="/">Good Jobs</a>
+                </div>
             </div>
-        </div>
-    </header>
-    <main>
-        <div id="reg-modal" class="modal">
-            <div id="reg_form">
-                <form enctype="multipart/form-data" action-type="register" action="/register" method="POST"
-                    class="modal-content">
-                    <ul>
-                        <li><a href="/login">Đăng nhập</a></li>
-                        <li>Đăng ký</li>
-                    </ul>
-                    <h2>Đăng ký tài khoản của bạn</h2>
-                    <!-- <% if(typeof errors != 'undefined'){ %> <% errors.forEach(function(error) { %>
-                    <div>
-                        <%= error.msg %>
-                    </div>
-                    <% }); %> <% } %> -->
-                    <div class="err_text"></div>
-                    <select id="user-type" name="user_type">
-                        <option selected disabled hidden>Bạn là ?</option>
-                        <option class="option" value="nguoi-tim-viec">Người tìm việc</option>
-                        <option class="option" value="viec-tim-nguoi">Việc tìm người</option>
-                    </select>
-                    <input type="text" id="fullname" name="full_name" placeholder="Họ và tên" />
-                    <input type="text" id="display-name" name="display_name" placeholder="Tên hiển thị" />
-                    <input type="email" id="email" name="email" placeholder="Email" />
-                    <div class="input-group">
-                        <input class="password" type="password" id="password" name="password" placeholder="Mật khẩu" />
-                        <span><i class="fas fa-exclamation-circle" err="6"></i></span>
-                        <div class="tooltips">
-                            <span><i class="fas fa-check-circle" err="1"></i> 6 kí tự trở lên</span>
-                            <span><i class="fas fa-check-circle" err="2"></i> 1 kí tự số</span>
-                            <span><i class="fas fa-check-circle" err="3"></i> 1 kí tự hoa</span>
-                            <span><i class="fas fa-check-circle" err="4"></i> 1 kí tự thường</span>
-                            <span><i class="fas fa-check-circle" err="5"></i> 1 kí tự đặc biệt</span>
-                        </div>
-                    </div>
-                    <div class="input-group">
-                        <input class="password" type="password" class="password" id="password_confirm" name="password_confirm"
-                            placeholder="Nhập lại mật khẩu" />
-                        <span><i err="7" class="fas fa-exclamation-circle"></i></span>
-                    </div>
+        </header>
 
-                    <p class="agree">Bằng cách nhấn vào nút Đăng Ký là bạn đã đồng ý với <a href="#">các điều khoản</a>
-                        của chúng tôi</p>
-                    <div class="press">
-                        <button id="submitReg" class="btn btn-primary btn-normal" type="submit">Đăng ký</button>
-                        <a href="/viec-tim-nguoi" class="btn btn-normal">Thoát</a>
-                    </div>
-                    <p class="forget">
-                        <a href="/login">Bạn đã có tài khoản?</a>
-                    </p>
-                </form>
+        <main>
+            <div id="reg-modal" class="modal">
+                <div id="reg_form">
+                    <!-- ===== REGISTER FORM ===== -->
+                    <form action="/users/register" method="POST" class="modal-content">
+                        <ul>
+                            <li><a href="/users/login">Đăng nhập</a></li>
+                            <li>Đăng ký</li>
+                        </ul>
+                        <h2>Đăng ký tài khoản của bạn</h2>
+                        <% if(typeof errors != 'undefined'){ %> <% errors.forEach(function(error) { %>
+                        <div class="err_text">
+                            <%= error.msg %>
+                        </div>
+                        <% }); %> <% } %>
+                        <!-- SELECT USER TYPE -->
+                        <select id="user-type" name="user_type">
+                            <option selected disabled hidden>Bạn là ?</option>
+                            <option class="option" value="nguoi-tim-viec">Người tìm việc</option>
+                            <option class="option" value="viec-tim-nguoi">Việc tìm người</option>
+                        </select>
+
+                        <!-- INPUT Full Name -->
+                        <input type="name" id="fullname" name="full_name" placeholder="Họ và tên"
+                            value="<%= typeof name != 'undefined' ? name : '' %>" />
+
+                        <!-- INPUT Display Name -->
+                        <input type="name" id="display-name" name="display_name" placeholder="Tên hiển thị"
+                            value="<%= typeof name != 'undefined' ? name : '' %>" />
+
+                        <!-- INPUT Email -->
+                        <input type="email" id="email" name="email" placeholder="Email"
+                            value="<%= typeof email != 'undefined' ? email : '' %>" />
+
+                        <!-- INPUT Password -->
+                        <div class="input-group">
+                            <input class="password" type="password" id="password" name="password" placeholder="Mật khẩu"
+                                value="<%= typeof password != 'undefined' ? password : '' %>" />
+                            <span><i class="fas fa-exclamation-circle" err="6"></i></span>
+                            <div class="tooltips">
+                                <span><i class="fas fa-check-circle" err="1"></i> 6 kí tự trở lên</span>
+                                <span><i class="fas fa-check-circle" err="2"></i> 1 kí tự số</span>
+                                <span><i class="fas fa-check-circle" err="3"></i> 1 kí tự hoa</span>
+                                <span><i class="fas fa-check-circle" err="4"></i> 1 kí tự thường</span>
+                                <span><i class="fas fa-check-circle" err="5"></i> 1 kí tự đặc biệt</span>
+                            </div>
+                        </div>
+
+                        <!-- INPUT Confirm Password -->
+                        <div class="input-group">
+                            <input class="password" type="password" id="password_confirm" name="password_confirm"
+                                placeholder="Nhập lại mật khẩu"
+                                value="<%= typeof password != 'undefined' ? password : '' %>" />
+                            <span><i err="7" class="fas fa-exclamation-circle"></i></span>
+                        </div>
+
+                        <!-- SUBS -->
+                        <p class="agree">Bằng cách nhấn vào nút Đăng Ký là bạn đã đồng ý với <a href="#">các điều
+                                khoản</a>
+                            của chúng tôi</p>
+                        <div class="press">
+                            <button id="submitReg" class="btn btn-primary btn-normal" type="submit">Đăng ký</button>
+                            <a href="/viec-tim-nguoi" class="btn btn-normal">Thoát</a>
+                        </div>
+                        <p class="forget">
+                            <a href="/users/login">Bạn đã có tài khoản?</a>
+                        </p>
+                    </form>
+                </div>
             </div>
-        </div>
-    </main>
-    <script src="js/userlgreg.js"></script>
+        </main>
+        <script src="../js/userlgreg.js"></script>
+    </div>
 </body>
 
 </html>
