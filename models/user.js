@@ -20,8 +20,8 @@ const userSchema = new Schema({
     full_name: { type: String, required: true, trim: true, maxlength: 250 },
     display_name: { type: String, required: true, trim: true, maxlength: 50 },
     phone_number: { type: String, required: true, trim: true, maxlength: 10 },
-    birthday: { type: Date, trim: true, maxlength: 250 },
-    title: { type: String, required: true },
+    // birthday: { type: Date, trim: true, maxlength: 250 },
+    // title: { type: String, required: true },
 
     // ===USER Register Date:
     create_date: { type: Date, default: Date.now },

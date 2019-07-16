@@ -24,7 +24,7 @@ router.get('/login', forwardAuthenticated, (req, res) => {
 // ===PROCESS LOGIN FOR USERS:
 router.post('/login', (req, res, next) => {
     passport.authenticate('local', {
-        successRedirect: '/index',
+        successRedirect: '/nguoi-tim-viec',
         failureRedirect: '/users/login',
         failureFlash: true,
     })(req, res, next)
