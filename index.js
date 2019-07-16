@@ -46,7 +46,7 @@ database.on('error', (err) => {
     log(chalk.redBright('Database connection error: ', err.message))
 })
 
-// ===EJS Template:
+// ===EJS TEMPLATE:
 goodjob.set('views', path.join(__dirname, 'views'))
 goodjob.set('view engine', 'ejs')
 

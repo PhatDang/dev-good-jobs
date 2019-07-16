@@ -95,10 +95,7 @@ router.post('/register', (req, res) => {
                         newUser
                             .save()
                             .then((_user) => {
-                                req.flash(
-                                    'success_msg',
-                                    'Bạn đã đăng ký thành công, hãy đăng nhập',
-                                )
+                                req.flash('success_msg', 'Bạn đã đăng ký thành công, hãy đăng nhập')
                                 return res.redirect('/users/login')
                             })
                             .catch(err => console.log(err))
