@@ -1,47 +1,41 @@
 /* eslint-disable no-unused-vars */
-/* eslint-disable consistent-return */
-/* eslint-disable no-else-return */
-/* eslint-disable arrow-body-style */
-/* eslint-disable camelcase */
-/* eslint-disable max-statements-per-line */
-/* eslint-disable no-console */
-/* eslint-disable object-shorthand */
 /* eslint-disable object-curly-newline */
 // ===============================
+const bcrypt = require('bcryptjs')
+const mongoose = require('mongoose')
+
 const LocalStrategy = require('passport-local').Strategy
 
+// ===LOAD USER MODELS:
 const User = require('../models/user')
 
 module.exports = (passport) => {
-    // Used to serialize the user for the session
-    passport.serializeUser((user, done) => {
-        done(null, user.id)
-    })
-    // Used to deserialize the user
-    passport.deserializeUser((id, done) => {
-        User.findById(id).then((user) => {
-            if (user) {
-                done(null, user.get())
-            } else {
-                done(user.errors, null)
-            }
-        })
-    })
-    // Local
-    passport.use(new LocalStrategy((email, password, done) => {
-        User.getUserByEmail(email, (err, user) => {
-            if (err) throw err
+    passport.use(new LocalStrategy({
+        usernameField: 'email',
+    }, (email, password, done) => {
+        // CHECK MATCH EMAIL:
+        User.findOne({
+            email,
+        }).then((user) => {
             if (!user) {
-                return done(null, false, { message: 'Email này đã được sử dụng.' })
+                done(null, false, { message: 'Email chưa được đăng ký, vui lòng đăng ký!' })
             }
-            User.comparePassword(password, user.password, (err, isMatch) => {
+            // CHECK MATCH PASSWORD:
+            bcrypt.compare(password, user.password, (err, isMatch) => {
                 if (err) throw err
                 if (isMatch) {
-                    return done(null, user)
-                } else {
-                    return done(null, false, { message: 'Email hoặc mật khẩu không đúng, vui lòng thử lại.' })
+                    done(null, user)
                 }
+                done(null, false, { message: 'Mật khẩu không đúng, vui lòng thử lại!' })
             })
         })
     }))
+    passport.serializeUser((user, done) => {
+        done(null, user.id)
+    })
+    passport.deserializeUser((id, done) => {
+        User.findById(id, (err, user) => {
+            done(err, user)
+        })
+    })
 }

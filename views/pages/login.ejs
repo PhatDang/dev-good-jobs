@@ -1,17 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Goodjobs</title>
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/home.css">
-    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/home.css">
+    <link rel="stylesheet" href="../css/responsive.css">
     <style>
         header {
-            background: #ff9900;    
+            background: #ff9900;
         }
+
         .header-content {
             height: 100px;
             justify-content: center;
@@ -20,6 +22,7 @@
             color: #fff;
             font-size: 40px;
         }
+
         .header-content a {
             color: #fff;
         }
@@ -36,19 +39,17 @@
     </header>
     <main>
         <div id="login-modal" class="modal">
-            <form id="login_form" enctype="multipart/form-data" action-type="login" action="/login" method="POST"
-                class="modal-content">
+            <form id="login_form" action="/users/login" method="POST" class="modal-content">
                 <ul>
                     <li>Đăng nhập</li>
-                    <li><a href="/register">Đăng ký</a></li>
+                    <li><a href="/users/register">Đăng ký</a></li>
                 </ul>
                 <h2>Đăng nhập tài khoản của bạn</h2>
-                <!-- <% if(typeof errors != 'undefined'){ %> <% errors.forEach(function(error) { %>
-                <div>
+                <% if(typeof errors != 'undefined'){ %> <% errors.forEach(function(error) { %>
+                <div class="err_text">
                     <%= error.msg %>
                 </div>
-                <% }); %> <% } %> -->
-                <div class="err_text"></div>
+                <% }); %> <% } %>
                 <input type="text" id="email" name="email" placeholder="Email" autofocus />
                 <input type="password" id="password" name="password" placeholder="Mật khẩu" />
                 <p class="agree">Bằng cách nhấn vào nút Đăng Nhập là bạn đã đồng ý với <a href="#">các điều khoản</a>
@@ -63,6 +64,7 @@
             </form>
         </div>
     </main>
-    <script src="js/userlgreg.js"></script>
+    <script src="../js/userlgreg.js"></script>
 </body>
+
 </html>

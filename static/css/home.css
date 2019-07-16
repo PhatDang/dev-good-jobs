@@ -131,6 +131,9 @@ header {
 .modal .err_text {
     color: #d42a2a;
 }
+.modal .success_text {
+    color: forestgreen;
+}
 .modal .agree {
     width: 80%;
     text-align: center;

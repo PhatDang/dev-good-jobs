@@ -3,7 +3,7 @@
 const User = require('../models/user')
 
 exports.UserValidator = (req, res, next) => {
-    // CHECK FIELDS INPUT
+    // CHECK FIELDS INPUT:
     req.check('user_type', 'Vui lòng cho chúng tôi biết bạn là ai?').not().isEmpty()
     req.check('full_name', 'Vui lòng nhập vào họ và tên').not().isEmpty()
     req.check('full_name', 'Họ và tên không được nhiều hơn 250 ký tự').isLength({ max: 250 })
@@ -15,7 +15,7 @@ exports.UserValidator = (req, res, next) => {
     req.check('password', 'Mật khẩu phải có hơn 6 ký tự').isLength({ min: 6 })
     req.check('password_confirm', 'Vui lòng xác nhận mật khẩu').not().isEmpty()
     req.check('password_confirm', 'Mật khẩu xác nhận không đúng').equals(req.body.password)
-    // CHECK ERRORS
+    // CHECK ERRORS:
     const errors = req.validationErrors()
     if (errors) {
         const firstError = errors.map(error => error.msg)[0]

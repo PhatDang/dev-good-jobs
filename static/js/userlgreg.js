@@ -1,6 +1,6 @@
 let errors = [];
 const getPass = document.querySelector("#password");
-const getPass2 = document.querySelector("#password_confirm");
+const getCofPass = document.querySelector("#password_confirm");
 // const getPassLog = document.querySelector("#password");
 const getEmail = document.querySelector("#email");
 const formEl = document.querySelector('#login_form');
@@ -21,11 +21,11 @@ const submitReg = document.getElementById('submitReg');
 const emailReg = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 const fullNameReg = /[a-zA-Z ]/;
 const passWordreg = /[0-9a-zAZ@!#]/;
-if(getPass2!== null) { 
+if(getCofPass!== null) { 
 getPass.addEventListener('focus', () => { tooltip.setAttribute('class', 'tooltips show'); })
 getPass.addEventListener('blur', () => { tooltip.setAttribute('class', 'tooltips'); })
 getPass.addEventListener('keyup', () => {
-    let validPass = getPass.value; let i = 0;
+    const validPass = getPass.value; let i = 0;
     if (validPass.length >= 6) { err1.style.color = "#66d062"; i += 1; } else { err1.style.color = ""; i -= 1; }
     if ((/[0-9]/).test(validPass)) { err2.style.color = "#66d062"; i += 1; } else { err2.style.color = ""; i -= 1; }
     if ((/[A-Z]/).test(validPass)) { err3.style.color = "#66d062"; i += 1; } else { err3.style.color = ""; i -= 1; }
@@ -33,9 +33,9 @@ getPass.addEventListener('keyup', () => {
     if ((/[#!@]/).test(validPass)) { err5.style.color = "#66d062"; i += 1; } else { err5.style.color = ""; i -= 1; }
     if (i >= 5) { tooltip.setAttribute('class', 'tooltips'); err6.style.color = "#66d062"; } else { tooltip.setAttribute('class', 'tooltips show'); err6.style.color = "red"; }
 })
-getPass2.addEventListener('keyup', () => {
-    let validPass = getPass.value; let validPass2 = getPass2.value;
-    if (validPass !== validPass2 || validPass2.length < 6) { err7.style.color = "red"; } else { err7.style.color = "#66d062"; }
+getCofPass.addEventListener('keyup', () => {
+    let validPass = getPass.value; let validCofPass = getCofPass.value;
+    if (validPass !== validCofPass || validCofPass.length < 6) { err7.style.color = "red"; } else { err7.style.color = "#66d062"; }
 })
 getEmail.addEventListener('blur', () => {
     let email = getEmail.value;
@@ -66,9 +66,9 @@ submitReg.addEventListener('click', (e) => {
     let password = getPass.value;
     let fullName = getFullName.value;
     let disPlayName = getDisPlayName.value;
-    let password2 = getPass2.value;
+    let passCofirm = getCofPass.value;
     let userType = getUserType.value;
-    if(password!==password2 || password.length<6) {
+    if(password!==passCofirm || password.length<6) {
         e.preventDefault()
     }
     if(!(fullNameReg).test(fullName)) {
