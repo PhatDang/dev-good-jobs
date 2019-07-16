@@ -35,6 +35,9 @@ router.get('/viec-tim-nguoi', (req, res) => {
 router.get('/them-thong-tin', (req, res) => {
     res.render('pages/uploadprofile')
 })
+router.get('/profile', (req, res) => {
+    res.render('pages/profile')
+})
 // ===============================
 // GET REGISTER Page
 router.get('/register', (req, res) => {
