@@ -34,12 +34,6 @@ const userSchema = new Schema({
         trim: true,
         minlength: 6,
     },
-    password_confirm: {
-        type: String,
-        required: true,
-        trim: true,
-        minlength: 6,
-    },
     date: {
         type: Date,
         default: Date.now,

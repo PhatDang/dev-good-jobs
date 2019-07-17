@@ -287,6 +287,29 @@ header {
 .login .login-link {
     margin-left: 12px;
 }
+.login .login-link .user-dropdown {
+    display: inline-block;
+    position: relative;
+}
+.dropdown {
+    display: none;
+    background: #fff;
+    border:1px solid #b7b7b7;
+    position: absolute;
+    right: 0;
+    bottom: -80px;
+    z-index: 1;
+}
+.dropdown li {
+    padding: 10px 30px;
+    border-bottom: 1px solid #efefef;
+}
+.dropdown li:hover {
+    background: #efefef;
+}
+.login .login-link .user-dropdown:hover .dropdown {
+    display: block;
+}
 header .login .login-icon i {
     transform: translate(0, 12%);
     display: inline-block;
