@@ -1,6 +1,5 @@
-/* Defined */
-/* Gobal color: #ff9900 */
-/* GLOBAL*/
+/* =BASE
+====================================================== */
 .btn {
     display: inline-block;
     font-weight: 400;
@@ -17,7 +16,7 @@
         rgba(215, 215, 215, 1))
 }
 .alert {
-    pading: 10px;
+    padding: 10px;
 }
 .error {
     color : red;
@@ -74,7 +73,8 @@
     background-image: none;
     animation: btn-press;
 }
-/* GLOBAL END........... */
+/* =BODY
+====================================================== */
 .container {
     width: 100%;
 }
@@ -85,7 +85,8 @@ header {
     border-bottom: 1px solid #ccc;
     box-shadow: 1px -1px 8px #ccc;
 }
-/* Login-signup-modal*/
+/* =LOGIN AND SIGNUP MODAL
+====================================================== */
 .modal {
     position: relative;
 }
@@ -242,6 +243,8 @@ header {
 .press a {
     float: right;
 }
+/* =HEADER
+====================================================== */
 .header-content {
     max-width: 1440px;
     height: 100px;
@@ -300,6 +303,28 @@ header {
     bottom: -80px;
     z-index: 1;
 }
+.dropdown:after, .dropdown::before {
+    bottom: 100%;
+	left: 90%;
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+}
+.dropdown:after {
+    border-color: rgba(136, 183, 213, 0);
+	border-bottom-color: #b7b7b7;
+	border-width: 3px;
+	margin-left: -3px;
+}
+.dropdown:before {
+    border-color: rgba(194, 225, 245, 0);
+    border-bottom-color: #b7b7b7;
+    border-width: 8px;
+    margin-left: -8px;
+}
 .dropdown li {
     padding: 10px 30px;
     border-bottom: 1px solid #efefef;
@@ -319,14 +344,16 @@ header .login .login-icon i {
 header .login .login-link:hover {
     text-decoration: underline;
 }
-/* Main Login Form */
+/* =MAIN
+====================================================== */
 main {
     min-height: 60vh;
     padding: 2rem;
     display: flex;
     justify-content: center;
 }
-/* Profile upload */
+/* =PROFILE
+====================================================== */
 #profile {
     max-width: 1120px;
     margin: 20px auto;
@@ -390,7 +417,8 @@ main {
     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
     cursor: pointer;
 }
-/* User-Detail-Show */
+/* =USER DETAIL
+====================================================== */
 .profile-header #display-name {
     padding: 4px;
     position: absolute;
@@ -442,7 +470,8 @@ main {
     font-weight: bold;
     width: 20%;
 }
-/* Profile-Edit-Form */
+/* =EDIT PAGE USER DETAIL
+====================================================== */
 .profile-edit-form {
     display: flex;
     flex-direction: row;
@@ -517,6 +546,8 @@ main {
 .form-group .date {
     padding: 12.5px !important;
 }
+/* =FOOTER
+====================================================== */
 footer {
     width: 100%;
 }
@@ -530,7 +561,8 @@ footer {
     line-height: 90px;
     margin-bottom: 20px;
 }
-/* Amination Custom*/
+/* =AMINATION
+====================================================== */
 @keyframes btn-secondary-press {
     0% {
         background-color: #b7b7b7;
