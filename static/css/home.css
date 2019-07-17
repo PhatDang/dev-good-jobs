@@ -71,7 +71,6 @@
 /* GLOBAL END........... */
 .container {
     width: 100%;
-    height: 100vh;
 }
 header {
     width: 100%;
@@ -186,8 +185,16 @@ header {
 .modal .tooltips span i {
     font-size: 16px;
 }
-.modal input,
-select {
+.modal input {
+    font-size: 16px;
+    color: #000000;
+    width: 400px;
+    border: 1px solid #b7b7b7;
+    margin: 12px 0;
+    padding: 15px 21px;
+    outline: none;
+}
+.modal select {
     font-size: 16px;
     color: #000000;
     width: 400px;
@@ -287,6 +294,132 @@ main {
     padding: 2rem;
     display: flex;
     justify-content: center;
+}
+/* Profile upload */
+#profile-edit {
+    max-width: 1120px;
+    margin: 20px auto;
+    box-sizing: border-box;
+}
+#profile-edit #title {
+    text-transform: uppercase;
+    padding: 40px 0 30px 0;
+}
+#profile-edit .required-text {
+    color: red;
+    font-weight: bold;
+}
+#profile-edit #title h4 {
+    font-weight: bold;
+    font-size: 
+}
+.profile-header {
+    height: 200px;
+    width: 100%;
+    background-color: #ff9900;
+    position: relative;
+}
+.profile-header #avatar {
+    width: 128px;
+    height: 128px;
+    padding: 4px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    position: absolute;
+    bottom: -40px;
+    left: 27px;
+}
+.profile-header #avatar img {
+    width: 128px;
+    height: 128px;
+    border-radius: 50%;
+}
+.profile-header #avatar-edit {
+    background: #fff;
+    color: #ff9900;
+    padding: 4px;
+    position: absolute;
+    bottom: -38px;
+    left: 130px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+}
+.profile-edit-form {
+    display: flex;
+    flex-direction: row;
+    margin-top: 60px;
+}
+#profile-edit-content {
+    flex-basis: 800px;
+    padding: 20px;
+}
+#profile-input-top {
+    display: flex;
+    flex-direction: row;
+}
+#profile-input-top input {
+    width: 320px;
+    padding: 15.5px;
+}
+#profile-input-mid input {
+    width: 80%;
+    padding: 15.5px;
+}
+#profile-input-bottom input#street {
+    width: 500px;
+}
+.col-profile {
+    flex-basis: 50%;
+}
+.form-group {
+    display: block;
+    padding: 10px;
+}
+.form-group label {
+    display: block;
+    margin: 6px 0;
+    font-weight: bold;
+    text-transform: capitalize;
+}
+.form-group input {
+    font-size: 16px;
+    color: #000;
+    outline: none;
+    border:1px solid #b7b7b7;
+}
+.form-group select {
+    width: 350px;
+    padding: 15.5px;
+    margin-bottom: 20px;
+    background-image: linear-gradient(to bottom, rgba(215, 215, 215, 0.7), rgba(215, 215, 215, 0.55) 25%, rgba(215, 215, 215, 0.55) 75%, rgba(215, 215, 215, 0.7));
+    outline: none;
+    cursor: pointer;
+}
+.form-group select#district {
+    width:250px;
+}
+.form-group select#ward {
+    width: 200px;
+}
+.form-group input::placeholder {
+    color: #b7b7b7;
+}
+.form-group input:disabled {
+    background-color: #d7d7d7;
+}
+#profile-input-bottom input {
+    width: 320px;
+    padding: 15.5px;
+}
+#profile-save {
+    padding-top: 40px;
+    flex-basis: 300px;
+}
+.form-group .date {
+    padding: 12.5px !important;
 }
 footer {
     width: 100%;
