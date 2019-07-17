@@ -95,17 +95,15 @@ goodjob.use('/users', require('./routes/users'))
 // ===CATCH 404:
 goodjob.use((req, res, next) => {
     // log(req)
-    const err = new Error('404')
     res.status(404)
-    next(err)
-    return res.render('pages/404')
+    res.render('pages/404')
 })
 
 // ===ERROR HANDLER:
 goodjob.use((err, req, res, next) => {
     // log(req)
     res.status(err.status || 500)
-    return res.send(err.message)
+    res.send(err.message)
 })
 
 // LOADING SERVER...

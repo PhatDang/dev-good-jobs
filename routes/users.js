@@ -18,8 +18,9 @@ const { forwardAuthenticated } = require('../config/auth')
 router.get('/login', forwardAuthenticated, (req, res) => {
     if (req.user) {
         res.redirect('/nguoi-tim-viec')
+    } else {
+        res.render('pages/login')
     }
-    res.render('pages/login')
 })
 // ===PROCESS LOGIN FOR USERS:
 router.post('/login', (req, res, next) => {
@@ -116,7 +117,7 @@ router.get('/logout', (req, res) => {
         }
         req.user = null
         req.flash('success_msg', 'Bạn đã đăng xuất thành công!')
-        return res.redirect('/users/login')
+        res.redirect('/users/login')
     })
 })
 
