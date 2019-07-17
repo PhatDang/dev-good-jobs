@@ -45,11 +45,11 @@
                     <li><a href="/users/register">Đăng ký</a></li>
                 </ul>
                 <h2>Đăng nhập tài khoản của bạn</h2>
-                <% if(typeof errors != 'undefined'){ %> <% errors.forEach(function(error) { %>
-                <div class="err_text">
-                    <%= error.msg %>
-                </div>
-                <% }); %> <% } %>
+                <% if(error != '') { %>
+                    <p class="alert error">
+                        <i class="fa fa-times"></i></i> <%= error %>
+                    </p>
+                <% } %>                
                 <input type="text" id="email" name="email" placeholder="Email" autofocus />
                 <input type="password" id="password" name="password" placeholder="Mật khẩu" />
                 <p class="agree">Bằng cách nhấn vào nút Đăng Nhập là bạn đã đồng ý với <a href="#">các điều khoản</a>

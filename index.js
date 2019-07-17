@@ -97,7 +97,6 @@ goodjob.use((req, res, next) => {
 
 // ===ERROR HANDLER:
 goodjob.use((err, req, res, next) => {
-    log(req)
     res.status(err.status || 500)
     res.send(err.message)
 })

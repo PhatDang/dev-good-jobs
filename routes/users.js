@@ -72,14 +72,12 @@ router.post('/register', (req, res) => {
                     full_name,
                     display_name,
                     email,
-                    password,
-                    password_confirm,
+                    password
                 })
                 bcrypt.genSalt(10, (err, salt) => {
                     bcrypt.hash(newUser.password, salt, (err, hash) => {
                         if (err) throw err
                         newUser.password = hash
-                        newUser.password_confirm = hash
                         newUser
                             .save()
                             .then((user) => {
@@ -100,7 +98,7 @@ router.post('/register', (req, res) => {
 // ===PROCESS LOGIN FOR USERS:
 router.post('/login', (req, res, next) => {
     passport.authenticate('local', {
-        successRedirect: '/index',
+        successRedirect: '/nguoi-tim-viec',
         failureRedirect: '/users/login',
         failureFlash: true,
     })(req, res, next)

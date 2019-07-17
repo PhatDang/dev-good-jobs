@@ -20,7 +20,7 @@ router.get('/', (req, res) => {
 // ===GET USERS Or PARTNERS PAGES:
 // Get Users PAGE:
 router.get('/nguoi-tim-viec', (req, res) => {
-    res.render('pages/findjob')
+    res.render('pages/findjob',{user: req.user["display_name"]})
 })
 // Get Partners PAGE:
 router.get('/viec-tim-nguoi', (req, res) => {
@@ -65,7 +65,6 @@ router.post('/register', (req, res) => {
         User.createUser(newUser, (err, user) => {
             if (err) throw err
             if (req.user) {
-                console.log(user)
                 user.save((result) => {
                     res.json({ user: result, 'success_msg': 'Bạn đã đăng ký thành công!' })
                 })

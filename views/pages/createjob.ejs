@@ -1,5 +1,12 @@
 <% include ../partials/header %>
 <main>
-    Trang này đang bị khóa
+    <% if(typeof user !== "undefined") { %>
+       Hi,
+        <%= user %>, bạn tìm thấy công việc chưa?
+    <% } else { %>
+        <a href="/users/login">
+        Hiển thị công việc
+        </a>
+    <% }%>
 </main>
 <% include ../partials/footer %>

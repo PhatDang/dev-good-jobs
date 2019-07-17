@@ -25,9 +25,9 @@ module.exports = (passport) => {
                 if (err) throw err
                 if (isMatch) {
                     done(null, user)
-                }
-                done(null, false, { message: 'Mật khẩu không đúng, vui lòng thử lại!' })
-            })
+                }else {
+                done(null, false, { message: 'Mật khẩu không đúng, vui lòng thử lại!' })}
+            }) 
         })
     }))
     passport.serializeUser((user, done) => {
