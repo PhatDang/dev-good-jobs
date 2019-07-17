@@ -5,10 +5,10 @@ const express = require('express')
 
 const router = express.Router()
 
-// const { ensureAuthenticated, forwardAuthenticated } = require('../config/auth')
+const { ensureAuthenticated, forwardAuthenticated } = require('../config/auth')
 
 // ===GET FIRST LAYOUT PAGE:forwardAuthenticated,
-router.get('/', (req, res) => res.render('layout'))
+router.get('/', forwardAuthenticated, (req, res) => res.render('layout'))
 
 // ===GET USERS Or PARTNERS PAGES:
 // Get Users PAGE:

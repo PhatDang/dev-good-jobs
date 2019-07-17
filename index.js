@@ -23,9 +23,6 @@ const MongoStore = require('connect-mongo')(session)
 // ===PASSPORT CONFIG:
 require('./config/passport')(passport)
 
-// ===ADD BOOTSTRAP:
-// require('bootstrap')
-
 // ===SETTING FIRST:
 const log = console.log
 const goodjob = express()
