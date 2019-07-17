@@ -25,7 +25,13 @@ router.get('/login', forwardAuthenticated, (req, res) => {
 router.get('/register', forwardAuthenticated, (req, res) => {
     res.render('pages/register')
 })
-
+// ===PROFILE PAGE:
+router.get('/them-thong-tin', (req, res) => {
+    res.render('pages/uploadprofile')
+})
+router.get('user/profile', (req, res) => {
+    res.render('pages/profile')
+})
 // ===PROCESS REGISTER FOR USERS:
 router.post('/register', (req, res) => {
     const { user_type, full_name, display_name, email, password, password_confirm } = req.body
