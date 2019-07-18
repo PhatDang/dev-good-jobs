@@ -18,7 +18,19 @@
                 <i class="fas fa-user-circle"></i>
             </span>
             <span class="login-link">
-                <a href="/users/login">Đăng nhập / Đăng ký</a>
+                <% if(typeof req.user["display_name"] !== "undefined") { %>
+                <%= req.user["display_name"] %>
+                <div class="user-dropdown"><i class="fas fa-bars"></i>
+                    <ul class="dropdown">
+                        <li><a href="/profile">Profile</a></li>
+                        <li><a href="/logout">Logout</a></li>
+                        </li>
+                </div>
+                <% } else { %>
+                <a href="/users/login">
+                    Đăng nhập / Đăng ký
+                </a>
+                <% }%>
             </span>
         </div>
 </header>

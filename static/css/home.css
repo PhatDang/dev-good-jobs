@@ -1,6 +1,5 @@
-/* Defined */
-/* Gobal color: #ff9900 */
-/* GLOBAL*/
+/* =BASE
+====================================================== */
 .btn {
     display: inline-block;
     font-weight: 400;
@@ -15,6 +14,12 @@
     background-image: linear-gradient(rgba(215, 215, 215, 0.2),
         rgba(215, 215, 215, 0.5),
         rgba(215, 215, 215, 1))
+}
+.alert {
+    padding: 10px;
+}
+.error {
+    color : red;
 }
 .btn:hover {
     box-shadow: 0px 1px 4px 0 rgba(0, 0, 0, 0.15);
@@ -68,7 +73,8 @@
     background-image: none;
     animation: btn-press;
 }
-/* GLOBAL END........... */
+/* =BODY
+====================================================== */
 .container {
     width: 100%;
 }
@@ -79,7 +85,8 @@ header {
     border-bottom: 1px solid #ccc;
     box-shadow: 1px -1px 8px #ccc;
 }
-/* Login-signup-modal*/
+/* =LOGIN AND SIGNUP MODAL
+====================================================== */
 .modal {
     position: relative;
 }
@@ -236,6 +243,8 @@ header {
 .press a {
     float: right;
 }
+/* =HEADER
+====================================================== */
 .header-content {
     max-width: 1440px;
     height: 100px;
@@ -243,7 +252,7 @@ header {
     background: inherit;
     display: flex;
     flex-direction: row;
-    justify-content: flex-start;
+    justify-content: space-between;
     align-items: center;
 }
 .header-content .logo {
@@ -253,7 +262,8 @@ header {
     width: 150px;
 }
 .header-content .header-menu {
-    flex-basis: 760px;
+    /* flex-basis: 760px; */
+    display: none;
 }
 .header-content .top-menu li {
     display: inline-block;
@@ -274,10 +284,59 @@ header {
     color: #d42a2a;
 }
 .header-content .category-btn {
-    flex-basis: 250px;
+    /* flex-basis: 250px; */
+    display: none;
+}
+.login {
+    height: 30px;
 }
 .login .login-link {
     margin-left: 12px;
+}
+.login .login-link .user-dropdown {
+    display: inline-block;
+    position: relative;
+}
+.dropdown {
+    display: none;
+    background: #fff;
+    border:1px solid #b7b7b7;
+    position: absolute;
+    right: 0;
+    bottom: -80px;
+    z-index: 1;
+}
+.dropdown:after, .dropdown::before {
+    bottom: 100%;
+	left: 90%;
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+}
+.dropdown:after {
+    border-color: rgba(136, 183, 213, 0);
+	border-bottom-color: #b7b7b7;
+	border-width: 3px;
+	margin-left: -3px;
+}
+.dropdown:before {
+    border-color: rgba(194, 225, 245, 0);
+    border-bottom-color: #b7b7b7;
+    border-width: 8px;
+    margin-left: -8px;
+}
+.dropdown li {
+    padding: 10px 30px;
+    border-bottom: 1px solid #efefef;
+}
+.dropdown li:hover {
+    background: #efefef;
+}
+.login .login-link .user-dropdown:hover .dropdown {
+    display: block;
 }
 header .login .login-icon i {
     transform: translate(0, 12%);
@@ -288,28 +347,36 @@ header .login .login-icon i {
 header .login .login-link:hover {
     text-decoration: underline;
 }
-/* Main Login Form */
+/* =MAIN
+====================================================== */
 main {
     min-height: 60vh;
     padding: 2rem;
     display: flex;
     justify-content: center;
 }
-/* Profile upload */
-#profile-edit {
+/* =PROFILE
+====================================================== */
+#profile {
     max-width: 1120px;
     margin: 20px auto;
     box-sizing: border-box;
 }
-#profile-edit #title {
-    text-transform: uppercase;
-    padding: 40px 0 30px 0;
+#profile #title {
+    padding: 20px 0;
 }
-#profile-edit .required-text {
+#profile #title h2 {
+    display: inline-block;
+    font-size: 21px;
+    color: #ff9900;
+    text-transform: capitalize;
+    border-bottom: 5px solid #ff9900;
+}
+#profile .required-text {
     color: red;
     font-weight: bold;
 }
-#profile-edit #title h4 {
+#profile #title h4 {
     font-weight: bold;
     font-size: 
 }
@@ -328,12 +395,18 @@ main {
     border-radius: 50%;
     position: absolute;
     bottom: -40px;
-    left: 27px;
+    left: 60px;
 }
 .profile-header #avatar img {
     width: 128px;
     height: 128px;
     border-radius: 50%;
+}
+#user-head-infomation p {
+    padding: 20px;
+}
+#user-head-infomation p span {
+    padding: 0 10px;
 }
 .profile-header #avatar-edit {
     background: #fff;
@@ -341,12 +414,67 @@ main {
     padding: 4px;
     position: absolute;
     bottom: -38px;
-    left: 130px;
+    left: 160px;
     border: 1px solid #ddd;
     border-radius: 5px;
     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
     cursor: pointer;
 }
+/* =USER DETAIL
+====================================================== */
+.profile-header #display-name {
+    padding: 4px;
+    position: absolute;
+    bottom: 0px;
+    left: 270px;
+}
+.profile-header #display-name h3 {
+    font-size: 44px;
+    color: #fff;
+}
+#user-head-infomation {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    border:1px solid #b7b7b7;
+}
+#profile section {
+    padding: 18px;
+    border: 1px solid #b7b7b7;
+    margin: 40px 0;
+    box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2);
+}
+#profile .section-info-title {
+    border-bottom: 5px solid #ff9900;
+}
+#profile .section-info-title h2 {
+    padding-bottom: 10px;
+    color: #ff9900;
+    font-size: 28px;
+}
+#profile section .section-info-detail {
+    padding-top: 20px;
+}
+#profile section .section-info-detail .section-content {
+    color: #b7b7b7;
+    padding-bottom: 10px;
+}
+#profile section .section-info-detail .section-edit {
+    color: #ff9900;
+}
+#profile table {
+    width: 100%;
+    margin-bottom: 20px;
+}
+#profile table tr td {
+    padding: 5px 0;
+}
+#profile table tr td:first-child {
+    font-weight: bold;
+    width: 20%;
+}
+/* =EDIT PAGE USER DETAIL
+====================================================== */
 .profile-edit-form {
     display: flex;
     flex-direction: row;
@@ -421,6 +549,8 @@ main {
 .form-group .date {
     padding: 12.5px !important;
 }
+/* =FOOTER
+====================================================== */
 footer {
     width: 100%;
 }
@@ -434,7 +564,8 @@ footer {
     line-height: 90px;
     margin-bottom: 20px;
 }
-/* Amination Custom*/
+/* =AMINATION
+====================================================== */
 @keyframes btn-secondary-press {
     0% {
         background-color: #b7b7b7;

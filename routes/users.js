@@ -122,14 +122,21 @@ router.get('/logout', (req, res) => {
 })
 
 // =================================== USER PROFILE
-// ===GET DETAIL PROFILE PAGE:
+// ===DEMO:
 // router.get('/demo_detail', (_req, res) => {
 //     res.render('detail_profile')
 // })
-
-// // ===GET UPLOAD PROFILE PAGE:
 // router.get('/demo_edit', (_req, res) => {
 //     res.render('update_profile')
 // })
+// ===================================
+// ===GET UPLOAD_PROFILE:
+router.get('/them-thong-tin', (req, res) => {
+    res.render('pages/uploadprofile')
+})
+// ===GET DETAIL_PROFILE:
+router.get('/profile', (req, res) => {
+    res.render('pages/profile')
+})
 
 module.exports = router
