@@ -1,5 +1,15 @@
+/* eslint-disable object-curly-newline */
 /* eslint-disable consistent-return */
 // ===============================
+// ===CHECK Is Logged-in:
+exports.isLoggedIn = (req, res, next) => {
+    if (req.isAuthenticated()) {
+        next()
+    } else {
+        req.flash('error_msg', 'Bạn vui lòng đăng nhập để được vào trang!')
+        res.redirect('/users/login')
+    }
+}
 // ===CHECK Ensure Authenticated:
 exports.ensureAuthenticated = (req, res, next) => {
     if (req.isAuthenticated()) {
@@ -8,11 +18,19 @@ exports.ensureAuthenticated = (req, res, next) => {
     req.flash('error_msg', 'Bạn vui lòng đăng nhập để được vào trang!')
     res.redirect('/users/login')
 }
-
 // ===CHECK Forward Authenticated:
 exports.forwardAuthenticated = (req, res, next) => {
     if (!req.isAuthenticated()) {
         return next()
     }
-    res.redirect('/')
+    // res.redirect('/nguoi-tim-viec')
+}
+// ============== ROLEs:
+// ===CHECK Seeker:
+exports.isSeeker = (req, res, next) => {
+    next()
+}
+// ===CHECK Hunter:
+exports.isHunter = (req, res, next) => {
+    next()
 }

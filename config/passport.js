@@ -1,3 +1,8 @@
+/* eslint-disable no-alert */
+/* eslint-disable no-console */
+/* eslint-disable no-else-return */
+/* eslint-disable object-shorthand */
+/* eslint-disable consistent-return */
 /* eslint-disable no-unused-vars */
 /* eslint-disable object-curly-newline */
 // ===============================
@@ -9,6 +14,26 @@ const LocalStrategy = require('passport-local').Strategy
 const User = require('../models/user')
 
 module.exports = (passport) => {
+    // Sign-in with {Email} && {Password}
+    passport.use(new LocalStrategy({ usernameField: 'email' }, (email, password, done) => {
+        // MATCH EMAIL:
+        User.findOne({ email: email })
+            .then((user) => {
+                if (!user) {
+                    return done(null, false, { message: 'Email đó chưa được đăng ký, vui lòng thử lại!' })
+                }
+                // MATCH PASSWORD:
+                bcrypt.compare(password, user.password, (err, isMatch) => {
+                    if (err) throw err
+                    if (isMatch) {
+                        return done(null, user)
+                    } else {
+                        return done(null, false, { message: 'Mật khẩu không đúng, vui lòng thử lại!' })
+                    }
+                })
+            })
+            .catch(err => console.log(err))
+    }))
     passport.serializeUser((user, done) => {
         done(null, user.id)
     })
@@ -17,22 +42,4 @@ module.exports = (passport) => {
             done(err, user)
         })
     })
-    // Sign-in with {Email} && {Password}
-    passport.use(new LocalStrategy({ usernameField: 'email' }, (email, password, done) => {
-        // CHECK MATCH EMAIL:
-        User.findOne({ email: email.toLowerCase() })
-            .then((user) => {
-                if (!user) {
-                    done(null, false, { msg: 'Email chưa được đăng ký, vui lòng đăng ký!' })
-                }
-                // CHECK MATCH PASSWORD:
-                bcrypt.compare(password, user.password, (err, isMatch) => {
-                    if (err) throw err
-                    if (isMatch) {
-                        done(null, user)
-                    }
-                    done(null, false, { msg: 'Mật khẩu không đúng, vui lòng thử lại!' })
-                })
-            })
-    }))
 }

@@ -2,13 +2,7 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Goodjobs</title>
-    <link rel="stylesheet" href="../css/reset.css">
-    <link rel="stylesheet" href="../css/home.css">
-    <link rel="stylesheet" href="../css/responsive.css">
+    <% include ../partials/head %>
     <style>
         header {
             background: #ff9900;
@@ -45,13 +39,11 @@
                     <li><a href="/users/register">Đăng ký</a></li>
                 </ul>
                 <h2>Đăng nhập tài khoản của bạn</h2>
-                <p class="alert error">
-                <% if(error != '') { %>
-                        <%= error %>
-                <% } %>    
-                </p>            
-                <input type="text" id="email" name="email" placeholder="Email" autofocus />
-                <input type="password" id="password" name="password" placeholder="Mật khẩu" />
+                <% include ../partials/messages %>
+                <input type="email" id="email" name="email" placeholder="Nhập email" autofocus
+                    value="<%= typeof email != 'undefined' ? email : '' %>" />
+                <input type="password" id="password" name="password" placeholder="Nhập mật khẩu"
+                    value="<%= typeof password != 'undefined' ? password : '' %>" />
                 <p class="agree">Bằng cách nhấn vào nút Đăng Nhập là bạn đã đồng ý với <a href="#">các điều khoản</a>
                     của chúng tôi</p>
                 <div class="press">

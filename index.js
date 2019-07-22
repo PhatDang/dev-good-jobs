@@ -79,8 +79,9 @@ goodjob.use(passport.session())
 // ===CONNECT FLASH:
 goodjob.use(flash())
 goodjob.use((req, res, next) => {
-    res.locals.success_messages = req.flash('success_msg')
-    res.locals.error_messages = req.flash('error_msg')
+    res.locals.current_user = req.user
+    res.locals.success_msg = req.flash('success_msg')
+    res.locals.error_msg = req.flash('error_msg')
     res.locals.error = req.flash('error')
     next()
 })

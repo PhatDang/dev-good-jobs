@@ -2,15 +2,21 @@
 <div class="err_text">
     <%= error.msg %>
 </div>
-<% }); %> <% } %> <% if(success_msg != ''){ %>
+<% }); %> <% } %>
+
+<% if(success_msg != ''){ %>
 <div class="success_text">
     <%= success_msg %>
 </div>
-<% } %> <% if(error_msg != ''){ %>
+<% } %>
+
+<% if(error_msg != ''){ %>
 <div class="err_text">
     <%= error_msg %>
 </div>
-<% } %> <% if(error != ''){ %>
+<% } %>
+
+<% if(error != ''){ %>
 <div class="err_text">
     <%= error %>
 </div>

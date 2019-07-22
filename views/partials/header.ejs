@@ -1,7 +1,7 @@
 <header>
     <div class="header-content">
         <div class="logo">
-            <a href="/"><img src="images/lo.png" alt=""></a>
+            <a href="/nguoi-tim-viec"><img src="../images/lo.png" alt=""></a>
         </div>
         <div class="header-menu">
             <ul class="top-menu">
@@ -11,26 +11,16 @@
             </ul>
         </div>
         <div class="category-btn">
-            <a href="/viec-tim-nguoi"><button class="btn btn-secondary btn-small">Việc tìm người</button></a>
+            <a href="#"><button class="btn btn-secondary btn-small">Việc tìm người</button></a>
         </div>
         <div class="login">
             <span class="login-icon">
                 <i class="fas fa-user-circle"></i>
             </span>
             <span class="login-link">
-                <% if(typeof req.user["display_name"] !== "undefined") { %>
-                <%= req.user["display_name"] %>
-                <div class="user-dropdown"><i class="fas fa-bars"></i>
-                    <ul class="dropdown">
-                        <li><a href="/profile">Profile</a></li>
-                        <li><a href="/logout">Logout</a></li>
-                        </li>
-                </div>
-                <% } else { %>
                 <a href="/users/login">
                     Đăng nhập / Đăng ký
                 </a>
-                <% }%>
             </span>
         </div>
 </header>
