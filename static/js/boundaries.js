@@ -28,7 +28,7 @@ const data = {
             6: {
                 name: "Quận 6",
                 wards: [1,2,3,4,5,6,7,8,9,10,11,12,13,14]
-            },                                                                                                        
+            },
             7: {
                 name: "Quận 7",
                 wards: ["Bình Thuận", "Phú Mỹ", "Phú Thuận", "Tân Hưng", "Tân Kiểng", "Tân Phong", "Tân Phú", "Tân Quy", "Tân Thuận Đông", "Tân Thuận Tây"]
@@ -53,12 +53,12 @@ const data = {
                 name: "Quận 12",
                 ward: ["An Phú Đông", "Đông Hưng Thuận", "Hiệp Chánh", "Tân Chánh Hiệp", "Tân Hưng Thuận", "Tân Thới Hiệp", "Tân Thới Nhất", "Thanh Lộc", "Thanh Xuân", "Thới An", "Trung Mỹ Tây"]
             }
-            
-            
+
+
         },
     }
 }
-let alldistricts = "<option selected hidden>Quận</option>"; 
+let alldistricts = "<option selected hidden>Quận</option>";
 for (key in data['ho_chi_minh'].districts) {
     alldistricts += "<option value='" + key + "'>" + data['ho_chi_minh'].districts[key].name + "</option>";
 }

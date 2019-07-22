@@ -1,12 +1,20 @@
-<% include ../partials/header %>
-<main>
-    <% if(typeof user !== "undefined") { %>
-        Hi,
-         <%= req.user["display_name"] %>, bạn tìm thấy công việc chưa?
-     <% } else { %>
-         <a href="/users/login">
-         Hiển thị công việc
-         </a>
-     <% }%>
-</main>
-<% include ../partials/footer %>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <% include ../partials/head %>
+</head>
+
+<body>
+    <% include ../partials/header %>
+    <div class="container">
+        <main>
+            <a href="/users/login">
+                Hiển thị công việc
+            </a>
+        </main>
+    </div>
+    <% include ../partials/footer %>
+</body>
+
+</html>

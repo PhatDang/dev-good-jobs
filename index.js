@@ -9,6 +9,7 @@
  */
 const bodyParser = require('body-parser')
 const cookieParser = require('cookie-parser')
+const chalk = require('chalk')
 const express = require('express')
 const flash = require('connect-flash')
 const morgan = require('morgan')
@@ -35,14 +36,14 @@ const MONGODB_URI = 'mongodb://func_admin:8512930.Phat@ds147207.mlab.com:47207/h
 mongoose.connect(MONGODB_URI, {
     useCreateIndex: true,
     useNewUrlParser: true,
-}).then(() => log('Database connection success!')).catch(err => log(err))
+}).then(() => log(chalk.bgGreen('Database connection success!'))).catch(err => log(chalk.redBright(err)))
 
 const database = mongoose.connection
 database.on('error', (err) => {
-    log('Database connection error: ', err.message)
+    log(chalk.redBright('Database connection error: ', err.message))
 })
 
-// ===EJS Template:
+// ===EJS TEMPLATE:
 goodjob.set('views', path.join(__dirname, 'views'))
 goodjob.set('view engine', 'ejs')
 
@@ -78,8 +79,9 @@ goodjob.use(passport.session())
 // ===CONNECT FLASH:
 goodjob.use(flash())
 goodjob.use((req, res, next) => {
-    res.locals.success_messages = req.flash('success_msg')
-    res.locals.error_messages = req.flash('error_msg')
+    res.locals.current_user = req.user
+    res.locals.success_msg = req.flash('success_msg')
+    res.locals.error_msg = req.flash('error_msg')
     res.locals.error = req.flash('error')
     next()
 })
@@ -90,21 +92,21 @@ goodjob.use('/users', require('./routes/users'))
 
 // ===CATCH 404:
 goodjob.use((req, res, next) => {
-    const err = new Error('404')
-    res.status(404).render('pages/404')
-    next(err)
+    // log(req)
+    res.status(404)
+    res.render('pages/404')
 })
 
 // ===ERROR HANDLER:
 goodjob.use((err, req, res, next) => {
-    log(req)
+    // log(req)
     res.status(err.status || 500)
     res.send(err.message)
 })
 
 // LOADING SERVER...
 goodjob.listen(PORT, () => {
-    log(`SERVER STARTED LISTENING ON PORT ${PORT}!`)
+    log(chalk.whiteBright('SERVER STARTED LISTENING ON PORT ') + chalk.yellowBright(`http://localhost:${PORT}`))
 })
 
 module.exports = goodjob

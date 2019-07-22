@@ -5,25 +5,20 @@ const express = require('express')
 
 const router = express.Router()
 
-// const { ensureAuthenticated, forwardAuthenticated } = require('../config/auth')
+const { ensureAuthenticated, forwardAuthenticated } = require('../config/auth')
 
 // ===GET FIRST LAYOUT PAGE:forwardAuthenticated,
-router.get('/', (req, res) => {
+router.get('/', forwardAuthenticated, (req, res) => {
     res.render('layout')
 })
 
-// // ===GET INDEX PAGE:ensureAuthenticated,
-// router.get('/', (req, res) => {
-//     res.render('pages/index')
-// })
-
 // ===GET USERS Or PARTNERS PAGES:
 // Get Users PAGE:
-router.get('/nguoi-tim-viec', (req, res) => {
+router.get('/nguoi-tim-viec', forwardAuthenticated, (req, res) => {
     res.render('pages/findjob')
 })
 // Get Partners PAGE:
-router.get('/viec-tim-nguoi', (req, res) => {
+router.get('/viec-tim-nguoi', forwardAuthenticated, (req, res) => {
     res.render('pages/createjob')
 })
 

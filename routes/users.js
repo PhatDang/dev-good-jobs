@@ -1,52 +1,67 @@
+/* eslint-disable no-param-reassign */
 /* eslint-disable object-shorthand */
+/* eslint-disable prefer-const */
 /* eslint-disable no-console */
 /* eslint-disable no-unused-vars */
 /* eslint-disable camelcase */
+/* eslint-disable consistent-return */
 /* eslint-disable object-curly-newline */
-/* eslint-disable import/newline-after-import */
 // ===============================
 const bcrypt = require('bcryptjs')
 const express = require('express')
 const passport = require('passport')
 
 const router = express.Router()
-
-// ===LOAD USER MODELS:
 const User = require('../models/user')
 
-const { forwardAuthenticated } = require('../config/auth')
+const { ensureAuthenticated, forwardAuthenticated } = require('../config/auth')
 
+// =================================== LOGIN
 // ===GET LOGIN PAGE:
 router.get('/login', forwardAuthenticated, (req, res) => {
-    res.render('pages/login')
+    if (req.user) {
+        res.redirect('/nguoi-tim-viec')
+    } else {
+        res.render('pages/login')
+        // res.render('pages/login', { message: req.flash('message') })
+    }
+})
+// ===PROCESS LOGIN FOR USERS:
+router.post('/login', (req, res, next) => {
+    passport.authenticate('local', {
+        successRedirect: '/users/detail',
+        failureRedirect: '/users/login',
+        failureFlash: 'Email hoặc mật khẩu không đúng, vui lòng thử lại!',
+    })(req, res, next)
 })
 
+// =================================== REGISTER
 // ===GET REGISTER PAGE:
 router.get('/register', forwardAuthenticated, (req, res) => {
-    res.render('pages/register')
-})
-// ===PROFILE PAGE:
-router.get('/them-thong-tin', (req, res) => {
-    res.render('pages/uploadprofile')
-})
-router.get('user/profile', (req, res) => {
-    res.render('pages/profile')
+    if (req.user) {
+        res.redirect('/nguoi-tim-viec')
+    } else {
+        res.render('pages/register')
+    }
 })
 // ===PROCESS REGISTER FOR USERS:
 router.post('/register', (req, res) => {
     const { user_type, full_name, display_name, email, password, password_confirm } = req.body
-    const errors = []
+    let errors = []
 
+    // _Check required fields:
     if (!user_type || !full_name || !display_name || !email || !password || !password_confirm) {
-        errors.push({ msg: 'Vui lòng nhập đầy đủ thông tin đăng ký!' })
+        errors.push({ msg: 'Bạn vui lòng nhập đầy đủ thông tin!' })
     }
 
-    if (password.length < 6) {
-        errors.push({ msg: 'Mật khâu phải từ 6 ký tự trở lên!' })
-    }
-
+    // _Check passwords match:
     if (password !== password_confirm) {
-        errors.push({ msg: 'Mật khẩu không trùng khớp, vui lòng thử lại!' })
+        errors.push({ msg: 'Mật khẩu không trùng khớp!' })
+    }
+
+    // _Check password length:
+    if (password.length < 6) {
+        errors.push({ msg: 'Mật khẩu phải từ 6 ký tự trở lên!' })
     }
 
     if (errors.length > 0) {
@@ -60,9 +75,10 @@ router.post('/register', (req, res) => {
             password_confirm,
         })
     } else {
+        // _Validation passed:
         User.findOne({ email: email }).then((user) => {
             if (user) {
-                errors.push({ msg: 'Email đã tồn tại, xin vui lòng dùng email khác!' })
+                errors.push({ msg: 'Email đã được đăng ký!' })
                 res.render('pages/register', {
                     errors,
                     user_type,
@@ -79,20 +95,18 @@ router.post('/register', (req, res) => {
                     display_name,
                     email,
                     password,
-                    password_confirm,
                 })
-                bcrypt.genSalt(10, (err, salt) => {
+                console.log(newUser)
+                // _Hash password:
+                bcrypt.genSalt(10, (_err, salt) => {
                     bcrypt.hash(newUser.password, salt, (err, hash) => {
                         if (err) throw err
+                        // _Set password to hashed:
                         newUser.password = hash
-                        newUser.password_confirm = hash
-                        newUser
-                            .save()
+                        // _Save User:
+                        newUser.save()
                             .then((user) => {
-                                req.flash(
-                                    'success_msg',
-                                    'Bạn đã đăng ký thành công, hãy đăng nhập',
-                                )
+                                req.flash('success_msg', 'Bạn đã đăng ký thành công, hãy đăng nhập')
                                 res.redirect('/users/login')
                             })
                             .catch(err => console.log(err))
@@ -103,20 +117,81 @@ router.post('/register', (req, res) => {
     }
 })
 
-// ===PROCESS LOGIN FOR USERS:
-router.post('/login', (req, res, next) => {
-    passport.authenticate('local', {
-        successRedirect: '/index',
-        failureRedirect: '/users/login',
-        failureFlash: true,
-    })(req, res, next)
-})
-
-// ===GET LOG-OUT PAGE:
+// =================================== LOG-OUT
 router.get('/logout', (req, res) => {
     req.logout()
-    req.flash('success_msg', 'Bạn đã đăng xuất thành công!')
-    res.redirect('/users/login')
+    req.session.destroy((err) => {
+        if (err) {
+            console.log('Không thể hủy phiên trong khi đã đăng xuất!', err)
+            req.flash('error_msg', 'Không thể hủy phiên trong khi đã đăng xuất!')
+        } else {
+            req.user = null
+            req.flash('success_msg', 'Bạn đã đăng xuất thành công!')
+            res.redirect('/users/login')
+        }
+    })
+})
+
+// =================================== USER PROFILE
+// ===DEMO:
+// router.get('/demo_detail', (_req, res) => {
+//     res.render('detail_profile')
+// })
+// router.get('/demo_edit', (_req, res) => {
+//     res.render('update_profile')
+// })
+// ===================================
+// ===GET UPLOAD_PROFILE:
+
+router.get('/edit', ensureAuthenticated, (req, res) => {
+    res.render('pages/uploadprofile', {
+        user: req.user,
+    })
+})
+router.put('/edit', (req, res) => {
+    const updateUser = {
+        full_name: req.body.full_name,
+        display_name: req.body.display_name,
+        gender: req.body.gender,
+        birthday: req.body.birthday,
+        email: req.body.email,
+        phone_number: req.body.phone_number,
+        title: req.body.title,
+        address: req.body.address,
+        city: req.body.city,
+        district: req.body.district,
+        ward: req.body.ward,
+        card_id: req.body.card_id,
+        date_card: req.body.date_card,
+        career: req.body.career,
+    }
+    User.findByIdAndUpdate(req.params.id, { $set: updateUser }, (err) => {
+        if (err) {
+            req.flash('error_msg', 'Có gì đó sai sai ở đây!')
+            res.redirect('/users/edit')
+        } else {
+            req.flash('success_msg', 'Cập nhật thành công!')
+            res.redirect('/users/detail')
+        }
+    })
+})
+// ===GET DETAIL_PROFILE:
+// router.get('/detail', (req, res) => {
+//     User.findById(req.params.id, (err) => {
+//         if (err) {
+//             console.log(err)
+//             req.flash('error_msg', 'Có gì đó sai sai ở đây!')
+//             res.redirect('/users/detail')
+//         }
+//         res.render('pages/profile', {
+//             user: req.user,
+//         })
+//     })
+// })
+router.get('/detail', ensureAuthenticated, (req, res) => {
+    res.render('pages/profile', {
+        user: req.user,
+    })
 })
 
 module.exports = router

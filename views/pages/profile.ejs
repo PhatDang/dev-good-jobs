@@ -1,132 +1,144 @@
-<% include ../partials/header %>
-<div class="container">
-    <div id="profile">
-        <div id="title">
-                    <h2>Thông tin cá nhân</h2>
-        </div>
-        <div class="profile-header">
-            <div id="avatar"><img src="images/avatar.jpg" alt="avatar"></div>
-            <div id="display-name">
-                <h3>Display Name</h3>
-            </div>
-        </div>
-        <div id="user-head-infomation">
-            <div>
-                <p><i class="fas fa-newspaper"></i><span>Headline</span></p>
-                <p><i class="fas fa-map-marker-alt"></i><span>District, City</span></p>
-            </div>
-            <div>
-                <p><i class="fas fa-building"></i><span>Company Name</span></p>
-                <p><i class="fas fa-school"></i><span>School Name</span></p>
-            </div>
-        </div>
-       <section>
-           <div class="section-info-title">
-               <h2><i class="fas fa-user-alt"></i> Thông tin cá nhân</h2>
-           </div>
-           <div class="section-info-detail">
-                <table>
-                    <tr>
-                        <td>Họ và tên</td>
-                        <td>Cập nhật</td>
-                    </tr>    
-                    <tr>
-                        <td>Ngày sinh</td>
-                        <td>Cập nhật</td>
-                    </tr>    
-                    <tr>
-                        <td>Số điện thoại</td>
-                        <td>Cập nhật</td>
-                    </tr>    
-                    <tr>
-                        <td>Email</td>
-                        <td>Cập nhật</td>
-                    </tr>    
-                    <tr>
-                        <td>Thành phố</td>
-                        <td>Cập nhật</td>
-                    </tr>    
-                    <tr>
-                        <td>Quận</td>
-                        <td>Cập nhật</td>
-                    </tr>    
-                    <tr>
-                        <td>Phường</td>
-                        <td>Cập nhật</td>
-                    </tr>    
-                    <tr>
-                        <td>Địa chỉ</td>
-                        <td>Cập nhật</td>
-                    </tr>    
-                    <tr>
-                        <td>Giới tính</td>
-                        <td>Cập nhật</td>
-                    </tr>    
-                </table>
-           </div>
-       </section>
-       <section>
-           <div class="section-info-title">
-               <h2><i class="fas fa-flag"></i> Mục tiêu công việc</h2>
-           </div>
-           <div class="section-info-detail">
-                <p class="section-content">No Content</p>
-                <table>
-                    <tr>
-                        <td>Hình thức công việc</td>
-                        <td>Cập nhật</td>
-                    </tr>    
-                    <tr>
-                        <td>Ngành nghề</td>
-                        <td>Cập nhật</td>
-                    </tr>    
-                    <tr>
-                        <td>Mức lương mong muốn</td>
-                        <td>Cập nhật</td>
-                    </tr>      
-                </table>
-                <span class="section-edit"><i class="fas fa-user-edit"></i> Chỉnh sửa</span>
-           </div>
-       </section>
-       <section>
-           <div class="section-info-title">
-               <h2><i class="fas fa-briefcase"></i> Kinh nghiệm làm việc</h2>
-           </div>
-           <div class="section-info-detail">
-                <p  class="section-content">Chưa có kinh nghiệm</p>
-                <span class="section-edit"><i class="fas fa-plus-circle"></i> Thêm</span>
-       </section>
-       <section>
-           <div class="section-info-title">
-               <h2><i class="fas fa-graduation-cap"></i> Học vấn</h2>
-           </div>
-           <div class="section-info-detail">
-                <table>
-                    <tr>
-                        <td>Bằng cấp</td>
-                        <td>Bằng cấp <span class="section-edit"><i class="fas fa-edit"></i></span></td>
-                    </tr>
-                </table>
-                <p class="section-content">Cập nhật thông tin học vấn</p>
-                <table>
-                    <tr>
-                        <td>Ngôn ngữ</td>
-                        <td>Cập nhật ngôn ngữ <span class="section-edit"><i class="fas fa-plus-circle"></i> Thêm</td>
-                    </tr>
-                </table>
+<!DOCTYPE html>
+<html lang="en">
 
-                
-       </section>
-       <section>
-           <div class="section-info-title">
-               <h2><i class="fas fa-list-ul"></i> Kỹ năng</h2>
-           </div>
-           <div class="section-info-detail">
-                <p class="section-content">Cập nhật kỹ năng</p>
-                <span class="section-edit"><i class="fas fa-plus-circle"></i> Thêm</td>
-                </tr>
-       </section>
+<head>
+    <% include ../partials/head %>
+</head>
+
+<body>
+    <% include ../partials/header %>
+    <div class="container">
+        <div id="profile">
+            <div id="title">
+                <h2>Thông tin cá nhân</h2>
+            </div>
+            <div class="profile-header">
+                <div id="avatar"><img src="../images/avatar.jpg" alt="avatar"></div>
+                <div id="display-name">
+                    <h3><%= user.display_name %></h3>
+                </div>
+            </div>
+            <div id="user-head-infomation">
+                <div>
+                    <p><i class="fas fa-newspaper"></i><span><%= user.title %></span></p>
+                    <p><i class="fas fa-map-marker-alt"></i><span><%= user.district %>, <%= user.city %></span></p>
+                </div>
+                <div>
+                    <p><i class="fas fa-building"></i><span>Company Name</span></p>
+                    <p><i class="fas fa-school"></i><span>School Name</span></p>
+                </div>
+            </div>
+            <a href="/users/edit">Edit Profile</a>
+            <section>
+                <div class="section-info-title">
+                    <h2><i class="fas fa-user-alt"></i> Thông tin cá nhân</h2>
+                </div>
+                <div class="section-info-detail">
+                    <table>
+                        <tr>
+                            <td>Họ và tên</td>
+                            <td><%= user.full_name %></td>
+                        </tr>
+                        <tr>
+                            <td>Ngày sinh</td>
+                            <td><%= user.birthday %></td>
+                        </tr>
+                        <tr>
+                            <td>Số điện thoại</td>
+                            <td><%= user.phone_number %></td>
+                        </tr>
+                        <tr>
+                            <td>Email</td>
+                            <td><%= user.email %></td>
+                        </tr>
+                        <tr>
+                            <td>Thành phố</td>
+                            <td><%= user.city %></td>
+                        </tr>
+                        <tr>
+                            <td>Quận</td>
+                            <td><%= user.district %></td>
+                        </tr>
+                        <tr>
+                            <td>Phường</td>
+                            <td><%= user.ward %></td>
+                        </tr>
+                        <tr>
+                            <td>Địa chỉ</td>
+                            <td><%= user.address %></td>
+                        </tr>
+                        <tr>
+                            <td>Giới tính</td>
+                            <td><%= user.gender %></td>
+                        </tr>
+                    </table>
+                </div>
+            </section>
+            <section>
+                <div class="section-info-title">
+                    <h2><i class="fas fa-flag"></i> Mục tiêu công việc</h2>
+                </div>
+                <div class="section-info-detail">
+                    <p class="section-content">No Content</p>
+                    <table>
+                        <tr>
+                            <td>Hình thức công việc</td>
+                            <td>Cập nhật</td>
+                        </tr>
+                        <tr>
+                            <td>Ngành nghề</td>
+                            <td>Cập nhật</td>
+                        </tr>
+                        <tr>
+                            <td>Mức lương mong muốn</td>
+                            <td>Cập nhật</td>
+                        </tr>
+                    </table>
+                    <span class="section-edit"><i class="fas fa-user-edit"></i> Chỉnh sửa</span>
+                </div>
+            </section>
+            <section>
+                <div class="section-info-title">
+                    <h2><i class="fas fa-briefcase"></i> Kinh nghiệm làm việc</h2>
+                </div>
+                <div class="section-info-detail">
+                    <p class="section-content">Chưa có kinh nghiệm</p>
+                    <span class="section-edit"><i class="fas fa-plus-circle"></i> Thêm</span>
+                </div>
+            </section>
+            <section>
+                <div class="section-info-title">
+                    <h2><i class="fas fa-graduation-cap"></i> Học vấn</h2>
+                </div>
+                <div class="section-info-detail">
+                    <table>
+                        <tr>
+                            <td>Bằng cấp</td>
+                            <td>Bằng cấp <span class="section-edit"><i class="fas fa-edit"></i></span></td>
+                        </tr>
+                    </table>
+                    <p class="section-content">Cập nhật thông tin học vấn</p>
+                    <table>
+                        <tr>
+                            <td>Ngôn ngữ</td>
+                            <td>Cập nhật ngôn ngữ <span class="section-edit"><i class="fas fa-plus-circle"></i> Thêm</span></td>
+                        </tr>
+                    </table>
+                </div>
+            </section>
+            <section>
+                <div class="section-info-title">
+                    <h2><i class="fas fa-list-ul"></i> Kỹ năng</h2>
+                </div>
+                <div class="section-info-detail">
+                    <p class="section-content">Cập nhật kỹ năng</p>
+                    <span class="section-edit"><i class="fas fa-plus-circle"></i> Thêm</span>
+                </div>
+            </section>
+        </div>
     </div>
-</div>
-<script src="js/boundaries.js" type="text/javascript"></script>
-<% include ../partials/footer %>
+    <script src="js/boundaries.js" type="text/javascript"></script>
+    <% include ../partials/footer %>
+</body>
+
+</html>
