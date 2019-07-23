@@ -1,55 +1,51 @@
 {
-  "name": "gj-project",
-  "version": "1.0.2",
-  "description": "Project GOOD JOBS",
-  "main": "index.js",
-  "scripts": {
-    "start": "nodemon run index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "GOOD JOBS - TEAM",
-  "license": "ISC",
-  "repository": "https://github.com/PhatDang/dev-good-jobs",
-  "dependencies": {
-    "autoprefixer": "^9.6.1",
-    "bcrypt": "^3.0.6",
-    "bcryptjs": "^2.4.3",
-    "body-parser": "^1.19.0",
-    "bootstrap": "^4.3.1",
-    "chalk": "^2.4.2",
-    "connect-flash": "^0.1.1",
-    "connect-mongo": "^2.0.3",
-    "cookie-parser": "^1.4.4",
-    "dotenv": "^8.0.0",
-    "ejs": "^2.6.2",
-    "express": "^4.17.1",
-    "express-messages": "^1.0.1",
-    "express-session": "^1.16.2",
-    "express-validator": "^5.3.1",
-    "joi": "^14.3.1",
-    "jquery": "^3.4.1",
-    "lodash": "^4.17.15",
-    "mongoose": "^5.6.5",
-    "morgan": "^1.9.1",
-    "nodemailer": "^6.3.0",
-    "nodemon": "^1.19.1",
-    "passport": "^0.4.0",
-    "passport-local": "^1.0.0",
-    "pg": "^7.11.0",
-    "popper.js": "^1.15.0",
-    "rebuild": "^0.1.2",
-    "session": "^0.1.0",
-    "url": "^0.11.0"
-  },
-  "devDependencies": {
-    "eslint": "^5.16.0",
-    "eslint-config-airbnb-base": "^13.2.0",
-    "eslint-plugin-import": "^2.18.2",
-    "husky": "^2.7.0"
-  },
-  "husky": {
-    "hooks": {
-      "commit-msg": "echo $HUSKY_GIT_PARAMS"
+    "name": "good-jobs-project",
+    "version": "1.0.2",
+    "description": "Project GOOD JOBS",
+    "main": "index.js",
+    "scripts": {
+        "start": "nodemon run index.js",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "GOOD JOBS - TEAM",
+    "license": "ISC",
+    "repository": "https://github.com/PhatDang/dev-good-jobs",
+    "dependencies": {
+        "autoprefixer": "^9.6.1",
+        "bcrypt": "^3.0.6",
+        "bcryptjs": "^2.4.3",
+        "body-parser": "^1.19.0",
+        "chalk": "^2.4.2",
+        "connect-flash": "^0.1.1",
+        "connect-mongo": "^2.0.3",
+        "cookie-parser": "^1.4.4",
+        "dotenv": "^8.0.0",
+        "ejs": "^2.6.2",
+        "express": "^4.17.1",
+        "express-messages": "^1.0.1",
+        "express-session": "^1.16.2",
+        "express-validator": "^5.3.1",
+        "lodash": "^4.17.15",
+        "mongoose": "^5.6.6",
+        "morgan": "^1.9.1",
+        "nodemailer": "^6.3.0",
+        "nodemon": "^1.19.1",
+        "passport": "^0.4.0",
+        "passport-local": "^1.0.0",
+        "pg": "^7.11.0",
+        "rebuild": "^0.1.2",
+        "session": "^0.1.0",
+        "url": "^0.11.0"
+    },
+    "devDependencies": {
+        "eslint": "^5.16.0",
+        "eslint-config-airbnb-base": "^13.2.0",
+        "eslint-plugin-import": "^2.18.2",
+        "husky": "^2.7.0"
+    },
+    "husky": {
+        "hooks": {
+            "commit-msg": "echo $HUSKY_GIT_PARAMS"
+        }
     }
-  }
 }
