@@ -1,0 +1,745 @@
+/*################ Add New Font ###############*/
+@font-face {
+    font-family: 'UTMAvo';
+    font-style: normal;
+    font-weight: normal;
+    src: local('UTM Avo'), url('/fonts/utm-avo/utm-avo.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'UTMAvoBold';
+    font-style: normal;
+    font-weight: normal;
+    src: local('UTMAvoBold'), url('/fonts/utm-avo/utm-avobold.woff') format('woff');
+}
+
+/*#### Default Style ######*/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body{
+    height: 100%;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+body{
+    font-size: 14px;
+    font-family: "UTMAvo";
+}
+
+li{
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+}
+
+[class*="col-"] {
+    float: left;
+    padding: 15px;
+}
+
+.row::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.col-1 {width: 8.33%;}
+.col-2 {width: 16.66%;}
+.col-3 {width: 25%;}
+.col-4 {width: 33.33%;}
+.col-5 {width: 41.66%;}
+.col-6 {width: 50%;}
+.col-7 {width: 58.33%;}
+.col-8 {width: 66.66%;}
+.col-9 {width: 75%;}
+.col-10 {width: 83.33%;}
+.col-11 {width: 91.66%;}
+.col-12 {width: 100%;}
+
+/*####### For Large Device Screen ##########*/
+@media only screen and (min-width: 1200px){
+    .container{
+        width: 100%;
+        max-width: 1440px;
+        margin: 20px auto;
+    }
+
+    .full-height{
+        height: 80vh;
+    }
+
+    /*##### Header Style ####*/
+    .logo img{
+        width: 200px;
+    }
+
+    .top-nav{
+        overflow: hidden;
+    }
+
+    .top-nav a{
+        float: left;
+        display: block;
+        color: #b7b7b7;
+        text-align: center;
+        padding: 14px 16px;
+        text-transform: uppercase;
+        font-size: 16px;
+        font-family: "UTMAvoBold";
+    }
+
+    .top-nav a:hover,
+    .top-link a:hover{
+        color: #ff9900;
+    }
+
+    .top-link{
+        text-align: center;
+    }
+
+    .top-link a{
+        display: block;
+        font-size: 16px;
+        padding: 14px 16px;
+        color: #b7b7b7;
+        text-transform: capitalize;
+        font-family: "UTMAvoBold";
+    }
+
+    .top-signin a.signinLink{
+        display: block;
+        float: right;
+        width: 100%;
+        text-align: center;
+        max-width: 180px;
+        font-size: 16px;
+        padding: 14px 16px;
+        color: #ff9900;
+        border: 1px solid #ff9900;
+        border-radius: 25px;
+    }
+
+    .top-signin a.signinLink:hover{
+        background-color: #ff9900;
+        color: #ffffff;
+    }
+
+    .userInfo{
+        position: relative;
+        width: 100%;
+        text-align: right;
+    }
+
+
+    .userInfo li a{
+        display: block;
+        font-weight: bold;
+        padding: 6px 15px;
+    }
+
+    .userInfo li a:hover{
+        background-color: #f7f7f7;
+    }
+    
+    a.account{
+        position: absolute;
+        right: 0;
+        line-height: 16px;
+        z-index: 110;
+        display: block;
+        padding: 10px 0;
+    }
+
+    .submenu{
+        position: absolute;
+        display: none;
+        right: 0;
+        z-index: 100;
+        width: 135px;
+        padding: 40px 0 5px;
+        border-radius: 6px;
+    }
+
+    .root{
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
+        background: #fff;
+        padding: 10px 0;
+        border-radius: 5px 5px 5px 5px;
+        margin: 21px 0 0 0;
+    }
+
+    .root::before{
+        position: absolute;
+        content: '';
+        display: inline-block;
+        border-left: 7px solid transparent;
+        border-right: 7px solid transparent;
+        border-bottom: 7px solid #ccc;
+        border-bottom-color: #ffffff;
+    }
+
+    .profile-circle{
+        width: 36px;
+        height: 36px;
+    }
+
+    .header-line{
+        display: block;
+        width: 100%;
+        border: 1px solid #b7b7b7;
+    }
+
+    .account:focus + .submenu{
+        display: block;
+    }
+
+    /*#### Home Page Search Field Style#####*/
+    .search-text{
+        font-size: 30px;
+        font-weight: normal;
+        text-align: justify;
+        color: #000000;
+        opacity: 0.5;
+    }
+
+    .search-field{
+        overflow: hidden;
+        padding: 30px 0;
+    }
+
+    .search-form{
+        text-align: right;
+    }
+
+    .search-input{
+        width: 100%;
+        max-width: 360px;
+        padding: 12px 24px;
+        background-color: transparent;
+        transition: transform 250ms ease-in-out;
+        line-height: 18px;
+        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath d='M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z'/%3E%3Cpath d='M0 0h24v24H0z' fill='none'/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-size: 18px 18px;
+        background-position: 95% center;
+        border-radius: 50px;
+        border: 2px solid #00aeef;
+        transition: all 250ms ease-in-out;
+        backface-visibility: hidden;
+        transform-style: preserve-3d;
+    }
+    .search-input::placeholder {
+        color: #b7b7b7;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+    }
+    .search-input:hover,
+    .search-input:focus{
+        padding: 12px 0;
+        outline: 0;
+        border: 1px solid transparent;
+        border-bottom: 2px solid #00aeef;
+        border-radius: 0;
+        background-position: 100% center;
+    }
+
+    .select-list{
+        text-align: right;
+    }
+
+    .select-list .select-box,
+    .sign-input .select-box{
+        width: 100%;
+        max-width: 280px;
+        border: 0;
+        border-bottom: 2px solid #00aeef;
+        padding: 12px 24px;
+        line-height: 18px;
+        font-size: 16px;
+    }
+
+    .select-list .select-box:hover,
+    .select-list .select-box:focus,
+    .sign-input .select-box:hover,
+    .sign-input .select-box:focus{
+        outline: none;
+    }
+
+    /*#### Sign Style #####*/
+    .close-icon{
+        text-align: right;
+    }
+    .close-icon a{
+        font-size: 30px;
+        color: #000000;
+        padding: 10px 0;
+    }
+
+    .title{
+        width: 100%;
+        text-align: center;
+        padding: 2% 0;
+    }
+
+    .title h1{
+        font-size: 30px;
+        font-weight: normal;
+        text-transform: capitalize;
+    }
+
+    .right-side,
+    .left-side{
+        padding: 2% 0;
+    }
+
+    .right-side img,
+    .left-side img{
+        width: 100%;
+        height: auto;
+    }
+
+    .normal-form{
+        width: 100%;
+    }
+
+    .sign-input{
+        padding: 20px 0;
+        display: flex;
+        flex-wrap: wrap;
+        overflow: hidden;
+    }
+
+    .forgot-link,
+    .sign-button,
+    .signup-link{
+        width: 100%;
+        max-width: 360px;
+        margin: auto;
+        overflow: hidden;
+    }
+
+    .forgot-link{
+        text-align: right;
+    }
+
+    .forgot-link a,
+    .signup-link a{
+        text-transform: capitalize;
+        font-size: 16px;
+        color: #ff9900;
+        padding: 5px 0;
+    }
+
+    .forgot-link a:hover,
+    .signup-link a:hover{
+        text-decoration: underline;
+    }
+
+    .sign-button,
+    .signup-link{
+        padding: 20px 0;
+    }
+
+    .sign-button button{
+        width: 168px;
+        height: 43px;
+        border: 1px solid #ff9900;
+        border-radius: 25px;
+        background: transparent;
+        color: #ff9900;
+        text-transform: capitalize;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+    .sign-button button:hover{
+        background-color: #ff9900;
+        color: #ffffff;
+    }
+
+    .sign-button button:focus{
+        outline: none;
+    }
+
+    .signup-link p{
+        font-size: 15px;
+    }
+
+    .sign-button ul{
+        width: 100%;
+        overflow: hidden;
+    }
+
+    .sign-button li:first-child{
+        float: left;
+        padding: 10px 0;
+    }
+
+    .sign-button li:last-child{
+        float: right;
+    }
+
+    .sign-button a{
+        width: 168px;
+        height: 43px;
+        color: #ff9900;
+        text-transform: capitalize;
+        font-size: 16px;
+    }
+
+    /*###### Input Style #######*/
+    .input-style{
+        position: relative;
+        width: 100%;
+        max-width: 360px;
+        margin: auto;
+    }
+    .input-style .label{
+        position: absolute;
+        top: 16px;
+        left: 0;
+        font-size: 16px;
+        color: #000000;
+        font-weight: 500;
+        transform-origin: 0 0;
+        transition: all 0.2s ease;
+        text-transform: capitalize;
+    }
+    .input-style .border{
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        height: 3px;
+        width: 100%;
+        background: #00aeef;
+        transform: scaleX(0);
+        transform-origin: 0 0;
+        transition: all 0.15s ease;
+    }
+    .input-style input,
+    .input-style select{
+        width: 100%;
+        height: 48px;
+        padding: 12px 0;
+        font-size: 14px;
+        background: transparent;
+        color: #000000;
+        border: 0;
+        border-bottom: 2px solid #00aeef;
+        transition: all 0.15s ease;
+    }
+    .input-style input:not(:placeholder-shown) + span,
+    .input-style select:not(:placeholder-shown) + span{
+        color: #00aeef;
+        transform: translateY(-26px) scale(0.75);
+    }
+
+    .input-style input:focus,
+    .input-style select:focus{
+        outline: none;
+    }
+
+    .input-style input:focus + span,
+    .input-style select:focus + span{
+        color: #00aeef;
+        transform: translateY(-26px) scale(0.75);
+    }
+
+    .input-style input:focus + span + .border,
+    .input-style select:focus + span + .border{
+        transform: scaleX(1);
+    }
+
+    .input-style input[type=date]::clear-button{
+        display: none;
+    }
+
+    .input-style input[type=date]::-webkit-inner-spin-button{
+        display: none;
+    }
+
+    /*######### Show the Validation icon ##########*/
+
+    .sign-input input:not([type=submit]):valid:focus {
+        background: url('https://webdevtrick.com/wp-content/uploads/check-icon.svg');
+        background-size: 20px;
+        background-repeat: no-repeat;
+        background-position: right;
+    }
+    
+    .sign-input input:not([type=submit]):invalid:focus {
+        background: url('https://webdevtrick.com/wp-content/uploads/xicon.svg');
+        background-size: 20px;
+        background-repeat: no-repeat;
+        background-position: right;
+    }
+
+    .sign-input input[type=date]:valid:focus{
+        background: url('https://webdevtrick.com/wp-content/uploads/check-icon.svg');
+        background-size: 20px;
+        background-repeat: no-repeat;
+        background-position: 95%;
+    }
+
+    .sign-input input[type=date]:invalid:focus{
+        background: url('https://webdevtrick.com/wp-content/uploads/xicon.svg');
+        background-size: 20px;
+        background-repeat: no-repeat;
+        background-position: 95%;
+    }
+
+    /*###### Update Page Style #######*/
+    .left-content{
+        position: relative;
+        width: 100%;
+        max-width: 200px;
+        margin: auto;
+        text-align: center;
+    }
+
+    .left-content img{
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+    }
+
+    .tooltiptext{
+        position: absolute;
+        display: none;
+        width: 100%;
+        border: 1px solid #ff9900;
+        border-radius: 15px;
+        padding: 14px 15px;
+        bottom: -100;
+        font-size: 18px;
+        color: #ff9900;
+    }
+
+    .left-content a:hover + .tooltiptext{
+        display: block;
+    }
+
+    .right-content{
+        box-shadow: 0px 0px 5px 0px rgba(183,183,183,1);
+        padding: 10px;
+    }
+
+    .sub-title{
+        font-size: 16px;
+        text-transform: capitalize;
+        color: #ff9900;
+    }
+
+    .sub-title h3{
+        padding: 14px 16px;
+        width: 100%;
+    }
+
+    .right-content .sign-input{
+        padding: 10px 0;
+    }
+
+    .right-content .input-style{
+        margin: 0;
+    }
+
+    .save-button,
+    .example{
+        position: relative;
+        width: 100%;
+        max-width: 360px;
+    }
+
+    .save-button{
+        padding: 10px;
+    }
+
+    .example{
+        padding: 10px 0;
+    }
+
+    .save-button button{
+        padding: 14px 90px;
+        font-size: 18px;
+        border: 1px solid #ff9900;
+        border-radius: 25px;
+        background: transparent;
+        color: #ff9900;
+        cursor: pointer;
+    }
+
+    .save-button button:hover{
+        background-color: #ff9900;
+        color: #ffffff;
+    }
+
+    .save-button button:focus{
+        outline: none;
+    }
+
+/*##### User Profile Left Content ######*/
+    .profile-screen .left-content{
+        width: 100%;
+        max-width: 400px;
+    }
+
+    .profile-information{
+        box-shadow: 0px 0px 5px 0px rgba(183,183,183,1);
+        margin: 20px;
+        overflow: hidden;
+        padding: 15px;
+    }
+
+    .profile-banner,
+    .profile-bio{
+        width: 100%;
+        margin: auto;
+        padding: 10px;
+    }
+
+    .profile-banner{
+        border-bottom: 1px solid #b7b7b7;
+    }
+
+    .profile-banner h1{
+        color: #ff9900;
+        font-size: 30px;
+        padding: 10px 5px;
+        text-transform: uppercase;
+    }
+
+    .profile-banner h3{
+        padding: 10px 5px;
+    }
+
+    .profile-title{
+        font-size: 16px;
+        color: #ff9900;
+        text-transform: capitalize;
+    }
+
+    .left-side .profile-title h3{
+        padding: 10px 0;
+    }
+
+    .right-side .profile-title h3{
+        padding: 5px 0;
+        float: left;
+    }
+
+    .right-side .profile-title a{
+        padding: 10px 0;
+        float: right;
+        color: #b7b7b7;
+        font-size: 14px;
+    }
+
+    .right-side .profile-title a:hover{
+        color: #ff9900
+    }
+
+    .profile-content{
+        text-align: left;
+        padding: 10px 0;
+        clear: both;
+    }
+    
+    .profile-sub-title{
+        font-weight: bold;
+        text-transform: capitalize;
+    }
+
+    .profile-sub-title,
+    .profile-sub-content,
+    .experience{
+        padding: 5px 0;
+    }
+
+    .experience:not(:first-child){
+        border-top: 1px solid #b7b7b7;
+    }
+
+    .profile-link a{
+        color: #b7b7b7;
+    }
+
+    .profile-link a:hover{
+        color: #ff9900;
+    }
+
+    .right-side .profile-link a{
+        display: block;
+        float: left;
+        padding: 10px 0;
+        margin-right: 20px;
+    }
+
+/*########## Employeer Style ##############*/
+    .employeer-content{
+        width: 100%;
+        height: 100%;
+        text-align: center;
+    }
+    .employeer-text h1{
+        font-size: 30px;
+        padding: 10px 0;
+    }
+
+    .employeer-text h3{
+        font-size: 20px;
+        padding: 10px 0;
+    }
+
+    .employeer-text p,
+    .employeer-link p{
+        padding: 10px 0;
+        font-size: 16px;
+    }
+
+    .employeer-link{
+        margin-top: 50px;
+    }
+
+    .employeer-link a{
+        display: block;
+        color: #ff9900;
+        font-size: 16px;
+    }
+
+    .employeer-link a:hover{
+        text-decoration: underline;
+    }
+
+    .employeer-link .button{
+        width: 150px;
+        border: 1px solid #ff9900;
+        border-radius: 25px;
+        padding: 14px 16px;
+        margin: 20px auto;
+    }
+
+    .employeer-link .button:hover{
+        background-color: #ff9900;
+        color: #ffffff;
+        text-decoration: none;
+    }
+
+    .employeer-form{
+        height: 100%;
+        padding: 20px;
+    }
+
+    .employeer-form h1{
+        font-size: 30px;
+    }
+}

@@ -1,0 +1,182 @@
+/*################ Add New Font ###############*/
+@font-face {
+    font-family: 'UTMAvo';
+    font-style: normal;
+    font-weight: normal;
+    src: local('UTM Avo'), url('/fonts/utm-avo/utm-avo.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'UTMAvoBold';
+    font-style: normal;
+    font-weight: normal;
+    src: local('UTMAvoBold'), url('/fonts/utm-avo/utm-avobold.woff') format('woff');
+}
+
+/*#### Default Style ######*/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-size: 14px;
+    font-family: "UTMAvo";
+}
+
+li{
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+}
+
+[class*="col-"] {
+    float: left;
+    padding: 15px;
+}
+
+.row::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.col-1 {width: 8.33%;}
+.col-2 {width: 16.66%;}
+.col-3 {width: 25%;}
+.col-4 {width: 33.33%;}
+.col-5 {width: 41.66%;}
+.col-6 {width: 50%;}
+.col-7 {width: 58.33%;}
+.col-8 {width: 66.66%;}
+.col-9 {width: 75%;}
+.col-10 {width: 83.33%;}
+.col-11 {width: 91.66%;}
+.col-12 {width: 100%;}
+
+/*####### For Large Device Screen ##########*/
+@media only screen and (min-width: 1200px){
+    .container{
+        width: 100%;
+        max-width: 1440px;
+        margin: 20px auto;
+    }
+
+    .sidenav {
+        height: 100%;
+        width: 20%;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        background-color: #ffffff;
+        overflow-x: hidden;
+        padding: 10px 20px;
+        border-right: 1px solid #b7b7b7;
+      }
+
+      .sidenav .top-logo{
+        width: 100%;
+        text-align: center;
+        padding: 10px 0;
+        border-bottom: 1px solid #b7b7b7;
+      }
+
+      .sidenav .top-logo img{
+          width: 100%;
+          max-width: 200px;
+          height: auto;
+      }
+
+      .sidenav .main-nav{
+          width: 100%;
+          padding: 20px 0;
+          margin-top: 30px;
+      }
+
+      .sidenav .main-nav a{
+          display: block;
+          font-size: 18px;
+          padding: 14px 16px;
+          color: #000000;
+          text-transform: capitalize;
+      }
+
+      .sidenav .main-nav a:hover{
+          background-color: #ff9900;
+          color: #ffffff;
+      }
+
+      .sidenav .main-nav .nav-btn{
+          border: 1px solid #ff9900;
+          margin-bottom: 15px;
+          border-radius: 15px;
+          background-color: #ff9900;
+          color: #ffffff;
+          text-align: center;
+      }
+
+      .sidenav .side-footer{
+          position: absolute;
+          left: 0;
+          bottom: 0;
+          width: 100%;
+          text-align: center;
+          padding: 20px 0;
+          border-top: 1px solid #b7b7b7;
+      }
+
+      .sidenav .side-footer a{
+          font-size: 18px;
+          text-transform: capitalize;
+          color: #000000;
+          font-weight: bold;
+          display: block;
+      }
+
+      .sidenav .side-footer a:hover{
+          color: #ff9900;
+      }
+
+      .main-content{
+          margin-left: 20%;
+          font-size: 14px;
+          padding: 10px;
+      }
+
+      .main-title{
+          width: 100%;
+          text-align: center;
+      }
+
+      .main-title h1{
+          text-transform: capitalize;
+      }
+
+      input:not([type=submit]), select, textarea {
+        width: 100%; /* Full width */
+        padding: 12px; /* Some padding */  
+        border: 1px solid #ccc; /* Gray border */
+        border-radius: 4px; /* Rounded borders */
+        box-sizing: border-box; /* Make sure that padding and width stays in place */
+        margin-top: 6px; /* Add a top margin */
+        margin-bottom: 16px; /* Bottom margin */
+        resize: vertical /* Allow the user to vertically resize the textarea (not horizontally) */
+      }
+
+      input[type=submit] {
+        background-color: #4CAF50;
+        color: white;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+
+      input[type=submit]:hover {
+        background-color: #45a049;
+      }
+}

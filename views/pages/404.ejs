@@ -3,40 +3,16 @@
 
 <head>
     <% include ../partials/head %>
-    <style>
-        header {
-            background: #ff9900;
-        }
-
-        .header-content {
-            height: 100px;
-            justify-content: center;
-            align-content: center;
-            text-align: center;
-            color: #fff;
-            font-size: 40px;
-        }
-
-        .header-content a {
-            color: #fff;
-        }
-    </style>
 </head>
 
 <body>
-    <div class="container">
-        <header>
-            <div class="header-content">
-                <div class="logo">
-                    <a href="/">Good Jobs</a>
-                </div>
-            </div>
-        </header>
-        <main>
-            <h1>404 - NOT FOUND</h1>
-        </main>
-        <% include ../partials/footer %>
-    </div>
+    <% include ../partials/header %>
+    <span class="header-line"></span>
+    <section class="container">
+        <h1 style="text-align: center; font-size: 30px;">
+            <span style="color: red;">404</span> - PAGE NOT FOUND
+        </h1>
+    </section>
 </body>
 
 </html>

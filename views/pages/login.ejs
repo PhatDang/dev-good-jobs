@@ -3,60 +3,65 @@
 
 <head>
     <% include ../partials/head %>
-    <style>
-        header {
-            background: #ff9900;
-        }
-
-        .header-content {
-            height: 100px;
-            justify-content: center;
-            align-content: center;
-            text-align: center;
-            color: #fff;
-            font-size: 40px;
-        }
-
-        .header-content a {
-            color: #fff;
-        }
-    </style>
 </head>
 
 <body>
-    <header>
-        <div class="header-content">
-            <div class="logo">
-                <a href="/">Good Jobs</a>
+    <header class="container">
+        <div class="row">
+            <div class="col-6 logo">
+                <img src="../images/logo.png" alt="logo">
+            </div>
+            <div class="col-6 close-icon">
+                <a href="/"><i class="fas fa-times"></i></a>
             </div>
         </div>
     </header>
-    <main>
-        <div id="login-modal" class="modal">
-            <form id="login_form" action="/users/login" method="POST" class="modal-content">
-                <ul>
-                    <li>Đăng nhập</li>
-                    <li><a href="/users/register">Đăng ký</a></li>
-                </ul>
-                <h2>Đăng nhập tài khoản của bạn</h2>
-                <% include ../partials/messages %>
-                <input type="email" id="email" name="email" placeholder="Nhập email" autofocus
-                    value="<%= typeof email != 'undefined' ? email : '' %>" />
-                <input type="password" id="password" name="password" placeholder="Nhập mật khẩu"
-                    value="<%= typeof password != 'undefined' ? password : '' %>" />
-                <p class="agree">Bằng cách nhấn vào nút Đăng Nhập là bạn đã đồng ý với <a href="#">các điều khoản</a>
-                    của chúng tôi</p>
-                <div class="press">
-                    <button id="submit" class="btn btn-primary btn-normal" type="submit">Đăng nhập</button>
-                    <a href="/viec-tim-nguoi" class="btn btn-normal">Hủy</a>
-                </div>
-                <p class="forget">
-                    <a href="#">Quên mật khẩu của bạn</a>
-                </p>
-            </form>
+    <section class="container">
+        <div class="title">
+            <h1>Đăng nhập vào GOOD JOBS</h1>
         </div>
-    </main>
-    <script src="../js/userlgreg.js"></script>
+        <div class="row">
+            <div class="col-6 left-side">
+                <form action="/page/login" method="POST" class="normal-form">
+                    <!-- Test log error and success -->
+                    <div class="sign-button">
+                        <% include ../partials/messages %>
+                    </div>
+                    <!-- End -->
+                    <div class="sign-input">
+                        <label for="email" class="input-style">
+                            <input id="email" name="email" type="email" placeholder="&nbsp;"
+                                value="<%= typeof email != 'undefined' ? email : '' %>" required autofocus>
+                            <span class="label">email</span>
+                            <span class="border"></span>
+                        </label>
+                    </div>
+                    <div class="sign-input">
+                        <label for="password" class="input-style">
+                            <input id="password" name="password" type="password" placeholder="&nbsp;"
+                                value="<%= typeof password != 'undefined' ? password : '' %>" required>
+                            <span class="label">mật khẩu</span>
+                            <span class="border"></span>
+                        </label>
+                    </div>
+                    <div class="forgot-link">
+                        <a href="#forgotpassword">quên mật khẩu ?</a>
+                    </div>
+                    <div class="sign-button">
+                        <button id="sub_login" type="submit">đăng nhập</button>
+                    </div>
+                    <div class="signup-link">
+                        <span>
+                            <p><a href="/page/register">Đăng ký tài khoản</a> và tham gia với chúng tôi</p>
+                        </span>
+                    </div>
+                </form>
+            </div>
+            <div class="col-6 right-side">
+                <img src="../images/right-side.png" alt="Right side image">
+            </div>
+        </div>
+    </section>
 </body>
 
 </html>

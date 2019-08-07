@@ -3,105 +3,90 @@
 
 <head>
     <% include ../partials/head %>
-    <style>
-        header {
-            background: #ff9900;
-        }
-
-        .header-content {
-            height: 100px;
-            justify-content: center;
-            align-content: center;
-            text-align: center;
-            color: #fff;
-            font-size: 40px;
-        }
-
-        .header-content a {
-            color: #fff;
-        }
-    </style>
 </head>
 
 <body>
-    <div class="container">
-        <header>
-            <div class="header-content">
-                <div class="logo">
-                    <a href="/">Good Jobs</a>
-                </div>
+    <header class="container">
+        <div class="row">
+            <div class="col-6 logo">
+                <img src="../images/logo.png" alt="logo">
             </div>
-        </header>
-
-        <main>
-            <div id="reg-modal" class="modal">
-                <div id="reg_form">
-                    <!-- ===== REGISTER FORM ===== -->
-                    <form action="/users/register" method="POST" class="modal-content">
-                        <ul>
-                            <li><a href="/users/login">Đăng nhập</a></li>
-                            <li>Đăng ký</li>
-                        </ul>
-                        <h2>Đăng ký tài khoản của bạn</h2>
+            <div class="col-6 close-icon">
+                <a href="/"><i class="fas fa-times"></i></a>
+            </div>
+        </div>
+    </header>
+    <section class="container">
+        <div class="title">
+            <h1>Đăng ký tài khoản GOOD JOBS</h1>
+        </div>
+        <div class="row">
+            <div class="col-6 left-side">
+                <img src="../images/right-side.png" alt="Left side image">
+            </div>
+            <div class="col-6 right-side">
+                <form action="/page/register" method="POST" class="normal-form">
+                    <!-- Test log error and success -->
+                    <div class="sign-button">
                         <% include ../partials/messages %>
-                        <!-- SELECT USER TYPE -->
-                        <select id="user-type" name="user_type">
-                            <option selected disabled hidden>Bạn là ?</option>
-                            <option class="option" value="nguoi-tim-viec">Người tìm việc</option>
-                            <option class="option" value="viec-tim-nguoi">Việc tìm người</option>
-                        </select>
-
-                        <!-- INPUT Full Name -->
-                        <input type="name" id="fullname" name="full_name" placeholder="Họ và tên"
-                            value="<%= typeof name != 'undefined' ? name : '' %>" />
-
-                        <!-- INPUT Display Name -->
-                        <input type="name" id="display-name" name="display_name" placeholder="Tên hiển thị"
-                            value="<%= typeof name != 'undefined' ? name : '' %>" />
-
-                        <!-- INPUT Email -->
-                        <input type="email" id="email" name="email" placeholder="Email"
-                            value="<%= typeof email != 'undefined' ? email : '' %>" />
-
-                        <!-- INPUT Password -->
-                        <div class="input-group">
-                            <input class="password" type="password" id="password" name="password" placeholder="Mật khẩu"
-                                value="<%= typeof password != 'undefined' ? password : '' %>" />
-                            <span><i class="fas fa-exclamation-circle" err="6"></i></span>
-                            <div class="tooltips">
-                                <span><i class="fas fa-check-circle" err="1"></i> 6 kí tự trở lên</span>
-                                <span><i class="fas fa-check-circle" err="2"></i> 1 kí tự số</span>
-                                <span><i class="fas fa-check-circle" err="3"></i> 1 kí tự hoa</span>
-                                <span><i class="fas fa-check-circle" err="4"></i> 1 kí tự thường</span>
-                                <span><i class="fas fa-check-circle" err="5"></i> 1 kí tự đặc biệt</span>
-                            </div>
-                        </div>
-
-                        <!-- INPUT Confirm Password -->
-                        <div class="input-group">
-                            <input class="password" type="password" id="password_confirm" name="password_confirm"
-                                placeholder="Nhập lại mật khẩu"
-                                value="<%= typeof password != 'undefined' ? password : '' %>" />
-                            <span><i err="7" class="fas fa-exclamation-circle"></i></span>
-                        </div>
-
-                        <!-- SUBS -->
-                        <p class="agree">Bằng cách nhấn vào nút Đăng Ký là bạn đã đồng ý với <a href="#">các điều
-                                khoản</a>
-                            của chúng tôi</p>
-                        <div class="press">
-                            <button id="submitReg" class="btn btn-primary btn-normal" type="submit">Đăng ký</button>
-                            <a href="/viec-tim-nguoi" class="btn btn-normal">Thoát</a>
-                        </div>
-                        <p class="forget">
-                            <a href="/users/login">Bạn đã có tài khoản?</a>
-                        </p>
-                    </form>
-                </div>
+                    </div>
+                    <!-- End -->
+                    <!--Full Name-->
+                    <div class="sign-input">
+                        <label for="fullname" class="input-style">
+                            <input id="fullName" name="full_name" type="name" placeholder="&nbsp;"
+                                value="<%= typeof name != 'undefined' ? name : '' %>" required autofocus>
+                            <span class="label">Họ và Tên</span>
+                            <span class="border"></span>
+                        </label>
+                    </div>
+                    <!--Display Name-->
+                    <div class="sign-input">
+                        <label for="displayname" class="input-style">
+                            <input id="displayName" name="display_name" type="name" placeholder="&nbsp;"
+                                value="<%= typeof name != 'undefined' ? name : '' %>" required>
+                            <span class="label">Tên hiển thị</span>
+                            <span class="border"></span>
+                        </label>
+                    </div>
+                    <!--Email-->
+                    <div class="sign-input">
+                        <label for="email" class="input-style">
+                            <input id="email" name="email" type="email" placeholder="&nbsp;"
+                                value="<%= typeof email != 'undefined' ? email : '' %>" required>
+                            <span class="label">email</span>
+                            <span class="border"></span>
+                        </label>
+                    </div>
+                    <!--Password-->
+                    <div class="sign-input">
+                        <label for="password" class="input-style">
+                            <input id="password" name="password" type="password" pattern=".{6,}" placeholder="&nbsp;"
+                                value="<%= typeof password != 'undefined' ? password : '' %>" required>
+                            <span class="label">Mật khẩu</span>
+                            <span class="border"></span>
+                        </label>
+                    </div>
+                    <!--Confirm Password-->
+                    <div class="sign-input">
+                        <label for="confirmPassword" class="input-style">
+                            <input id="confirmPassword" name="password_confirm" type="password" pattern=".{6,}"
+                                placeholder="&nbsp;" value="<%= typeof password != 'undefined' ? password : '' %>"
+                                required>
+                            <span class="label">nhập lại Mật khẩu</span>
+                            <span class="border"></span>
+                        </label>
+                    </div>
+                    <div class="sign-button">
+                        <ul>
+                            <li><a href="/page/login"><i class="fas fa-arrow-left"></i> Đăng nhập</a></li>
+                            <li><button id="sub_register" type="submit">đăng ký</button></li>
+                        </ul>
+                    </div>
+                </form>
             </div>
-        </main>
-        <script src="../js/userlgreg.js"></script>
-    </div>
+        </div>
+    </section>
 </body>
 
 </html>

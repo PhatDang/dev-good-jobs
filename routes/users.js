@@ -13,44 +13,42 @@ const passport = require('passport')
 
 const router = express.Router()
 const User = require('../models/user')
-
 const { ensureAuthenticated, forwardAuthenticated } = require('../config/auth')
 
 // =================================== LOGIN
 // ===GET LOGIN PAGE:
 router.get('/login', forwardAuthenticated, (req, res) => {
     if (req.user) {
-        res.redirect('/nguoi-tim-viec')
+        res.redirect('/')
     } else {
-        res.render('pages/login')
-        // res.render('pages/login', { message: req.flash('message') })
+        res.render('pages/login', { message: req.flash('message') })
     }
 })
 // ===PROCESS LOGIN FOR USERS:
 router.post('/login', (req, res, next) => {
     passport.authenticate('local', {
-        successRedirect: '/users/detail',
-        failureRedirect: '/users/login',
-        failureFlash: 'Email hoặc mật khẩu không đúng, vui lòng thử lại!',
+        successRedirect: '/',
+        failureRedirect: '/page/login',
+        failureFlash: true,
     })(req, res, next)
 })
 
-// =================================== REGISTER
+// // =================================== REGISTER
 // ===GET REGISTER PAGE:
 router.get('/register', forwardAuthenticated, (req, res) => {
     if (req.user) {
-        res.redirect('/nguoi-tim-viec')
+        res.redirect('/')
     } else {
         res.render('pages/register')
     }
 })
 // ===PROCESS REGISTER FOR USERS:
 router.post('/register', (req, res) => {
-    const { user_type, full_name, display_name, email, password, password_confirm } = req.body
+    const { full_name, display_name, email, password, password_confirm } = req.body
     let errors = []
 
     // _Check required fields:
-    if (!user_type || !full_name || !display_name || !email || !password || !password_confirm) {
+    if ( !full_name || !display_name || !email || !password || !password_confirm) {
         errors.push({ msg: 'Bạn vui lòng nhập đầy đủ thông tin!' })
     }
 
@@ -67,7 +65,6 @@ router.post('/register', (req, res) => {
     if (errors.length > 0) {
         res.render('pages/register', {
             errors,
-            user_type,
             full_name,
             display_name,
             email,
@@ -81,7 +78,6 @@ router.post('/register', (req, res) => {
                 errors.push({ msg: 'Email đã được đăng ký!' })
                 res.render('pages/register', {
                     errors,
-                    user_type,
                     full_name,
                     display_name,
                     email,
@@ -90,7 +86,6 @@ router.post('/register', (req, res) => {
                 })
             } else {
                 const newUser = new User({
-                    user_type,
                     full_name,
                     display_name,
                     email,
@@ -107,7 +102,7 @@ router.post('/register', (req, res) => {
                         newUser.save()
                             .then((user) => {
                                 req.flash('success_msg', 'Bạn đã đăng ký thành công, hãy đăng nhập')
-                                res.redirect('/users/login')
+                                res.redirect('/page/login')
                             })
                             .catch(err => console.log(err))
                     })
@@ -132,66 +127,66 @@ router.get('/logout', (req, res) => {
     })
 })
 
-// =================================== USER PROFILE
-// ===DEMO:
-// router.get('/demo_detail', (_req, res) => {
-//     res.render('detail_profile')
-// })
-// router.get('/demo_edit', (_req, res) => {
-//     res.render('update_profile')
-// })
-// ===================================
-// ===GET UPLOAD_PROFILE:
+// // =================================== USER PROFILE
+// // ===DEMO:
+// // router.get('/demo_detail', (_req, res) => {
+// //     res.render('detail_profile')
+// // })
+// // router.get('/demo_edit', (_req, res) => {
+// //     res.render('update_profile')
+// // })
+// // ===================================
+// // ===GET UPLOAD_PROFILE:
 
-router.get('/edit', ensureAuthenticated, (req, res) => {
-    res.render('pages/uploadprofile', {
-        user: req.user,
-    })
-})
-router.put('/edit', (req, res) => {
-    const updateUser = {
-        full_name: req.body.full_name,
-        display_name: req.body.display_name,
-        gender: req.body.gender,
-        birthday: req.body.birthday,
-        email: req.body.email,
-        phone_number: req.body.phone_number,
-        title: req.body.title,
-        address: req.body.address,
-        city: req.body.city,
-        district: req.body.district,
-        ward: req.body.ward,
-        card_id: req.body.card_id,
-        date_card: req.body.date_card,
-        career: req.body.career,
-    }
-    User.findByIdAndUpdate(req.params.id, { $set: updateUser }, (err) => {
-        if (err) {
-            req.flash('error_msg', 'Có gì đó sai sai ở đây!')
-            res.redirect('/users/edit')
-        } else {
-            req.flash('success_msg', 'Cập nhật thành công!')
-            res.redirect('/users/detail')
-        }
-    })
-})
-// ===GET DETAIL_PROFILE:
-// router.get('/detail', (req, res) => {
-//     User.findById(req.params.id, (err) => {
-//         if (err) {
-//             console.log(err)
-//             req.flash('error_msg', 'Có gì đó sai sai ở đây!')
-//             res.redirect('/users/detail')
-//         }
-//         res.render('pages/profile', {
-//             user: req.user,
-//         })
+// router.get('/edit', ensureAuthenticated, (req, res) => {
+//     res.render('pages/uploadprofile', {
+//         user: req.user,
 //     })
 // })
-router.get('/detail', ensureAuthenticated, (req, res) => {
-    res.render('pages/profile', {
-        user: req.user,
-    })
-})
+// router.put('/edit', (req, res) => {
+//     const updateUser = {
+//         full_name: req.body.full_name,
+//         display_name: req.body.display_name,
+//         gender: req.body.gender,
+//         birthday: req.body.birthday,
+//         email: req.body.email,
+//         phone_number: req.body.phone_number,
+//         title: req.body.title,
+//         address: req.body.address,
+//         city: req.body.city,
+//         district: req.body.district,
+//         ward: req.body.ward,
+//         card_id: req.body.card_id,
+//         date_card: req.body.date_card,
+//         career: req.body.career,
+//     }
+//     User.findByIdAndUpdate(req.params.id, { $set: updateUser }, (err) => {
+//         if (err) {
+//             req.flash('error_msg', 'Có gì đó sai sai ở đây!')
+//             res.redirect('/users/edit')
+//         } else {
+//             req.flash('success_msg', 'Cập nhật thành công!')
+//             res.redirect('/users/detail')
+//         }
+//     })
+// })
+// // ===GET DETAIL_PROFILE:
+// // router.get('/detail', (req, res) => {
+// //     User.findById(req.params.id, (err) => {
+// //         if (err) {
+// //             console.log(err)
+// //             req.flash('error_msg', 'Có gì đó sai sai ở đây!')
+// //             res.redirect('/users/detail')
+// //         }
+// //         res.render('pages/profile', {
+// //             user: req.user,
+// //         })
+// //     })
+// // })
+// router.get('/detail', ensureAuthenticated, (req, res) => {
+//     res.render('pages/profile', {
+//         user: req.user,
+//     })
+// })
 
 module.exports = router

@@ -89,7 +89,7 @@ goodjob.use((req, res, next) => {
 
 // ===GET ROUTER:
 goodjob.use('/', require('./routes/index'))
-goodjob.use('/users', require('./routes/users'))
+goodjob.use('/page', require('./routes/users'))
 
 // ===CATCH 404:
 goodjob.use((req, res, next) => {

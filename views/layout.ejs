@@ -2,12 +2,39 @@
 <html lang="en">
 
 <head>
-    <!-- ADD: Head partials -->
+    <!-- ADD: HEAD partials -->
     <% include ./partials/head %>
 </head>
 
 <body>
+    <!-- ADD: HEADER partials -->
+    <% include ./partials/header %>
+    <span class="header-line"></span>
 
+    <section class="container">
+        <div class="row">
+            <article class="col-4 search-text">
+                <p>Tìm kiếm cho mình một công việc phù hợp và nâng cao trình độ của bản thân</p>
+            </article>
+            <div class="col-8 search-field">
+                <div class="row">
+                    <div class="col-6 select-list">
+                        <select name="city" class="select-box">
+                            <option value="0" selected disabled>Chọn thành phố</option>
+                            <option value="1">Tp Hồ Chí Minh</option>
+                            <option value="2">Hà Nội</option>
+                        </select>
+                    </div>
+                    <form action="" class="col-6 search-form">
+                        <input class="search-input" type="text" placeholder="Tìm kiếm việc làm">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ADD: FOOTER partials -->
+    <% include ./partials/footer %>
 </body>
 
 </html>

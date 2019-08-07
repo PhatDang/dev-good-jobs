@@ -7,7 +7,7 @@ exports.isLoggedIn = (req, res, next) => {
         next()
     } else {
         req.flash('error_msg', 'Bạn vui lòng đăng nhập để được vào trang!')
-        res.redirect('/users/login')
+        res.redirect('/page/login')
     }
 }
 // ===CHECK Ensure Authenticated:
@@ -16,14 +16,13 @@ exports.ensureAuthenticated = (req, res, next) => {
         return next()
     }
     req.flash('error_msg', 'Bạn vui lòng đăng nhập để được vào trang!')
-    res.redirect('/users/login')
+    res.redirect('/page/login')
 }
 // ===CHECK Forward Authenticated:
 exports.forwardAuthenticated = (req, res, next) => {
     if (!req.isAuthenticated()) {
         return next()
     }
-    // res.redirect('/nguoi-tim-viec')
 }
 // ============== ROLEs:
 // ===CHECK Seeker:

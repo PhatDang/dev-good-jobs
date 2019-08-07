@@ -17,7 +17,6 @@ const userSchema = new Schema({
     // _Type and Role of Users
     active: { type: Boolean },
     role_list: { type: String },
-    user_type: { type: String, trim: true },
 
     // _Details Users
     avatar: { type: String },
