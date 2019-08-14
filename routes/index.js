@@ -1,12 +1,14 @@
+/* eslint-disable semi */
 /* eslint-disable no-unused-vars */
 /* eslint-disable object-curly-newline */
 // ===============================
-const express = require('express')
-const router = express.Router()
+const express = require('express');
 
-// ===HOME PAGE:
-router.get('/', (req, res) => {
-    res.render('layout')
-})
+const router = express.Router();
 
-module.exports = router
+// ===Show HOME PAGE:
+router.get('/', (_req, res) => {
+    res.render('layout');
+});
+
+module.exports = router;

@@ -1,8 +1,10 @@
+/* eslint-disable semi */
 /* eslint-disable object-curly-newline */
+/* eslint-disable consistent-return */
 // ===============================
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
 
-const { Schema } = mongoose
+const { Schema } = mongoose;
 
 const userSchema = new Schema({
     /**
@@ -11,14 +13,14 @@ const userSchema = new Schema({
     email: { type: String, unique: true, required: true, trim: true },
     password: { type: String, required: true, trim: true, minlength: 6 },
 
+    // _Setting first login:
+    active: { type: Boolean, default: false },
+    check_first: { type: Boolean, default: false },
+
     /**
      *  ===USERs Info:
      */
-    // _Type and Role of Users
-    active: { type: Boolean },
-    role_list: { type: String },
-
-    // _Details Users
+    // _Details Users:
     avatar: { type: String },
     full_name: { type: String, trim: true, maxlength: 250 },
     display_name: { type: String, trim: true, maxlength: 50 },
@@ -43,7 +45,7 @@ const userSchema = new Schema({
     start_date: { type: Date },
     end_date: { type: Date },
     skill_name: { type: String },
-    skill_description: { type:String },
+    skill_description: { type: String },
     skill_point: { type: Number },
     career: { type: String },
     // Still add: Education, Desired Salar
@@ -52,7 +54,7 @@ const userSchema = new Schema({
      *  ===USER Register Date:
      */
     create_date: { type: Date, default: Date.now },
-})
+});
 
-const User = mongoose.model('User', userSchema)
-module.exports = User
+const User = mongoose.model('User', userSchema);
+module.exports = User;

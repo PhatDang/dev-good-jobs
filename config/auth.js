@@ -1,35 +1,26 @@
+/* eslint-disable semi */
 /* eslint-disable object-curly-newline */
 /* eslint-disable consistent-return */
 // ===============================
-// ===CHECK Is Logged-in:
-exports.isLoggedIn = (req, res, next) => {
-    if (req.isAuthenticated()) {
-        next()
-    } else {
-        req.flash('error_msg', 'Bạn vui lòng đăng nhập để được vào trang!')
-        res.redirect('/page/login')
-    }
-}
-// ===CHECK Ensure Authenticated:
+// ===LOGIN required Middleware:
 exports.ensureAuthenticated = (req, res, next) => {
     if (req.isAuthenticated()) {
-        return next()
+        return next();
     }
-    req.flash('error_msg', 'Bạn vui lòng đăng nhập để được vào trang!')
-    res.redirect('/page/login')
-}
-// ===CHECK Forward Authenticated:
+    req.flash('error_msg', 'Bạn vui lòng thực hiện đăng nhập!');
+    res.redirect('/users/login');
+};
 exports.forwardAuthenticated = (req, res, next) => {
     if (!req.isAuthenticated()) {
-        return next()
+        return next();
     }
-}
-// ============== ROLEs:
-// ===CHECK Seeker:
-exports.isSeeker = (req, res, next) => {
-    next()
-}
-// ===CHECK Hunter:
-exports.isHunter = (req, res, next) => {
-    next()
-}
+};
+// ===CHECK First User Update Info:
+exports.check_first = (req, res, next) => {
+    if (req.user.check_first) {
+        next();
+    } else {
+        req.flash('error_msg', 'Bạn vui lòng thực hiện đăng nhập!');
+        res.redirect('/users/login');
+    }
+};
