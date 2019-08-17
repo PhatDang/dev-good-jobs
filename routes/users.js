@@ -76,7 +76,7 @@ router.post('/register', (req, res) => {
         });
     } else {
         // _Validation passed:
-        User.findOne({ email: email }).then((user) => {
+        User.findOne({ email: email.toLowerCase() }).then((user) => {
             if (user) {
                 errors.push({ msg: 'Email đã được đăng ký!' });
                 res.render('pages/register', {
@@ -89,6 +89,7 @@ router.post('/register', (req, res) => {
                 });
             } else {
                 const newUser = new User({
+                    active: true,
                     full_name,
                     display_name,
                     email,
@@ -129,7 +130,6 @@ router.get('/logout', (req, res) => {
             req.flash('error_msg', 'Không thể hủy phiên trong khi đã đăng xuất!');
         } else {
             req.user = null;
-            // req.flash('success_msg', 'Bạn đã đăng xuất thành công!')
             console.log('Bạn đã đăng xuất thành công!');
             res.redirect('/');
         }
@@ -137,7 +137,7 @@ router.get('/logout', (req, res) => {
 });
 
 // =================================== GET Information User:
-// ===Show FIRST_UPLOAD Page:
+// ===Show FIRST UPLOAD PAGE:
 router.get('/first_upload', ensureAuthenticated, (req, res) => {
     res.render('seekers/first_upload', { user_id: req.params.id });
 });

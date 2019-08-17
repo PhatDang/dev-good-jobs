@@ -17,10 +17,10 @@ exports.forwardAuthenticated = (req, res, next) => {
 };
 // ===CHECK First User Update Info:
 exports.check_first = (req, res, next) => {
-    if (req.user.check_first) {
+    if (req.user.check_first === true) {
         next();
     } else {
-        req.flash('error_msg', 'Bạn vui lòng thực hiện đăng nhập!');
-        res.redirect('/users/login');
+        req.flash('error_msg', 'Bạn vui lòng thực cập nhật thông tin lần đầu.!');
+        res.redirect('/users/first_upload');
     }
 };

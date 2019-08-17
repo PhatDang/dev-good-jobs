@@ -95,7 +95,6 @@ goodjob.use('/users', require('./routes/users'));
 
 // ===CATCH 404:
 goodjob.use((_req, res, _next) => {
-    // log(req)
     res.status(404);
     res.render('pages/404');
 });

@@ -13,7 +13,7 @@ const userSchema = new Schema({
     email: { type: String, unique: true, required: true, trim: true },
     password: { type: String, required: true, trim: true, minlength: 6 },
 
-    // _Setting first login:
+    // _Setting first Registered:
     active: { type: Boolean, default: false },
     check_first: { type: Boolean, default: false },
 
@@ -54,6 +54,11 @@ const userSchema = new Schema({
      *  ===USER Register Date:
      */
     create_date: { type: Date, default: Date.now },
+}, {
+    timestamps: {
+        createdAt: 'createdAt',
+        updatedAt: 'updatedAt',
+    },
 });
 
 const User = mongoose.model('User', userSchema);

@@ -22,8 +22,13 @@
                     <span class="sub-title">
                         <h3>Cập nhật thông tin cá nhân</h3>
                     </span>
-                    <form action="/page/user/first_upload" method="POST"
+                    <form action="/users/first_upload" method="POST"
                         class="normal-form">
+                        <!-- Test log error and success -->
+                        <div class="sign-button">
+                            <% include ../partials/messages %>
+                        </div>
+                        <!-- End -->
                         <!-- Row 1 -->
                         <div class="row">
                             <div class="col-6 left-col">

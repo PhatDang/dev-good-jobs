@@ -22,7 +22,7 @@
         </div>
         <div class="row">
             <div class="col-6 left-side">
-                <form action="/page/login" method="POST" class="normal-form">
+                <form action="/users/login" method="POST" class="normal-form">
                     <!-- Test log error and success -->
                     <div class="sign-button">
                         <% include ../partials/messages %>
@@ -45,14 +45,14 @@
                         </label>
                     </div>
                     <div class="forgot-link">
-                        <a href="/page/reset-password">quên mật khẩu ?</a>
+                        <a href="/users/reset-password">quên mật khẩu ?</a>
                     </div>
                     <div class="sign-button">
                         <button id="sub_login" type="submit">đăng nhập</button>
                     </div>
                     <div class="signup-link">
                         <span>
-                            <p><a href="/page/register">Đăng ký tài khoản</a> và tham gia với chúng tôi</p>
+                            <p><a href="/users/register">Đăng ký tài khoản</a> và tham gia với chúng tôi</p>
                         </span>
                     </div>
                 </form>
