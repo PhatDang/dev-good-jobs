@@ -13,22 +13,22 @@ const LocalStrategy = require('passport-local').Strategy;
 const User = require('../models/user');
 
 module.exports = (passport) => {
-    // Sign-in with {Email} && {Password}
+    // VALIDATE: {Email} && {Password}
     passport.use(new LocalStrategy({
         usernameField: 'email',
         passwordField: 'password',
     }, (email, password, done) => {
-        // MATCH EMAIL:
         User.findOne({ email: email.toLowerCase() })
             .then((user) => {
+                // Check: MATCH EMAIL
                 if (!user) {
-                    return done(null, false, { message: 'Email không đúng vui lòng thử lại' });
+                    return done(null, false, { message: `Email ${email} này không tìm thấy!` });
                 }
-                // CHECK {is_current} USER:
+                // Check: CURRENT USER
                 if (!user.password) {
-                    return done(null, false, { message: 'Tài khoản này đã được đăng ký!' });
+                    return done(null, false, { message: `Email ${email} này đã được đăng ký!` });
                 }
-                // MATCH PASSWORD:
+                // Check: MATCH PASSWORD
                 bcrypt.compare(password, user.password, (err, isMatch) => {
                     if (err) throw err;
                     if (!isMatch) {
@@ -39,11 +39,11 @@ module.exports = (passport) => {
             })
             .catch(err => console.log(err));
     }));
-    // Serialize sessions:
+    // Serialize Sessions:
     passport.serializeUser((user, done) => {
         done(null, user.id);
     });
-    // Deserialize sessions:
+    // Deserialize Sessions:
     passport.deserializeUser((id, done) => {
         User.findById(id, (err, user) => {
             done(err, user);

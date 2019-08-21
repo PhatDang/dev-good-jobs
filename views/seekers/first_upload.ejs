@@ -1,19 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <% include ../partials/head %>
-</head>
+<head> <% include ../partials/head %> </head>
 
-<body>
-    <% include ../partials/header %>
-    <span class="header-line"></span>
+<body> <% include ../partials/header %> <span class="header-line"></span>
     <section class="container">
         <div class="row">
             <div class="col-3 left-side">
                 <div class="left-content">
                     <a href="#>"><img src="../images/avatar.png"
-                            alt="avatar"></a>
+                             alt="avatar"></a>
                     <span class="tooltiptext">Chọn hình ảnh</span>
                 </div>
             </div>
@@ -22,22 +18,26 @@
                     <span class="sub-title">
                         <h3>Cập nhật thông tin cá nhân</h3>
                     </span>
-                    <form action="/users/first_upload" method="POST"
-                        class="normal-form">
+                    <form action="/users/first_upload"
+                          method="POST"
+                          class="normal-form">
                         <!-- Test log error and success -->
-                        <div class="sign-button">
-                            <% include ../partials/messages %>
-                        </div>
+                        <div class="sign-button"
+                             style="font-size: 25px"> <% include ../partials/messages %> </div>
                         <!-- End -->
                         <!-- Row 1 -->
                         <div class="row">
                             <div class="col-6 left-col">
                                 <!--Full Name-->
                                 <div class="sign-input">
-                                    <label for="fullname" class="input-style">
-                                        <input id="fullName" name="fullName"
-                                            type="text" value="Lê Minh Trung"
-                                            disabled placeholder="&nbsp;">
+                                    <label for="fullname"
+                                           class="input-style">
+                                        <input id="fullName"
+                                               name="full_name"
+                                               type="name"
+                                               value="<%= users.full_name %>"
+                                               disabled
+                                               placeholder="&nbsp;">
                                         <span class="label">Họ và Tên</span>
                                         <span class="border"></span>
                                     </label>
@@ -47,11 +47,13 @@
                                 <!--Display Name-->
                                 <div class="sign-input">
                                     <label for="displayname"
-                                        class="input-style">
+                                           class="input-style">
                                         <input id="displayName"
-                                            name="displayName" type="text"
-                                            value="Trung Lê" disabled
-                                            placeholder="&nbsp;">
+                                               name="display_name"
+                                               type="name"
+                                               value="<%= users.display_name %>"
+                                               disabled
+                                               placeholder="&nbsp;">
                                         <span class="label">Tên hiển thị</span>
                                         <span class="border"></span>
                                     </label>
@@ -65,13 +67,15 @@
                                 <!--Phone Number-->
                                 <div class="sign-input">
                                     <label for="phoneNumber"
-                                        class="input-style">
+                                           class="input-style">
                                         <input id="phoneNumber"
-                                            name="phoneNumber" type="tel"
-                                            maxlength="10" pattern="[0-9]{10}"
-                                            placeholder="&nbsp;" required>
-                                        <span class="label">Số điện
-                                            thoại</span>
+                                               name="phone_number"
+                                               type="tel"
+                                               pattern="/^[2-9]\d{2}[2-9]\d{2}\d{4}$/"
+                                               placeholder="&nbsp;"
+                                               value="<%= typeof tel != 'undefined' ? tel : '' %>"
+                                               required>
+                                        <span class="label">Số điện thoại</span>
                                         <span class="border"></span>
                                     </label>
                                 </div>
@@ -79,11 +83,14 @@
                             <div class="col-6 right-col">
                                 <!--Email-->
                                 <div class="sign-input">
-                                    <label for="email" class="input-style">
-                                        <input id="email" name="email"
-                                            type="email"
-                                            value="trungle170994@gmail.com"
-                                            placeholder="&nbsp;" disabled>
+                                    <label for="email"
+                                           class="input-style">
+                                        <input id="email"
+                                               name="email"
+                                               type="email"
+                                               value="<%= users.email %>"
+                                               placeholder="&nbsp;"
+                                               disabled>
                                         <span class="label">email</span>
                                         <span class="border"></span>
                                     </label>
@@ -96,11 +103,15 @@
                             <div class="col-6 left-col">
                                 <!--Birthday-->
                                 <div class="sign-input">
-                                    <label for="birthday" class="input-style">
-                                        <input id="birthday" name="birthday"
-                                            type="date" data-date=""
-                                            data-date-format="DD MM YYYY"
-                                            placeholder="&nbsp;" required>
+                                    <label for="birthday"
+                                           class="input-style">
+                                        <input id="birthday"
+                                               name="birthday"
+                                               type="date"
+                                               data-date=""
+                                               data-date-format="DD MM YYYY"
+                                               placeholder="&nbsp;"
+                                               required>
                                         <span class="label">Ngày sinh</span>
                                         <span class="border"></span>
                                     </label>
@@ -109,10 +120,13 @@
                             <div class="col-6 right-col">
                                 <!--Gender-->
                                 <div class="sign-input">
-                                    <label for="birthday" class="input-style">
-                                        <select name="gender" id="">
-                                            <option value="0" selected
-                                                disabled>Lựa chọn</option>
+                                    <label for="birthday"
+                                           class="input-style">
+                                        <select name="gender"
+                                                id="gender">
+                                            <option value="0"
+                                                    selected
+                                                    disabled>Lựa chọn</option>
                                             <option value="1">Nam</option>
                                             <option value="2">Nữ</option>
                                         </select>
@@ -128,28 +142,30 @@
                             <div class="col-6 left-col">
                                 <!--Headline-->
                                 <div class="sign-input">
-                                    <label for="headline" class="input-style">
-                                        <input id="headline" name="headline"
-                                            type="text" placeholder="&nbsp;"
-                                            required>
-                                        <span class="label">Tiêu đề công
-                                            việc</span>
+                                    <label for="headline"
+                                           class="input-style">
+                                        <input id="headline"
+                                               name="headline"
+                                               type="text"
+                                               placeholder="&nbsp;"
+                                               required>
+                                        <span class="label">Tiêu đề công việc</span>
                                         <span class="border"></span>
                                     </label>
-                                    <span class="example">VD: Quản lý nhà
-                                        hàng</span>
+                                    <span class="example">VD: Quản lý nhà hàng</span>
                                 </div>
-
                             </div>
                             <div class="col-6 right-col">
                                 <!--City-->
                                 <div class="sign-input">
-                                    <label for="city" class="input-style">
-                                        <select name="city" id="">
-                                            <option value="0" selected
-                                                disabled>Lựa chọn</option>
-                                            <option value="1">Tp Hồ Chí Minh
-                                            </option>
+                                    <label for="city"
+                                           class="input-style">
+                                        <select name="city"
+                                                id="">
+                                            <option value="0"
+                                                    selected
+                                                    disabled>Lựa chọn</option>
+                                            <option value="1">Tp Hồ Chí Minh </option>
                                             <option value="2">Hà Nội</option>
                                         </select>
                                         <span class="label">Thành phố</span>
@@ -164,10 +180,13 @@
                             <div class="col-6 left-col">
                                 <!--District-->
                                 <div class="sign-input">
-                                    <label for="headline" class="input-style">
-                                        <select name="district" id="">
-                                            <option value="0" selected
-                                                disabled>Lựa chọn</option>
+                                    <label for="headline"
+                                           class="input-style">
+                                        <select name="district"
+                                                id="">
+                                            <option value="0"
+                                                    selected
+                                                    disabled>Lựa chọn</option>
                                             <option value="1">Quận 1</option>
                                             <option value="2">Quận 2</option>
                                         </select>
@@ -179,10 +198,13 @@
                             <div class="col-6 right-col">
                                 <!--Ward-->
                                 <div class="sign-input">
-                                    <label for="ward" class="input-style">
-                                        <select name="city" id="">
-                                            <option value="0" selected
-                                                disabled>Lựa chọn</option>
+                                    <label for="ward"
+                                           class="input-style">
+                                        <select name="city"
+                                                id="">
+                                            <option value="0"
+                                                    selected
+                                                    disabled>Lựa chọn</option>
                                             <option value="1">Phường 1</option>
                                             <option value="2">Phường 2</option>
                                         </select>
@@ -198,24 +220,29 @@
                             <div class="col-6 left-col">
                                 <!--District-->
                                 <div class="sign-input">
-                                    <label for="address" class="input-style">
-                                        <input name="address" id="address"
-                                            type="text" placeholder="&nbsp;"
-                                            required>
+                                    <label for="address"
+                                           class="input-style">
+                                        <input name="address"
+                                               id="address"
+                                               type="text"
+                                               placeholder="&nbsp;"
+                                               required>
                                         <span class="label">Địa chỉ</span>
                                         <span class="border"></span>
                                     </label>
-                                    <span class="example">VD: 123 Hoàng Hoa
-                                        Thám</span>
+                                    <span class="example">VD: 123 Hoàng Hoa Thám</span>
                                 </div>
                             </div>
                             <div class="col-6 right-col">
                                 <!--Career-->
                                 <div class="sign-input">
-                                    <label for="career" class="input-style">
-                                        <select name="career" id="">
-                                            <option value="0" selected
-                                                disabled>Lựa chọn</option>
+                                    <label for="career"
+                                           class="input-style">
+                                        <select name="career"
+                                                id="">
+                                            <option value="0"
+                                                    selected
+                                                    disabled>Lựa chọn</option>
                                             <option value="1">Nghề 1</option>
                                             <option value="2">Nghề 2</option>
                                         </select>
@@ -231,27 +258,29 @@
                             <div class="col-6 left-col">
                                 <!--ID Card-->
                                 <div class="sign-input">
-                                    <label for="idNumber" class="input-style">
-                                        <input id="idNumber" name="idNumber"
-                                            type="text" placeholder="&nbsp;"
-                                            required>
-                                        <span class="label">Chứng minh nhân
-                                            dân</span>
+                                    <label for="idNumber"
+                                           class="input-style">
+                                        <input id="idNumber"
+                                               name="idNumber"
+                                               type="text"
+                                               placeholder="&nbsp;"
+                                               required>
+                                        <span class="label">Chứng minh nhân dân</span>
                                         <span class="border"></span>
                                     </label>
-                                    <span class="example">Chú ý: CMND của người
-                                        dùng sẽ được bảo mật và chỉ dùng để xác
-                                        nhận thông tin người dùng.</span>
+                                    <span class="example">Chú ý: CMND của người dùng sẽ được bảo mật và chỉ dùng để xác nhận thông tin người dùng.</span>
                                 </div>
                             </div>
                             <div class="col-6 right-col">
                                 <!--Aproved day-->
                                 <div class="sign-input">
                                     <label for="approvedDay"
-                                        class="input-style">
+                                           class="input-style">
                                         <input id="approvedDay"
-                                            name="approvedDay" type="date"
-                                            placeholder="&nbsp;" required>
+                                               name="approvedDay"
+                                               type="date"
+                                               placeholder="&nbsp;"
+                                               required>
                                         <span class="label">Ngày cấp</span>
                                         <span class="border"></span>
                                     </label>

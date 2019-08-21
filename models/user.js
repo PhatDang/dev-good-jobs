@@ -17,10 +17,7 @@ const userSchema = new Schema({
     active: { type: Boolean, default: false },
     check_first: { type: Boolean, default: false },
 
-    /**
-     *  ===USERs Info:
-     */
-    // _Details Users:
+    // _Details User's info:
     avatar: { type: String },
     full_name: { type: String, trim: true, maxlength: 250 },
     display_name: { type: String, trim: true, maxlength: 50 },
@@ -39,7 +36,7 @@ const userSchema = new Schema({
     title: { type: String },
     summary: { type: String },
     work_type: { type: String },
-    job_tittle: { type: String },
+    job_title: { type: String },
     company_name: { type: String },
     company_address: { type: String },
     start_date: { type: Date },
@@ -50,15 +47,8 @@ const userSchema = new Schema({
     career: { type: String },
     // Still add: Education, Desired Salar
 
-    /**
-     *  ===USER Register Date:
-     */
+    // _Register Date:
     create_date: { type: Date, default: Date.now },
-}, {
-    timestamps: {
-        createdAt: 'createdAt',
-        updatedAt: 'updatedAt',
-    },
 });
 
 const User = mongoose.model('User', userSchema);

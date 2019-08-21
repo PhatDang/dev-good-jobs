@@ -1,15 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <% include ../partials/head %>
-</head>
+<head> <% include ../partials/head %> </head>
 
 <body>
     <header class="container">
         <div class="row">
             <div class="col-6 logo">
-                <img src="../images/logo.png" alt="logo">
+                <img src="../images/logo.png"
+                     alt="logo">
             </div>
             <div class="col-6 close-icon">
                 <a href="/"><i class="fas fa-times"></i></a>
@@ -22,24 +21,35 @@
         </div>
         <div class="row">
             <div class="col-6 left-side">
-                <form action="/users/login" method="POST" class="normal-form">
+                <form action="/users/login"
+                      method="POST"
+                      class="normal-form">
                     <!-- Test log error and success -->
-                    <div class="sign-button">
-                        <% include ../partials/messages %>
-                    </div>
+                    <div class="sign-button"> <% include ../partials/messages %> </div>
                     <!-- End -->
                     <div class="sign-input">
-                        <label for="email" class="input-style">
-                            <input id="email" name="email" type="email" placeholder="&nbsp;"
-                                value="<%= typeof email != 'undefined' ? email : '' %>" required autofocus>
+                        <label for="email"
+                               class="input-style">
+                            <input id="email"
+                                   name="email"
+                                   type="email"
+                                   placeholder="&nbsp;"
+                                   value="<%= typeof email != 'undefined' ? email : '' %>"
+                                   required
+                                   autofocus>
                             <span class="label">email</span>
                             <span class="border"></span>
                         </label>
                     </div>
                     <div class="sign-input">
-                        <label for="password" class="input-style">
-                            <input id="password" name="password" type="password" placeholder="&nbsp;"
-                                value="<%= typeof password != 'undefined' ? password : '' %>" required>
+                        <label for="password"
+                               class="input-style">
+                            <input id="password"
+                                   name="password"
+                                   type="password"
+                                   placeholder="&nbsp;"
+                                   value="<%= typeof password != 'undefined' ? password : '' %>"
+                                   required>
                             <span class="label">mật khẩu</span>
                             <span class="border"></span>
                         </label>
@@ -48,7 +58,8 @@
                         <a href="/users/reset-password">quên mật khẩu ?</a>
                     </div>
                     <div class="sign-button">
-                        <button id="sub_login" type="submit">đăng nhập</button>
+                        <button id="sub_login"
+                                type="submit">đăng nhập</button>
                     </div>
                     <div class="signup-link">
                         <span>
@@ -58,7 +69,8 @@
                 </form>
             </div>
             <div class="col-6 right-side">
-                <img src="../images/right-side.png" alt="Right side image">
+                <img src="../images/right-side.png"
+                     alt="Right side image">
             </div>
         </div>
     </section>

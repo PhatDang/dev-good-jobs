@@ -10,7 +10,7 @@ exports.ensureAuthenticated = (req, res, next) => {
     req.flash('error_msg', 'Bạn vui lòng thực hiện đăng nhập!');
     res.redirect('/users/login');
 };
-exports.forwardAuthenticated = (req, res, next) => {
+exports.forwardAuthenticated = (req, _res, next) => {
     if (!req.isAuthenticated()) {
         return next();
     }

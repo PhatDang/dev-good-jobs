@@ -1,15 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <% include ../partials/head %>
-</head>
+<head> <% include ../partials/head %> </head>
 
 <body>
     <header class="container">
         <div class="row">
             <div class="col-6 logo">
-                <img src="../images/logo.png" alt="logo">
+                <img src="../images/logo.png"
+                     alt="logo">
             </div>
             <div class="col-6 close-icon">
                 <a href="/"><i class="fas fa-times"></i></a>
@@ -22,57 +21,85 @@
         </div>
         <div class="row">
             <div class="col-6 left-side">
-                <img src="../images/right-side.png" alt="Left side image">
+                <img src="../images/right-side.png"
+                     alt="Left side image">
             </div>
             <div class="col-6 right-side">
-                <form action="/users/register" method="POST" class="normal-form">
+                <form action="/users/register"
+                      method="POST"
+                      class="normal-form">
                     <!-- Test log error and success -->
-                    <div class="sign-button">
-                        <% include ../partials/messages %>
-                    </div>
+                    <div class="sign-button"> <% include ../partials/messages %> </div>
                     <!-- End -->
                     <!--Full Name-->
                     <div class="sign-input">
-                        <label for="fullname" class="input-style">
-                            <input id="fullName" name="full_name" type="name" placeholder="&nbsp;"
-                                value="<%= typeof name != 'undefined' ? name : '' %>" required autofocus>
+                        <label for="fullname"
+                               class="input-style">
+                            <input id="fullName"
+                                   name="full_name"
+                                   type="name"
+                                   placeholder="&nbsp;"
+                                   value="<%= typeof name != 'undefined' ? name : '' %>"
+                                   required
+                                   autofocus>
                             <span class="label">Họ và Tên</span>
                             <span class="border"></span>
                         </label>
                     </div>
                     <!--Display Name-->
                     <div class="sign-input">
-                        <label for="displayname" class="input-style">
-                            <input id="displayName" name="display_name" type="name" placeholder="&nbsp;"
-                                value="<%= typeof name != 'undefined' ? name : '' %>" required>
+                        <label for="displayname"
+                               class="input-style">
+                            <input id="displayName"
+                                   name="display_name"
+                                   type="name"
+                                   placeholder="&nbsp;"
+                                   value="<%= typeof name != 'undefined' ? name : '' %>"
+                                   required>
                             <span class="label">Tên hiển thị</span>
                             <span class="border"></span>
                         </label>
                     </div>
                     <!--Email-->
                     <div class="sign-input">
-                        <label for="email" class="input-style">
-                            <input id="email" name="email" type="email" placeholder="&nbsp;"
-                                value="<%= typeof email != 'undefined' ? email : '' %>" required>
+                        <label for="email"
+                               class="input-style">
+                            <input id="email"
+                                   name="email"
+                                   type="email"
+                                   placeholder="&nbsp;"
+                                   value="<%= typeof email != 'undefined' ? email : '' %>"
+                                   required>
                             <span class="label">email</span>
                             <span class="border"></span>
                         </label>
                     </div>
                     <!--Password-->
                     <div class="sign-input">
-                        <label for="password" class="input-style">
-                            <input id="password" name="password" type="password" pattern=".{6,}" placeholder="&nbsp;"
-                                value="<%= typeof password != 'undefined' ? password : '' %>" required>
+                        <label for="password"
+                               class="input-style">
+                            <input id="password"
+                                   name="password"
+                                   type="password"
+                                   pattern=".{6,}"
+                                   placeholder="&nbsp;"
+                                   value="<%= typeof password != 'undefined' ? password : '' %>"
+                                   required>
                             <span class="label">Mật khẩu</span>
                             <span class="border"></span>
                         </label>
                     </div>
                     <!--Confirm Password-->
                     <div class="sign-input">
-                        <label for="confirmPassword" class="input-style">
-                            <input id="confirmPassword" name="password_confirm" type="password" pattern=".{6,}"
-                                placeholder="&nbsp;" value="<%= typeof password != 'undefined' ? password : '' %>"
-                                required>
+                        <label for="confirmPassword"
+                               class="input-style">
+                            <input id="confirmPassword"
+                                   name="password_confirm"
+                                   type="password"
+                                   pattern=".{6,}"
+                                   placeholder="&nbsp;"
+                                   value="<%= typeof password != 'undefined' ? password : '' %>"
+                                   required>
                             <span class="label">nhập lại Mật khẩu</span>
                             <span class="border"></span>
                         </label>
@@ -80,7 +107,8 @@
                     <div class="sign-button">
                         <ul>
                             <li><a href="/users/login"><i class="fas fa-arrow-left"></i> Đăng nhập</a></li>
-                            <li><button id="sub_register" type="submit">đăng ký</button></li>
+                            <li><button id="sub_register"
+                                        type="submit">đăng ký</button></li>
                         </ul>
                     </div>
                 </form>
