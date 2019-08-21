@@ -37,12 +37,12 @@ const MONGODB_URI = 'mongodb://func_admin:8512930.Phat@ds147207.mlab.com:47207/h
 mongoose.connect(MONGODB_URI, {
     useCreateIndex: true,
     useNewUrlParser: true,
-}).then(() => log(chalk.bgGreen('Database connection success!')))
+}).then(() => log(chalk.greenBright('Database connection ') + chalk.bgGreen.bold('SUCCESS')))
     .catch(err => log(chalk.redBright(err)));
 
 const database = mongoose.connection;
 database.on('error', (err) => {
-    log(chalk.redBright('Database connection error: ', err.message));
+    log(chalk.whiteBright('Database connection ') + chalk.bgRed.bold('ERROR\n') + chalk.redBright(err.message));
 });
 
 // ===EJS TEMPLATE:
@@ -109,7 +109,7 @@ goodjob.use((err, _req, res, _next) => {
 // LOADING SERVER...
 goodjob.listen(PORT, () => {
     log(chalk.whiteBright('SERVER STARTED, CLICK [Ctrl] + ') + chalk.yellowBright(`http://localhost:${PORT}`));
-    log(chalk.whiteBright(' Press [Ctrl] + [C] to ') + chalk.redBright('STOP\n'));
+    log(`${chalk.whiteBright(' Press ') + chalk.cyan('[Ctrl] + [C]')} to ${chalk.bgRed.bold('STOP\n')}`);
 });
 
 module.exports = goodjob;
