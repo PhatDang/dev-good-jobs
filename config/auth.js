@@ -16,8 +16,8 @@ exports.forwardAuthenticated = (req, _res, next) => {
     }
 };
 // ===CHECK First User Update Info:
-exports.check_first = (req, res, next) => {
-    if (req.user.check_first === true) {
+exports.check_first_update = (req, res, next) => {
+    if (req.user.check_first_update === true) {
         next();
     } else {
         req.flash('error_msg', 'Bạn vui lòng thực cập nhật thông tin lần đầu.!');

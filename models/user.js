@@ -15,7 +15,7 @@ const userSchema = new Schema({
 
     // _Setting first Registered:
     active: { type: Boolean, default: false },
-    check_first: { type: Boolean, default: false },
+    check_first_update: { type: Boolean, default: false },
 
     // _Details User's info:
     avatar: { type: String },
