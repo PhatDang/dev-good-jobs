@@ -39,7 +39,7 @@
         "url": "^0.11.0"
     },
     "devDependencies": {
-        "aws-sdk": "^2.514.0",
+        "aws-sdk": "^2.515.0",
         "debug": "^4.1.1",
         "eslint": "^5.16.0",
         "eslint-config-airbnb-base": "^13.2.0",
