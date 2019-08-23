@@ -1,14 +1,27 @@
 {
   "name": "admin",
   "version": "1.0.0",
-  "description": "Admin System",
+  "description": "Project GOOD JOBS",
   "main": "server.js",
   "scripts": {
+    "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
-    "admin"
+    "admin",
+    "system"
   ],
-  "author": "Admin System",
-  "license": "ISC"
+  "author": "GOOD JOBS - TEAM",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/PhatDang/dev-good-jobs"
+  },
+  "devDependencies": {
+    "express": "^4.17.1",
+    "express-messages": "^1.0.1",
+    "express-session": "^1.16.2",
+    "express-validator": "^6.1.1",
+    "path": "^0.12.7"
+  }
 }
