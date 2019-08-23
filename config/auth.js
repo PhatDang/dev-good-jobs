@@ -7,7 +7,7 @@ exports.ensureAuthenticated = (req, res, next) => {
     if (req.isAuthenticated()) {
         return next();
     }
-    req.flash('error_msg', 'Bạn vui lòng thực hiện đăng nhập!');
+    req.flash('error_msg', 'Bạn cần phải thực hiện đăng nhập!');
     res.redirect('/users/login');
 };
 exports.forwardAuthenticated = (req, _res, next) => {
@@ -15,6 +15,7 @@ exports.forwardAuthenticated = (req, _res, next) => {
         return next();
     }
 };
+
 // ===CHECK First User Update Info:
 exports.check_first_update = (req, res, next) => {
     if (req.user.check_first_update === true) {
@@ -24,3 +25,6 @@ exports.check_first_update = (req, res, next) => {
         res.redirect('/users/first_upload');
     }
 };
+
+// ===CHECK Is Hunter:
+// Type code to check if that user is a hunter....
