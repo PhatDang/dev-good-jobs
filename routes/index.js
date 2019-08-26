@@ -63,7 +63,7 @@ router.post('/register', (req, res) => {
         // _Validation passed:
         User.findOne({ email: email.toLowerCase() }).then((user) => {
             if (user) {
-                errors.push({ msg: 'Email đã được đăng ký!' });
+                errors.push({ msg: `Email ${email} này đã được đăng ký!` });
                 res.render('pages/register', {
                     errors,
                     full_name,

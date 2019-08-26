@@ -24,10 +24,6 @@ module.exports = (passport) => {
                 if (!user) {
                     return done(null, false, { message: `Email ${email} này không tìm thấy!` });
                 }
-                // Check: CURRENT USER
-                if (!user.password) {
-                    return done(null, false, { message: `Email ${email} này đã được đăng ký!` });
-                }
                 // Check: MATCH PASSWORD
                 bcrypt.compare(password, user.password, (err, isMatch) => {
                     if (err) throw err;
