@@ -1,6 +1,5 @@
 {
   "addons": [
-    "parrot",
     "heroku-postgresql"
   ],
   "buildpacks": [

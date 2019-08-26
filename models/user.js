@@ -5,19 +5,18 @@
 const mongoose = require('mongoose');
 
 const { Schema } = mongoose;
-
 const userSchema = new Schema({
     /**
-     *  ===USERs Login:
+     *  ===SEEKERs Login:
      */
     email: { type: String, unique: true, required: true, trim: true },
     password: { type: String, required: true, trim: true, minlength: 6 },
 
-    // _Setting first Registered:
+    // _Setting first registered:
     active: { type: Boolean, default: false },
     check_first_update: { type: Boolean, default: false },
 
-    // _Details User's info:
+    // _Detail Seeker's info:
     avatar: { type: String },
     full_name: { type: String, trim: true, maxlength: 250 },
     display_name: { type: String, trim: true, maxlength: 50 },
@@ -32,7 +31,7 @@ const userSchema = new Schema({
     card_id: { type: String },
     date_card: { type: Date },
 
-    // _Details User's work:
+    // _Detail Seeker's work:k
     title: { type: String },
     summary: { type: String },
     work_type: { type: String },

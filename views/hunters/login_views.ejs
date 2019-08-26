@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head> <% include ../partials/head %> </head>
+
+<body>
+    <header class="container">
+        <div class="row">
+            <div class="col-6 logo">
+                <a href="/">
+                    <img src="../images/logo.png" alt="logo">
+                </a>
+            </div>
+            <div class="col-6 close-icon">
+                <a href="/"><i class="fas fa-times"></i></a>
+            </div>
+        </div>
+    </header>
+    <section class="container">
+        <div class="title">
+            <h1>Nhà tuyển dụng</h1>
+        </div>
+        <div class="col-12 employeer-signin">
+            <form action=""
+                  class="normal-form">
+                <div class="sign-input">
+                    <label for="email"
+                           class="input-style">
+                        <input id="email"
+                               name="email"
+                               type="email"
+                               placeholder="&nbsp;"
+                               required
+                               autofocus>
+                        <span class="label">email</span>
+                        <span class="border"></span>
+                    </label>
+                </div>
+                <div class="sign-input">
+                    <label for="password"
+                           class="input-style">
+                        <input id="password"
+                               name="password"
+                               type="password"
+                               placeholder="&nbsp;"
+                               required>
+                        <span class="label">mật khẩu</span>
+                        <span class="border"></span>
+                    </label>
+                </div>
+                <div class="forgot-link">
+                    <a href="/reset-password">quên mật khẩu ?</a>
+                </div>
+                <div class="sign-button">
+                    <button>đăng nhập</button>
+                </div>
+            </form>
+        </div>
+    </section>
+</body>
+
+</html>

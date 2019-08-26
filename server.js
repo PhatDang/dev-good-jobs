@@ -24,7 +24,7 @@ const MongoStore = require('connect-mongo')(session);
 // ===CONFIG MIDDLEWARE:
 require('./config/passport')(passport);
 
-// ===SETTING FIRST:
+// ===SETTINGS:
 const log = console.log;
 const goodjob = express();
 const PORT = process.env.PORT || 2019;
@@ -88,10 +88,10 @@ goodjob.use((req, res, next) => {
     next();
 });
 
-// ===GET ROUTER:
+// ===GET ROUTERS:
 goodjob.use('/', require('./routes/index'));
 goodjob.use('/users', require('./routes/users'));
-// goodjob.use('/users/:id/hunters', require('./routes/hunters'))
+// goodjob.use('/hunters', require('./routes/hunters'));
 
 // ===CATCH 404:
 goodjob.use((_req, res, _next) => {

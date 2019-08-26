@@ -7,8 +7,11 @@
     <header class="container">
         <div class="row">
             <div class="col-6 logo">
-                <img src="../images/logo.png"
-                     alt="logo">
+                <a href="/">
+                    <img
+                         src="../images/logo.png"
+                         alt="logo">
+                </a>
             </div>
             <div class="col-6 close-icon">
                 <a href="/"><i class="fas fa-times"></i></a>
@@ -21,16 +24,19 @@
         </div>
         <div class="row">
             <div class="col-6 left-side">
-                <form action="/users/login"
+                <form
+                      action="/login"
                       method="POST"
                       class="normal-form">
                     <!-- Test log error and success -->
                     <div class="sign-button"> <% include ../partials/messages %> </div>
                     <!-- End -->
                     <div class="sign-input">
-                        <label for="email"
+                        <label
+                               for="email"
                                class="input-style">
-                            <input id="email"
+                            <input
+                                   id="email"
                                    name="email"
                                    type="email"
                                    placeholder="&nbsp;"
@@ -42,9 +48,11 @@
                         </label>
                     </div>
                     <div class="sign-input">
-                        <label for="password"
+                        <label
+                               for="password"
                                class="input-style">
-                            <input id="password"
+                            <input
+                                   id="password"
                                    name="password"
                                    type="password"
                                    placeholder="&nbsp;"
@@ -55,21 +63,23 @@
                         </label>
                     </div>
                     <div class="forgot-link">
-                        <a href="/users/reset-password">quên mật khẩu ?</a>
+                        <a href="/reset-password">quên mật khẩu ?</a>
                     </div>
                     <div class="sign-button">
-                        <button id="sub_login"
+                        <button
+                                id="sub_login"
                                 type="submit">đăng nhập</button>
                     </div>
                     <div class="signup-link">
                         <span>
-                            <p><a href="/users/register">Đăng ký tài khoản</a> và tham gia với chúng tôi</p>
+                            <p><a href="/register">Đăng ký tài khoản</a> và tham gia với chúng tôi</p>
                         </span>
                     </div>
                 </form>
             </div>
             <div class="col-6 right-side">
-                <img src="../images/right-side.png"
+                <img
+                     src="../images/right-side.png"
                      alt="Right side image">
             </div>
         </div>

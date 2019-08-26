@@ -5,9 +5,8 @@
 const mongoose = require('mongoose');
 
 const { Schema } = mongoose;
-
 const hunterSchema = new Schema({
-    // Type data here...
+    // Type code here....
 });
 
 const Hunter = mongoose.model('Hunter', hunterSchema);

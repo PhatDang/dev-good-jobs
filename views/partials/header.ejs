@@ -1,8 +1,9 @@
 <header class="container">
     <div class="row">
         <div class="col-2 logo">
-            <img src="../images/logo.png"
-                 alt="Logo">
+            <a href="/">
+                <img src="../images/logo.png" alt="Logo">
+            </a>
         </div>
         <nav class="col-5 top-nav">
             <a href="#jobs">Việc Làm</a>
@@ -12,15 +13,10 @@
         <div class="col-2 top-link">
             <a href="employeer.html">Nhà Tuyển Dụng</a>
         </div>
-        <div class="col-3 top-signin">
-            <% if(users == undefined) {%>
-            <a href="/users/login"
-               class="signinLink">Đăng nhập</a>
-            <% } else {%>
-            <div class="userInfo">
-                <a href="/users/profile" class="account">
+        <div class="col-3 top-signin"> <% if(users == undefined) {%> <a href="/login" class="signinLink">Đăng nhập</a> <% } else {%> <div class="userInfo">
+                <a href="#" class="account">
                     <!-- Add test demo view by Phat -->
-                    <span style="font-weight: bold"><%= users.display_name %></span>
+                    <span style="font-weight: bold"> <%= users.display_name %> </span>
                     <!-- End -->
                     <img src="../images/avatar.png" alt="avatar" class="profile-circle">
                 </a>
@@ -30,8 +26,6 @@
                         <li><a href="/">Log Out</a></li>
                     </ul>
                 </div>
-            </div>
-            <% } %>
-        </div>
+            </div> <% } %> </div>
     </div>
 </header>
