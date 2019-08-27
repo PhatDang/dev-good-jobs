@@ -91,7 +91,7 @@ router.post('/register', (req, res) => {
                         newUser.save()
                             .then((_user) => {
                                 req.flash('success_msg', 'Bạn đã đăng ký thành công, hãy đăng nhập');
-                                res.redirect('/users/login');
+                                res.redirect('/login');
                             })
                             .catch(err => console.log(err));
                     });
