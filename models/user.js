@@ -31,7 +31,7 @@ const userSchema = new Schema({
     card_id: { type: String },
     date_card: { type: Date },
 
-    // _Detail Seeker's work:k
+    // _Detail Seeker's work:
     title: { type: String },
     summary: { type: String },
     work_type: { type: String },
