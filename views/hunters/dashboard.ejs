@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <% include ../partials/head %>
+</head>
+
+<body>
+    <header class="container">
+        <div class="row">
+            <div class="col-2 logo">
+                <img src="images/Logo.png" alt="Logo">
+            </div>
+            <nav class="col-5 top-nav">
+                <a href="#jobs">Việc Làm</a>
+                <a href="#companies">Công Ty</a>
+                <a href="#news">Tin Tức</a>
+            </nav>
+            <div class="col-2 top-link">
+                <a href="#hunter">Nhà Tuyển Dụng</a>
+            </div>
+            <div class="col-3 top-signin">
+                <a href="signin.html" class="signinLink">Đăng nhập</a>
+            </div>
+        </div>
+    </header>
+    <span class="header-line"></span>
+    <section class="container">
+        <div class="employeer-content">
+            <div class="full-height">
+                <article class="employeer-text">
+                    <h1>Type something in here</h1>
+                    <h3>And type something in here</h3>
+                    <p>And type something in here too</p>
+                </article>
+                <article class="employeer-link">
+                    <p>Đăng nhập tài khoản của bạn</p>
+                    <a href="employeer_signin.html" class="button">Đăng nhập</a>
+                    <p>Hoặc</p>
+                    <a href="#input-form">Để lại thông tin của bạn</a>
+                    <p>Các nhân viên đáng yêu của chúng tôi sẽ liên hệ và hổ trợ cho bạn. </p>
+                </article>
+            </div>
+            <div class="full-height employeer-form">
+                <h1>Title in Here</h1>
+                <form action="" class="normal-form" id="input-form">
+                    <!-- Company Name-->
+                    <div class="sign-input">
+                        <label for="companyName" class="input-style">
+                            <input id="companyName"
+                                   name="companyName"
+                                   type="text"
+                                   placeholder="&nbsp;"
+                                   required>
+                            <span class="label">Tên công ty</span>
+                            <span class="border"></span>
+                        </label>
+                    </div>
+                    <!-- Company Position-->
+                    <div class="sign-input">
+                        <label for="companyAddress" class="input-style">
+                            <input id="companyAddress"
+                                   name="companyAddress"
+                                   type="text"
+                                   placeholder="&nbsp;"
+                                   required>
+                            <span class="label">địa chỉ công ty</span>
+                            <span class="border"></span>
+                        </label>
+                    </div>
+                    <!-- representative name-->
+                    <div class="sign-input">
+                        <label for="representativeName" class="input-style">
+                            <input id="representativeName"
+                                   name="representativeName"
+                                   type="text"
+                                   placeholder="&nbsp;"
+                                   required>
+                            <span class="label">Người đại diện</span>
+                            <span class="border"></span>
+                        </label>
+                    </div>
+                    <!-- Phone Number -->
+                    <div class="sign-input">
+                        <label for="phoneNumber" class="input-style">
+                            <input id="phoneNumber"
+                                   name="phoneNumber"
+                                   type="text"
+                                   placeholder="&nbsp;"
+                                   required>
+                            <span class="label">số điện thoại</span>
+                            <span class="border"></span>
+                        </label>
+                    </div>
+                    <!-- Email Address-->
+                    <div class="sign-input">
+                        <label for="email" class="input-style">
+                            <input id="email"
+                                   name="email"
+                                   type="email"
+                                   placeholder="&nbsp;"
+                                   required>
+                            <span class="label">Email</span>
+                            <span class="border"></span>
+                        </label>
+                    </div>
+                    <div class="sign-button">
+                        <button>Gửi yêu cầu</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>

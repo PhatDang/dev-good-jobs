@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head> <% include ../partials/head %> </head>
+
+<body>
+    <div class="container row">
+        <div class="sidenav">
+            <div class="top-logo">
+                <img src="images/Logo.png" alt="Top Logo">
+            </div>
+            <nav class="main-nav">
+                <a href="#" class="nav-btn">
+                    <i class="fas fa-dove"></i> Đăng tin tuyển dụng</a>
+                <a href="#">Quản lý tuyển dụng</a>
+                <a href="#">Hồ sơ ứng tuyển</a>
+                <a href="#">Quản lý tài khoản</a>
+            </nav>
+            <footer class="side-footer">
+                <a href="#">Đăng xuất</a>
+            </footer>
+        </div>
+        <div class="main-content">
+            <span class="main-title">
+                <h1>Đăng tin tuyển dụng</h1>
+            </span>
+            <form action="" accept="" class="post_form">
+                <!-- Post Title -->
+                <div class="group-input">
+                    <label for="postTitle">Tiêu đề bài viết</label>
+                    <input name="postTitle"
+                           id="postTitle"
+                           type="text"
+                           placeholder="Tiêu đề bài viết"
+                           required>
+                </div>
+                <!-- Thông tin cơ bản -->
+                <!--
+                        ** Mức lương
+                        ** kinh nghiệm
+                        ** Số lượng
+                        ** Trình độ
+                        ** Ngành nghề
+                        ** Tính chất công việc
+                    -->
+                <div class="group-input">
+                    <label for="salary">Mức lương</label>
+                    <input name="startSalary" placeholder="thấp nhất" type="number">
+                    <input name="endSalary" placeholder="cao nhất" type="number">
+                </div>
+                <div class="group-input">
+                    <label for="exp">Kinh nghiệm</label>
+                    <input name="exp" id="exp" type="text">
+                </div>
+                <div class="group-input">
+                    <label for="amount">Số lượng</label>
+                    <input name="amount" id="amount" type="number">
+                </div>
+                <div class="group-input">
+                    <label for="edu">Trình độ</label>
+                    <select name="edu" id="edu">
+                        <option>option</option>
+                        <option>option</option>
+                        <option>option</option>
+                        <option>option</option>
+                    </select>
+                </div>
+                <div class="group-input">
+                    <label for="career">Ngành nghề</label>
+                    <select name="career" id="career">
+                        <option>option</option>
+                        <option>option</option>
+                        <option>option</option>
+                        <option>option</option>
+                    </select>
+                </div>
+                <div class="group-input">
+                    <label for="type">Tính chất công việc</label>
+                    <select name="type" id="type">
+                        <option>option</option>
+                        <option>option</option>
+                        <option>option</option>
+                        <option>option</option>
+                    </select>
+                </div>
+                <!-- Yêu Cầu Công Việc -->
+                <div class="group-input">
+                    <label for="JobsRequest">Yêu cầu công việc</label>
+                    <textarea name="JobsRequest"
+                              placeholder="Write something.." id="JobsRequest" style="min-height: 200px"></textarea>
+                </div>
+                <!-- Điều Kiện Ứng Tuyển -->
+                <div class="group-input">
+                    <label for="manRequest">Điều kiện ứng tuyển</label>
+                    <textarea name="manRequest"
+                              placeholder="Write something.." id="manRequest" style="min-height: 200px"></textarea>
+                </div>
+                <!-- Hạn chót Ứng Tuyển -->
+                <div class="group-input">
+                    <label for="deadline">Hạn chót nộp hồ sơ</label>
+                    <input name="deadline" id="deadline" type="date">
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>
