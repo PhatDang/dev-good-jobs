@@ -6,6 +6,9 @@ const mongoose = require('mongoose');
 
 const { Schema } = mongoose;
 const hunterSchema = new Schema({
+    /**
+     *  ===HUNTERS Login:
+     */
     // Type code here....
 });
 
