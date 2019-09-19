@@ -1,12 +1,26 @@
-# GOOD-JOBS
+# Project GOOD-JOBS
 
-About GOOD JOBS Team....
+- **Good Jobs** is a project built to develop a job search system that focuses on those who are not eligible for a partner job, so Good Jobs was born to work.
+- This is to help people find the right job but not forced by the conditions of the partner.
 
-## First things first
+- And that is **Good Jobs**!
 
-- `git pull master` => To update the latest code.
-- `git status` => To check the status of the project[branch]
-- `git checkout -b [Your_Branch]` => To create new branch from branch `Master`
-==> _When DONE, you can code..._
+## Structure of Project
 
-_*HAVE FUN WITH YOUR CODE...._
+- Content...
+
+### Job Seekers
+
+- Content...
+
+### Hunters
+
+- Content...
+
+### Sys Admin
+
+- Content...
+
+### 3rd Partners
+
+- Content...
