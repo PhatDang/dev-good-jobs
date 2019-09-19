@@ -6,20 +6,26 @@ _So that is **Good Jobs**!_
 
 ## Structure of Project
 
-- Content...
+- The project structure includes: **Job Seekers**, **Hunters**. The project also has links with **The 3rd Partners** and **The Main Unit** is the current company to be able to manage the project development.
 
-### Job Seekers
+**Technical group:**
 
-- Content...
+- Dang Minh Phat _(**Role:** Developer)_
+- Le Minh Trung _(**Role:** PM and Tester)_
+- Nguyen Kim Hung _(**Role:** BA and Main Customer)_
 
-### Hunters
-
-- Content...
-
-### Sys Admin
+### A) Job Seekers
 
 - Content...
 
-### 3rd Partners
+### B) Hunters
+
+- Content...
+
+### C) Sys Admin
+
+- Content...
+
+### D) 3rd Partners
 
 - Content...
