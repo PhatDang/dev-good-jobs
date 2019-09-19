@@ -37,6 +37,7 @@ const MONGODB_URI = 'mongodb://func_admin:8512930.Phat@ds147207.mlab.com:47207/h
 mongoose.connect(MONGODB_URI, {
     useCreateIndex: true,
     useNewUrlParser: true,
+    useUnifiedTopology: true,
 }).then(() => log(chalk.greenBright('Database connection ') + chalk.bgGreen.bold('SUCCESS')))
     .catch(err => log(chalk.redBright(err)));
 
