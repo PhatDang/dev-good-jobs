@@ -14,7 +14,7 @@
         "url": "https://github.com/PhatDang/dev-good-jobs"
     },
     "dependencies": {
-        "autoprefixer": "^9.6.1",
+        "autoprefixer": "^9.6.4",
         "bcrypt": "^3.0.6",
         "bcryptjs": "^2.4.3",
         "body-parser": "^1.19.0",
@@ -42,7 +42,7 @@
         "url": "^0.11.0"
     },
     "devDependencies": {
-        "aws-sdk": "^2.542.0",
+        "aws-sdk": "^2.543.0",
         "debug": "^4.1.1",
         "eslint": "^5.16.0",
         "eslint-config-airbnb-base": "^13.2.0",
