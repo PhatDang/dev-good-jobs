@@ -36,13 +36,13 @@
         "nodemon": "^1.19.4",
         "passport": "^0.4.0",
         "passport-local": "^1.0.0",
-        "pg": "^7.13.0",
+        "pg": "^7.14.0",
         "rebuild": "^0.1.2",
         "session": "^0.1.0",
         "url": "^0.11.0"
     },
     "devDependencies": {
-        "aws-sdk": "^2.575.0",
+        "aws-sdk": "^2.576.0",
         "debug": "^4.1.1",
         "eslint": "^5.16.0",
         "eslint-config-airbnb-base": "^13.2.0",
