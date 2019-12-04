@@ -53,7 +53,7 @@ router.put('/update', (req, res) => {
 //     User.findById(req.params.id, (err) => {
 //         if (err) {
 //             console.log(err)
-//             req.flash('error_msg', 'Có gì đó sai sai ởs đây!')
+//             req.flash('error_msg', 'Có gì đó sai sai ở đây!')
 //             res.redirect('/users/detail')
 //         }
 //         res.render('seekers/profile', {

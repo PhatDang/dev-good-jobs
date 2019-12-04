@@ -30,6 +30,7 @@ router.get('/register', forwardAuthenticated, (req, res) => {
         res.render('pages/register');
     }
 });
+
 // ===PROCESS REGISTER:
 router.post('/register', (req, res) => {
     const { full_name, display_name, email, password, password_confirm } = req.body;
@@ -110,6 +111,7 @@ router.get('/login', forwardAuthenticated, (req, res) => {
         res.render('pages/login', { message: req.flash('message') });
     }
 });
+
 // ===PROCESS LOGIN:
 router.post('/login', (req, res, next) => {
     passport.authenticate('local', {

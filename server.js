@@ -29,9 +29,6 @@ const log = console.log;
 const goodjob = express();
 const PORT = process.env.PORT || 2019;
 
-// ===ADD TOKEN CODECOV: [For Github]
-// const CODECOV_TOKEN = '8dfaf1c4-c91d-43c2-bb3c-a2fc964f0bc6'; Need to check...
-
 // ===CONNECT DATABASE MONGODB:
 const MONGODB_URI = 'mongodb://func_admin:8512930.Phat@ds147207.mlab.com:47207/heroku_wzkkq1xr';
 mongoose.connect(MONGODB_URI, {
