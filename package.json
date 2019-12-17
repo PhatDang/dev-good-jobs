@@ -1,13 +1,13 @@
 {
     "name": "good-jobs-project",
-    "version": "1.0.5",
-    "description": "Project GOOD JOBS",
+    "version": "1.0.0.6",
+    "description": "GOOD JOBS",
     "main": "server.js",
     "scripts": {
         "start": "nodemon run server.js",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
-    "author": "GOOD JOBS - TEAM",
+    "author": "Destiny Team",
     "license": "ISC",
     "repository": {
         "type": "git",

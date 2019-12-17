@@ -1,6 +1,6 @@
 # Project GOOD JOBS
 
-**Good Jobs** is a project built to develop a job search system that focuses on those who are not eligible for a partner job, so Good Jobs was born for that. This project will help people find the right job but not forced by the conditions of the partner.
+**Good Jobs** is a project built to develop a **Job Search** system that focuses on those who are not eligible for a partner job, so Good Jobs was born for that. This project will help people find the right job but not forced by the conditions of the partner.
 
 _So that is **Good Jobs**!_
 
@@ -8,24 +8,27 @@ _So that is **Good Jobs**!_
 
 - The project structure includes: **Job Seekers**, **Hunters**. The project also has links with **The 3rd Partners** and **The Main Unit** is the current company to be able to manage the project development.
 
-**Technical group:**
+**Technical Team:**
 
-- Dang Minh Phat _(**Role:** Developer)_
-- Le Minh Trung _(**Role:** PM and Tester)_
-- Nguyen Kim Hung _(**Role:** BA and Main Customer)_
+1) Dang Minh Phat _(**Role:** Main Developer)_
+2) Le Minh Trung _(**Role:** Tester)_
+
+**Customer:**
+
+- Nguyen Kim Hung _(**Role:** Customer)_
 
 ### A) Job Seekers
 
-- Content...
+- _{Content here}_
 
 ### B) Hunters
 
-- Content...
+- _{Content here}_
 
 ### C) Sys Admin
 
-- Content...
+- _{Content here}_
 
 ### D) 3rd Partners
 
-- Content...
+- _{Content here}_

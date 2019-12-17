@@ -27,4 +27,4 @@ exports.check_first_update = (req, res, next) => {
 };
 
 // ===CHECK Is Hunter:
-// Type code to check if that user is a hunter....
+// {Type code here}
