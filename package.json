@@ -1,6 +1,6 @@
 {
     "name": "good-jobs-project",
-    "version": "1.0.0.6",
+    "version": "0.1.0.",
     "description": "GOOD JOBS",
     "main": "server.js",
     "scripts": {
