@@ -8,14 +8,15 @@ _So that is **Good Jobs**!_
 
 - The project structure includes: **Job Seekers**, **Hunters**. The project also has links with **The 3rd Partners** and **The Main Unit** is the current company to be able to manage the project development.
 
-**Technical Team:**
+**Technical Team:** _(**Role:** Maintain of Project & Test)_
 
-1) Dang Minh Phat _(**Role:** Main Developer)_
-2) Le Minh Trung _(**Role:** Tester)_
+- Dang Minh Phat
 
-**Customer:**
+**Customer:** _(**Role:** Customer)_
 
-- Nguyen Kim Hung _(**Role:** Customer)_
+- Customers who the people to create some feedback to us to fix something or suggest some ideas for us to upgrade features.
+
+- Because the project still not have customer, so Mr.Phat will be the customer too.
 
 ### A) Job Seekers
 

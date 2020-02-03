@@ -7,7 +7,7 @@
         "start": "nodemon run server.js",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
-    "author": "Destiny Team",
+    "author": "Freelancer Team",
     "license": "ISC",
     "repository": {
         "type": "git",
@@ -52,7 +52,7 @@
     },
     "husky": {
         "hooks": {
-            "commit-msg": "echo $HUSKY_GIT_PARAMS"
+            "commit-msg": "echo $HUSKY_GIT_PARAMS or else"
         }
     }
 }
