@@ -5,15 +5,19 @@
 /* eslint-disable semi */
 // ==========================
 /* SERVER.JS */
-const http = require('http');
+
+// Need to change more to new upgrade from V8
+import {
+ createServer,
+} from 'http';
 
 const hostname = '127.0.0.1';
 const port = 2020;
 
-const server = http.createServer((req, res) => {
+const server = createServer((req, res) => {
     res.statusCode = 200;
     res.setHeader('Content-Type', 'text/plain');
-    res.end('HELLO WORLD !!!\n');
+    res.end('Print test something, or todo something.\n');
 });
 
 server.listen(port, hostname, () => {
