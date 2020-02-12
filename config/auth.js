@@ -21,7 +21,10 @@ exports.check_first_update = (req, res, next) => {
     if (req.user.check_first_update === true) {
         next();
     } else {
-        req.flash('error_msg', 'Bạn vui lòng thực cập nhật thông tin lần đầu.!');
+        req.flash(
+            'error_msg',
+            'Bạn vui lòng thực cập nhật thông tin lần đầu.!',
+        );
         res.redirect('/users/first_upload');
     }
 };

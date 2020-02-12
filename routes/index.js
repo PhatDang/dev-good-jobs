@@ -33,11 +33,23 @@ router.get('/register', forwardAuthenticated, (req, res) => {
 
 // ===PROCESS REGISTER:
 router.post('/register', (req, res) => {
-    const { full_name, display_name, email, password, password_confirm } = req.body;
+    const {
+        full_name,
+        display_name,
+        email,
+        password,
+        password_confirm,
+    } = req.body;
     let errors = [];
 
     // _Check required fields:
-    if (!full_name || !display_name || !email || !password || !password_confirm) {
+    if (
+        !full_name
+        || !display_name
+        || !email
+        || !password
+        || !password_confirm
+    ) {
         errors.push({ msg: 'Bạn vui lòng nhập đầy đủ thông tin!' });
     }
 
@@ -89,9 +101,13 @@ router.post('/register', (req, res) => {
                         // _Set password to hashed:
                         newUser.password = hash;
                         // _Save User:
-                        newUser.save()
+                        newUser
+                            .save()
                             .then((_user) => {
-                                req.flash('success_msg', 'Bạn đã đăng ký thành công, hãy đăng nhập');
+                                req.flash(
+                                    'success_msg',
+                                    'Bạn đã đăng ký thành công, hãy đăng nhập',
+                                );
                                 res.redirect('/login');
                             })
                             .catch(err => console.log(err));
@@ -135,7 +151,10 @@ router.get('/logout', (req, res) => {
     req.session.destroy((err) => {
         if (err) {
             console.log('Không thể hủy phiên trong khi đã đăng xuất!', err);
-            req.flash('error_msg', 'Không thể hủy phiên trong khi đã đăng xuất!');
+            req.flash(
+                'error_msg',
+                'Không thể hủy phiên trong khi đã đăng xuất!',
+            );
         } else {
             req.user = null;
             console.log('Bạn đã đăng xuất thành công!');

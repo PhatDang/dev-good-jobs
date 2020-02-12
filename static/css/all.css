@@ -14,31 +14,31 @@
 }
 
 /*#### Default Style ######*/
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
 html,
-body{
+body {
     height: 100%;
 }
 
-html{
+html {
     scroll-behavior: smooth;
 }
 
-body{
+body {
     font-size: 14px;
     font-family: "UTMAvo";
 }
 
-li{
+li {
     list-style: none;
 }
 
-a{
+a {
     text-decoration: none;
 }
 
@@ -53,41 +53,76 @@ a{
     display: table;
 }
 
-.col-1 {width: 8.33%;}
-.col-2 {width: 16.66%;}
-.col-3 {width: 25%;}
-.col-4 {width: 33.33%;}
-.col-5 {width: 41.66%;}
-.col-6 {width: 50%;}
-.col-7 {width: 58.33%;}
-.col-8 {width: 66.66%;}
-.col-9 {width: 75%;}
-.col-10 {width: 83.33%;}
-.col-11 {width: 91.66%;}
-.col-12 {width: 100%;}
+.col-1 {
+    width: 8.33%;
+}
+
+.col-2 {
+    width: 16.66%;
+}
+
+.col-3 {
+    width: 25%;
+}
+
+.col-4 {
+    width: 33.33%;
+}
+
+.col-5 {
+    width: 41.66%;
+}
+
+.col-6 {
+    width: 50%;
+}
+
+.col-7 {
+    width: 58.33%;
+}
+
+.col-8 {
+    width: 66.66%;
+}
+
+.col-9 {
+    width: 75%;
+}
+
+.col-10 {
+    width: 83.33%;
+}
+
+.col-11 {
+    width: 91.66%;
+}
+
+.col-12 {
+    width: 100%;
+}
 
 /*####### For Large Device Screen ##########*/
-@media only screen and (min-width: 1200px){
-    .container{
+@media only screen and (min-width: 1200px) {
+    .container {
         width: 100%;
         max-width: 1440px;
         margin: 20px auto;
     }
 
-    .full-height{
+    .full-height {
         height: 80vh;
     }
 
     /*##### Header Style ####*/
-    .logo img{
+    .logo img {
         width: 200px;
     }
 
-    .top-nav{
+    .top-nav {
         overflow: hidden;
     }
 
-    .top-nav a{
+    .top-nav a {
         float: left;
         display: block;
         color: #b7b7b7;
@@ -99,15 +134,15 @@ a{
     }
 
     .top-nav a:hover,
-    .top-link a:hover{
+    .top-link a:hover {
         color: #ff9900;
     }
 
-    .top-link{
+    .top-link {
         text-align: center;
     }
 
-    .top-link a{
+    .top-link a {
         display: block;
         font-size: 16px;
         padding: 14px 16px;
@@ -116,7 +151,7 @@ a{
         font-family: "UTMAvoBold";
     }
 
-    .top-signin a.signinLink{
+    .top-signin a.signinLink {
         display: block;
         float: right;
         width: 100%;
@@ -129,29 +164,29 @@ a{
         border-radius: 25px;
     }
 
-    .top-signin a.signinLink:hover{
+    .top-signin a.signinLink:hover {
         background-color: #ff9900;
         color: #ffffff;
     }
 
-    .userInfo{
+    .userInfo {
         position: relative;
         width: 100%;
         text-align: right;
     }
 
 
-    .userInfo li a{
+    .userInfo li a {
         display: block;
         font-weight: bold;
         padding: 6px 15px;
     }
 
-    .userInfo li a:hover{
+    .userInfo li a:hover {
         background-color: #f7f7f7;
     }
-    
-    a.account{
+
+    a.account {
         position: absolute;
         right: 0;
         line-height: 16px;
@@ -160,7 +195,7 @@ a{
         padding: 10px 0;
     }
 
-    .submenu{
+    .submenu {
         position: absolute;
         display: none;
         right: 0;
@@ -170,7 +205,7 @@ a{
         border-radius: 6px;
     }
 
-    .root{
+    .root {
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
         background: #fff;
         padding: 10px 0;
@@ -178,7 +213,7 @@ a{
         margin: 21px 0 0 0;
     }
 
-    .root::before{
+    .root::before {
         position: absolute;
         content: '';
         display: inline-block;
@@ -188,23 +223,23 @@ a{
         border-bottom-color: #ffffff;
     }
 
-    .profile-circle{
+    .profile-circle {
         width: 36px;
         height: 36px;
     }
 
-    .header-line{
+    .header-line {
         display: block;
         width: 100%;
         border: 1px solid #b7b7b7;
     }
 
-    .account:focus + .submenu{
+    .account:focus+.submenu {
         display: block;
     }
 
     /*#### Home Page Search Field Style#####*/
-    .search-text{
+    .search-text {
         font-size: 30px;
         font-weight: normal;
         text-align: justify;
@@ -212,16 +247,16 @@ a{
         opacity: 0.5;
     }
 
-    .search-field{
+    .search-field {
         overflow: hidden;
         padding: 30px 0;
     }
 
-    .search-form{
+    .search-form {
         text-align: right;
     }
 
-    .search-input{
+    .search-input {
         width: 100%;
         max-width: 360px;
         padding: 12px 24px;
@@ -238,13 +273,15 @@ a{
         backface-visibility: hidden;
         transform-style: preserve-3d;
     }
+
     .search-input::placeholder {
         color: #b7b7b7;
         text-transform: uppercase;
         letter-spacing: 1.5px;
     }
+
     .search-input:hover,
-    .search-input:focus{
+    .search-input:focus {
         padding: 12px 0;
         outline: 0;
         border: 1px solid transparent;
@@ -253,12 +290,12 @@ a{
         background-position: 100% center;
     }
 
-    .select-list{
+    .select-list {
         text-align: right;
     }
 
     .select-list .select-box,
-    .sign-input .select-box{
+    .sign-input .select-box {
         width: 100%;
         max-width: 280px;
         border: 0;
@@ -271,48 +308,49 @@ a{
     .select-list .select-box:hover,
     .select-list .select-box:focus,
     .sign-input .select-box:hover,
-    .sign-input .select-box:focus{
+    .sign-input .select-box:focus {
         outline: none;
     }
 
     /*#### Sign Style #####*/
-    .close-icon{
+    .close-icon {
         text-align: right;
     }
-    .close-icon a{
+
+    .close-icon a {
         font-size: 30px;
         color: #000000;
         padding: 10px 0;
     }
 
-    .title{
+    .title {
         width: 100%;
         text-align: center;
         padding: 2% 0;
     }
 
-    .title h1{
+    .title h1 {
         font-size: 30px;
         font-weight: normal;
         text-transform: capitalize;
     }
 
     .right-side,
-    .left-side{
+    .left-side {
         padding: 2% 0;
     }
 
     .right-side img,
-    .left-side img{
+    .left-side img {
         width: 100%;
         height: auto;
     }
 
-    .normal-form{
+    .normal-form {
         width: 100%;
     }
 
-    .sign-input{
+    .sign-input {
         padding: 20px 0;
         display: flex;
         flex-wrap: wrap;
@@ -321,19 +359,19 @@ a{
 
     .forgot-link,
     .sign-button,
-    .signup-link{
+    .signup-link {
         width: 100%;
         max-width: 360px;
         margin: auto;
         overflow: hidden;
     }
 
-    .forgot-link{
+    .forgot-link {
         text-align: right;
     }
 
     .forgot-link a,
-    .signup-link a{
+    .signup-link a {
         text-transform: capitalize;
         font-size: 16px;
         color: #ff9900;
@@ -341,16 +379,16 @@ a{
     }
 
     .forgot-link a:hover,
-    .signup-link a:hover{
+    .signup-link a:hover {
         text-decoration: underline;
     }
 
     .sign-button,
-    .signup-link{
+    .signup-link {
         padding: 20px 0;
     }
 
-    .sign-button button{
+    .sign-button button {
         width: 168px;
         height: 43px;
         border: 1px solid #ff9900;
@@ -362,34 +400,34 @@ a{
         cursor: pointer;
     }
 
-    .sign-button button:hover{
+    .sign-button button:hover {
         background-color: #ff9900;
         color: #ffffff;
     }
 
-    .sign-button button:focus{
+    .sign-button button:focus {
         outline: none;
     }
 
-    .signup-link p{
+    .signup-link p {
         font-size: 15px;
     }
 
-    .sign-button ul{
+    .sign-button ul {
         width: 100%;
         overflow: hidden;
     }
 
-    .sign-button li:first-child{
+    .sign-button li:first-child {
         float: left;
         padding: 10px 0;
     }
 
-    .sign-button li:last-child{
+    .sign-button li:last-child {
         float: right;
     }
 
-    .sign-button a{
+    .sign-button a {
         width: 168px;
         height: 43px;
         color: #ff9900;
@@ -398,13 +436,14 @@ a{
     }
 
     /*###### Input Style #######*/
-    .input-style{
+    .input-style {
         position: relative;
         width: 100%;
         max-width: 360px;
         margin: auto;
     }
-    .input-style .label{
+
+    .input-style .label {
         position: absolute;
         top: 16px;
         left: 0;
@@ -415,7 +454,8 @@ a{
         transition: all 0.2s ease;
         text-transform: capitalize;
     }
-    .input-style .border{
+
+    .input-style .border {
         position: absolute;
         bottom: 0;
         left: 0;
@@ -426,8 +466,9 @@ a{
         transform-origin: 0 0;
         transition: all 0.15s ease;
     }
+
     .input-style input,
-    .input-style select{
+    .input-style select {
         width: 100%;
         height: 48px;
         padding: 12px 0;
@@ -438,33 +479,34 @@ a{
         border-bottom: 2px solid #00aeef;
         transition: all 0.15s ease;
     }
-    .input-style input:not(:placeholder-shown) + span,
-    .input-style select:not(:placeholder-shown) + span{
+
+    .input-style input:not(:placeholder-shown)+span,
+    .input-style select:not(:placeholder-shown)+span {
         color: #00aeef;
         transform: translateY(-26px) scale(0.75);
     }
 
     .input-style input:focus,
-    .input-style select:focus{
+    .input-style select:focus {
         outline: none;
     }
 
-    .input-style input:focus + span,
-    .input-style select:focus + span{
+    .input-style input:focus+span,
+    .input-style select:focus+span {
         color: #00aeef;
         transform: translateY(-26px) scale(0.75);
     }
 
-    .input-style input:focus + span + .border,
-    .input-style select:focus + span + .border{
+    .input-style input:focus+span+.border,
+    .input-style select:focus+span+.border {
         transform: scaleX(1);
     }
 
-    .input-style input[type=date]::clear-button{
+    .input-style input[type=date]::clear-button {
         display: none;
     }
 
-    .input-style input[type=date]::-webkit-inner-spin-button{
+    .input-style input[type=date]::-webkit-inner-spin-button {
         display: none;
     }
 
@@ -476,7 +518,7 @@ a{
         background-repeat: no-repeat;
         background-position: right;
     }
-    
+
     .sign-input input:not([type=submit]):invalid:focus {
         background: url('https://webdevtrick.com/wp-content/uploads/xicon.svg');
         background-size: 20px;
@@ -484,14 +526,14 @@ a{
         background-position: right;
     }
 
-    .sign-input input[type=date]:valid:focus{
+    .sign-input input[type=date]:valid:focus {
         background: url('https://webdevtrick.com/wp-content/uploads/check-icon.svg');
         background-size: 20px;
         background-repeat: no-repeat;
         background-position: 95%;
     }
 
-    .sign-input input[type=date]:invalid:focus{
+    .sign-input input[type=date]:invalid:focus {
         background: url('https://webdevtrick.com/wp-content/uploads/xicon.svg');
         background-size: 20px;
         background-repeat: no-repeat;
@@ -499,7 +541,7 @@ a{
     }
 
     /*###### Update Page Style #######*/
-    .left-content{
+    .left-content {
         position: relative;
         width: 100%;
         max-width: 200px;
@@ -507,13 +549,13 @@ a{
         text-align: center;
     }
 
-    .left-content img{
+    .left-content img {
         width: 200px;
         height: 200px;
         border-radius: 50%;
     }
 
-    .tooltiptext{
+    .tooltiptext {
         position: absolute;
         display: none;
         width: 100%;
@@ -525,50 +567,50 @@ a{
         color: #ff9900;
     }
 
-    .left-content a:hover + .tooltiptext{
+    .left-content a:hover+.tooltiptext {
         display: block;
     }
 
-    .right-content{
-        box-shadow: 0px 0px 5px 0px rgba(183,183,183,1);
+    .right-content {
+        box-shadow: 0px 0px 5px 0px rgba(183, 183, 183, 1);
         padding: 10px;
     }
 
-    .sub-title{
+    .sub-title {
         font-size: 16px;
         text-transform: capitalize;
         color: #ff9900;
     }
 
-    .sub-title h3{
+    .sub-title h3 {
         padding: 14px 16px;
         width: 100%;
     }
 
-    .right-content .sign-input{
+    .right-content .sign-input {
         padding: 10px 0;
     }
 
-    .right-content .input-style{
+    .right-content .input-style {
         margin: 0;
     }
 
     .save-button,
-    .example{
+    .example {
         position: relative;
         width: 100%;
         max-width: 360px;
     }
 
-    .save-button{
+    .save-button {
         padding: 10px;
     }
 
-    .example{
+    .example {
         padding: 10px 0;
     }
 
-    .save-button button{
+    .save-button button {
         padding: 14px 90px;
         font-size: 18px;
         border: 1px solid #ff9900;
@@ -578,149 +620,150 @@ a{
         cursor: pointer;
     }
 
-    .save-button button:hover{
+    .save-button button:hover {
         background-color: #ff9900;
         color: #ffffff;
     }
 
-    .save-button button:focus{
+    .save-button button:focus {
         outline: none;
     }
 
-/*##### User Profile Left Content ######*/
-    .profile-screen .left-content{
+    /*##### User Profile Left Content ######*/
+    .profile-screen .left-content {
         width: 100%;
         max-width: 400px;
     }
 
-    .profile-information{
-        box-shadow: 0px 0px 5px 0px rgba(183,183,183,1);
+    .profile-information {
+        box-shadow: 0px 0px 5px 0px rgba(183, 183, 183, 1);
         margin: 20px;
         overflow: hidden;
         padding: 15px;
     }
 
     .profile-banner,
-    .profile-bio{
+    .profile-bio {
         width: 100%;
         margin: auto;
         padding: 10px;
     }
 
-    .profile-banner{
+    .profile-banner {
         border-bottom: 1px solid #b7b7b7;
     }
 
-    .profile-banner h1{
+    .profile-banner h1 {
         color: #ff9900;
         font-size: 30px;
         padding: 10px 5px;
         text-transform: uppercase;
     }
 
-    .profile-banner h3{
+    .profile-banner h3 {
         padding: 10px 5px;
     }
 
-    .profile-title{
+    .profile-title {
         font-size: 16px;
         color: #ff9900;
         text-transform: capitalize;
     }
 
-    .left-side .profile-title h3{
+    .left-side .profile-title h3 {
         padding: 10px 0;
     }
 
-    .right-side .profile-title h3{
+    .right-side .profile-title h3 {
         padding: 5px 0;
         float: left;
     }
 
-    .right-side .profile-title a{
+    .right-side .profile-title a {
         padding: 10px 0;
         float: right;
         color: #b7b7b7;
         font-size: 14px;
     }
 
-    .right-side .profile-title a:hover{
+    .right-side .profile-title a:hover {
         color: #ff9900
     }
 
-    .profile-content{
+    .profile-content {
         text-align: left;
         padding: 10px 0;
         clear: both;
     }
-    
-    .profile-sub-title{
+
+    .profile-sub-title {
         font-weight: bold;
         text-transform: capitalize;
     }
 
     .profile-sub-title,
     .profile-sub-content,
-    .experience{
+    .experience {
         padding: 5px 0;
     }
 
-    .experience:not(:first-child){
+    .experience:not(:first-child) {
         border-top: 1px solid #b7b7b7;
     }
 
-    .profile-link a{
+    .profile-link a {
         color: #b7b7b7;
     }
 
-    .profile-link a:hover{
+    .profile-link a:hover {
         color: #ff9900;
     }
 
-    .right-side .profile-link a{
+    .right-side .profile-link a {
         display: block;
         float: left;
         padding: 10px 0;
         margin-right: 20px;
     }
 
-/*########## Employeer Style ##############*/
-    .employeer-content{
+    /*########## Employeer Style ##############*/
+    .employeer-content {
         width: 100%;
         height: 100%;
         text-align: center;
     }
-    .employeer-text h1{
+
+    .employeer-text h1 {
         font-size: 30px;
         padding: 10px 0;
     }
 
-    .employeer-text h3{
+    .employeer-text h3 {
         font-size: 20px;
         padding: 10px 0;
     }
 
     .employeer-text p,
-    .employeer-link p{
+    .employeer-link p {
         padding: 10px 0;
         font-size: 16px;
     }
 
-    .employeer-link{
+    .employeer-link {
         margin-top: 50px;
     }
 
-    .employeer-link a{
+    .employeer-link a {
         display: block;
         color: #ff9900;
         font-size: 16px;
     }
 
-    .employeer-link a:hover{
+    .employeer-link a:hover {
         text-decoration: underline;
     }
 
-    .employeer-link .button{
+    .employeer-link .button {
         width: 150px;
         border: 1px solid #ff9900;
         border-radius: 25px;
@@ -728,18 +771,18 @@ a{
         margin: 20px auto;
     }
 
-    .employeer-link .button:hover{
+    .employeer-link .button:hover {
         background-color: #ff9900;
         color: #ffffff;
         text-decoration: none;
     }
 
-    .employeer-form{
+    .employeer-form {
         height: 100%;
         padding: 20px;
     }
 
-    .employeer-form h1{
+    .employeer-form h1 {
         font-size: 30px;
     }
 }

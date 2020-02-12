@@ -31,16 +31,25 @@ const PORT = process.env.PORT || 2019;
 
 // ===CONNECT DATABASE MONGODB:
 const MONGODB_URI = 'mongodb://func_admin:8512930.Phat@ds147207.mlab.com:47207/heroku_wzkkq1xr';
-mongoose.connect(MONGODB_URI, {
-    useCreateIndex: true,
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-}).then(() => log(chalk.greenBright('Database connection ') + chalk.bgGreen.bold('SUCCESS')))
+mongoose
+    .connect(MONGODB_URI, {
+        useCreateIndex: true,
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+    })
+    .then(() => log(
+        chalk.greenBright('Database connection ')
+                + chalk.bgGreen.bold('SUCCESS'),
+    ))
     .catch(err => log(chalk.redBright(err)));
 
 const database = mongoose.connection;
 database.on('error', (err) => {
-    log(chalk.whiteBright('Database connection ') + chalk.bgRed.bold('ERROR\n') + chalk.redBright(err.message));
+    log(
+        chalk.whiteBright('Database connection ')
+            + chalk.bgRed.bold('ERROR\n')
+            + chalk.redBright(err.message),
+    );
 });
 
 // ===EJS TEMPLATE:
@@ -53,24 +62,28 @@ goodjob.use(express.static(path.join(__dirname, 'static')));
 // ===EXPRESS BODY PARSER:
 goodjob.use(morgan('dev'));
 goodjob.use(bodyParser.json());
-goodjob.use(bodyParser.urlencoded({
-    extended: false,
-}));
+goodjob.use(
+    bodyParser.urlencoded({
+        extended: false,
+    }),
+);
 goodjob.use(cookieParser());
 
 // ===EXPRESS SESSION:
-goodjob.use(session({
-    secret: 'Good-Jobs',
-    resave: false,
-    saveUninitialized: true,
-    cookie: {
-        maxAge: 60000,
-        secure: false,
-    },
-    store: new MongoStore({
-        mongooseConnection: database,
+goodjob.use(
+    session({
+        secret: 'Good-Jobs',
+        resave: false,
+        saveUninitialized: true,
+        cookie: {
+            maxAge: 60000,
+            secure: false,
+        },
+        store: new MongoStore({
+            mongooseConnection: database,
+        }),
     }),
-}));
+);
 
 // ===PASSPORT MIDDLEWARE:
 goodjob.use(passport.initialize());
@@ -105,8 +118,14 @@ goodjob.use((err, _req, res, _next) => {
 
 // LOADING SERVER...
 goodjob.listen(PORT, () => {
-    log(chalk.whiteBright('SERVER STARTED, CLICK [Ctrl] + ') + chalk.yellowBright(`http://localhost:${PORT}`));
-    log(`${chalk.whiteBright(' Press ') + chalk.cyan('[Ctrl] + [C]')} to ${chalk.bgRed.bold('STOP\n')}`);
+    log(
+        chalk.whiteBright('SERVER STARTED, CLICK [Ctrl] + ')
+            + chalk.yellowBright(`http://localhost:${PORT}`),
+    );
+    log(
+        `${chalk.whiteBright(' Press ')
+            + chalk.cyan('[Ctrl] + [C]')} to ${chalk.bgRed.bold('STOP\n')}`,
+    );
 });
 
 module.exports = goodjob;

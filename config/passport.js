@@ -14,27 +14,41 @@ const User = require('../models/user');
 
 module.exports = (passport) => {
     // VALIDATE: {Email} && {Password}
-    passport.use(new LocalStrategy({
-        usernameField: 'email',
-        passwordField: 'password',
-    }, (email, password, done) => {
-        User.findOne({ email: email.toLowerCase() })
-            .then((user) => {
-                // Check: MATCH EMAIL
-                if (!user) {
-                    return done(null, false, { message: `Email ${email} này không tìm thấy!` });
-                }
-                // Check: MATCH PASSWORD
-                bcrypt.compare(password, user.password, (err, isMatch) => {
-                    if (err) throw err;
-                    if (!isMatch) {
-                        return done(null, false, { message: 'Mật khẩu không đúng, vui lòng thử lại!' });
-                    }
-                    return done(null, user);
-                });
-            })
-            .catch(err => console.log(err));
-    }));
+    passport.use(
+        new LocalStrategy(
+            {
+                usernameField: 'email',
+                passwordField: 'password',
+            },
+            (email, password, done) => {
+                User.findOne({ email: email.toLowerCase() })
+                    .then((user) => {
+                        // Check: MATCH EMAIL
+                        if (!user) {
+                            return done(null, false, {
+                                message: `Email ${email} này không tìm thấy!`,
+                            });
+                        }
+                        // Check: MATCH PASSWORD
+                        bcrypt.compare(
+                            password,
+                            user.password,
+                            (err, isMatch) => {
+                                if (err) throw err;
+                                if (!isMatch) {
+                                    return done(null, false, {
+                                        message:
+                                            'Mật khẩu không đúng, vui lòng thử lại!',
+                                    });
+                                }
+                                return done(null, user);
+                            },
+                        );
+                    })
+                    .catch(err => console.log(err));
+            },
+        ),
+    );
     // Serialize Sessions:
     passport.serializeUser((user, done) => {
         done(null, user.id);
