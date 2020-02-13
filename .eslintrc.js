@@ -1,18 +1,20 @@
 module.exports = {
-    "env": {
-        "browser": true,
-        "es6": true
+    env: {
+        browser: true,
+        es6: true,
+        node: true
     },
-    "extends": "airbnb-base",
-    "globals": {
-        "Atomics": "readonly",
-        "SharedArrayBuffer": "readonly"
+    extends: ["airbnb-base", "prettier"],
+    plugins: ['prettier'],
+    globals: {
+        Atomics: "readonly",
+        SharedArrayBuffer: "readonly"
     },
-    "parserOptions": {
-        "ecmaVersion": 2019,
-        "sourceType": "module"
+    parserOptions: {
+        ecmaVersion: 2019,
+        sourceType: "module"
     },
-    "rules": {
+    rules: {
         // Variables
         "init-declarations": "off",
         "no-catch-shadow": "error",
@@ -28,7 +30,7 @@ module.exports = {
         "array-bracket-spacing": "error",
         "block-spacing": "error",
         "brace-style": "error",
-        "camelcase": "error",
+        camelcase: "error",
         "capitalized-comments": "off",
         "comma-dangle": "error",
         "comma-spacing": "error",
@@ -39,11 +41,11 @@ module.exports = {
         "func-call-spacing": "error",
         "func-name-matching": "error",
         "func-names": "off",
-        "func-style": ["error", "declaration", { "allowArrowFunctions": true }],
+        "func-style": ["error", "declaration", { allowArrowFunctions: true }],
         "id-blacklist": "error",
         "id-length": "off",
         "id-match": "error",
-        "indent": ["error", 4, { "SwitchCase": 1 }],
+        indent: ["error", 4, { SwitchCase: 1 }],
         "jsx-quotes": "error",
         "key-spacing": "off",
         "keyword-spacing": "error",
@@ -59,9 +61,9 @@ module.exports = {
         "max-statements": "off",
         "max-statements-per-line": "error",
         "multiline-ternary": "off",
-        "new-cap": ["error", { "capIsNewExceptionPattern": "$.*" }],
+        "new-cap": ["error", { capIsNewExceptionPattern: "$.*" }],
         "newline-after-var": "off",
-        "newline-per-chained-call": ["error", { "ignoreChainWithDepth": 5 }],
+        "newline-per-chained-call": ["error", { ignoreChainWithDepth: 5 }],
         "new-parens": "error",
         "no-array-constructor": "error",
         "no-bitwise": "error",
@@ -83,7 +85,7 @@ module.exports = {
         "no-underscore-dangle": "off",
         "no-unneeded-ternary": "error",
         "no-whitespace-before-property": "error",
-        "object-curly-newline": ["error", { "minProperties": 1 }],
+        "object-curly-newline": ["error", { minProperties: 1 }],
         "object-curly-spacing": ["error", "always"],
         "object-property-newline": "error",
         "one-var": ["error", "never"],
@@ -93,23 +95,26 @@ module.exports = {
         "padded-blocks": ["error", "never"],
         "padding-line-between-statements": "off",
         "quote-props": ["error", "as-needed"],
-        "quotes": ["error", "single"],
+        quotes: ["error", "single"],
         "require-jsdoc": "off",
-        "semi": ["error", "never"],
+        semi: ["error", "never"],
         "semi-spacing": "error",
         "sort-keys": "off",
         "sort-vars": "error",
         "space-before-blocks": "error",
-        "space-before-function-paren": ["error", {
-            "anonymous": "always",
-            "named": "never"
-        }],
+        "space-before-function-paren": [
+            "error",
+            {
+                anonymous: "always",
+                named: "never"
+            }
+        ],
         "space-in-parens": "error",
         "space-infix-ops": "error",
         "space-unary-ops": "error",
         "spaced-comment": "error",
         "template-tag-spacing": "error",
         "unicode-bom": "error",
-        "wrap-regex": "off",
+        "wrap-regex": "off"
     }
 };
