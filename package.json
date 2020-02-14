@@ -1,18 +1,24 @@
 {
     "name": "good-jobs-project",
-    "version": "0.1.0",
-    "description": "GOOD JOBS",
+    "version": "0.5.0",
+    "description": "GJ - Project",
     "main": "server.js",
-    "scripts": {
-        "start": "nodemon run server.js",
-        "test": "echo \"Error: no test specified\" && exit 1"
-    },
     "author": "Freelancer Team",
     "license": "ISC",
     "repository": {
         "type": "git",
         "url": "https://github.com/PhatDang/dev-good-jobs"
     },
+    "scripts": {
+        "start": "nodemon run server.js",
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "lint": "eslint ./ --cache --ignore-pattern .gitignore",
+        "precommit-msg": "echo 'Pre-commit checks...' && exit 0"
+    },
+    "pre-commit": [
+        "precommit-msg",
+        "lint"
+    ],
     "dependencies": {
         "autoprefixer": "^9.7.4",
         "bcrypt": "^3.0.8",
@@ -30,7 +36,7 @@
         "express-session": "^1.17.0",
         "express-validator": "^5.3.1",
         "lodash": "^4.17.15",
-        "mongoose": "^5.8.11",
+        "mongoose": "^5.9.0",
         "morgan": "^1.9.1",
         "node-pre-gyp": "^0.14.0",
         "nodemailer": "^6.4.2",
@@ -43,16 +49,12 @@
         "url": "^0.11.0"
     },
     "devDependencies": {
-        "aws-sdk": "^2.616.0",
+        "aws-sdk": "^2.618.0",
         "debug": "^4.1.1",
         "eslint": "^5.16.0",
         "eslint-config-airbnb-base": "^13.2.0",
         "eslint-plugin-import": "^2.20.1",
-        "husky": "^2.7.0"
-    },
-    "husky": {
-        "hooks": {
-            "commit-msg": "echo $HUSKY_GIT_PARAMS or else"
-        }
+        "husky": "^2.7.0",
+        "pre-commit": "^1.2.2"
     }
 }
