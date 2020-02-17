@@ -1,788 +1,1029 @@
 /*################ Add New Font ###############*/
-@font-face {
+@font-face
+{
     font-family: 'UTMAvo';
-    font-style: normal;
     font-weight: normal;
+    font-style: normal;
+
     src: local('UTM Avo'), url('/fonts/utm-avo/utm-avo.woff') format('woff');
 }
 
-@font-face {
+@font-face
+{
     font-family: 'UTMAvoBold';
-    font-style: normal;
     font-weight: normal;
+    font-style: normal;
+
     src: local('UTMAvoBold'), url('/fonts/utm-avo/utm-avobold.woff') format('woff');
 }
 
 /*#### Default Style ######*/
-* {
+*
+{
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
 }
 
 html,
-body {
+body
+{
     height: 100%;
 }
 
-html {
+html
+{
     scroll-behavior: smooth;
 }
 
-body {
+body
+{
+    font-family: 'UTMAvo';
     font-size: 14px;
-    font-family: "UTMAvo";
 }
 
-li {
+li
+{
     list-style: none;
 }
 
-a {
+a
+{
     text-decoration: none;
 }
 
-[class*="col-"] {
+[class*='col-']
+{
     float: left;
+
     padding: 15px;
 }
 
-.row::after {
-    content: "";
-    clear: both;
+.row::after
+{
     display: table;
+    clear: both;
+
+    content: '';
 }
 
-.col-1 {
+.col-1
+{
     width: 8.33%;
 }
 
-.col-2 {
+.col-2
+{
     width: 16.66%;
 }
 
-.col-3 {
+.col-3
+{
     width: 25%;
 }
 
-.col-4 {
+.col-4
+{
     width: 33.33%;
 }
 
-.col-5 {
+.col-5
+{
     width: 41.66%;
 }
 
-.col-6 {
+.col-6
+{
     width: 50%;
 }
 
-.col-7 {
+.col-7
+{
     width: 58.33%;
 }
 
-.col-8 {
+.col-8
+{
     width: 66.66%;
 }
 
-.col-9 {
+.col-9
+{
     width: 75%;
 }
 
-.col-10 {
+.col-10
+{
     width: 83.33%;
 }
 
-.col-11 {
+.col-11
+{
     width: 91.66%;
 }
 
-.col-12 {
+.col-12
+{
     width: 100%;
 }
 
 /*####### For Large Device Screen ##########*/
-@media only screen and (min-width: 1200px) {
-    .container {
+@media only screen and (min-width: 1200px)
+{
+    .container
+    {
         width: 100%;
         max-width: 1440px;
         margin: 20px auto;
     }
 
-    .full-height {
+    .full-height
+    {
         height: 80vh;
     }
 
     /*##### Header Style ####*/
-    .logo img {
+    .logo img
+    {
         width: 200px;
     }
 
-    .top-nav {
+    .top-nav
+    {
         overflow: hidden;
     }
 
-    .top-nav a {
-        float: left;
-        display: block;
-        color: #b7b7b7;
-        text-align: center;
-        padding: 14px 16px;
-        text-transform: uppercase;
+    .top-nav a
+    {
+        font-family: 'UTMAvoBold';
         font-size: 16px;
-        font-family: "UTMAvoBold";
+
+        display: block;
+        float: left;
+
+        padding: 14px 16px;
+
+        text-align: center;
+        text-transform: uppercase;
+
+        color: #b7b7b7;
     }
 
     .top-nav a:hover,
-    .top-link a:hover {
-        color: #ff9900;
+    .top-link a:hover
+    {
+        color: #f90;
     }
 
-    .top-link {
+    .top-link
+    {
         text-align: center;
     }
 
-    .top-link a {
-        display: block;
+    .top-link a
+    {
+        font-family: 'UTMAvoBold';
         font-size: 16px;
+
+        display: block;
+
         padding: 14px 16px;
-        color: #b7b7b7;
+
         text-transform: capitalize;
-        font-family: "UTMAvoBold";
+
+        color: #b7b7b7;
     }
 
-    .top-signin a.signinLink {
+    .top-signin a.signinLink
+    {
+        font-size: 16px;
+
         display: block;
         float: right;
+
         width: 100%;
-        text-align: center;
         max-width: 180px;
-        font-size: 16px;
         padding: 14px 16px;
-        color: #ff9900;
-        border: 1px solid #ff9900;
+
+        text-align: center;
+
+        color: #f90;
+        border: 1px solid #f90;
         border-radius: 25px;
     }
 
-    .top-signin a.signinLink:hover {
-        background-color: #ff9900;
-        color: #ffffff;
+    .top-signin a.signinLink:hover
+    {
+        color: #fff;
+        background-color: #f90;
     }
 
-    .userInfo {
+    .userInfo
+    {
         position: relative;
+
         width: 100%;
+
         text-align: right;
     }
 
 
-    .userInfo li a {
-        display: block;
+    .userInfo li a
+    {
         font-weight: bold;
+
+        display: block;
+
         padding: 6px 15px;
     }
 
-    .userInfo li a:hover {
+    .userInfo li a:hover
+    {
         background-color: #f7f7f7;
     }
 
-    a.account {
-        position: absolute;
-        right: 0;
+    a.account
+    {
         line-height: 16px;
+
+        position: absolute;
         z-index: 110;
+        right: 0;
+
         display: block;
+
         padding: 10px 0;
     }
 
-    .submenu {
+    .submenu
+    {
         position: absolute;
-        display: none;
-        right: 0;
         z-index: 100;
+        right: 0;
+
+        display: none;
+
         width: 135px;
         padding: 40px 0 5px;
+
         border-radius: 6px;
     }
 
-    .root {
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
-        background: #fff;
-        padding: 10px 0;
-        border-radius: 5px 5px 5px 5px;
+    .root
+    {
         margin: 21px 0 0 0;
+        padding: 10px 0;
+
+        border-radius: 5px 5px 5px 5px;
+        background: #fff;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, .45);
     }
 
-    .root::before {
+    .root::before
+    {
         position: absolute;
-        content: '';
+
         display: inline-block;
-        border-left: 7px solid transparent;
+
+        content: '';
+
         border-right: 7px solid transparent;
         border-bottom: 7px solid #ccc;
-        border-bottom-color: #ffffff;
+        border-bottom-color: #fff;
+        border-left: 7px solid transparent;
     }
 
-    .profile-circle {
+    .profile-circle
+    {
         width: 36px;
         height: 36px;
     }
 
-    .header-line {
+    .header-line
+    {
         display: block;
+
         width: 100%;
+
         border: 1px solid #b7b7b7;
     }
 
-    .account:focus+.submenu {
+    .account:focus + .submenu
+    {
         display: block;
     }
 
     /*#### Home Page Search Field Style#####*/
-    .search-text {
+    .search-text
+    {
         font-size: 30px;
         font-weight: normal;
+
         text-align: justify;
-        color: #000000;
-        opacity: 0.5;
+
+        opacity: .5;
+        color: #000;
     }
 
-    .search-field {
+    .search-field
+    {
         overflow: hidden;
+
         padding: 30px 0;
     }
 
-    .search-form {
+    .search-form
+    {
         text-align: right;
     }
 
-    .search-input {
+    .search-input
+    {
+        line-height: 18px;
+
         width: 100%;
         max-width: 360px;
         padding: 12px 24px;
-        background-color: transparent;
+
         transition: transform 250ms ease-in-out;
-        line-height: 18px;
-        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath d='M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z'/%3E%3Cpath d='M0 0h24v24H0z' fill='none'/%3E%3C/svg%3E");
-        background-repeat: no-repeat;
-        background-size: 18px 18px;
-        background-position: 95% center;
-        border-radius: 50px;
-        border: 2px solid #00aeef;
         transition: all 250ms ease-in-out;
+
+        border: 2px solid #00aeef;
+        border-radius: 50px;
+        background-color: transparent;
+        background-image: url('data:image/svg+xml;charset=utf8,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'24\' height=\'24\' viewBox=\'0 0 24 24\'%3E%3Cpath d=\'M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z\'/%3E%3Cpath d=\'M0 0h24v24H0z\' fill=\'none\'/%3E%3C/svg%3E');
+        background-repeat: no-repeat;
+        background-position: 95% center;
+        background-size: 18px 18px;
+
         backface-visibility: hidden;
         transform-style: preserve-3d;
     }
 
-    .search-input::placeholder {
-        color: #b7b7b7;
-        text-transform: uppercase;
+    .search-input::placeholder
+    {
         letter-spacing: 1.5px;
+        text-transform: uppercase;
+
+        color: #b7b7b7;
     }
 
     .search-input:hover,
-    .search-input:focus {
+    .search-input:focus
+    {
         padding: 12px 0;
-        outline: 0;
+
         border: 1px solid transparent;
         border-bottom: 2px solid #00aeef;
         border-radius: 0;
+        outline: 0;
         background-position: 100% center;
     }
 
-    .select-list {
+    .select-list
+    {
         text-align: right;
     }
 
     .select-list .select-box,
-    .sign-input .select-box {
+    .sign-input .select-box
+    {
+        font-size: 16px;
+        line-height: 18px;
+
         width: 100%;
         max-width: 280px;
+        padding: 12px 24px;
+
         border: 0;
         border-bottom: 2px solid #00aeef;
-        padding: 12px 24px;
-        line-height: 18px;
-        font-size: 16px;
     }
 
     .select-list .select-box:hover,
     .select-list .select-box:focus,
     .sign-input .select-box:hover,
-    .sign-input .select-box:focus {
+    .sign-input .select-box:focus
+    {
         outline: none;
     }
 
     /*#### Sign Style #####*/
-    .close-icon {
+    .close-icon
+    {
         text-align: right;
     }
 
-    .close-icon a {
+    .close-icon a
+    {
         font-size: 30px;
-        color: #000000;
+
         padding: 10px 0;
+
+        color: #000;
     }
 
-    .title {
+    .title
+    {
         width: 100%;
-        text-align: center;
         padding: 2% 0;
+
+        text-align: center;
     }
 
-    .title h1 {
+    .title h1
+    {
         font-size: 30px;
         font-weight: normal;
+
         text-transform: capitalize;
     }
 
     .right-side,
-    .left-side {
+    .left-side
+    {
         padding: 2% 0;
     }
 
     .right-side img,
-    .left-side img {
+    .left-side img
+    {
         width: 100%;
         height: auto;
     }
 
-    .normal-form {
+    .normal-form
+    {
         width: 100%;
     }
 
-    .sign-input {
-        padding: 20px 0;
+    .sign-input
+    {
         display: flex;
-        flex-wrap: wrap;
         overflow: hidden;
+
+        padding: 20px 0;
+
+        flex-wrap: wrap;
     }
 
     .forgot-link,
     .sign-button,
-    .signup-link {
+    .signup-link
+    {
+        overflow: hidden;
+
         width: 100%;
         max-width: 360px;
         margin: auto;
-        overflow: hidden;
     }
 
-    .forgot-link {
+    .forgot-link
+    {
         text-align: right;
     }
 
     .forgot-link a,
-    .signup-link a {
-        text-transform: capitalize;
+    .signup-link a
+    {
         font-size: 16px;
-        color: #ff9900;
+
         padding: 5px 0;
+
+        text-transform: capitalize;
+
+        color: #f90;
     }
 
     .forgot-link a:hover,
-    .signup-link a:hover {
+    .signup-link a:hover
+    {
         text-decoration: underline;
     }
 
     .sign-button,
-    .signup-link {
+    .signup-link
+    {
         padding: 20px 0;
     }
 
-    .sign-button button {
+    .sign-button button
+    {
+        font-size: 16px;
+
         width: 168px;
         height: 43px;
-        border: 1px solid #ff9900;
+
+        cursor: pointer;
+        text-transform: capitalize;
+
+        color: #f90;
+        border: 1px solid #f90;
         border-radius: 25px;
         background: transparent;
-        color: #ff9900;
-        text-transform: capitalize;
-        font-size: 16px;
-        cursor: pointer;
     }
 
-    .sign-button button:hover {
-        background-color: #ff9900;
-        color: #ffffff;
+    .sign-button button:hover
+    {
+        color: #fff;
+        background-color: #f90;
     }
 
-    .sign-button button:focus {
+    .sign-button button:focus
+    {
         outline: none;
     }
 
-    .signup-link p {
+    .signup-link p
+    {
         font-size: 15px;
     }
 
-    .sign-button ul {
-        width: 100%;
+    .sign-button ul
+    {
         overflow: hidden;
+
+        width: 100%;
     }
 
-    .sign-button li:first-child {
+    .sign-button li:first-child
+    {
         float: left;
+
         padding: 10px 0;
     }
 
-    .sign-button li:last-child {
+    .sign-button li:last-child
+    {
         float: right;
     }
 
-    .sign-button a {
+    .sign-button a
+    {
+        font-size: 16px;
+
         width: 168px;
         height: 43px;
-        color: #ff9900;
+
         text-transform: capitalize;
-        font-size: 16px;
+
+        color: #f90;
     }
 
     /*###### Input Style #######*/
-    .input-style {
+    .input-style
+    {
         position: relative;
+
         width: 100%;
         max-width: 360px;
         margin: auto;
     }
 
-    .input-style .label {
+    .input-style .label
+    {
+        font-size: 16px;
+        font-weight: 500;
+
         position: absolute;
         top: 16px;
         left: 0;
-        font-size: 16px;
-        color: #000000;
-        font-weight: 500;
+
+        transition: all .2s ease;
         transform-origin: 0 0;
-        transition: all 0.2s ease;
         text-transform: capitalize;
+
+        color: #000;
     }
 
-    .input-style .border {
+    .input-style .border
+    {
         position: absolute;
         bottom: 0;
         left: 0;
-        height: 3px;
+
         width: 100%;
-        background: #00aeef;
+        height: 3px;
+
+        transition: all .15s ease;
         transform: scaleX(0);
         transform-origin: 0 0;
-        transition: all 0.15s ease;
+
+        background: #00aeef;
     }
 
     .input-style input,
-    .input-style select {
+    .input-style select
+    {
+        font-size: 14px;
+
         width: 100%;
         height: 48px;
         padding: 12px 0;
-        font-size: 14px;
-        background: transparent;
-        color: #000000;
+
+        transition: all .15s ease;
+
+        color: #000;
         border: 0;
         border-bottom: 2px solid #00aeef;
-        transition: all 0.15s ease;
+        background: transparent;
     }
 
-    .input-style input:not(:placeholder-shown)+span,
-    .input-style select:not(:placeholder-shown)+span {
+    .input-style input:not(:placeholder-shown) + span,
+    .input-style select:not(:placeholder-shown) + span
+    {
+        transform: translateY(-26px) scale(.75);
+
         color: #00aeef;
-        transform: translateY(-26px) scale(0.75);
     }
 
     .input-style input:focus,
-    .input-style select:focus {
+    .input-style select:focus
+    {
         outline: none;
     }
 
-    .input-style input:focus+span,
-    .input-style select:focus+span {
+    .input-style input:focus + span,
+    .input-style select:focus + span
+    {
+        transform: translateY(-26px) scale(.75);
+
         color: #00aeef;
-        transform: translateY(-26px) scale(0.75);
     }
 
-    .input-style input:focus+span+.border,
-    .input-style select:focus+span+.border {
+    .input-style input:focus + span + .border,
+    .input-style select:focus + span + .border
+    {
         transform: scaleX(1);
     }
 
-    .input-style input[type=date]::clear-button {
+    .input-style input[type=date]::clear-button
+    {
         display: none;
     }
 
-    .input-style input[type=date]::-webkit-inner-spin-button {
+    .input-style input[type=date]::-webkit-inner-spin-button
+    {
         display: none;
     }
 
     /*######### Show the Validation icon ##########*/
 
-    .sign-input input:not([type=submit]):valid:focus {
+    .sign-input input:not([type=submit]):valid:focus
+    {
         background: url('https://webdevtrick.com/wp-content/uploads/check-icon.svg');
-        background-size: 20px;
         background-repeat: no-repeat;
         background-position: right;
+        background-size: 20px;
     }
 
-    .sign-input input:not([type=submit]):invalid:focus {
+    .sign-input input:not([type=submit]):invalid:focus
+    {
         background: url('https://webdevtrick.com/wp-content/uploads/xicon.svg');
-        background-size: 20px;
         background-repeat: no-repeat;
         background-position: right;
+        background-size: 20px;
     }
 
-    .sign-input input[type=date]:valid:focus {
+    .sign-input input[type=date]:valid:focus
+    {
         background: url('https://webdevtrick.com/wp-content/uploads/check-icon.svg');
-        background-size: 20px;
         background-repeat: no-repeat;
         background-position: 95%;
+        background-size: 20px;
     }
 
-    .sign-input input[type=date]:invalid:focus {
+    .sign-input input[type=date]:invalid:focus
+    {
         background: url('https://webdevtrick.com/wp-content/uploads/xicon.svg');
-        background-size: 20px;
         background-repeat: no-repeat;
         background-position: 95%;
+        background-size: 20px;
     }
 
     /*###### Update Page Style #######*/
-    .left-content {
+    .left-content
+    {
         position: relative;
+
         width: 100%;
         max-width: 200px;
         margin: auto;
+
         text-align: center;
     }
 
-    .left-content img {
+    .left-content img
+    {
         width: 200px;
         height: 200px;
+
         border-radius: 50%;
     }
 
-    .tooltiptext {
-        position: absolute;
-        display: none;
-        width: 100%;
-        border: 1px solid #ff9900;
-        border-radius: 15px;
-        padding: 14px 15px;
-        bottom: -100;
+    .tooltiptext
+    {
         font-size: 18px;
-        color: #ff9900;
+
+        position: absolute;
+        bottom: -100;
+
+        display: none;
+
+        width: 100%;
+        padding: 14px 15px;
+
+        color: #f90;
+        border: 1px solid #f90;
+        border-radius: 15px;
     }
 
-    .left-content a:hover+.tooltiptext {
+    .left-content a:hover + .tooltiptext
+    {
         display: block;
     }
 
-    .right-content {
-        box-shadow: 0px 0px 5px 0px rgba(183, 183, 183, 1);
+    .right-content
+    {
         padding: 10px;
+
+        box-shadow: 0 0 5px 0 rgba(183, 183, 183, 1);
     }
 
-    .sub-title {
+    .sub-title
+    {
         font-size: 16px;
+
         text-transform: capitalize;
-        color: #ff9900;
+
+        color: #f90;
     }
 
-    .sub-title h3 {
-        padding: 14px 16px;
+    .sub-title h3
+    {
         width: 100%;
+        padding: 14px 16px;
     }
 
-    .right-content .sign-input {
+    .right-content .sign-input
+    {
         padding: 10px 0;
     }
 
-    .right-content .input-style {
+    .right-content .input-style
+    {
         margin: 0;
     }
 
     .save-button,
-    .example {
+    .example
+    {
         position: relative;
+
         width: 100%;
         max-width: 360px;
     }
 
-    .save-button {
+    .save-button
+    {
         padding: 10px;
     }
 
-    .example {
+    .example
+    {
         padding: 10px 0;
     }
 
-    .save-button button {
-        padding: 14px 90px;
+    .save-button button
+    {
         font-size: 18px;
-        border: 1px solid #ff9900;
+
+        padding: 14px 90px;
+
+        cursor: pointer;
+
+        color: #f90;
+        border: 1px solid #f90;
         border-radius: 25px;
         background: transparent;
-        color: #ff9900;
-        cursor: pointer;
     }
 
-    .save-button button:hover {
-        background-color: #ff9900;
-        color: #ffffff;
+    .save-button button:hover
+    {
+        color: #fff;
+        background-color: #f90;
     }
 
-    .save-button button:focus {
+    .save-button button:focus
+    {
         outline: none;
     }
 
     /*##### User Profile Left Content ######*/
-    .profile-screen .left-content {
+    .profile-screen .left-content
+    {
         width: 100%;
         max-width: 400px;
     }
 
-    .profile-information {
-        box-shadow: 0px 0px 5px 0px rgba(183, 183, 183, 1);
-        margin: 20px;
+    .profile-information
+    {
         overflow: hidden;
+
+        margin: 20px;
         padding: 15px;
+
+        box-shadow: 0 0 5px 0 rgba(183, 183, 183, 1);
     }
 
     .profile-banner,
-    .profile-bio {
+    .profile-bio
+    {
         width: 100%;
         margin: auto;
         padding: 10px;
     }
 
-    .profile-banner {
+    .profile-banner
+    {
         border-bottom: 1px solid #b7b7b7;
     }
 
-    .profile-banner h1 {
-        color: #ff9900;
+    .profile-banner h1
+    {
         font-size: 30px;
+
         padding: 10px 5px;
+
         text-transform: uppercase;
+
+        color: #f90;
     }
 
-    .profile-banner h3 {
+    .profile-banner h3
+    {
         padding: 10px 5px;
     }
 
-    .profile-title {
+    .profile-title
+    {
         font-size: 16px;
-        color: #ff9900;
+
         text-transform: capitalize;
+
+        color: #f90;
     }
 
-    .left-side .profile-title h3 {
+    .left-side .profile-title h3
+    {
         padding: 10px 0;
     }
 
-    .right-side .profile-title h3 {
-        padding: 5px 0;
+    .right-side .profile-title h3
+    {
         float: left;
+
+        padding: 5px 0;
     }
 
-    .right-side .profile-title a {
-        padding: 10px 0;
-        float: right;
-        color: #b7b7b7;
+    .right-side .profile-title a
+    {
         font-size: 14px;
-    }
 
-    .right-side .profile-title a:hover {
-        color: #ff9900
-    }
+        float: right;
 
-    .profile-content {
-        text-align: left;
         padding: 10px 0;
-        clear: both;
+
+        color: #b7b7b7;
     }
 
-    .profile-sub-title {
+    .right-side .profile-title a:hover
+    {
+        color: #f90;
+    }
+
+    .profile-content
+    {
+        clear: both;
+
+        padding: 10px 0;
+
+        text-align: left;
+    }
+
+    .profile-sub-title
+    {
         font-weight: bold;
+
         text-transform: capitalize;
     }
 
     .profile-sub-title,
     .profile-sub-content,
-    .experience {
+    .experience
+    {
         padding: 5px 0;
     }
 
-    .experience:not(:first-child) {
+    .experience:not(:first-child)
+    {
         border-top: 1px solid #b7b7b7;
     }
 
-    .profile-link a {
+    .profile-link a
+    {
         color: #b7b7b7;
     }
 
-    .profile-link a:hover {
-        color: #ff9900;
+    .profile-link a:hover
+    {
+        color: #f90;
     }
 
-    .right-side .profile-link a {
+    .right-side .profile-link a
+    {
         display: block;
         float: left;
-        padding: 10px 0;
+
         margin-right: 20px;
+        padding: 10px 0;
     }
 
     /*########## Employeer Style ##############*/
-    .employeer-content {
+    .employeer-content
+    {
         width: 100%;
         height: 100%;
+
         text-align: center;
     }
 
-    .employeer-text h1 {
+    .employeer-text h1
+    {
         font-size: 30px;
+
         padding: 10px 0;
     }
 
-    .employeer-text h3 {
+    .employeer-text h3
+    {
         font-size: 20px;
+
         padding: 10px 0;
     }
 
     .employeer-text p,
-    .employeer-link p {
-        padding: 10px 0;
+    .employeer-link p
+    {
         font-size: 16px;
+
+        padding: 10px 0;
     }
 
-    .employeer-link {
+    .employeer-link
+    {
         margin-top: 50px;
     }
 
-    .employeer-link a {
-        display: block;
-        color: #ff9900;
+    .employeer-link a
+    {
         font-size: 16px;
+
+        display: block;
+
+        color: #f90;
     }
 
-    .employeer-link a:hover {
+    .employeer-link a:hover
+    {
         text-decoration: underline;
     }
 
-    .employeer-link .button {
+    .employeer-link .button
+    {
         width: 150px;
-        border: 1px solid #ff9900;
-        border-radius: 25px;
-        padding: 14px 16px;
         margin: 20px auto;
+        padding: 14px 16px;
+
+        border: 1px solid #f90;
+        border-radius: 25px;
     }
 
-    .employeer-link .button:hover {
-        background-color: #ff9900;
-        color: #ffffff;
+    .employeer-link .button:hover
+    {
         text-decoration: none;
+
+        color: #fff;
+        background-color: #f90;
     }
 
-    .employeer-form {
+    .employeer-form
+    {
         height: 100%;
         padding: 20px;
     }
 
-    .employeer-form h1 {
+    .employeer-form h1
+    {
         font-size: 30px;
     }
 }
