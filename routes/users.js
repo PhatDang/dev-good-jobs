@@ -1,27 +1,20 @@
-/* eslint-disable camelcase */
-/* eslint-disable no-unused-vars */
-/* eslint-disable prefer-const */
-/* eslint-disable object-curly-newline */
-/* eslint-disable no-console */
-/* eslint-disable semi */
-// ===============================
-const express = require('express');
-const bcrypt = require('bcryptjs');
+import { Router } from "express";
+import bcrypt from "bcryptjs";
 
-const router = express.Router();
-const User = require('../models/user');
-const { ensureAuthenticated, forwardAuthenticated } = require('../config/auth');
+const router = Router();
+import User from "../models/user";
+import { ensureAuthenticated, forwardAuthenticated } from "../config/auth";
 
 // =================================== GET Information User:
 // ===Show FIRST UPLOAD PAGE:
-router.get('/first_upload', ensureAuthenticated, (req, res) => {
-    res.render('seekers/first_upload', {
+router.get("/first_upload", ensureAuthenticated, (req, res) => {
+    res.render("seekers/first_upload", {
         _id: req.params.id,
-        users: req.user,
+        users: req.user
     });
 });
 // ===Edit and Update => FIRST UPLOAD PAGE:
-router.put('/update', (req, res) => {
+router.put("/update", (req, res) => {
     const updateUser = {
         full_name: req.body.full_name,
         display_name: req.body.display_name,
@@ -36,15 +29,15 @@ router.put('/update', (req, res) => {
         ward: req.body.ward,
         card_id: req.body.card_id,
         date_card: req.body.date_card,
-        career: req.body.career,
+        career: req.body.career
     };
-    User.findByIdAndUpdate(req.params.id, { $set: updateUser }, (err) => {
+    User.findByIdAndUpdate(req.params.id, { $set: updateUser }, err => {
         if (err) {
-            req.flash('error_msg', 'Có gì đó sai sai ở đây!');
-            res.redirect('/users/first_upload');
+            req.flash("error_msg", "Có gì đó sai sai ở đây!");
+            res.redirect("/users/first_upload");
         } else {
-            req.flash('success_msg', 'Cập nhật thành công!');
-            res.redirect('/users/detail');
+            req.flash("success_msg", "Cập nhật thành công!");
+            res.redirect("/users/detail");
         }
     });
 });
@@ -61,11 +54,11 @@ router.put('/update', (req, res) => {
 //         })
 //     })
 // })
-router.get('/profile', ensureAuthenticated, (req, res) => {
-    res.render('seekers/profile', {
+router.get("/profile", ensureAuthenticated, (req, res) => {
+    res.render("seekers/profile", {
         _id: req.params.id,
-        users: req.user,
+        users: req.user
     });
 });
 
-module.exports = router;
+export default router;

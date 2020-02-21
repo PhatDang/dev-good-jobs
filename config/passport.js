@@ -1,18 +1,9 @@
-/* eslint-disable semi */
-/* eslint-disable no-alert */
-/* eslint-disable no-console */
-/* eslint-disable no-else-return */
-/* eslint-disable object-shorthand */
-/* eslint-disable consistent-return */
-/* eslint-disable no-unused-vars */
-/* eslint-disable object-curly-newline */
-// ===============================
-const bcrypt = require("bcryptjs");
-const LocalStrategy = require("passport-local").Strategy;
+import { compare } from "bcryptjs";
+import { Strategy as LocalStrategy } from "passport-local";
 
-const User = require("../models/user");
+import { findOne, findById } from "../models/user";
 
-module.exports = passport => {
+export default passport => {
     // VALIDATE: {Email} && {Password}
     passport.use(
         new LocalStrategy(
@@ -21,7 +12,7 @@ module.exports = passport => {
                 passwordField: "password"
             },
             (email, password, done) => {
-                User.findOne({ email: email.toLowerCase() })
+                findOne({ email: email.toLowerCase() })
                     .then(user => {
                         // Check: MATCH EMAIL
                         if (!user) {
@@ -30,7 +21,7 @@ module.exports = passport => {
                             });
                         }
                         // Check: MATCH PASSWORD
-                        bcrypt.compare(
+                        compare(
                             password,
                             user.password,
                             (err, isMatch) => {
@@ -55,7 +46,7 @@ module.exports = passport => {
     });
     // Deserialize Sessions:
     passport.deserializeUser((id, done) => {
-        User.findById(id, (err, user) => {
+        findById(id, (err, user) => {
             done(err, user);
         });
     });

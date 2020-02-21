@@ -1,10 +1,3 @@
-/* eslint-disable semi */
-/* eslint-disable no-console */
-/* eslint-disable import/no-unresolved */
-/* eslint-disable object-curly-newline */
-/* eslint-disable prefer-destructuring */
-/* eslint-disable no-unused-vars */
-// ===============================
 /**
  * SETUP DEPENDENCY:
  */
@@ -30,7 +23,8 @@ import session from "express-session";
 const MongoStore = require("connect-mongo")(session);
 
 // ===CONFIG MIDDLEWARE:
-require("./config/passport")(passport);
+// ===CONFIG MIDDLEWARE:
+require("./config/passport").default(passport);
 
 // ===SETTINGS:
 const log = console.log;
@@ -111,7 +105,7 @@ goodjob.use("/", require("./routes/index"));
 goodjob.use("/users", require("./routes/users"));
 // goodjob.use('/hunters', require('./routes/hunters'));
 
-// ===CATCH 404:
+// ===CATCH 404 Page:
 goodjob.use((_req, res, _next) => {
     res.status(404);
     res.render("pages/404");
@@ -123,7 +117,7 @@ goodjob.use((err, _req, res, _next) => {
     res.send(err.message);
 });
 
-// LOADING SERVER...
+// RUNNING SERVER ==>
 goodjob.listen(PORT, () => {
     log(
         whiteBright("SERVER STARTED, CLICK [Ctrl] + ") +

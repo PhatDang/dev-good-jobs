@@ -1,8 +1,4 @@
-/* eslint-disable semi */
-/* eslint-disable object-curly-newline */
-/* eslint-disable consistent-return */
-// ===============================
-const mongoose = require("mongoose");
+import mongoose, { model } from "mongoose";
 
 const { Schema } = mongoose;
 const userSchema = new Schema({
@@ -50,5 +46,5 @@ const userSchema = new Schema({
     create_date: { type: Date, default: Date.now }
 });
 
-const User = mongoose.model("User", userSchema);
-module.exports = User;
+const User = model("User", userSchema);
+export default User;
