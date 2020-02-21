@@ -7,26 +7,26 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable object-curly-newline */
 // ===============================
-const bcrypt = require('bcryptjs');
-const LocalStrategy = require('passport-local').Strategy;
+const bcrypt = require("bcryptjs");
+const LocalStrategy = require("passport-local").Strategy;
 
-const User = require('../models/user');
+const User = require("../models/user");
 
-module.exports = (passport) => {
+module.exports = passport => {
     // VALIDATE: {Email} && {Password}
     passport.use(
         new LocalStrategy(
             {
-                usernameField: 'email',
-                passwordField: 'password',
+                usernameField: "email",
+                passwordField: "password"
             },
             (email, password, done) => {
                 User.findOne({ email: email.toLowerCase() })
-                    .then((user) => {
+                    .then(user => {
                         // Check: MATCH EMAIL
                         if (!user) {
                             return done(null, false, {
-                                message: `Email ${email} này không tìm thấy!`,
+                                message: `Email ${email} này không tìm thấy!`
                             });
                         }
                         // Check: MATCH PASSWORD
@@ -38,16 +38,16 @@ module.exports = (passport) => {
                                 if (!isMatch) {
                                     return done(null, false, {
                                         message:
-                                            'Mật khẩu không đúng, vui lòng thử lại!',
+                                            "Mật khẩu không đúng, vui lòng thử lại!"
                                     });
                                 }
                                 return done(null, user);
-                            },
+                            }
                         );
                     })
                     .catch(err => console.log(err));
-            },
-        ),
+            }
+        )
     );
     // Serialize Sessions:
     passport.serializeUser((user, done) => {

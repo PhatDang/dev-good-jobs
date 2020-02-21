@@ -2,7 +2,7 @@
 /* eslint-disable object-curly-newline */
 /* eslint-disable consistent-return */
 // ===============================
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 const { Schema } = mongoose;
 const userSchema = new Schema({
@@ -47,8 +47,8 @@ const userSchema = new Schema({
     // Still add: Education, Desired Salar
 
     // _Register Date:
-    create_date: { type: Date, default: Date.now },
+    create_date: { type: Date, default: Date.now }
 });
 
-const User = mongoose.model('User', userSchema);
+const User = mongoose.model("User", userSchema);
 module.exports = User;

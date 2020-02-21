@@ -7,8 +7,8 @@ exports.ensureAuthenticated = (req, res, next) => {
     if (req.isAuthenticated()) {
         return next();
     }
-    req.flash('error_msg', 'Bạn cần phải thực hiện đăng nhập!');
-    res.redirect('/login');
+    req.flash("error_msg", "Bạn cần phải thực hiện đăng nhập!");
+    res.redirect("/login");
 };
 exports.forwardAuthenticated = (req, _res, next) => {
     if (!req.isAuthenticated()) {
@@ -22,10 +22,10 @@ exports.check_first_update = (req, res, next) => {
         next();
     } else {
         req.flash(
-            'error_msg',
-            'Bạn vui lòng thực cập nhật thông tin lần đầu.!',
+            "error_msg",
+            "Bạn vui lòng thực cập nhật thông tin lần đầu.!"
         );
-        res.redirect('/users/first_upload');
+        res.redirect("/users/first_upload");
     }
 };
 
