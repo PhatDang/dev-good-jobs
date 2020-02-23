@@ -28,7 +28,7 @@ require("./config/passport").default(passport);
 
 // ===SETTINGS:
 const log = console.log;
-const goodjob = express();
+const app = express();
 const PORT = process.env.PORT || 2019;
 
 // ===CONNECT DATABASE MONGODB:
@@ -54,24 +54,24 @@ database.on("error", err => {
 });
 
 // ===EJS TEMPLATE:
-goodjob.set("views", join(__dirname, "views"));
-goodjob.set("view engine", "ejs");
+app.set("views", join(__dirname, "views"));
+app.set("view engine", "ejs");
 
 // ===GET STATIC FILES:
-goodjob.use(static(join(__dirname, "static")));
+app.use(static(join(__dirname, "static")));
 
 // ===EXPRESS BODY PARSER:
-goodjob.use(morgan("dev"));
-goodjob.use(json());
-goodjob.use(
+app.use(morgan("dev"));
+app.use(json());
+app.use(
     urlencoded({
         extended: false
     })
 );
-goodjob.use(cookieParser());
+app.use(cookieParser());
 
 // ===EXPRESS SESSION:
-goodjob.use(
+app.use(
     session({
         secret: "Good-Jobs",
         resave: false,
@@ -87,12 +87,12 @@ goodjob.use(
 );
 
 // ===PASSPORT MIDDLEWARE:
-goodjob.use(initialize());
-goodjob.use(_session());
+app.use(initialize());
+app.use(_session());
 
 // ===CONNECT FLASH:
-goodjob.use(flash());
-goodjob.use((req, res, next) => {
+app.use(flash());
+app.use((req, res, next) => {
     res.locals.current_user = req.user;
     res.locals.success_msg = req.flash("success_msg");
     res.locals.error_msg = req.flash("error_msg");
@@ -101,24 +101,24 @@ goodjob.use((req, res, next) => {
 });
 
 // ===GET ROUTERS:
-goodjob.use("/", require("./routes/index"));
-goodjob.use("/users", require("./routes/users"));
-// goodjob.use('/hunters', require('./routes/hunters'));
+app.use("/", require("./routes/index").default);
+app.use("/users", require("./routes/users").default);
+// app.use('/hunters', require('./routes/hunters'));
 
 // ===CATCH 404 Page:
-goodjob.use((_req, res, _next) => {
+app.use((_req, res, _next) => {
     res.status(404);
     res.render("pages/404");
 });
 
 // ===ERROR HANDLER:
-goodjob.use((err, _req, res, _next) => {
+app.use((err, _req, res, _next) => {
     res.status(err.status || 500);
     res.send(err.message);
 });
 
 // RUNNING SERVER ==>
-goodjob.listen(PORT, () => {
+app.listen(PORT, () => {
     log(
         whiteBright("SERVER STARTED, CLICK [Ctrl] + ") +
             yellowBright(`http://localhost:${PORT}`)
@@ -130,4 +130,4 @@ goodjob.listen(PORT, () => {
     );
 });
 
-export default goodjob;
+export default app;
