@@ -23,7 +23,6 @@ import session from "express-session";
 const MongoStore = require("connect-mongo")(session);
 
 // ===CONFIG MIDDLEWARE:
-// ===CONFIG MIDDLEWARE:
 require("./config/passport").default(passport);
 
 // ===SETTINGS:

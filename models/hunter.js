@@ -1,8 +1,4 @@
-/* eslint-disable semi */
-/* eslint-disable object-curly-newline */
-/* eslint-disable consistent-return */
-// ===============================
-const mongoose = require('mongoose');
+import mongoose, { model } from 'mongoose';
 
 const { Schema } = mongoose;
 const hunterSchema = new Schema({
@@ -12,5 +8,5 @@ const hunterSchema = new Schema({
     // Type code here....
 });
 
-const Hunter = mongoose.model('Hunter', hunterSchema);
-module.exports = Hunter;
+const Hunter = model('Hunter', hunterSchema);
+export default Hunter;
