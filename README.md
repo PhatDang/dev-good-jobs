@@ -1,3 +1,5 @@
+[![Gitpod Ready-to-Code](https://img.shields.io/badge/Gitpod-Ready--to--Code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/PhatDang/dev-good-jobs) 
+
 # Project GOOD JOBS
 
 **Good Jobs** is a project built to develop a **Job Search** **SYSTEM** that focuses on those who are not eligible for a partner job, so Good Jobs was born for that. This project will help people find the right job but not forced by the conditions of the partner.
