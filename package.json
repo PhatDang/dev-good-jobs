@@ -1,9 +1,9 @@
 {
-    "name": "good-jobs-project",
+    "name": "good-jobs",
     "version": "0.5.0",
-    "description": "GJ - Project",
+    "description": "Good Jobs",
     "main": "server.js",
-    "author": "Freelancer Team",
+    "author": "PHAT DANG (MINH)",
     "license": "ISC",
     "repository": {
         "type": "git",
@@ -36,7 +36,7 @@
         "express-session": "^1.17.1",
         "express-validator": "^5.3.1",
         "lodash": "^4.17.15",
-        "mongoose": "^5.9.14",
+        "mongoose": "^5.9.16",
         "morgan": "^1.10.0",
         "node-pre-gyp": "^0.14.0",
         "nodemailer": "^6.4.6",
@@ -49,7 +49,7 @@
         "url": "^0.11.0"
     },
     "devDependencies": {
-        "aws-sdk": "^2.678.0",
+        "aws-sdk": "^2.684.0",
         "debug": "^4.1.1",
         "eslint": "^5.16.0",
         "eslint-config-airbnb-base": "^13.2.0",
