@@ -35,7 +35,7 @@
         "express-messages": "^1.0.1",
         "express-session": "^1.17.1",
         "express-validator": "^5.3.1",
-        "lodash": "^4.17.18",
+        "lodash": "^4.17.19",
         "mongoose": "^5.9.22",
         "morgan": "^1.10.0",
         "node-pre-gyp": "^0.14.0",
@@ -49,7 +49,7 @@
         "url": "^0.11.0"
     },
     "devDependencies": {
-        "aws-sdk": "^2.711.0",
+        "aws-sdk": "^2.713.0",
         "debug": "^4.1.1",
         "eslint": "^5.16.0",
         "eslint-config-airbnb-base": "^13.2.0",
