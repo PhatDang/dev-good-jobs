@@ -1,15 +1,18 @@
-<% if(typeof errors != 'undefined'){ %> <% errors.forEach(function(error) { %>
-<label style="color: red;"><%= error.msg %></label>
-<% }); %> <% } %>
+<!-- Auth-Mess for every step -->
+<% if(typeof errors != 'undefined'){ %> 
+    <% errors.forEach(function(error) { %>
+        <label style="color: red;"><%= error.msg %></label>
+    <% }); %>
+<% } %>
 
 <% if(success_msg != ''){ %>
-<label style="color: green;"><%= success_msg %></label>
+    <label style="color: green;"><%= success_msg %></label>
 <% } %>
 
 <% if(error_msg != ''){ %>
-<label style="color: red;"><%= error_msg %></label>
+    <label style="color: red;"><%= error_msg %></label>
 <% } %>
 
 <% if(error != ''){ %>
-<label style="color: red;"><%= error %></label>
+    <label style="color: red;"><%= error %></label>
 <% } %>

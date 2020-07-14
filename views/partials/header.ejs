@@ -13,19 +13,25 @@
         <div class="col-2 top-link">
             <a href="employeer.html">Nhà Tuyển Dụng</a>
         </div>
-        <div class="col-3 top-signin"> <% if(users == undefined) {%> <a href="/login" class="signinLink">Đăng nhập</a> <% } else {%> <div class="userInfo">
-                <a href="#" class="account">
-                    <!-- Add test demo view by Phat -->
-                    <span style="font-weight: bold"> <%= users.display_name %> </span>
-                    <!-- End -->
-                    <img src="../images/avatar.png" alt="avatar" class="profile-circle">
-                </a>
-                <div class="submenu">
-                    <ul class="root">
-                        <li><a href="/users/profile">Profile</a></li>
-                        <li><a href="/">Log Out</a></li>
-                    </ul>
-                </div>
-            </div> <% } %> </div>
+        <div class="col-3 top-signin">
+            <% if(users == undefined) {%>
+                <a href="/login" class="signinLink">Đăng nhập</a>
+                <% } else {%>
+                    <div class="userInfo">
+                        <a href="#" class="account">
+                            <!-- Add test demo view by Phat -->
+                            <span style="font-weight: bold"> <%= users.display_name %> </span>
+                            <!-- End -->
+                            <img src="../images/avatar.png" alt="avatar" class="profile-circle">
+                        </a>
+                        <div class="submenu">
+                            <ul class="root">
+                                <li><a href="/users/profile">Profile</a></li>
+                                <li><a href="/">Log Out</a></li>
+                            </ul>
+                        </div>
+                    </div>
+            <% } %>
+        </div>
     </div>
 </header>
