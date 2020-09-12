@@ -10,7 +10,7 @@ import {
     whiteBright,
     bgRed,
     yellowBright,
-    cyan
+    cyan,
 } from "chalk";
 import express, { static } from "express";
 import flash from "connect-flash";
@@ -36,15 +36,15 @@ const MONGODB_URI =
 connect(MONGODB_URI, {
     useCreateIndex: true,
     useNewUrlParser: true,
-    useUnifiedTopology: true
+    useUnifiedTopology: true,
 })
     .then(() =>
         log(greenBright("Database connection ") + bgGreen.bold("SUCCESS"))
     )
-    .catch(err => log(redBright(err)));
+    .catch((err) => log(redBright(err)));
 
 const database = connection;
-database.on("error", err => {
+database.on("error", (err) => {
     log(
         whiteBright("Database connection ") +
             bgRed.bold("ERROR\n") +
@@ -64,7 +64,7 @@ app.use(morgan("dev"));
 app.use(json());
 app.use(
     urlencoded({
-        extended: false
+        extended: false,
     })
 );
 app.use(cookieParser());
@@ -77,11 +77,11 @@ app.use(
         saveUninitialized: true,
         cookie: {
             maxAge: 60000,
-            secure: false
+            secure: false,
         },
         store: new MongoStore({
-            mongooseConnection: database
-        })
+            mongooseConnection: database,
+        }),
     })
 );
 
