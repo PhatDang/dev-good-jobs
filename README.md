@@ -16,7 +16,7 @@ _So that is **Good Jobs**!_
 
 - Customers who the people to create some feedback to us to fix something or suggest some ideas for us to upgrade features.
 
-- Because the project still not have customer, so Mr.Phat will be the customer too.
+- Because the project still not have customers, so Mr.Phat will be the customer too.
 
 ### A) Job Seekers
 
