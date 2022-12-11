@@ -18,7 +18,7 @@
     "url": "https://github.com/PhatDang/dev-good-jobs"
   },
   "devDependencies": {
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "express-messages": "^1.0.1",
     "express-session": "^1.16.2",
     "express-validator": "^6.2.0",
